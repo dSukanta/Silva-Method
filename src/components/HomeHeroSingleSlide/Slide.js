@@ -31,7 +31,7 @@ function Slide() {
           alt="Third slide"
         />
         <Carousel.Caption>
-         
+        <button className='float-start rounded-3 bg-danger border-0 p-2'>Silva Method Courses</button>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -41,7 +41,7 @@ function Slide() {
           alt="Forth slide"
         />
         <Carousel.Caption>
-         
+        <button className='float-start rounded-3 bg-danger border-0 p-2'>Learn More</button>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -51,7 +51,7 @@ function Slide() {
           alt="Fifth slide"
         />
         <Carousel.Caption>
-         
+         <button className='float-start rounded-3 bg-danger border-0 p-2'>Buy Now</button>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
