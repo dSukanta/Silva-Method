@@ -8,11 +8,14 @@ const HomeSingleTeam = ({image,title,subtitle}) => {
             <div className="team-box text-center mb-60">
                <div className="team-thumb mb-45 pos-rel">
                   <img src={`img/team/member${image}.png`} alt=""/>
-                  <Link className="team-link" to="/doctorDetails">+</Link>
+                  {/* <Link className="team-link" to="/doctorDetails">+</Link> */}
                </div>
                <div className="team-content">
                   <h3>{title}</h3>
                   <h6>{subtitle}</h6>
+               </div>
+               <div>
+                  <button className='buy-now-btn'>Buy Now</button>
                </div>
             </div>
          </div>

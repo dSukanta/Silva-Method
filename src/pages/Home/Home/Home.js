@@ -10,7 +10,8 @@ import HomeOurTeam from './HomeOurTeam/HomeOurTeam';
 import HomePricing from './HomePricing/HomePricing';
 import HomeServices from './HomeServices/HomeServices';
 import Slide from '../../../components/HomeHeroSingleSlide/Slide';
-
+import AboutSilva from '../../../components/AboutSilva/AboutSilva';
+import MultiCarousel from '../../../components/HomeHeroSingleSlide/Multi-carousel';
 const Home = () => {
     return (
         <>
@@ -19,10 +20,12 @@ const Home = () => {
             {/* <HomeHeroSection/> */}
             <HomeAboutArea/>
             <HomeServices/>
+            <AboutSilva/>
             <HomeOurTeam/>
-            <HomeFact/>
-            <HomePricing/>
-            <HomeCta/>
+            <MultiCarousel/>
+            {/* <HomeFact/>
+            <HomePricing/> */}
+            {/* <HomeCta/> */}
             <HomeBlogs/>
             <HomeFooter/>
         </>

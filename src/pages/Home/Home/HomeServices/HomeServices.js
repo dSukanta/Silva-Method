@@ -9,12 +9,12 @@ const HomeServices = () => {
                <div className="row">
                   <div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
                      <div className="section-title text-center pos-rel mb-75">
-                        <div className="section-icon">
+                        {/* <div className="section-icon">
                            <img className="section-back-icon" src="img/section/section-back-icon.png" alt=""/>
-                        </div>
+                        </div> */}
                         <div className="section-text pos-rel home_ser_title">
-                           <h5>Departments</h5>
-                           <h1>Managed Your Heathcare Services</h1>
+                           {/* <h5>Upcoming Live & Online Classes</h5> */}
+                           <h2>Upcoming Live & Online Classes</h2>
                         </div>
                         <div className="section-line pos-rel">
                            <img src="img/shape/section-title-line.png" alt=""/>

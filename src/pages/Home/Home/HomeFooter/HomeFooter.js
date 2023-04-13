@@ -9,7 +9,7 @@ const HomeFooter = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-xl-5 col-lg-6 col-md-8">
-                                <div className="footer-contact-info mb-30">
+                                {/* <div className="footer-contact-info mb-30">
                                     <div className="emmergency-call fix">
                                         <div className="emmergency-call-icon f-left">
                                             <i className="fas fa-phone"></i>
@@ -32,10 +32,11 @@ const HomeFooter = () => {
                                             <li><i className="far fa-clone"></i>examplemedical.com</li>
                                             <li><i className="far fa-flag"></i>227 Marion Street, Columbia</li>
                                         </ul>
-                                    </div>
-                                </div>
+                                    </div> */}
+                                {/* </div> */}
                             </div>
                             <div className="col-xl-2 offset-xl-1 col-lg-3 col-md-4">
+                                
                                 <div className="footer-widget mb-30">
                                     <div className="footer-title">
                                         <h3>Departments</h3>

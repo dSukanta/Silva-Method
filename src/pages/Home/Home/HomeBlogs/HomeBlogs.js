@@ -11,9 +11,9 @@ const HomeBlogs = () => {
                <div className="row">
                   <div className="col-xl-6 col-lg-7">
                      <div className="section-title pos-rel mb-75">
-                        <div className="section-icon">
+                        {/* <div className="section-icon">
                            <img className="section-back-icon back-icon-left" src="img/section/section-back-icon.png" alt="" />
-                        </div>
+                        </div> */}
                         <div className="section-text pos-rel">
                            <h5>News</h5>
                            <h1>Get Every Single Updates Here.</h1>

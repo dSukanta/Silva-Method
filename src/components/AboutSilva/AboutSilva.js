@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomeAboutArea = () => {
+const AboutSilva = () => {
    return (
       <>
          <section className="about-area pt-120 pb-90">
@@ -52,4 +52,4 @@ const HomeAboutArea = () => {
    );
 };
 
-export default HomeAboutArea;
+export default AboutSilva;

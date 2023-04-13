@@ -10,12 +10,12 @@ const HomeOurTeam = () => {
                <div className="row">
                   <div className="col-xl-6 col-lg-7 col-md-10">
                      <div className="section-title pos-rel mb-75">
-                        <div className="section-icon">
+                        {/* <div className="section-icon">
                            <img className="section-back-icon back-icon-left" src="img/section/section-back-icon.png" alt=""/>
-                        </div>
+                        </div> */}
                         <div className="section-text pos-rel">
-                           <h5>Our Team</h5>
-                           <h1>A Professional & Care Provider</h1>
+                           {/* <h5>Our Team</h5> */}
+                           <h2>Check our Unique Products</h2>
                         </div>
                         <div className="section-line pos-rel">
                            <img src="img/shape/section-title-line.png" alt=""/>
@@ -23,9 +23,9 @@ const HomeOurTeam = () => {
                      </div>
                   </div>
                   <div className="col-xl-6 col-lg-5">
-                     <div className="section-button text-end d-none d-lg-block pt-80 team_btn">
+                     {/* <div className="section-button text-end d-none d-lg-block pt-80 team_btn">
                         <Link to="/contact" className="primary_btn btn-icon ml-0"><span>+</span>Make Appointment</Link>
-                     </div>
+                     </div> */}
                   </div>
                </div>
                <div className="row">
