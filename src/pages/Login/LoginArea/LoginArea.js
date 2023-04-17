@@ -2,18 +2,27 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 // import useAuth from '../../../hooks/useAuth';
 import { useForm } from "react-hook-form";
-import { Alert, Spinner } from 'react-bootstrap';
+import { Alert, Button, Spinner } from 'react-bootstrap';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 import { axiosinstance, baseUrl } from '../../../utils/axioscall';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../context/AllContext';
-import FacebookLogin from '@greatsumini/react-facebook-login';
-
+import { LoginSocialFacebook } from "reactjs-social-login";
+import { FacebookLoginButton } from "react-social-login-buttons";
+import OtpModal from '../../../components/OtpModal/OtpModal';
+import SendOTP from './SendOTP';
+import VerifyOTP from './VerifyOTP';
 
 
 const LoginArea = () => {
+
+   const [otpsent,setOtpSent] = useState(false);
+   const [show, setShow] = useState(false);
+
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
    const [loading, setLoading] = useState(false);
    const navigate = useNavigate()
    // const { loginUser, passwordResetWithEmail, googleSignIn } = useAuth();
@@ -189,24 +198,44 @@ const LoginArea = () => {
                         <div className="or-divide or-login"><span>or login with </span></div>
                         {/* <button onClick={() => googleSignIn()} className="login_btn">
                            <img src="img/icon/google_icon.svg" alt="" /> </button> */}
-                        <GoogleLogin
-                           theme='filled_black'
-                           onSuccess={credentialResponse => {
-                              console.log(credentialResponse);
-                              const res = jwt_decode(credentialResponse.credential)
-                              console.log(res, "Ress")
-                              fetchSocialLogin(res.email, res.given_name, res.family_name, res.picture)
-                              // localStorage.setItem("google_login", true)
-                              // localStorage.setItem("token", credentialResponse.credential)
-                              // setIsUserLoggedIn(true)
-                              // navigate("/")
-                           }}
-                           onError={() => {
-                              toast.error("Login with google failed")
-                           }}
-                        />
+                        <div className='d-flex justify-content-center align-items-center'>
+                           <GoogleLogin
+                              theme='filled_black'
+                              onSuccess={credentialResponse => {
+                                 console.log(credentialResponse);
+                                 const res = jwt_decode(credentialResponse.credential)
+                                 console.log(res, "Ress")
+                                 fetchSocialLogin(res.email, res.given_name, res.family_name, res.picture)
+                                 // localStorage.setItem("google_login", true)
+                                 // localStorage.setItem("token", credentialResponse.credential)
+                                 // setIsUserLoggedIn(true)
+                                 // navigate("/")
+                              }}
+                              onError={() => {
+                                 toast.error("Login with google failed")
+                              }}
+                           />
 
-                        <FacebookLogin
+
+                           <Button variant="primary" onClick={handleShow}>
+                              Login with OTP
+                           </Button>
+                        </div>
+
+                        {/* <LoginSocialFacebook
+                           appId="624691776341141"
+                           onResolve={(response) => {
+                              console.log(response);
+                              // setProfile(response.data);
+                           }}
+                           onReject={(error) => {
+                              console.log(error);
+                           }}
+                        >
+                           <FacebookLoginButton />
+                        </LoginSocialFacebook> */}
+
+                        {/* <FacebookLogin
                            appId="624691776341141"
                            onSuccess={(response) => {
                               console.log('Login Success!', response);
@@ -217,13 +246,22 @@ const LoginArea = () => {
                            onProfileSuccess={(response) => {
                               console.log('Get Profile Success!', response);
                            }}
-                        />
+                        /> */}
 
                      </div>
                   </div>
                </div>
             </div>
          </section>
+         <OtpModal show={show} setShow={setShow} handleClose={handleClose}>
+             {
+               !otpsent ?(
+                  <SendOTP />
+               ):(
+                  <VerifyOTP />
+               )
+             }
+         </OtpModal>
       </>
    );
 };

@@ -46,7 +46,7 @@ import PublicRoutes from './privateRoutes/PublicRoutes';
 function App() {
   return (
     <>
-    <Toaster />
+    <Toaster position="bottom-center" />
       <AllContext>
         <BrowserRouter>
           <ScrollTop />

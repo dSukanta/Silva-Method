@@ -7945,7 +7945,7 @@ react-dev-utils@^12.0.0:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-react-dom@*, "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^16.2.0 || ^17.0.0", "react-dom@^16.8.0 || ^17.0.0", react-dom@^17.0.2, react-dom@>=15.0.0, react-dom@>=16, react-dom@>=16.14.0, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0, "react-dom@~15 || ~16 || ~17", "react-dom@16.x || 17.x":
+react-dom@*, "react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17", "react-dom@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react-dom@^15.0.0 || ^16.0.0 || ^17.0.0", "react-dom@^16 || ^17 || ^18", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^16.2.0 || ^17.0.0", "react-dom@^16.8.0 || ^17.0.0", react-dom@^17.0.2, react-dom@>=15.0.0, react-dom@>=16, react-dom@>=16.14.0, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0, "react-dom@~15 || ~16 || ~17", "react-dom@16.x || 17.x":
   version "17.0.2"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -8148,6 +8148,11 @@ react-smooth@^2.0.0:
     raf "^3.4.0"
     react-transition-group "2.9.0"
 
+react-social-login-buttons@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.npmjs.org/react-social-login-buttons/-/react-social-login-buttons-3.6.1.tgz"
+  integrity sha512-DIz30W+C147s7wxwt8zgwjx5pE+gTJwtUzTNKpKZO3bEY06eLjcY1zvZ8h35hQd1Yjd7b4rLkeuZBwlLURYIfg==
+
 react-transition-group@^2.2.1:
   version "2.9.0"
   resolved "https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.9.0.tgz"
@@ -8178,13 +8183,18 @@ react-transition-group@2.9.0:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react@*, "react@^0.14.0 || ^15.0.0 || ^16 || ^17", "react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.2.0 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0-rc.1", react@^17.0.2, "react@>= 16", "react@>= 16.3.0", react@>=0.14.0, react@>=15.0.0, react@>=16, react@>=16.0.0, react@>=16.14.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, "react@~15 || ~16 || ~17", "react@16.x || 17.x", react@17.0.2:
+react@*, "react@^0.14.0 || ^15.0.0 || ^16 || ^17", "react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react@^15.0.0 || ^16.0.0 || ^17.0.0", "react@^15.0.0 || ^16.0.0 || ^17.x || ^18.x", "react@^16 || ^17 || ^18", "react@^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.2.0 || ^17.0.0", "react@^16.8.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.8.0 || ^17.0.0-rc.1", react@^17.0.2, "react@>= 16", "react@>= 16.3.0", react@>=0.14.0, react@>=15.0.0, react@>=16, react@>=16.0.0, react@>=16.14.0, react@>=16.6.0, react@>=16.8, react@>=16.8.0, "react@~15 || ~16 || ~17", "react@16.x || 17.x", react@17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+reactjs-social-login@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.npmjs.org/reactjs-social-login/-/reactjs-social-login-2.6.2.tgz"
+  integrity sha512-7ngl3qMbnRkXJznsdd/fwCXLwE1wBpeLhaAZJlZF0Wki7tl9nwFL191t+uopZkSBnWuHRCBhmOGgT/y9KVSJAg==
 
 readable-stream@^2.0.1, readable-stream@~2.3.6:
   version "2.3.7"
