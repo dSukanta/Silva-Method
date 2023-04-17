@@ -45,10 +45,10 @@ const HomeBlogs = () => {
                         <HomeSingleBlogRightSide border="border-0" />
 
                      </div>
-                     <div className="mk-call-btn f-right mb-30">
+                     {/* <div className="mk-call-btn f-right mb-30">
                         <Link to="/contact" className="primary_btn btn-icon btn-icon-green ml-0">
                            <span><i className="fas fa-phone"></i></span>make call</Link>
-                     </div>
+                     </div> */}
                   </div>
                </div>
             </div>
