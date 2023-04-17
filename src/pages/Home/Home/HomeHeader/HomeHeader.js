@@ -33,7 +33,7 @@ const HomeHeader = () => {
                <div className="container menu_wrapper">
                   <div className="row align-items-center">
                      <div className="col-xl-3 col-lg-3 col-md-6 col-6 d-flex align-items-center">
-                        <div className="logo logo-circle pos-rel">
+                        <div>
                            <Link to="/"><img src="img/logo/silvamethod-logo.png" alt="" /></Link>
                         </div>
                      </div>
