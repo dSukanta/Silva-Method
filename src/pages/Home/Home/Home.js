@@ -12,17 +12,27 @@ import HomeServices from './HomeServices/HomeServices';
 import Slide from '../../../components/HomeHeroSingleSlide/Slide';
 import AboutSilva from '../../../components/AboutSilva/AboutSilva';
 import MultiCarousel from '../../../components/HomeHeroSingleSlide/Multi-carousel';
+import Homeherodiv from './HomeHeroSection/Homeherodiv';
+import Featured from '../../../components/featured/Featured';
+import FirstSlide from '../../../components/HomeHeroSingleSlide/FirstSlide';
+import Reviews from '../../../components/featured/Reviews';
+import LastSlide from '../../../components/HomeHeroSingleSlide/LastSlide';
 const Home = () => {
     return (
         <>
             <HomeHeader/>
-            <Slide/>
+            <Homeherodiv/>
+            <Featured/>
+            {/* <Slide/> */}
             {/* <HomeHeroSection/> */}
             <HomeAboutArea/>
+            <FirstSlide/>
             <HomeServices/>
+            <Reviews/>
             <AboutSilva/>
             <HomeOurTeam/>
-            <MultiCarousel/>
+            <LastSlide/>
+            {/* <MultiCarousel/> */}
             {/* <HomeFact/>
             <HomePricing/> */}
             {/* <HomeCta/> */}

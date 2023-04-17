@@ -1,10 +1,24 @@
 import React, { createContext, useEffect, useState } from 'react';
 import useFirebase from '../hooks/useFirebase';
 import { useMediaQuery } from 'react-responsive';
+import { googleLogout } from '@react-oauth/google';
+import { toast } from 'react-hot-toast';
 
 export const AuthContext = createContext();
 
 const AllContext = ({children}) => {
+
+    const [isUserLoggedIn,setIsUserLoggedIn] = useState(()=>{
+        if(localStorage.getItem("token")){
+            return true
+        }else if(localStorage.getItem("google_login")){
+            return true
+        }else{
+            return false
+        }
+    });
+    const [userData,setUserData] = useState(null);
+
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1224px)'
@@ -44,6 +58,20 @@ const AllContext = ({children}) => {
         </button>
     );
 
+    const logout = ()=>{
+        const googleLoggedIn = localStorage.getItem("google_login");
+        if(googleLoggedIn){
+            googleLogout()
+            localStorage.removeItem("google_login");
+        }
+        const token = localStorage.getItem("token");
+        if(token){
+            localStorage.removeItem("token");
+        }
+        setIsUserLoggedIn(false)
+        toast.success("Logged Out successfully")
+    }
+
     const [stickyMenu, setStickyMenu] = useState(false);
     // sticky
     useEffect(() => {
@@ -70,7 +98,12 @@ const AllContext = ({children}) => {
         isBigScreen,
         isTabletOrMobile,
         isPortrait,
-        isRetina
+        isRetina,
+        isUserLoggedIn,
+        setIsUserLoggedIn,
+        userData,
+        setUserData,
+        logout
     }
     return (
        <>

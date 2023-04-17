@@ -39,11 +39,14 @@ import WishList from './pages/wishList/WishList';
 import HomeFive from './pages/HomeFive/HomeFive';
 import './App.css';
 import NotFound from './pages/NotFound/NotFound';
+import { Toaster } from 'react-hot-toast';
+import PublicRoutes from './privateRoutes/PublicRoutes';
 
 
 function App() {
   return (
     <>
+    <Toaster />
       <AllContext>
         <BrowserRouter>
           <ScrollTop />
@@ -65,8 +68,10 @@ function App() {
             <Route path="/shoppingCart" element={<ShoppingCart />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/wishList" element={<WishList />} />
-            <Route path="/login" element={<Login />} />
+           <Route element={<PublicRoutes />}>
+           <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+           </Route>
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/blogLeftSideBar" element={<BlogLeftSideBar />} />
             <Route path="/blogNoSideBar" element={<BlogNoSideBar />} />

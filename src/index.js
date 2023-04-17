@@ -5,10 +5,13 @@ import reportWebVitals from './reportWebVitals';
 import 'react-image-lightbox/style.css';
 import './index.scss';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 ReactDOM.render(
   <React.Fragment>
+    <GoogleOAuthProvider clientId='619560474308-u5d68c0vgfnvlsonqs7iotgvqapb0cpa.apps.googleusercontent.com'>
       <App />
+    </GoogleOAuthProvider>
   </React.Fragment>,
   document.getElementById('root')
 );

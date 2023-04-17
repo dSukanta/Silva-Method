@@ -8,9 +8,9 @@ function AboutTopSection() {
         isPortrait,
         isRetina } = useContext(AuthContext);
     return (
-        <div className="jumbotron jumbotron-fluid text-center text-dark" style={{marginTop:"30px"}}>
+        <div className="jumbotron jumbotron-fluid text-center text-dark" style={{marginTop:"50px"}}>
             <div className="container">
-                <div style={{ display: "flex", justifyContent: "center",marginBottom:"20px" }}>
+                <div style={{ display: "flex", justifyContent: "center",marginBottom:"40px" }}>
                     <div style={{
                         maxWidth: (isTabletOrMobile ||
                             isPortrait) ? "100%" : "65%",

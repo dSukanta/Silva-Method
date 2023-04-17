@@ -7,6 +7,10 @@ import ServicesOneABout from './ServicesOneAbout/ServicesOneABout';
 import ServicesOneHiringArea from './ServicesOneHiringArea/ServicesOneHiringArea';
 import AboutTopSection from '../../../components/AboutTopSection/AboutTopSection';
 import ImageGallerySection from '../../../components/ImageGallerySection/ImageGallerySection';
+import AboutCounter from '../../AboutUs/AboutCounter/AboutCounter';
+import AboutCounter2 from '../../AboutUs/AboutCounter/AboutCounter2';
+import ImageTextSection from '../../../components/ImageTextSection/ImageTextSection';
+import DifferenceSection from '../../../components/DifferenceSection/DifferenceSection';
 
 const ServicesOne = () => {
    return (
@@ -16,8 +20,11 @@ const ServicesOne = () => {
          <AboutTopSection />
          <ImageGallerySection />
          <ServicesOneABout/>
-         <CalculateArea/>
-         <ServicesOneHiringArea/>
+         {/* <CalculateArea/> */}
+         {/* <ServicesOneHiringArea/> */}
+         <ImageTextSection />
+         <AboutCounter2 />
+         <DifferenceSection />
          <Footer/>
       </>
    );

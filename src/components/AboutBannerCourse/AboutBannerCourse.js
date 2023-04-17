@@ -15,7 +15,7 @@ function AboutBannerCourse() {
             <div className="container">
                 <div style={{ display: "flex", justifyContent: "center", alignContent: "center" }} >
                     <div style={{ textAlign: "start", maxWidth: ( isTabletOrMobile ||  isPortrait|| isRetina)?"100%":"70%", fontSize: "1.5rem", color: "black" }}>
-                        <h5>
+                        <h5 style={{lineHeight:"25px"}}>
                             We spend the prime years of our lives preparing for our careers. But we spend hardly any time preparing for things
                             that will determine the quality of our life experience and the quality of our relationships,
                             health, mindset and wellbeing. Mindvalley teaches you the things that actually matter most in life.
