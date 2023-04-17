@@ -1,9 +1,18 @@
 import React, { createContext, useEffect, useState } from 'react';
 import useFirebase from '../hooks/useFirebase';
+import { useMediaQuery } from 'react-responsive';
 
 export const AuthContext = createContext();
 
 const AllContext = ({children}) => {
+
+    const isDesktopOrLaptop = useMediaQuery({
+        query: '(min-width: 1224px)'
+      })
+      const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+      const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+      const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+      const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
     // Slick ArrowLeft
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
         <button
@@ -57,6 +66,11 @@ const AllContext = ({children}) => {
         stickyMenu,
         SlickArrowLeft,
         SlickArrowRight,
+        isDesktopOrLaptop,
+        isBigScreen,
+        isTabletOrMobile,
+        isPortrait,
+        isRetina
     }
     return (
        <>
