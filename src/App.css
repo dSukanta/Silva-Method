@@ -70,7 +70,7 @@
   width: 100%;
   margin: auto;
   margin-top: 2rem;
-  background-color: blue;
+  background-color: purple;
   padding: 5px 20px;
 }
 .home-hero-divided h1{
@@ -135,11 +135,13 @@ background-color: white;
 }
 
 .featured-images{
-  display: flex;
-  gap: 2rem;
-  background-color: purple;
-  color: white;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
+  width: 200px;
+  height: 30px;
+  filter: invert(1) grayscale(1) brightness(1200);
+}
+
+.responsive-featured-images{
+  width: 120px;
+  height: 20px;
+  filter: invert(1) grayscale(1) brightness(1200);
 }

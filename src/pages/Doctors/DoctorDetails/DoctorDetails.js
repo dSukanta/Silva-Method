@@ -8,7 +8,7 @@ const DoctorDetails = () => {
     return (
         <>
             <HomeHeader/>
-            <CommonPageHeader title="Doctor Details" subtitle="Details" />
+            <CommonPageHeader title="SILVA LIFE SYSTEM" subtitle="Details" />
             <DoctorDetailsArea/>
             <Footer/>
         </>

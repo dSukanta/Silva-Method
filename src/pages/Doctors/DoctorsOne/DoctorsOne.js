@@ -10,7 +10,7 @@ const DoctorsOne = () => {
     return (
         <>
             <HomeHeader/>
-            <CommonPageHeader title="Doctor 01" subtitle="Doctor" />
+            <CommonPageHeader title="BASIC LECTURE SERIES" subtitle="Doctor" />
             <DoctorOneTeamArea/>
             <HomeFact/>
             <CounterArea/>
