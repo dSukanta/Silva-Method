@@ -11,8 +11,8 @@ function Homeherodiv() {
             {isDesktopOrLaptop? <h1 style={{color:'white',}}>Step into our Grateness</h1>: <h3 style={{color:'white'}}>Step into our Grateness</h3>}
             <button className='home-join-btn'>Join Silva Method Now</button>
         </div>
-        <div style={{width:'100%'}}>
-        <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" width='100%' preload='auto' playsInline='playsinline' autoPlay loop></video>
+        <div style={{width:isDesktopOrLaptop? '70%':'100%'}}>
+        <video src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" x-webkit-airplay="allow" width='100%' preload='auto' playsInline='playsinline' loop muted autoPlay></video>
         </div>
     </div>
   )

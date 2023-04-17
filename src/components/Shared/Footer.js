@@ -71,7 +71,7 @@ const Footer = () => {
                   <div className="row">
                      <div className="col-xl-12">
                         <div className="footer-copyright footer-copyright-3 text-center">
-                           <p>Copyright by@ BasicTheme - 2022</p>
+                           <p>© 2023 Silva Method, Inc.</p>
                         </div>
                      </div>
                   </div>

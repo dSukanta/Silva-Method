@@ -6,7 +6,7 @@ function Featured() {
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
   return (
-    <div style={{display:'grid', gridTemplateColumns: isDesktopOrLaptop? '1fr 1fr 1fr 1fr 1fr 1fr 1fr': isMobile? '1fr 1fr': '1fr 1fr 1fr 1fr 1fr', padding:'15px', gap:isDesktopOrLaptop?'0':'1rem', backgroundColor:'purple'}}>
+    <div style={{display:'grid', gridTemplateColumns: isDesktopOrLaptop? '1fr 1fr 1fr 1fr 1fr 1fr 1fr': isMobile? '1fr 1fr': '1fr 1fr 1fr 1fr 1fr', padding:'15px', gap:isDesktopOrLaptop?'0':'1rem', backgroundColor:'purple', justifyContent:'center'}}>
         <img src='https://res.cloudinary.com/mindvalley/image/fetch/c_scale,dpr_1,f_auto,fl_lossy,q_auto,w_auto/https://a.storyblok.com/f/60579/x/897dfd4eaa/new-york-times_logo.svg?trans' className='featured-images'/>
         <img src='https://res.cloudinary.com/mindvalley/image/fetch/c_scale,dpr_1,f_auto,fl_lossy,q_auto,w_128/https://a.storyblok.com/f/60579/x/aa9aca6abc/wf_lp_aso-forbes.svg?trans' className='featured-images'/>
         <img src='https://res.cloudinary.com/mindvalley/image/fetch/c_scale,dpr_1,f_auto,fl_lossy,q_auto,w_256/https://a.storyblok.com/f/60579/x/39787ddf00/logo_usa-today.svg?trans' className='featured-images'/>

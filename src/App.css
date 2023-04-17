@@ -140,8 +140,20 @@ background-color: white;
   filter: invert(1) grayscale(1) brightness(1200);
 }
 
-.responsive-featured-images{
-  width: 120px;
-  height: 20px;
-  filter: invert(1) grayscale(1) brightness(1200);
+.footer-contact-btn{
+  background: #ff0062;
+  border-radius: 35px;
+  padding: 6.5px 20px;
+  border: none;
+  margin-top: 25px;
 }
+
+.footer-join-btn{
+  background-color: #2da397;
+  margin-left: 10px;
+  border-radius: 35px;
+  padding: 6.5px 20px;
+  border: none;
+  margin-top: 25px;
+}
+
