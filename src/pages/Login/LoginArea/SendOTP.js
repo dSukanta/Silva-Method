@@ -5,7 +5,7 @@ import { allcodes } from '../../../utils/allCountryCodes';
 import { toast } from 'react-hot-toast';
 import { baseUrl } from '../../../utils/axioscall';
 
-function SendOTP() {
+function SendOTP({setOtpSent}) {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const [loading, setLoading] = useState(false)
 
@@ -32,6 +32,9 @@ function SendOTP() {
         setLoading(false)
         const data = await res.json();
         if (data.error === false) {
+            localStorage.setItem("otpsent",true)
+            localStorage.setItem("phone",value)
+            setOtpSent(true)
             toast.success(data.messages)
         } else {
             toast.error(data.messages)

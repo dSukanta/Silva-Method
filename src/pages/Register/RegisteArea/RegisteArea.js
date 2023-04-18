@@ -32,20 +32,9 @@ const RegisteArea = () => {
          })
          return
       }else{
-         // console.log(data)
-         // console.log(isUserLoggedIn,userData);
-         // const res = await axiosinstance.post("register",{
-         //    first_name:data.firstname,
-         //    last_name:data.lastname,
-         //    email:data.email,
-         //    password:data.password,
-         //    confirm_password:data.confirmpass,
-         //    phone:data.phone
-         // })
          registerFetch(data.firstname,data.lastname,data.email,data.phone,data.password,data.confirmpass)
          // console.log(res)
       }
-      // registerUser(email, password, name, reset)
    };
 
 

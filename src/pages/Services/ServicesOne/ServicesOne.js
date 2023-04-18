@@ -11,8 +11,10 @@ import AboutCounter from '../../AboutUs/AboutCounter/AboutCounter';
 import AboutCounter2 from '../../AboutUs/AboutCounter/AboutCounter2';
 import ImageTextSection from '../../../components/ImageTextSection/ImageTextSection';
 import DifferenceSection from '../../../components/DifferenceSection/DifferenceSection';
+import ReviewsContainer from '../../../components/DifferenceSection/ReviewsContainer';
 
 const ServicesOne = () => {
+   
    return (
       <>
          <HomeHeader/>
@@ -25,6 +27,7 @@ const ServicesOne = () => {
          <ImageTextSection />
          <AboutCounter2 />
          <DifferenceSection />
+         <ReviewsContainer />
          <Footer/>
       </>
    );

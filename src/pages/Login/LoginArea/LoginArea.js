@@ -9,16 +9,21 @@ import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../context/AllContext';
-import { LoginSocialFacebook } from "reactjs-social-login";
-import { FacebookLoginButton } from "react-social-login-buttons";
 import OtpModal from '../../../components/OtpModal/OtpModal';
 import SendOTP from './SendOTP';
 import VerifyOTP from './VerifyOTP';
+import FacebookLogin from '@greatsumini/react-facebook-login';
 
 
 const LoginArea = () => {
 
-   const [otpsent,setOtpSent] = useState(false);
+   const [otpsent, setOtpSent] = useState(() => {
+      if (localStorage.getItem("otpsent")) {
+         return true
+      } else {
+         return false;
+      }
+   });
    const [show, setShow] = useState(false);
 
    const handleClose = () => setShow(false);
@@ -198,7 +203,7 @@ const LoginArea = () => {
                         <div className="or-divide or-login"><span>or login with </span></div>
                         {/* <button onClick={() => googleSignIn()} className="login_btn">
                            <img src="img/icon/google_icon.svg" alt="" /> </button> */}
-                        <div className='d-flex justify-content-center align-items-center'>
+                        <div className='d-flex justify-content-center align-items-center flex-column gap-3'>
                            <GoogleLogin
                               theme='filled_black'
                               onSuccess={credentialResponse => {
@@ -216,52 +221,39 @@ const LoginArea = () => {
                               }}
                            />
 
+                           <FacebookLogin
+                              appId="772726314457754"
+                              onSuccess={(response) => {
+                                 console.log('Login Success!', response);
+                              }}
+                              onFail={(error) => {
+                                 console.log('Login Failed!', error);
+                              }}
+                              onProfileSuccess={(response) => {
+                                 console.log('Get Profile Success!', response);
+                              }}
+                           />
 
-                           <Button variant="primary" onClick={handleShow}>
+
+                           <Button style={{ backgroundColor: "#e12454", border: "none" }} onClick={handleShow}>
                               Login with OTP
                            </Button>
                         </div>
-
-                        {/* <LoginSocialFacebook
-                           appId="624691776341141"
-                           onResolve={(response) => {
-                              console.log(response);
-                              // setProfile(response.data);
-                           }}
-                           onReject={(error) => {
-                              console.log(error);
-                           }}
-                        >
-                           <FacebookLoginButton />
-                        </LoginSocialFacebook> */}
-
-                        {/* <FacebookLogin
-                           appId="624691776341141"
-                           onSuccess={(response) => {
-                              console.log('Login Success!', response);
-                           }}
-                           onFail={(error) => {
-                              console.log('Login Failed!', error);
-                           }}
-                           onProfileSuccess={(response) => {
-                              console.log('Get Profile Success!', response);
-                           }}
-                        /> */}
-
                      </div>
                   </div>
                </div>
             </div>
          </section>
          <OtpModal show={show} setShow={setShow} handleClose={handleClose}>
-             {
-               !otpsent ?(
-                  <SendOTP />
-               ):(
-                  <VerifyOTP />
+            {
+               !otpsent ? (
+                  <SendOTP setOtpSent={setOtpSent} />
+               ) : (
+                  <VerifyOTP setOtpSent={setOtpSent} handleClose={handleClose} setIsUserLoggedIn={setIsUserLoggedIn} />
                )
-             }
+            }
          </OtpModal>
+
       </>
    );
 };

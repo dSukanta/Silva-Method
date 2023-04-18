@@ -253,3 +253,11 @@ svg:hover{
   color: #1369ce;
   background-color: #f7f5ec;
 }
+
+.cardspan:hover{
+  cursor: pointer;
+}
+
+.modal-new::-webkit-scrollbar {
+  display: none;
+}
