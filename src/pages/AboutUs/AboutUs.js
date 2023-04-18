@@ -9,6 +9,7 @@ import AboutAppoinment from './AboutAppoinment/AboutAppoinment';
 import AboutArea from './AboutArea/AboutArea';
 import AboutCounter from './AboutCounter/AboutCounter';
 import AboutTestimonial from './AboutTestimonial/AboutTestimonial';
+import CustomFooter from '../Home/Home/HomeFooter/Footer';
 
 const AboutUs = () => {
    return (
@@ -22,7 +23,7 @@ const AboutUs = () => {
          <HomeFact/>
          <AboutTestimonial/>
          <AboutAnalysis/>
-         <Footer/>
+         <CustomFooter/>
       </>
    );
 };

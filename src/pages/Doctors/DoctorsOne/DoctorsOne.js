@@ -5,6 +5,7 @@ import HomeFact from '../../Home/Home/HomeFact/HomeFact';
 import HomeHeader from '../../Home/Home/HomeHeader/HomeHeader';
 import CounterArea from './CounterArea/CounterArea';
 import DoctorOneTeamArea from './DoctorOneTeamArea/DoctorOneTeamArea';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const DoctorsOne = () => {
     return (
@@ -14,7 +15,7 @@ const DoctorsOne = () => {
             <DoctorOneTeamArea/>
             <HomeFact/>
             <CounterArea/>
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

@@ -143,8 +143,87 @@ background-color: white;
   filter: invert(1) grayscale(1) brightness(1200);
 }
 
+/* footer styles css */
+
+.custom-footer-container{
+  width: 100%;
+  background:#8019da;
+}
+
+.custom-footer{
+	  padding: 60px 0;
+    width: 100%;
+    background:#8019da;
+    color: white;
+   
+}
+.custom-footer-title{
+	position: relative;
+    color: white;
+	  font-size: 24px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+.custom-footer-title:after{
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 0;
+	width: 30px;
+	height: 4px;
+	background: #ff304d;
+}
+.custom-footer-links a{
+	padding: 10px 0;
+	/* border-bottom: 1px solid #404040; */
+	color: white;
+	display: block;
+	transition: color 0.5s ease-in-out;
+   text-decoration:none;
+}
+.custom-footer-links a:hover{
+	color: #ff304d;
+}
+.custom-footer-social-links li{
+	display: inline-block;
+}
+.custom-footer-social-links a{
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	float: left;
+	margin-right: 10px;
+	padding: 10px;
+	/* border: 1px solid #404040; */
+	border-radius: 50px;
+	text-align: center;
+	color: white;
+	line-height: 1;
+	-webkit-transition: background 0.3s ease-in-out;
+	-moz-transition: background 0.3s ease-in-out;
+	transition: background 0.3s ease-in-out;
+}
+.custom-footer-social-links a:hover{
+	background: white;
+  color: blue;
+}
+/* g. Footer bottom section */
+.custom-footer-bottom{
+	display: flex;
+  justify-content: space-between;
+  border-top: 1px solid white;
+  padding: 10px;
+  width: 70%;
+  margin: auto;
+}
+.custom-footer-bottom div{
+  display: flex;
+}
 .footer-contact-btn{
-  background: #ff0062;
+  background-color: black;
+  color: white;
   border-radius: 35px;
   padding: 6.5px 20px;
   border: none;
@@ -152,7 +231,8 @@ background-color: white;
 }
 
 .footer-join-btn{
-  background-color: #2da397;
+  background-color: black;
+  color: white;
   margin-left: 10px;
   border-radius: 35px;
   padding: 6.5px 20px;
@@ -160,3 +240,7 @@ background-color: white;
   margin-top: 25px;
 }
 
+.blog_page_header_bg{
+  background: url("https://silvamethod.com/store/wp-content/uploads/2022/10/topheading-shop-1.jpg");
+    background-repeat: no-repeat;
+}

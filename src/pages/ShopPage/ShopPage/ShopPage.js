@@ -3,14 +3,15 @@ import CommonPageHeader from '../../../components/CommonPageHeader/CommonPageHea
 import Footer from '../../../components/Shared/Footer';
 import HomeHeader from '../../Home/Home/HomeHeader/HomeHeader';
 import ShopBanner from './ShopBanner/ShopBanner';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const ShopPage = () => {
     return (
         <>
             <HomeHeader/>
-            <CommonPageHeader title="Shop Page" subtitle="Shop" />
+            <CommonPageHeader title="LIVE CLASSES" subtitle="Shop" />
             <ShopBanner/>
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

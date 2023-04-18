@@ -6,6 +6,7 @@ import CalculateArea from '../ServicesOne/CalculateArea/CalculateArea';
 import ServicesOneHiringArea from '../ServicesOne/ServicesOneHiringArea/ServicesOneHiringArea';
 import ServicesTwoAbout from './ServicesTwoAbout/ServicesTwoAbout';
 import ServicesTwoArea from './ServicesTwoArea/ServicesTwoArea';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const ServicesTwo = () => {
     return (
@@ -16,7 +17,7 @@ const ServicesTwo = () => {
             <ServicesTwoArea/>
             <CalculateArea />
             <ServicesOneHiringArea />
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

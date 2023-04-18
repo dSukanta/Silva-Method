@@ -5,6 +5,7 @@ import HomeHeader from '../Home/Home/HomeHeader/HomeHeader';
 import ContactArea from './ContactArea/ContactArea';
 import ContactFormArea from './ContactFormArea/ContactFormArea';
 import ContactMap from './ContactMap/ContactMap';
+import CustomFooter from '../Home/Home/HomeFooter/Footer';
 
 const Contact = () => {
     return (
@@ -14,7 +15,7 @@ const Contact = () => {
             <ContactArea/>
             <ContactFormArea/>
             <ContactMap/>
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

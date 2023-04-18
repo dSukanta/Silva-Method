@@ -5,6 +5,7 @@ import HomeHeader from '../../Home/Home/HomeHeader/HomeHeader';
 import CalculateArea from './CalculateArea/CalculateArea';
 import ServicesOneABout from './ServicesOneAbout/ServicesOneABout';
 import ServicesOneHiringArea from './ServicesOneHiringArea/ServicesOneHiringArea';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const ServicesOne = () => {
    return (
@@ -14,7 +15,7 @@ const ServicesOne = () => {
          <ServicesOneABout/>
          <CalculateArea/>
          <ServicesOneHiringArea/>
-         <Footer/>
+         <CustomFooter/>
       </>
    );
 };

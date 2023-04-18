@@ -12,7 +12,7 @@ const HomeAboutArea = () => {
                      </div> */}
                      <div className="about-left-side pos-rel">
                         <div className="about-front-img">
-                           <img src="img/logo/silvamethod-logo.png" alt=""/>
+                           <img src="img/shape/silva_method.png" alt=""/>
                         </div>
                         <div className="about-shape">
                            <img src="img/about/about-shape.png" alt=""/>

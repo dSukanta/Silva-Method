@@ -50,7 +50,7 @@ import "swiper/css/pagination";
 // import "./styles.css";
 
 // import required modules
-import { Pagination } from "swiper";
+import { Pagination,Autoplay } from "swiper";
 
 export default function Reviews() {
   const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
@@ -65,7 +65,11 @@ export default function Reviews() {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay,Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>

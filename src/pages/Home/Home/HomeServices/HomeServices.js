@@ -22,14 +22,14 @@ const HomeServices = () => {
                      </div>
                   </div>
                </div>
-               <div className="row">
+               <div className="row row-cols-2 row-cols-lg-3">
 
-                  <HomeSIngleService icon="1" title="Body Surgery" />
-                  <HomeSIngleService icon="2" title="Dental Care" />
-                  <HomeSIngleService icon="3" title="service-content" />
-                  <HomeSIngleService icon="4" title="Blood Cancer" />
-                  <HomeSIngleService icon="5" title="Neurology Sargery" />
-                  <HomeSIngleService icon="6" title="Allergic Issue" />
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_gabriel_ostend.jpeg"} />
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_ken_coscia.jpeg"}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_pooja_arora.jpeg"} />
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_christine_haley.jpeg"}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_richard_siena.jpeg"}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_ginger_csom.jpg"}/>
 
                </div>
             </div>

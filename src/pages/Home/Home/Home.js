@@ -17,6 +17,7 @@ import Featured from '../../../components/featured/Featured';
 import FirstSlide from '../../../components/HomeHeroSingleSlide/FirstSlide';
 import Reviews from '../../../components/featured/Reviews';
 import LastSlide from '../../../components/HomeHeroSingleSlide/LastSlide';
+import CustomFooter from './HomeFooter/Footer';
 const Home = () => {
     return (
         <>
@@ -36,8 +37,9 @@ const Home = () => {
             {/* <HomeFact/>
             <HomePricing/> */}
             {/* <HomeCta/> */}
-            <HomeBlogs/>
-            <HomeFooter/>
+            {/* <HomeBlogs/> */}
+            {/* <HomeFooter/> */}
+            <CustomFooter/>
         </>
     );
 };

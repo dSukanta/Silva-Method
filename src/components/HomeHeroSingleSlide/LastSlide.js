@@ -14,7 +14,7 @@ export default function LastSlide() {
       cssEase: "linear",
     };
     return (
-      <div>
+      <div className="mb-5">
         <Slider {...settings}>
           <div>
             <img src="img/slide-2.webp"/>
