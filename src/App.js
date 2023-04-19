@@ -50,6 +50,7 @@ import FindInstructor from './pages/Instructors/FindInstructor';
 import BecomeInstructor from './pages/Instructors/BecomeInstructor';
 import EnglishBlog from './pages/Blogs/EnglishBlog';
 import SpanishBlog from './pages/Blogs/SpanishBlog';
+import CourseDetails from './pages/events/CourseDetails';
 
 
 function App() {
@@ -76,6 +77,8 @@ function App() {
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />
             <Route path="/events/online" element={<OnlineEvents />} />
+            <Route path="/coursedetails/:id" element={<CourseDetails/>} />
+
             {/* Event Route Ended */}
             {/* Instructor Route started */}
             <Route path="/instructor" element={<Instructors />} />

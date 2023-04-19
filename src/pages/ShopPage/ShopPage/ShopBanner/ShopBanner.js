@@ -1,8 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SingleSecondShop from '../../../../components/SingleSecondShop/SingleSecondShop';
 import SingleShop from '../../../../components/SingleShop/SingleShop';
 
 const ShopBanner = () => {
+  
+   const [liveClasses,setLiveClasses] = useState([]);
+
+   const settingLiveClassesData=(data)=>{
+     const updated= data.filter(el=>el.delivery_method=="live");
+     setLiveClasses(updated)
+   }
+
+   const getData =async()=>{
+        const myHeaders = new Headers();
+        myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
+        myHeaders.append("Device", "Android");
+        myHeaders.append("Language", "english");
+
+        const formData= new FormData();
+        formData.append("start_index", "0");
+        formData.append("no_of_records", "100");
+
+      const options={
+         method:'POST',
+         headers:myHeaders,
+         body: formData
+      }
+      const res= await fetch(`https://projectsites.in/silvamethod/api/latestClassListbyStartDate`,options)
+      const data= await res.json();
+      settingLiveClassesData(data.data)
+   }
+
+   useEffect(()=>{
+      getData();
+   },[]);
+
+  console.log(liveClasses);
+
    return (
       <>
          <section className="shop-banner-area pt-120 pb-120">
@@ -44,20 +78,14 @@ const ShopBanner = () => {
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                            <div className="row">
 
+                              {liveClasses && liveClasses.map((el)=>
+                              
                               <SingleShop avatar={'https://silvamethod.com/adminsilva/uploads/profile_pic/3fe28-keith-harmeyer-photo-2.jpg'} 
-                                          place={'UNITED STATES'} name={'Keith Harmeyer'} title={'Four Day Immersion Seminar'} 
-                                          date={'20 Apr 2023 - 23 Apr 2023'} language={'English'} type={"Live"} extraRef={"https://silvamethod.com/events/livedetails/3049"}/>
-                              {/* <SingleShop image="2" name="Cloths" title="Legend Product" />
-                              <SingleShop image="3" name="Table" title="Akari Product" />
-                              <SingleShop image="4" name="Chair" title="Bakari Product" />
-                              <SingleShop image="5" name="Cloths" title="Romada Product" />
-                              <SingleShop image="6" name="Light" title="Sikkar Product" />
-                              <SingleShop image="7" name="Headphone" title="Minners Product" />
-                              <SingleShop image="8" name="table" title="Dolando Product" />
-                              <SingleShop image="9" name="Cloths" title="Romada Product" /> */}
+                                          key ={el.class_id} place={el.address} name={el.instructor_name} title={'Four Day Immersion Seminar'} 
+                                          date={`${el.start_date.split('-').reverse().join('-')} - ${el.end_date.split('-').reverse().join('-')}`} 
+                                          language={el.language} type={"Live"} extraRef={"https://silvamethod.com/events/livedetails/3049"} CourseId={el.class_id}/>)}
 
-
-                           </div>
+                              </div>
                         </div>
                         {/* <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                            <div className="row">

@@ -1,7 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SingleShop from '../../components/SingleShop/SingleShop'
+import { useEffect } from 'react';
 
 function OnlineEventGrid() {
+
+   const [onlineClasses,setOnlineClasses] = useState([]);
+
+   const settingOnlineClassesData=(data)=>{
+     const updated= data.filter(el=>el.delivery_method=="online");
+     setOnlineClasses(updated)
+   }
+
+   const getData =async()=>{
+        const myHeaders = new Headers();
+        myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
+        myHeaders.append("Device", "Android");
+        myHeaders.append("Language", "english");
+
+        const formData= new FormData();
+        formData.append("start_index", "0");
+        formData.append("no_of_records", "100");
+
+      const options={
+         method:'POST',
+         headers:myHeaders,
+         body: formData
+      }
+      const res= await fetch(`https://projectsites.in/silvamethod/api/latestClassListbyStartDate`,options)
+      const data= await res.json();
+      settingOnlineClassesData(data.data)
+   }
+
+   useEffect(()=>{
+      getData();
+   },[]);
+
+   console.log(onlineClasses);
+
   return (
     <>
         <section className="shop-banner-area pt-120 pb-120">
@@ -43,20 +78,13 @@ function OnlineEventGrid() {
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                            <div className="row">
 
-                              <SingleShop avatar={'https://silvamethod.com/adminsilva/uploads/profile_pic/463cf-christine-vergin-mitchigan.jpeg'} 
-                                          place={'MICHIGAN'} name={'Christine Haley'} title={'Silva Life System'} 
-                                          date={'22 Apr 2023 - 23 Apr 2023'} language={'English'} type={"Online"} extraRef={"https://silvamethod.com/events/onlinedetails/3082"}/>
-                              {/* <SingleShop image="2" name="Cloths" title="Legend Product" />
-                              <SingleShop image="3" name="Table" title="Akari Product" />
-                              <SingleShop image="4" name="Chair" title="Bakari Product" />
-                              <SingleShop image="5" name="Cloths" title="Romada Product" />
-                              <SingleShop image="6" name="Light" title="Sikkar Product" />
-                              <SingleShop image="7" name="Headphone" title="Minners Product" />
-                              <SingleShop image="8" name="table" title="Dolando Product" />
-                              <SingleShop image="9" name="Cloths" title="Romada Product" /> */}
-
-
-                           </div>
+                           {onlineClasses && onlineClasses.map((el)=>
+                              
+                              <SingleShop avatar={'https://silvamethod.com/adminsilva/uploads/profile_pic/3fe28-keith-harmeyer-photo-2.jpg'} 
+                                          key ={el.class_id} place={el.address} name={el.instructor_name} title={'Four Day Immersion Seminar'}  
+                                          date={`${el.start_date.split('-').reverse().join('-')} - ${el.end_date.split('-').reverse().join('-')}`} 
+                                          language={el.language} type={"Online"} extraRef={el.details} CourseId={el.class_id}/>)}
+                              </div>
                         </div>
                         {/* <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                            <div className="row">
