@@ -1,11 +1,10 @@
-import React from 'react';
-import SingleSecondShop from '../../../../components/SingleSecondShop/SingleSecondShop';
-import SingleShop from '../../../../components/SingleShop/SingleShop';
+import React from 'react'
+import SingleShop from '../../components/SingleShop/SingleShop'
 
-const ShopBanner = () => {
-   return (
-      <>
-         <section className="shop-banner-area pt-120 pb-120">
+function OnlineEventGrid() {
+  return (
+    <>
+        <section className="shop-banner-area pt-120 pb-120">
             <div className="container">
                <div className="row mt-20">
                   <div className="col-xl-4 col-lg-5 col-md-6">
@@ -44,9 +43,9 @@ const ShopBanner = () => {
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                            <div className="row">
 
-                              <SingleShop avatar={'https://silvamethod.com/adminsilva/uploads/profile_pic/3fe28-keith-harmeyer-photo-2.jpg'} 
-                                          place={'UNITED STATES'} name={'Keith Harmeyer'} title={'Four Day Immersion Seminar'} 
-                                          date={'20 Apr 2023 - 23 Apr 2023'} language={'English'} type={"Live"} extraRef={"https://silvamethod.com/events/livedetails/3049"}/>
+                              <SingleShop avatar={'https://silvamethod.com/adminsilva/uploads/profile_pic/463cf-christine-vergin-mitchigan.jpeg'} 
+                                          place={'MICHIGAN'} name={'Christine Haley'} title={'Silva Life System'} 
+                                          date={'22 Apr 2023 - 23 Apr 2023'} language={'English'} type={"Online"} extraRef={"https://silvamethod.com/events/onlinedetails/3082"}/>
                               {/* <SingleShop image="2" name="Cloths" title="Legend Product" />
                               <SingleShop image="3" name="Table" title="Akari Product" />
                               <SingleShop image="4" name="Chair" title="Bakari Product" />
@@ -95,8 +94,8 @@ const ShopBanner = () => {
                </div> */}
             </div>
          </section>
-      </>
-   );
-};
+    </>
+  )
+}
 
-export default ShopBanner;
+export default OnlineEventGrid

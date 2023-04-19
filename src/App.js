@@ -83,10 +83,14 @@ function App() {
             <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
             {/* Instructor Route Ended */}
             {/* Blogs Route started */}
+            <Route path="/store" element={<Blogs />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
             {/* Blogs Route Ended */}
-            
+            {/*Auth Route started */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            {/*Auth Route Ended */}
             
             
             <Route path="/homeFour" element={<HomeFour />} />
@@ -102,9 +106,8 @@ function App() {
             <Route path="/shoppingCart" element={<ShoppingCart />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/wishList" element={<WishList />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/blogs" element={<Blogs />} />
+            
+            
             <Route path="/blogLeftSideBar" element={<BlogLeftSideBar />} />
             <Route path="/blogNoSideBar" element={<BlogNoSideBar />} />
             <Route path="/blogTwoColumn" element={<BlogTwoColumn />} />

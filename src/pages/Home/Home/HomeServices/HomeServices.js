@@ -24,12 +24,12 @@ const HomeServices = () => {
                </div>
                <div className="row row-cols-2 row-cols-lg-3">
 
-                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_gabriel_ostend.jpeg"} />
-                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_ken_coscia.jpeg"}/>
-                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_pooja_arora.jpeg"} />
-                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_christine_haley.jpeg"}/>
-                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_richard_siena.jpeg"}/>
-                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_ginger_csom.jpg"}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_gabriel_ostend.jpeg"} redirectRef={'https://silvamethod.com/events/livedetails/3004'} />
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_ken_coscia.jpeg"} redirectRef={'https://silvamethod.com/events/livedetails/2993'}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_pooja_arora.jpeg"}  redirectRef={'https://silvamethod.com/events/livedetails/2952'}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_christine_haley.jpeg"} redirectRef={'https://silvamethod.com/events/onlinedetails/3082'}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_richard_siena.jpeg"} redirectRef={'https://silvamethod.com/events/onlinedetails/3063'}/>
+                  <HomeSIngleService src={"https://silvamethod.com/assets/images/silva_instructor_ginger_csom.jpg"} redirectRef={'https://silvamethod.com/events/onlinedetails/3013'}/>
 
                </div>
             </div>

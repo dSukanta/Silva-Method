@@ -49,7 +49,7 @@ const RegisteArea = () => {
                         </form>
                         <div className="or-divide or-login"><span>or login with </span></div>
                         <button onClick={() => googleSignIn()} className="login_btn">
-                           <img src="img/icon/google_icon.svg" alt="" /> </button>
+                           <img src="img/icon/google_icon.png" alt="" /> </button>
                      </div>
                   </div>
                </div>
