@@ -200,45 +200,6 @@ const LoginArea = () => {
                            <div className="or-divide"><span>or</span></div>
                            <Link to="/register"><button className="primary_btn theme-btn w-100">Register Now</button></Link>
                         </form>
-                        <div className="or-divide or-login"><span>or login with </span></div>
-                        {/* <button onClick={() => googleSignIn()} className="login_btn">
-                           <img src="img/icon/google_icon.svg" alt="" /> </button> */}
-                        <div className='d-flex justify-content-center align-items-center flex-column gap-3'>
-                           <GoogleLogin
-                              theme='filled_black'
-                              onSuccess={credentialResponse => {
-                                 console.log(credentialResponse);
-                                 const res = jwt_decode(credentialResponse.credential)
-                                 console.log(res, "Ress")
-                                 fetchSocialLogin(res.email, res.given_name, res.family_name, res.picture)
-                                 // localStorage.setItem("google_login", true)
-                                 // localStorage.setItem("token", credentialResponse.credential)
-                                 // setIsUserLoggedIn(true)
-                                 // navigate("/")
-                              }}
-                              onError={() => {
-                                 toast.error("Login with google failed")
-                              }}
-                           />
-
-                           <FacebookLogin
-                              appId="772726314457754"
-                              onSuccess={(response) => {
-                                 console.log('Login Success!', response);
-                              }}
-                              onFail={(error) => {
-                                 console.log('Login Failed!', error);
-                              }}
-                              onProfileSuccess={(response) => {
-                                 console.log('Get Profile Success!', response);
-                              }}
-                           />
-
-
-                           <Button style={{ backgroundColor: "#9b37f2", border: "none" }} onClick={handleShow}>
-                              Login with OTP
-                           </Button>
-                        </div>
                      </div>
                   </div>
                </div>

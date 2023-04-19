@@ -1,8 +1,8 @@
 import React from 'react';
 import CommonPageHeader from '../../components/CommonPageHeader/CommonPageHeader';
-import Footer from '../../components/Shared/Footer';
 import HomeHeader from '../Home/Home/HomeHeader/HomeHeader';
 import RegisteArea from './RegisteArea/RegisteArea';
+import CustomFooter from '../Home/Home/HomeFooter/Footer';
 
 const Register = () => {
     return (
@@ -10,7 +10,7 @@ const Register = () => {
             <HomeHeader/>
             <CommonPageHeader title="Register Page" subtitle="Register" />
             <RegisteArea/>
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

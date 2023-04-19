@@ -120,15 +120,25 @@ const HomeHeader = () => {
                                        <li><Link to="/instructor/become_silva_instructor">Become an Instructor</Link></li>
                                     </ul>
                                  </li>
-                                 <li><a href="#">Products</a>
+                                 <li><Link to="/store">Products</Link>
                                     <ul className="submenu">
-                                       <li><Link to="/about">About</Link></li>
-                                       <li><Link to="/appoinment">Appoinment</Link></li>
-                                       <li><Link to="/portfolioTwoColumn">Portfolio 2 column</Link></li>
-                                       <li><Link to="/portfolioThreeColumn">Portfolio 3 column</Link></li>
-                                       <li><Link to="/portfolioSlider">Portfolio Slider</Link></li>
-                                       <li><Link to="/contact">Contact</Link></li>
-                                       <li><Link to="/notMatch">404 page</Link></li>
+                                       <li><Link to="/about">Silva Life System & Silva Intuition System (The Complete Silva Method Course)</Link></li>
+                                       <li><Link to="/appoinment">Silva Life System</Link></li>
+                                       <li><Link to="/portfolioTwoColumn">Silva Intuition System</Link></li>
+                                       <li><Link to="/portfolioThreeColumn">Silva Method Complete Manifesting Program</Link></li>
+                                       <li><Link to="/portfolioSlider">Manifesting course</Link></li>
+                                       <li><Link to="/contact">Activating Intuition</Link></li>
+                                       <li><Link to="/notMatch">Healing & Problem Solving</Link></li>
+                                       <li><Link to="/about">Manage Body & Mind Simultaneously</Link></li>
+                                       <li><Link to="/appoinment">4 Steps to the Silva Life System</Link></li>
+                                       <li><Link to="/portfolioTwoColumn">Silva Long Relax Exercise by Jose Silva</Link></li>
+                                       <li><Link to="/portfolioThreeColumn">Silva Alpha Sound</Link></li>
+                                       <li><Link to="/portfolioSlider">Silva Theta Sound</Link></li>
+                                       <li><Link to="/contact">Home Study Programs</Link></li>
+                                       <li><Link to="/notMatch">Books</Link></li>
+                                       <li><Link to="/portfolioSlider">Dynamic Meditation</Link></li>
+                                       <li><Link to="/contact">Silva Master Classes</Link></li>
+                                       <li><Link to="/notMatch">Long Relax Exercise by Jose Silva</Link></li>
                                     </ul>
                                  </li>
                                  <li><Link to="/store/blogs/">Blogs</Link>
@@ -163,6 +173,7 @@ const HomeHeader = () => {
                                           </li>
                                     )
                                  }
+                                 <li><Link to="/login">Course Login</Link></li>
                                  <li><Link to="/">Silva Cases</Link></li>
                               </ul>
                            </nav>

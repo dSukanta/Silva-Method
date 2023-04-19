@@ -97,7 +97,8 @@ html,body
 
 .first-slide-prev-btn , .first-slide-next-btn{
   width: 50px;
-  background: rgb(235, 232, 232);
+  background: #8019da;
+  color: white;
   height: 50px;
   border:none;
   font-size: 20px;
@@ -366,7 +367,67 @@ svg:hover{
   margin-top: 25px;
 }
 
+/* footer style ended */
+
 .blog_page_header_bg{
   background: url("https://silvamethod.com/store/wp-content/uploads/2022/10/topheading-shop-1.jpg");
     background-repeat: no-repeat;
+}
+
+.ovrlay-card{
+  position: relative;
+  transition: all .5s ease-in;
+}
+.overlay-card-image{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.overlay-section{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: none;
+  transition: .5s ease;
+  background-image: linear-gradient(#3420e7, #da01fd);
+}
+.ovrlay-card:hover .overlay-section{
+  opacity: 1;
+}
+.overlay-text{
+  color: white;
+  /* font-size: 10px; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.overlay-text a{
+  background-color: black;
+  padding: 1rem;
+  /* margin-top: 2rem; */
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+  background-color: #1d073085 !important;
+  color: #e1e1e1;
+}
+
+.nav-link{
+  color: #e1e1e1 !important;
+  font-size: 1.3rem;
+}
+.nav-link:hover{
+  cursor:pointer;
 }

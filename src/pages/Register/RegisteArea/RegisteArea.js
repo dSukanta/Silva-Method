@@ -277,6 +277,7 @@ const RegisteArea = () => {
                               toast.error("Login with google failed")
                            }}
                         />
+                     
                      </div>
                   </div>
                </div>

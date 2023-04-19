@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HomeSingleTeam from '../../../../components/HomeSingleTeam/HomeSingleTeam';
 import { useMediaQuery } from 'react-responsive'
 
+
 const HomeOurTeam = () => {
    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })

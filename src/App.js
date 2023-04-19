@@ -52,6 +52,8 @@ import FindInstructor from './pages/Instructors/FindInstructor';
 import BecomeInstructor from './pages/Instructors/BecomeInstructor';
 import EnglishBlog from './pages/Blogs/EnglishBlog';
 import SpanishBlog from './pages/Blogs/SpanishBlog';
+import CourseDetails from './pages/CourseDetails/CourseDetails';
+import WithHeaderFooter from './pages/WithHeaderFooter/WithHeaderFooter';
 
 
 function App() {
@@ -82,6 +84,9 @@ function App() {
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />
             <Route path="/events/online" element={<OnlineEvents />} />
+            <Route element={<WithHeaderFooter />}>
+              <Route path="/events/livedetails/:id" element={<CourseDetails />} />
+            </Route>
             {/* Event Route Ended */}
             {/* Instructor Route started */}
             <Route path="/instructor" element={<Instructors />} />
@@ -89,9 +94,15 @@ function App() {
             <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
             {/* Instructor Route Ended */}
             {/* Blogs Route started */}
+            <Route path="/store" element={<Blogs />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
             {/* Blogs Route Ended */}
+            {/*Auth Route started */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            {/*Auth Route Ended */}
+            
             
             <Route path="/homeFour" element={<HomeFour />} />
             <Route path="/homeFive" element={<HomeFive />} />
@@ -102,11 +113,8 @@ function App() {
             <Route path="/shoppingCart" element={<ShoppingCart />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/wishList" element={<WishList />} />
-           <Route element={<PublicRoutes />}>
-           <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-           </Route>
-            <Route path="/blogs" element={<Blogs />} />
+            
+            
             <Route path="/blogLeftSideBar" element={<BlogLeftSideBar />} />
             <Route path="/blogNoSideBar" element={<BlogNoSideBar />} />
             <Route path="/blogTwoColumn" element={<BlogTwoColumn />} />
