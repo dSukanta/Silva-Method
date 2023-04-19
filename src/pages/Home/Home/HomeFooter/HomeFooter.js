@@ -8,8 +8,8 @@ const HomeFooter = () => {
                 <div className="footer-top primary-bg pt-115 pb-90">
                     <div className="container">
                         <div className="row">
-                            <div className="col-xl-5 col-lg-6 col-md-8">
-                                {/* <div className="footer-contact-info mb-30">
+                            {/* <div className="col-xl-5 col-lg-6 col-md-8">
+                                <div className="footer-contact-info mb-30">
                                     <div className="emmergency-call fix">
                                         <div className="emmergency-call-icon f-left">
                                             <i className="fas fa-phone"></i>
@@ -32,23 +32,37 @@ const HomeFooter = () => {
                                             <li><i className="far fa-clone"></i>examplemedical.com</li>
                                             <li><i className="far fa-flag"></i>227 Marion Street, Columbia</li>
                                         </ul>
-                                    </div> */}
-                                {/* </div> */}
+                                    </div>
+                                </div>
+                            </div> */}
+                            <div className="col-xl-2 offset-xl-1 col-lg-3 col-md-4">
+                                
+                                <div className="footer-widget mb-30">
+                                    <div className="footer-title">
+                                        <h3>Courses</h3>
+                                    </div>
+                                    <div className="footer-menu">
+                                        <ul>
+                                            <li><Link to="/servicesDetails">Silva Life System</Link></li>
+                                            <li><Link to="/servicesDetails"> Silva Intuition System </Link></li>
+                                            <li><Link to="/servicesDetails"> Silva Mastery System </Link></li>
+                                            <li><Link to="/servicesDetails">Basic Lecture Series(BLS)</Link></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div className="col-xl-2 offset-xl-1 col-lg-3 col-md-4">
                                 
                                 <div className="footer-widget mb-30">
                                     <div className="footer-title">
-                                        <h3>Departments</h3>
+                                        <h3>Latest Blogs</h3>
                                     </div>
                                     <div className="footer-menu">
                                         <ul>
-                                            <li><Link to="/servicesDetails">Surgery and Radiology</Link></li>
-                                            <li><Link to="/servicesDetails">Family Medicine</Link></li>
-                                            <li><Link to="/servicesDetails">Women’s Health</Link></li>
-                                            <li><Link to="/servicesDetails">Optician</Link></li>
-                                            <li><Link to="/servicesDetails">Pediatrics</Link></li>
-                                            <li><Link to="/servicesDetails">Dermatology</Link></li>
+                                            <li><Link to="/servicesDetails">What is Silva Method?</Link></li>
+                                            <li><Link to="/servicesDetails">Silva Life System: The Core of Silva Method Program</Link></li>
+                                            <li><Link to="/servicesDetails">What is Manifesting & how it can Transform your life</Link></li>
+                                            <li><Link to="/servicesDetails">A biography on Jose Silva’s Penmanship</Link></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -60,13 +74,30 @@ const HomeFooter = () => {
                                     </div>
                                     <div className="footer-menu">
                                         <ul>
-                                            <li><Link to="/servicesDetails">Departments</Link></li>
-                                            <li><Link to="/doctors">Our Doctors</Link></li>
-                                            <li><Link to="/blogs">News</Link></li>
-                                            <li><Link to="/shop">Shop</Link></li>
-                                            <li><Link to="/contact">Contact Us</Link></li>
-                                            <li><Link to="/contact">Book an Appointment</Link></li>
+                                            <li><Link to="/servicesDetails">Books</Link></li>
+                                            <li><Link to="/doctors">FAQs</Link></li>
+                                            <li><Link to="/blogs">Silva Cases</Link></li>
+                                            <li><Link to="/shop">Login as Admin</Link></li>
+                                            <li><Link to="/contact">Login as Instructor</Link></li>
                                         </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-xl-2 offset-xl-1 col-lg-3 col-md-4">
+                                
+                                <div className="footer-widget mb-30">
+                                    <div className="footer-title">
+                                        <h3>About</h3>
+                                    </div>
+                                    <div className="footer-menu">
+                                       <p>We are a global organization dedicated to changing lives by empowering minds.</p>
+                                       <p>Phone : +1-800-545-6463 (Toll Free for USA) | + 1  956-286-3004</p>
+                                       <p>WhatsApp : +1  956-722-6391</p>
+                                       <img src='https://seal-austin.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-19971.png'/>
+                                        <div style={{display:'flex'}}>
+                                            <button className='footer-contact-btn'>Contact Us</button>
+                                            <button className='footer-join-btn'>Join Us</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -86,33 +86,38 @@ const HomeHeader = () => {
                                  <li><Link to="/">Home</Link>
                                  </li>
                                  {/* <li><Link to="/">Enroll Online Classes</Link></li> */}
-                                 <li><Link to="/services">About</Link>
+                                 <li><Link to="/about">About</Link>
                                     <ul className="submenu">
                                        <li><Link to="/services">About us</Link></li>
                                        <li><Link to="/contact">Contact Us</Link></li>
                                        <li><Link to="/servicesDetails">Research</Link></li>
+                                       <li><Link to="/about">About us</Link></li>
+                                       <li><Link to="/contact">Contact Us</Link></li>
+                                       <li><Link to="/research">Research</Link></li>
                                     </ul>
                                  </li>
-                                 <li><Link to="/doctors">Seminars</Link>
+                                 <li><Link to="/courses/basic_lecture_series">Seminars</Link>
                                     <ul className="submenu">
-                                       <li><Link to="/doctors">Basic Lecture Series(BLS-4)</Link></li>
-                                       <li><Link to="/doctorsTwo">Seminars</Link></li>
-                                       <li><Link to="/doctorDetails">Silva Life System</Link></li>
+                                       <li><Link to="/courses/basic_lecture_series">Basic Lecture Series(BLS-4)</Link></li>
+                                       <li><Link to="/courses/seminar">Seminars</Link></li>
+                                       <li><Link to="/courses/silva_life_system">Silva Life System</Link></li>
                                        <li><Link to="/doctorDetails">Silva Intuition System</Link></li>
                                        <li><Link to="/doctorDetails">Silva Mastery System</Link></li>
                                     </ul>
                                  </li>
-                                 <li><Link to="/shop">Events</Link>
+                                 <li><Link to="/events/live">Events</Link>
                                     <ul className="submenu">
                                        <li><Link to="/shop">Live</Link></li>
                                        <li><Link to="/shopDetails">Online</Link></li>
+                                       <li><Link to="/events/live">Live</Link></li>
+                                       <li><Link to="/events/online">Online</Link></li>                     
                                     </ul>
                                  </li>
-                                 <li><Link to="/blogs">Instructors</Link>
+                                 <li><Link to="/instructor">Instructors</Link>
                                     <ul className="submenu">
-                                       <li><Link to="/blogs">Instructors</Link></li>
-                                       <li><Link to="/blogLeftSideBar">Find Instructor</Link></li>
-                                       <li><Link to="/blogNoSideBar">Become an Instructor</Link></li>
+                                       <li><Link to="/instructor">Instructors</Link></li>
+                                       <li><Link to="/instructor/find_instructor">Find Instructor</Link></li>
+                                       <li><Link to="/instructor/become_silva_instructor">Become an Instructor</Link></li>
                                     </ul>
                                  </li>
                                  <li><a href="#">Products</a>
@@ -126,10 +131,12 @@ const HomeHeader = () => {
                                        <li><Link to="/notMatch">404 page</Link></li>
                                     </ul>
                                  </li>
-                                 <li><Link to="/shop">Blogs</Link>
+                                 <li><Link to="/store/blogs/">Blogs</Link>
                                     <ul className="submenu">
                                        <li><Link to="/shop">English Blogs</Link></li>
                                        <li><Link to="/shopDetails">Spanish Blogs</Link></li>
+                                       <li><Link to="/store/blogs/">English Blogs</Link></li>
+                                       <li><Link to="/store/spanish-blogs/">Spanish Blogs</Link></li>                     
                                     </ul>
                                  </li>
 

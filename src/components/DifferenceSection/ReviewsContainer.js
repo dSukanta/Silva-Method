@@ -117,11 +117,9 @@ function ReviewsContainer() {
                     <Slider {...settings}>
                         {
                             reviews.map((val, i) => (
-
                                 <div className="col-sm-12 col-md-6 col-lg-4 mb-4">
                                     <CustomerReviews data={val} setModalShow={setModalShow} setData={setData} />
                                 </div>
-
                             ))
                         }
                     </Slider>

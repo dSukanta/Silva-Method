@@ -4,6 +4,7 @@ import Footer from '../../../components/Shared/Footer';
 import HomeHeader from '../../Home/Home/HomeHeader/HomeHeader';
 import ShopDetailsBanner from './ShopDetailsBanner/ShopDetailsBanner';
 import ShopDetailsDesc from './ShopDetailsDesc/ShopDetailsDesc';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const ShopDetails = () => {
     return (
@@ -12,7 +13,7 @@ const ShopDetails = () => {
             <CommonPageHeader title="Product Details" subtitle="Details" />
             <ShopDetailsBanner/>
             <ShopDetailsDesc/>
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

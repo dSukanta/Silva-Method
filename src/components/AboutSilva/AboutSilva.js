@@ -3,7 +3,7 @@ import React from 'react';
 const AboutSilva = () => {
    return (
       <>
-         <section className="about-area pt-120 pb-90">
+         <section className="about-area pt-120 pb-10">
             <div className="container">
                <div className="row">
                   <div className="col-xl-6 col-lg-2 about_left">
@@ -12,7 +12,7 @@ const AboutSilva = () => {
                      </div> */}
                      <div className="about-left-side pos-rel">
                         <div className="about-front-img">
-                           <img src="img/logo/silvamethod-logo.png" alt=""/>
+                           <img src="img/shape/jose_silva.jpg" alt=""/>
                         </div>
                         <div className="about-shape">
                            <img src="img/about/about-shape.png" alt=""/>
@@ -23,7 +23,7 @@ const AboutSilva = () => {
                      <div className="about-right-side pt-55 mb-30">
                         <div className="about-title mb-20">
                            <h5>About Us</h5>
-                           <h1>Short Story About Silva Method.</h1>
+                           <h1>Short Story About Jose Silva </h1>
                         </div>
                         <div className="about-text">
                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute

@@ -1,18 +1,43 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
-const HomeSingleTeam = ({image,title,subtitle}) => {
+const HomeSingleTeam = ({src,title,subtitle}) => {
+   const renderTooltip = (props) => (
+      <Tooltip id="button-tooltip" {...props}>
+        {title}
+      </Tooltip>
+    );
+
+    const renderSubTitle=(props)=>(
+      <Tooltip id="button-tooltip" {...props}>
+        {subtitle}
+      </Tooltip>
+    );
    return (
       <>
-         <div className="col-xl-4 col-lg-4 col-md-6">
-            <div className="team-box text-center mb-60">
-               <div className="team-thumb mb-45 pos-rel">
-                  <img src={`img/team/member${image}.png`} alt=""/>
+         <div>
+            <div>
+               <div>
+                  <img src={src} alt=''/>
                   {/* <Link className="team-link" to="/doctorDetails">+</Link> */}
                </div>
-               <div className="team-content">
-                  <h3>{title}</h3>
-                  <h6>{subtitle}</h6>
+               <div>
+               <OverlayTrigger
+               placement="top"
+               delay={{ show: 250, hide: 400 }}
+               overlay={renderTooltip} >
+                  <h6 style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{title}</h6>
+               </OverlayTrigger>
+               <OverlayTrigger
+               placement="top"
+               delay={{ show: 250, hide: 400 }}
+               overlay={renderSubTitle} >
+                     <p style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{subtitle}</p>
+               </OverlayTrigger>
+
+              
                </div>
                <div>
                   <button className='buy-now-btn'>Buy Now</button>

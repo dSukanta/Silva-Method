@@ -41,6 +41,17 @@ import './App.css';
 import NotFound from './pages/NotFound/NotFound';
 import { Toaster } from 'react-hot-toast';
 import PublicRoutes from './privateRoutes/PublicRoutes';
+import LiveEvents from './pages/events/LiveEvents';
+import OnlineEvents from './pages/events/OnlineEvents';
+import BasicLecture from './pages/seminars/BasicLecture';
+import Seminars from './pages/seminars/Seminars';
+import LifeSystem from './pages/seminars/LifeSystem';
+import Research from './pages/Contact/Research';
+import Instructors from './pages/Instructors/Instructors';
+import FindInstructor from './pages/Instructors/FindInstructor';
+import BecomeInstructor from './pages/Instructors/BecomeInstructor';
+import EnglishBlog from './pages/Blogs/EnglishBlog';
+import SpanishBlog from './pages/Blogs/SpanishBlog';
 
 
 function App() {
@@ -51,21 +62,43 @@ function App() {
         <BrowserRouter>
           <ScrollTop />
           <Routes>
+            {/* Home Route started*/}
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
             <Route path="/homeTwo" element={<HomeTwo />} />
             <Route path="/homeThree" element={<HomeThree />} />
+            {/* Home Route Ended */}
+            {/*About Route started*/}
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/research" element={<Research />} />
+            {/* About Route Ended */}
+            {/* Seminar Route Started */}
+            <Route path="/courses/basic_lecture_series" element={<BasicLecture />} />
+            <Route path="/courses/seminar" element={<Seminars />} />
+            <Route path="/courses/silva_life_system" element={<LifeSystem />} />
+            {/* Seminar Route Ended */}
+            {/*Events Route Started */}
+            <Route path="/events/live" element={<LiveEvents />} />
+            <Route path="/events/online" element={<OnlineEvents />} />
+            {/* Event Route Ended */}
+            {/* Instructor Route started */}
+            <Route path="/instructor" element={<Instructors />} />
+            <Route path="/instructor/find_instructor" element={<FindInstructor />} />
+            <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
+            {/* Instructor Route Ended */}
+            {/* Blogs Route started */}
+            <Route path="/store/blogs/" element={<EnglishBlog />} />
+            <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
+            {/* Blogs Route Ended */}
+            
             <Route path="/homeFour" element={<HomeFour />} />
             <Route path="/homeFive" element={<HomeFive />} />
             <Route path="/services" element={<ServicesOne />} />
             <Route path="/servicesTwo" element={<ServicesTwo />} />
-            <Route path="/servicesDetails" element={<ServicesDetails />} />
-            <Route path="/doctors" element={<DoctorsOne />} />
-            <Route path="/doctorsTwo" element={<DoctorsTwo />} />
-            <Route path="/doctorDetails" element={<DoctorDetails />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/shopDetails" element={<ShopDetails />} />
+        
+            <Route path="/online" element={<ShopDetails />} />
             <Route path="/shoppingCart" element={<ShoppingCart />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/wishList" element={<WishList />} />
@@ -85,12 +118,12 @@ function App() {
             <Route path="/blogDetailsAudio" element={<DetailsAudio />} />
             <Route path="/blogDetailsVideo" element={<DetailsVideo />} />
             <Route path="/blogDetailsGallery" element={<DetailsGallery />} />
-            <Route path="/about" element={<AboutUs />} />
+            
             <Route path="/appoinment" element={<Appointment />} />
             <Route path="/portfolioTwoColumn" element={<PortfolioTwoColumn />} />
             <Route path="/portfolioThreeColumn" element={<PortfolioThreeCol />} />
             <Route path="/portfolioSlider" element={<PortfolioSlider />} />
-            <Route path="/contact" element={<Contact />} />
+            
             <Route path="/notMatch" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -3,14 +3,15 @@ import CommonPageHeader from '../../../components/CommonPageHeader/CommonPageHea
 import Footer from '../../../components/Shared/Footer';
 import HomeHeader from '../../Home/Home/HomeHeader/HomeHeader';
 import DoctorDetailsArea from './DoctorDetailsArea/DoctorDetailsArea';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const DoctorDetails = () => {
     return (
         <>
             <HomeHeader/>
-            <CommonPageHeader title="Doctor Details" subtitle="Details" />
+            <CommonPageHeader title="SILVA LIFE SYSTEM" subtitle="Details" />
             <DoctorDetailsArea/>
-            <Footer/>
+            <CustomFooter/>
         </>
     );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 const HomeAboutArea = () => {
    return (
       <>
-         <section className="about-area pt-120 pb-90">
+         <section className="about-area pt-50 pb-90">
             <div className="container">
                <div className="row">
                   <div className="col-xl-6 col-lg-2 about_left">
@@ -12,7 +12,7 @@ const HomeAboutArea = () => {
                      </div> */}
                      <div className="about-left-side pos-rel">
                         <div className="about-front-img">
-                           <img src="img/logo/silvamethod-logo.png" alt=""/>
+                           <img src="img/shape/silva_method.png" alt=""/>
                         </div>
                         <div className="about-shape">
                            <img src="img/about/about-shape.png" alt=""/>

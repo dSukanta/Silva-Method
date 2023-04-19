@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Ubuntu:wght@300;400&display=swap');
 
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
 
 
@@ -62,6 +65,9 @@
 .buy-now-btn{
   background: #ff0062;
   border-radius: 40px;
+  background: #7a12d4;
+  color: white;
+  border-radius: 35px;
   width: 100px;
   height: 40px;
   border: none;
@@ -74,7 +80,7 @@
   width: 100%;
   margin: auto;
   margin-top: 2rem;
-  background-color: blue;
+  background-color: purple;
   padding: 5px 20px;
 }
 .home-hero-divided h1{
@@ -139,9 +145,91 @@ background-color: white;
 }
 
 .featured-images{
+  width: 200px;
+  height: 30px;
+  filter: invert(1) grayscale(1) brightness(1200);
+}
+
+/* footer styles css */
+
+.custom-footer-container{
+  width: 100%;
+  background:#8019da;
+}
+
+.custom-footer{
+	  padding: 60px 0;
+    width: 100%;
+    background:#8019da;
+    color: white;
+   
+}
+.custom-footer-title{
+	position: relative;
+    color: white;
+	  font-size: 24px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+.custom-footer-title:after{
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 0;
+	width: 30px;
+	height: 4px;
+	background: #ff304d;
+}
+.custom-footer-links a{
+	padding: 10px 0;
+	/* border-bottom: 1px solid #404040; */
+	color: white;
+	display: block;
+	transition: color 0.5s ease-in-out;
+   text-decoration:none;
+}
+.custom-footer-links a:hover{
+	color: #ff304d;
+}
+.custom-footer-social-links li{
+	display: inline-block;
+}
+.custom-footer-social-links a{
+	width: 40px;
+	height: 40px;
+	font-size: 20px;
+	float: left;
+	margin-right: 10px;
+	padding: 10px;
+	/* border: 1px solid #404040; */
+	border-radius: 50px;
+	text-align: center;
+	color: white;
+	line-height: 1;
+	-webkit-transition: background 0.3s ease-in-out;
+	-moz-transition: background 0.3s ease-in-out;
+	transition: background 0.3s ease-in-out;
+}
+.custom-footer-social-links a:hover{
+	background: white;
+  color: blue;
+}
+/* g. Footer bottom section */
+.custom-footer-bottom{
+	display: flex;
+  justify-content: space-between;
+  border-top: 1px solid white;
+  padding: 10px;
+  width: 70%;
+  margin: auto;
+}
+.custom-footer-bottom div{
   display: flex;
-  gap: 2rem;
-  background-color: purple;
+}
+.footer-contact-btn{
+  background-color: black;
   color: white;
   text-align: center;
   align-items: center;
@@ -153,9 +241,11 @@ svg:hover{
 }
 
 .our-team {
-  padding: 30px 0 40px;
+  padding: 30px 20px 40px 20px;
+  /* padding: 30px 100px 40px 100px; */
+  width: 100%;
   margin-bottom: 30px;
-  background-color: #f7f5ec;
+  background-color: whitesmoke;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -172,9 +262,9 @@ svg:hover{
 
 .our-team .picture::before {
   content: "";
-  width: 100%;
+  width: 200%;
   height: 0;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background-color: #9b37f2;
   position: absolute;
   bottom: 135%;
@@ -260,4 +350,23 @@ svg:hover{
 
 .modal-new::-webkit-scrollbar {
   display: none;
+  border-radius: 35px;
+  padding: 6.5px 20px;
+  border: none;
+  margin-top: 25px;
+}
+
+.footer-join-btn{
+  background-color: black;
+  color: white;
+  margin-left: 10px;
+  border-radius: 35px;
+  padding: 6.5px 20px;
+  border: none;
+  margin-top: 25px;
+}
+
+.blog_page_header_bg{
+  background: url("https://silvamethod.com/store/wp-content/uploads/2022/10/topheading-shop-1.jpg");
+    background-repeat: no-repeat;
 }

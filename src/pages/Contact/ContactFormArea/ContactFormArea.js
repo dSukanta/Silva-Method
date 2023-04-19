@@ -15,11 +15,11 @@ const ContactFormArea = () => {
                         </div>
                      </div>
                      <div className="col-xl-4 col-lg-3 d-none d-xl-block ">
-                        <div className="section-link mb-80 text-end">
+                        {/* <div className="section-link mb-80 text-end">
                            <Link to="/appoinment"
                            className="primary_btn btn-icon ml-0"><span>+</span>Make
                               Appointment</Link>
-                        </div>
+                        </div> */}
                      </div>
                   </div>
                   <div className="contact-form">

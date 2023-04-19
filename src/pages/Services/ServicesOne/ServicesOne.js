@@ -13,6 +13,7 @@ import ImageTextSection from '../../../components/ImageTextSection/ImageTextSect
 import DifferenceSection from '../../../components/DifferenceSection/DifferenceSection';
 import ReviewsContainer from '../../../components/DifferenceSection/ReviewsContainer';
 import BookContent from '../../../components/Bookcontent/BookContent';
+import CustomFooter from '../../Home/Home/HomeFooter/Footer';
 
 const ServicesOne = () => {
    
@@ -30,7 +31,10 @@ const ServicesOne = () => {
          <DifferenceSection />
          <ReviewsContainer />
          <BookContent />
-         <Footer/>
+         {/* <Footer/> */}
+         {/* <CalculateArea/> */}
+         {/* <ServicesOneHiringArea/> */}
+         <CustomFooter/>
       </>
    );
 };

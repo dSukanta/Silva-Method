@@ -182,9 +182,66 @@
      position: relative;
 }
  .primary_btn:hover {
-     background: #8fb569;
+     background: #581d8b;
      color: #fff;
 }
+
+.primary_btn2 {
+    background: #1696e7;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0;
+    padding: 24px 40px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+.primary_btn2:hover {
+    background: #104e75;
+    color: #fff;
+}
+
+.primary_btn_mobile {
+    background: #1696e7;
+    border: medium none;
+    border-radius: 0;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 30px;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin-bottom: 0;
+    padding: 12px 25px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transition: all 0.3s ease 0s;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
+}
+.primary_btn_mobile:hover {
+    background: #104e75;
+    color: #fff;
+}
+
+
+
  .btn-icon {
      border-radius: 30px;
      padding-left: 84px;

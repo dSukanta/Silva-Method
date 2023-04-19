@@ -68,8 +68,7 @@ export default function Reviews() {
           delay: 1000,
           disableOnInteraction: false,
         }}
-        loop
-        modules={[Pagination,Autoplay]}
+        modules={[Autoplay,Pagination]}
         className="mySwiper"
       >
         <SwiperSlide>
