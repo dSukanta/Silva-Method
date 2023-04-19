@@ -12,6 +12,7 @@ import AboutCounter2 from '../../AboutUs/AboutCounter/AboutCounter2';
 import ImageTextSection from '../../../components/ImageTextSection/ImageTextSection';
 import DifferenceSection from '../../../components/DifferenceSection/DifferenceSection';
 import ReviewsContainer from '../../../components/DifferenceSection/ReviewsContainer';
+import BookContent from '../../../components/Bookcontent/BookContent';
 
 const ServicesOne = () => {
    
@@ -28,6 +29,7 @@ const ServicesOne = () => {
          <AboutCounter2 />
          <DifferenceSection />
          <ReviewsContainer />
+         <BookContent />
          <Footer/>
       </>
    );

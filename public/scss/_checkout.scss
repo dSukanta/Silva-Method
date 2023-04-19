@@ -1,7 +1,7 @@
 /* 23. Checkout */
  .coupon-accordion h3 {
      background-color: #fff1f0;
-     border-top: 3px solid #e12454;
+     border-top: 3px solid #9b37f2;
      font-size: 14px;
      font-weight: 400;
      margin: 0 0 25px;
@@ -24,7 +24,7 @@
      transition: .3s;
 }
  .coupon-accordion span:hover, p.lost-password a:hover {
-     color: #e12454;
+     color: #9b37f2;
 }
  .coupon-content {
      border: 1px solid #eaedff;
@@ -55,7 +55,7 @@
      width: 100%;
 }
  .coupon-info p.form-row input[type="submit"]:hover, p.checkout-coupon input[type="submit"]:hover {
-     background: #e12454 none repeat scroll 0 0;
+     background: #9b37f2 none repeat scroll 0 0;
 }
  .coupon-info p.form-row input[type="checkbox"] {
      position: relative;
@@ -263,7 +263,7 @@
      background: #F9F9F9;
 }
  .your-order-table table tr.order-total td span {
-     color: #e12454;
+     color: #9b37f2;
      font-size: 18px;
      font-weight: 500;
 }

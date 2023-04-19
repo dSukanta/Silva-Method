@@ -89,7 +89,7 @@ const HomeHeader = () => {
                                  <li><Link to="/services">About</Link>
                                     <ul className="submenu">
                                        <li><Link to="/services">About us</Link></li>
-                                       <li><Link to="/servicesTwo">Contact Us</Link></li>
+                                       <li><Link to="/contact">Contact Us</Link></li>
                                        <li><Link to="/servicesDetails">Research</Link></li>
                                     </ul>
                                  </li>

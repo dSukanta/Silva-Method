@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 import { AuthContext } from '../../context/AllContext';
+import {AiOutlineClose} from "react-icons/ai";
 
 function CustomModal(props) {
     console.log(props.data)
@@ -15,6 +16,9 @@ function CustomModal(props) {
             centered
             style={{ zIndex: "100000" }}
         >
+            <Modal.Header className='d-flex justify-content-end'>
+                <AiOutlineClose size={30} onClick={props.onHide} />
+            </Modal.Header>
             <Modal.Body className='modal-new' style={{ maxHeight: "450px", overflow: "scroll", textAlign: "start" }}>
 
                 {
@@ -82,9 +86,6 @@ function CustomModal(props) {
                     )
                 }
             </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide} className='primary_btn'>Close</Button>
-            </Modal.Footer>
         </Modal>
     )
 }

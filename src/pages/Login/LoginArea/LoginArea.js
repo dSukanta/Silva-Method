@@ -235,7 +235,7 @@ const LoginArea = () => {
                            />
 
 
-                           <Button style={{ backgroundColor: "#e12454", border: "none" }} onClick={handleShow}>
+                           <Button style={{ backgroundColor: "#9b37f2", border: "none" }} onClick={handleShow}>
                               Login with OTP
                            </Button>
                         </div>
