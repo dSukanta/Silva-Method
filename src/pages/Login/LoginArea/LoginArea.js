@@ -200,6 +200,25 @@ const LoginArea = () => {
                            <div className="or-divide"><span>or</span></div>
                            <Link to="/register"><button className="primary_btn theme-btn w-100">Register Now</button></Link>
                         </form>
+                        <div className="or-divide or-login"><span>or login with </span>
+                         <div className='d-flex justify-content-center mb-4 mt-4'>
+                         <GoogleLogin
+                          theme='filled_black'
+                          onSuccess={credentialResponse => {
+                             console.log(credentialResponse);
+                             const res = jwt_decode(credentialResponse.credential)
+                             fetchSocialLogin(res.email,res.given_name,res.family_name,res.picture)
+                          }}
+                          onError={() => {
+                             toast.error("Login with google failed")
+                          }}
+                       />
+                         </div>
+                       <button className="primary_btn2 theme-btn" onClick={handleShow}>
+                         Login with OTP
+                       </button>
+                       </div>
+                       
                      </div>
                   </div>
                </div>

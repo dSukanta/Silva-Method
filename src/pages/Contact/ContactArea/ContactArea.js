@@ -1,5 +1,6 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import {AiOutlineMail } from "react-icons/ai";
 
 const ContactArea = () => {
    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -12,6 +13,7 @@ const ContactArea = () => {
                         <div className="col-xl-4 col-lg-4 col-md-4">
                             <div className="contact text-center mb-30">
                                 <i className="fas fa-envelope"></i>
+                                {/* <AiOutlineMail size={50} className='mt-4' /> */}
                                 <h3>Email</h3>
                                 <p style={{fontSize:"1.2rem"}}><a href="mailto:digital@silvamethod.com">digital@silvamethod.com</a></p>
                             </div>

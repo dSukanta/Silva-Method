@@ -5,7 +5,8 @@ import useGlobalContext from '../../../../hooks/useGlobalContext';
 import { AuthContext } from '../../../../context/AllContext';
 import {BiLogOut} from "react-icons/bi";
 import Swal from 'sweetalert2';
-
+import {RxHamburgerMenu} from "react-icons/rx"
+import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
 const HomeHeader = () => {
    const navigate = useNavigate()
    const [show, setShow] = useState(false);
@@ -53,7 +54,7 @@ const HomeHeader = () => {
                   <div className="row align-items-center">
                      <div className="col-xl-3 col-lg-3 col-md-6 col-6 d-flex align-items-center">
                         <div>
-                           <Link to="/"><img src="img/logo/silvamethod-logo.png" alt="" /></Link>
+                           <Link to="/"><img src={logoimg} alt="" /></Link>
                         </div>
                      </div>
                      <div className="col-xl-9 col-lg-9 col-md-6 col-6">
@@ -181,7 +182,9 @@ const HomeHeader = () => {
 
                         <div className="side-menu-icon d-lg-none text-end">
                            <button onClick={handleShow} className="side-toggle border-0 bg-transparent">
-                              <i className="fas fa-bars"></i> </button>
+                              {/* <i className="fas fa-bars"></i>  */}
+                               <RxHamburgerMenu color='black' size={30} />
+                              </button>
                         </div>
                      </div>
                   </div>

@@ -10,10 +10,24 @@ import { AuthContext } from '../../../context/AllContext';
 import { GoogleLogin } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import { toast } from 'react-hot-toast';
+import OtpModal from '../../../components/OtpModal/OtpModal';
+import SendOTP from '../../Login/LoginArea/SendOTP';
+import VerifyOTP from '../../Login/LoginArea/VerifyOTP';
 
 const RegisteArea = () => {
+   
+   const [otpsent, setOtpSent] = useState(() => {
+      if (localStorage.getItem("otpsent")) {
+         return true
+      } else {
+         return false;
+      }
+   });
    const [loading,setLoading] = useState(false)
+   const [show, setShow] = useState(false);
 
+   const handleClose = () => setShow(false);
+   const handleShow = () => setShow(true);
    const navigate = useNavigate()
    // const { registerUser, googleSignIn } = useAuth();
    const [showPass, setShowPass] = useState(false);
@@ -264,25 +278,38 @@ const RegisteArea = () => {
                            <Link to="/login"><button className="primary_btn btn-icon-green w-100">login Now</button></Link>
                         </form>
                         <div className="or-divide or-login"><span>or login with </span>
-                       
+                        <div className='d-flex justify-content-center mb-4 mt-4'>
+                         <GoogleLogin
+                          theme='filled_black'
+                          onSuccess={credentialResponse => {
+                             console.log(credentialResponse);
+                             const res = jwt_decode(credentialResponse.credential)
+                             fetchSocialLogin(res.email,res.given_name,res.family_name,res.picture)
+                          }}
+                          onError={() => {
+                             toast.error("Login with google failed")
+                          }}
+                       />
+                         </div>
+                       <button className="primary_btn2 theme-btn" onClick={handleShow}>
+                         Login with OTP
+                       </button>
                         </div>
-                        <GoogleLogin
-                           theme='filled_black'
-                           onSuccess={credentialResponse => {
-                              console.log(credentialResponse);
-                              const res = jwt_decode(credentialResponse.credential)
-                              fetchSocialLogin(res.email,res.given_name,res.family_name,res.picture)
-                           }}
-                           onError={() => {
-                              toast.error("Login with google failed")
-                           }}
-                        />
-                     
+                        
                      </div>
                   </div>
                </div>
             </div>
          </section>
+         <OtpModal show={show} setShow={setShow} handleClose={handleClose}>
+            {
+               !otpsent ? (
+                  <SendOTP setOtpSent={setOtpSent} />
+               ) : (
+                  <VerifyOTP setOtpSent={setOtpSent} handleClose={handleClose} setIsUserLoggedIn={setIsUserLoggedIn} />
+               )
+            }
+         </OtpModal>
       </>
    );
 };

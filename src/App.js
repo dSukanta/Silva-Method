@@ -54,6 +54,7 @@ import EnglishBlog from './pages/Blogs/EnglishBlog';
 import SpanishBlog from './pages/Blogs/SpanishBlog';
 import CourseDetails from './pages/CourseDetails/CourseDetails';
 import WithHeaderFooter from './pages/WithHeaderFooter/WithHeaderFooter';
+import StoreProducts from './pages/Store/StoreProducts';
 
 
 function App() {
@@ -94,7 +95,7 @@ function App() {
             <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
             {/* Instructor Route Ended */}
             {/* Blogs Route started */}
-            <Route path="/store" element={<Blogs />} />
+            <Route path="/store" element={<StoreProducts />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
             {/* Blogs Route Ended */}
