@@ -3,19 +3,21 @@ import { Link } from 'react-router-dom';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-
-const HomeSingleTeam = ({src,title,subtitle}) => {
+const HomeSingleTeam = ({data}) => {
   
+   console.log(data);
+
+   const {web_image,teacher_name,course_title,course_id}= data;
 
    const renderTooltip = (props) => (
       <Tooltip id="button-tooltip" {...props}>
-        {title}
+        {course_title}
       </Tooltip>
     );
 
     const renderSubTitle=(props)=>(
       <Tooltip id="button-tooltip" {...props}>
-        {subtitle}
+        {teacher_name}
       </Tooltip>
     );
    return (
@@ -23,7 +25,7 @@ const HomeSingleTeam = ({src,title,subtitle}) => {
          <div>
             <div>
                <div>
-                  <img src={src} alt=''/>
+                  <img src={web_image? web_image:'img/logo/title-logo'} alt=''/>
                   {/* <Link className="team-link" to="/doctorDetails">+</Link> */}
                </div>
                <div>
@@ -31,13 +33,13 @@ const HomeSingleTeam = ({src,title,subtitle}) => {
                placement="top"
                delay={{ show: 250, hide: 400 }}
                overlay={renderTooltip} >
-                  <h6 style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis', marginTop:'10px'}}>{title}</h6>
+                  <h6 style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis', marginTop:'10px'}}>{course_title}</h6>
                </OverlayTrigger>
                <OverlayTrigger
                placement="top"
                delay={{ show: 250, hide: 400 }}
                overlay={renderSubTitle} >
-                     <p style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{subtitle}</p>
+                     <p style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{teacher_name}</p>
                </OverlayTrigger>
 
               

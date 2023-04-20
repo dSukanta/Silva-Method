@@ -2,7 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 
-const HomeSIngleService = ({ src,redirectRef}) => {
+const HomeSIngleService = ({data}) => {
+   //console.log(data);
+
+   const {instructor_name,class_id}= data;
+
+
    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
    const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
@@ -10,17 +15,17 @@ const HomeSIngleService = ({ src,redirectRef}) => {
    return (
       <>
         <div className='ovrlay-card'>
-            <img src={src} className='overlay-card-image'/>
+            <img src='https://silvamethod.com/assets/images/silva_instructor_pooja_arora.jpeg' className='overlay-card-image'/>
             
          <div className='overlay-section'>
             <div className='overlay-text' style={{fontSize: isMobile? '10px':'20px'}}>
                   Instructor Name
                   <br/>
                   <br/>
-                  Gabriel Ostend
+                  {instructor_name}
                   <br/>
                   <br/>
-                  <a href={redirectRef}>View Details</a>
+                  <Link to={`/coursedetails/${class_id}`}><p style={{color:'white',}}>Course Details</p></Link>
             </div>
          </div>
         </div>

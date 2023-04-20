@@ -18,6 +18,10 @@ import FirstSlide from '../../../components/HomeHeroSingleSlide/FirstSlide';
 import Reviews from '../../../components/featured/Reviews';
 import LastSlide from '../../../components/HomeHeroSingleSlide/LastSlide';
 import CustomFooter from './HomeFooter/Footer';
+import Newsletter from '../../../components/Newsletter/Newsletter';
+import CountrySection from '../../../components/CountrySection/CountrySection';
+import Map from '../../../components/CountrySection/MapContainer';
+import AudioBlogs from '../../Blogs/AudioBlog';
 const Home = () => {
     return (
         <>
@@ -37,7 +41,11 @@ const Home = () => {
             {/* <HomeFact/>
             <HomePricing/> */}
             {/* <HomeCta/> */}
-            {/* <HomeBlogs/> */}
+            <HomeBlogs/>
+            {/* <Map/> */}
+            <CountrySection/>
+            <AudioBlogs/>
+            <Newsletter/>
             {/* <HomeFooter/> */}
             <CustomFooter/>
         </>

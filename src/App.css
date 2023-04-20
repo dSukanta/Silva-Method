@@ -285,12 +285,37 @@ background-color: white;
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.overlay-text a{
+.overlay-text p{
   background-color: black;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
   /* margin-top: 2rem; */
   display: inline-block;
   color: white;
   text-decoration: none;
   border-radius: 20px;
 }
+
+ .newsletter-container{
+  background-image: url("../public/img/bg/newsletter-5.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height:300px;
+  width:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+.card{
+  background-color: pink;
+} */
+
+.newsletter-container input::placeholder{
+  color: black;
+  padding: 25px;
+  /* font-weight: bold; */
+}
+
+
