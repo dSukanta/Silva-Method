@@ -9,6 +9,8 @@ import StoreBanner from './StoreBanner';
 import HomeFact from '../Home/Home/HomeFact/HomeFact';
 import TrainingPrograms from './TrainingPrograms';
 import ProductBanners from './ProductBanners';
+import CoursesList from './CoursesList';
+import OtherStoreBanners from './OtherStoreBanners';
 
 const StoreProducts = () => {
     return (
@@ -19,6 +21,8 @@ const StoreProducts = () => {
             <StoreBanner src={productbannerimg} />
             <TrainingPrograms />
             <ProductBanners />
+            <CoursesList />
+            <OtherStoreBanners />
             <CustomFooter />
         </>
     );

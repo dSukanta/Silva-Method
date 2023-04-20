@@ -349,6 +349,10 @@ svg:hover{
   cursor: pointer;
 }
 
+.listcourse li{
+  margin-bottom: 5px;
+}
+
 .modal-new::-webkit-scrollbar {
   display: none;
   border-radius: 35px;
