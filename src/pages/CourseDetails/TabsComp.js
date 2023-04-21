@@ -12,7 +12,7 @@ function TabsComp() {
     return (
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row>
-                <Col sm={3}>
+                <Col sm={12} md={12} lg={12}>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item style={{ backgroundColor: "rgb(155, 55, 242)", marginBottom: "10px" }}>
                             <Nav.Link eventKey="first">Event Details</Nav.Link>
@@ -22,7 +22,7 @@ function TabsComp() {
                         </Nav.Item>
                     </Nav>
                 </Col>
-                <Col sm={9}>
+                <Col sm={12} md={12} lg={12} className='mt-4'>
                     <Tab.Content>
                         <Tab.Pane eventKey="first">
                             <Card style={{ width: "100%" }}>

@@ -3,10 +3,13 @@ import HomeHeader from '../Home/Home/HomeHeader/HomeHeader'
 import CustomFooter from '../Home/Home/HomeFooter/Footer'
 import CommonPageHeader from '../../components/CommonPageHeader/CommonPageHeader'
 import TabsComp from './TabsComp'
+import { useMediaQuery } from 'react-responsive'
 
 function CourseDetails() {
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+
     return (
-        <div className="container mt-5 mb-5" style={{width:"50%"}}>
+        <div className="container mt-5 mb-5" style={{width:isDesktopOrLaptop?"50%":"100%"}}>
             <div>
                 <h2>FDIS - Four Day Immersion Seminar</h2>
                 <div className='d-flex justify-content-between'>
