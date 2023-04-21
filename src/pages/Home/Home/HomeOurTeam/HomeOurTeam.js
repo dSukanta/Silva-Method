@@ -39,7 +39,7 @@ const HomeOurTeam = () => {
 
    return (
       <>
-         <section className="team-area pt-115 pb-5">
+         <section className="team-area pb-5">
             <div className="container">
                <div className="row">
                   <div className="col-xl-6 col-lg-7 col-md-10">
@@ -47,7 +47,7 @@ const HomeOurTeam = () => {
                         {/* <div className="section-icon">
                            <img className="section-back-icon back-icon-left" src="img/section/section-back-icon.png" alt=""/>
                         </div> */}
-                        <div className="section-text pos-rel">
+                        <div className="section-text">
                            {/* <h5>Our Team</h5> */}
                            <h2>Check our Unique Products</h2>
                         </div>

@@ -5,19 +5,19 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const HomeSingleTeam = ({data}) => {
   
-   console.log(data);
+   //console.log(data);
 
-   const {web_image,teacher_name,course_title,course_id}= data;
+   const {product_image,product_name,product_type,buy_now_link,product_id}= data;
 
    const renderTooltip = (props) => (
       <Tooltip id="button-tooltip" {...props}>
-        {course_title}
+        {product_name}
       </Tooltip>
     );
 
     const renderSubTitle=(props)=>(
       <Tooltip id="button-tooltip" {...props}>
-        {teacher_name}
+        {""}
       </Tooltip>
     );
    return (
@@ -25,7 +25,7 @@ const HomeSingleTeam = ({data}) => {
          <div>
             <div>
                <div>
-                  <img src={web_image? web_image:'img/logo/title-logo'} alt=''/>
+                  <img src={`${product_image}`} alt='' height='300px'/>
                   {/* <Link className="team-link" to="/doctorDetails">+</Link> */}
                </div>
                <div>
@@ -33,19 +33,23 @@ const HomeSingleTeam = ({data}) => {
                placement="top"
                delay={{ show: 250, hide: 400 }}
                overlay={renderTooltip} >
-                  <h6 style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis', marginTop:'10px'}}>{course_title}</h6>
+                  <h6 style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis', marginTop:'10px'}}>{product_name}</h6>
                </OverlayTrigger>
                <OverlayTrigger
                placement="top"
                delay={{ show: 250, hide: 400 }}
                overlay={renderSubTitle} >
-                     <p style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{teacher_name}</p>
+                     <p style={{width:'150px', whiteSpace:'nowrap',overflow:'hidden',textOverflow:'ellipsis'}}>{""}</p>
                </OverlayTrigger>
 
               
                </div>
                <div>
-                  <button className='buy-now-btn'>Buy Now</button>
+                  {product_type==='Internal' ?
+                  <Link to={`/checkout/${product_id}`}><button className='buy-now-btn'>Buy Now</button></Link> :
+                  <a href={buy_now_link} className='buy-now-link'>Buy Now</a>
+                  }
+                  
                </div>
             </div>
          </div>

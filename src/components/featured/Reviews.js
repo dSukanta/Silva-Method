@@ -58,7 +58,7 @@ export default function Reviews() {
   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
 
   return (
-    <div className="mt-5">
+    <div className = {isMobile ? "mt-0 mb-0":"mt-40 mb-40"}>
       <Swiper
         slidesPerView={isDesktopOrLaptop? 3:1}
         spaceBetween={30}

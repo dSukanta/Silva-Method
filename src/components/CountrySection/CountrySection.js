@@ -84,9 +84,9 @@ var CountryData = [
     flag: "img/country/Flag-Venezuela.webp",
   },
 ];
-const SingleCard = ({ name, flag }) => {
-  return <div style={{borderRadius:'40px 999em 999em 40px', boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px", display: "flex", padding:'10px', gap:'1rem', backgroundColor:'white', }}>
-            <div style={{color:'black', fontWeight:'bold',display:'flex' ,justifyContent:'center', alignItems:'center'}}>
+const SingleCard = ({ name }) => {
+  return <div style={{borderRadius:'999em 999em 999em 999em', boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px", display: "block", padding:'20px', gap:'1rem', backgroundColor:'white'}}>
+            <div style={{display:'flex',color:'black', fontWeight:'bold',justifyContent:'center', alignItems:'center', textAlign:'center'}}>
                 {name}
             </div>
   </div>;
@@ -100,13 +100,13 @@ function CountrySection() {
 
   return (
     <div style={{width:'100%', backgroundColor:'#8019da'}}>
-    <h3 style={{width:'70%', margin:'auto', padding:'10px',color:'white'}}>Find Out our Certified Silva Method Instructors Globally.</h3>
+    <h3 style={{width:isMobile? '100%':'70%', margin:'auto', padding:isMobile?'0px':'40px',color:'white'}}>Find Out our Certified Silva Method Instructors Globally.</h3>
     <div
       style={{
         width: "100%",
         backgroundImage: "linear-gradient(#3420e7, #da01fd)",
         margin:'0px 0px 10px 0px',
-        padding:'25px'
+        padding:'50px'
       }}
     >
       <div
@@ -115,14 +115,14 @@ function CountrySection() {
           gridTemplateColumns: isDesktopOrLaptop
             ? "1fr 1fr 1fr 1fr"
             :isTablet? "1fr 1fr":"1fr",
-          width: "70%",
-          gap:'1rem',
+          width:isMobile? "100%":"70%",
+          gap:'2rem',
           margin: "auto",
           justifyContent: "space-evenly",
         }}
       >
         {CountryData.map((country)=>
-            <SingleCard flag={country.flag} name={country.title}/>
+            <SingleCard name={country.title}/>
         )}
       </div>
     </div>

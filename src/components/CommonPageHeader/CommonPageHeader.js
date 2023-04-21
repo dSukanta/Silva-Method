@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CommonPageHeader = ({title,subtitle}) => {
+const CommonPageHeader = ({title}) => {
    return (
       <>
          <section className="breadcrumb-bg pt-200 pb-180 page_header_bg">
@@ -20,7 +20,7 @@ const CommonPageHeader = ({title,subtitle}) => {
                               <li className="breadcrumb-item">
                                  <Link to="/">Home</Link>
                               </li>
-                              <li className="breadcrumb-item active" aria-current="page">{subtitle}</li>
+                              {/* <li className="breadcrumb-item active" aria-current="page">{subtitle}</li> */}
                            </ol>
                         </nav>
                      </div>

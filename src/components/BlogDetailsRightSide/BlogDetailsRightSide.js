@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const BlogDetailsRightSide = () => {
+
+
+
     return (
         <>
             <div className="col-lg-4">
-                <div className="widget mb-40">
+                {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Search Objects</h3>
@@ -14,8 +17,8 @@ const BlogDetailsRightSide = () => {
                         <input type="text" placeholder="Search your keyword..."/>
                             <button type="submit"><i className="fas fa-search"></i></button>
                     </form>
-                </div>
-                <div className="widget mb-40">
+                </div> */}
+                {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">About Me</h3>
@@ -33,46 +36,44 @@ const BlogDetailsRightSide = () => {
                                 <a href="#"><i className="fab fa-youtube"></i></a>
                             </div>
                     </div>
-                </div>
+                </div> */}
                 <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
-                        <h3 className="widget-title">Popular Feeds</h3>
+                        <h3 className="widget-title">Popular Courses</h3>
                     </div>
                     <ul className="recent-posts">
                         <li>
                             <div className="widget-posts-image">
-                                <Link to="/blogDetails"><img src="img/blog/details/img1.jpg" alt=""/></Link>
+                                <Link to="/blogDetails"><img src="https://silvamethod.com/store/wp-content/uploads/2020/10/Silva-Life-System-Cover-Image-150x150.png" alt=""/></Link>
                             </div>
                             <div className="widget-posts-body">
-                                <h6 className="widget-posts-title"><Link to="/blogDetails">Lorem ipsum dolor sit
-                                    cing elit, sed do.</Link></h6>
-                                <div className="widget-posts-meta">October 18, 2021 </div>
+                                <h6 className="widget-posts-title"><Link to="/blogDetails">Silva Life System Digital Audio</Link></h6>
+                                <div className="widget-posts-meta" style={{display:'flex',gap:'2rem'}}><p style={{fontWeight:'bold', color:'gray', textDecoration:'line-through'}}>$99</p> <p style={{fontWeight:'bold', color:'green'}}>$89.00</p></div>
                             </div>
                         </li>
                         <li>
                             <div className="widget-posts-image">
-                                <Link to="/blogDetails"><img src="img/blog/details/img2.jpg" alt=""/></Link>
+                                <Link to="/blogDetails"><img src="https://silvamethod.com/store/wp-content/uploads/2022/06/Silva-Intuition-System-Silva-Life-System-Combo-pack-purchase-400x250-1-150x150.webp" alt=""/></Link>
                             </div>
                             <div className="widget-posts-body">
-                                <h6 className="widget-posts-title"><Link to="/blogDetails">Lorem ipsum dolor sit
-                                    cing elit, sed do.</Link></h6>
-                                <div className="widget-posts-meta">October 24, 2021 </div>
+                                <h6 className="widget-posts-title"><Link to="/blogDetails">Silva Life System & Silva Intuition System (The Complete Silva Method Course)
+                                Silva Life System & Silva Intuition System (The Complete Silva Method Course)</Link></h6>
+                                <div className="widget-posts-meta" style={{display:'flex',gap:'2rem'}}><p style={{fontWeight:'bold', color:'gray', textDecoration:'line-through'}}>$99</p> <p style={{fontWeight:'bold', color:'green'}}>$89.00</p></div>
                             </div>
                         </li>
                         <li>
                             <div className="widget-posts-image">
-                                <Link to="/blogDetails"><img src="img/blog/details/img3.jpg" alt=""/></Link>
+                                <Link to="/blogDetails"><img src="https://silvamethod.com/store/wp-content/uploads/2022/04/Silva-Intuition-System-silva-mind-control-2-400x250-1-150x150.webp" alt=""/></Link>
                             </div>
                             <div className="widget-posts-body">
-                                <h6 className="widget-posts-title"><Link to="/blogDetails">Lorem ipsum dolor sit
-                                    cing elit, sed do.</Link></h6>
-                                <div className="widget-posts-meta">October 28, 2021 </div>
+                                <h6 className="widget-posts-title"><Link to="/blogDetails">Silva Intuition System | The Silva Intuition System Course</Link></h6>
+                                <div className="widget-posts-meta" style={{display:'flex', gap:'2rem'}}><p style={{fontWeight:'bold', color:'gray', textDecoration:'line-through'}}>$99</p> <p style={{fontWeight:'bold', color:'green'}}>$89.00</p></div>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div className="widget mb-40">
+                {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Categories</h3>
@@ -94,8 +95,8 @@ const BlogDetailsRightSide = () => {
                             <Link to="/blogDetails">Branding <span className="f-right">05</span></Link>
                         </li>
                     </ul>
-                </div>
-                <div className="widget mb-40">
+                </div> */}
+                {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Social Profile</h3>
@@ -107,8 +108,8 @@ const BlogDetailsRightSide = () => {
                         <a href="#"><i className="fab fa-linkedin-in"></i></a>
                         <a href="#"><i className="fab fa-youtube"></i></a>
                     </div>
-                </div>
-                <div className="widget mb-40">
+                </div> */}
+                {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Instagram Feeds</h3>
@@ -124,8 +125,8 @@ const BlogDetailsRightSide = () => {
                         <li><a href="#"><img src="img/instagram/ins8.jpg" alt=""/></a></li>
                         <li><a href="#"><img src="img/instagram/ins9.jpg" alt=""/></a></li>
                     </ul>
-                </div>
-                <div className="widget mb-40">
+                </div> */}
+                {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Instagram Feeds</h3>
@@ -144,12 +145,12 @@ const BlogDetailsRightSide = () => {
                         <Link to="/blogs">keyboard</Link>
                         <Link to="/blogs">tech</Link>
                     </div>
-                </div>
-                <div className="widget mb-40 p-0 b-0">
+                </div> */}
+                {/* <div className="widget mb-40 p-0 b-0">
                     <div className="banner-widget">
                    <Link to="/contact"><img src="img/blog/details/banner.png" alt=""/></Link>
                     </div>
-                </div>
+                </div> */}
             </div>
         </>
     );

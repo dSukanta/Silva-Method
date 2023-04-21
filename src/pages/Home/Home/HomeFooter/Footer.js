@@ -2,8 +2,13 @@ import React from 'react';
 import { BsFacebook, BsTwitter } from 'react-icons/bs';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { TfiPinterest } from 'react-icons/tfi';
+import { useMediaQuery } from 'react-responsive'
 
 function CustomFooter() {
+    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
+    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+    const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
+
     return (
         <div className="custom-footer-container">
             <div className="row">

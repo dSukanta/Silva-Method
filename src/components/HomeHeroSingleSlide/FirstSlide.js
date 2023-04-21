@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
 import {AiOutlineLeft,AiOutlineRight} from 'react-icons/ai';
+import { useMediaQuery } from 'react-responsive'
 
 function FirstSlide() {
+
+  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
+
     const [slide,setSlide]= useState(0);
     const items=[
         "img/combo-banner.webp",
@@ -32,16 +38,17 @@ function FirstSlide() {
     // }
 
   return (
-    <div className='d-flex mt-5'>
+    <div className='d-flex mt-150'>
         <div className='prev-slide'>
         <img src={slide==0? items[items.length-1]:items[slide-1]} height="100%"/>
+        
         </div>
         <div className='first-slide-center'>
             <div>
                 <button className='first-slide-prev-btn' onClick={()=>changeSlide(-1)}><AiOutlineLeft/></button>
             </div>
             <div>
-                <img src={items[slide]}/>
+                <a href='https://www.google.com'><img src={items[slide]}/></a>
             </div>
             <div>
             <button className='first-slide-next-btn' onClick={()=>changeSlide(+1)}><AiOutlineRight/></button>

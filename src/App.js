@@ -89,6 +89,7 @@ function App() {
             <Route path="/store" element={<Blogs />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
+            <Route path="/blogDetails/:id" element={<BlogDetails />} />
             {/* Blogs Route Ended */}
             {/*Auth Route started */}
             <Route path="/login" element={<Login />} />
@@ -107,7 +108,7 @@ function App() {
            
             <Route path="/online" element={<ShopDetails />} />
             <Route path="/shoppingCart" element={<ShoppingCart />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/checkout/:id" element={<CheckoutPage />} />
             <Route path="/wishList" element={<WishList />} />
             
             
@@ -117,7 +118,7 @@ function App() {
             <Route path="/blogTwoMasonry" element={<BlogTwoColumnMasonry/>} />
             <Route path="/blogThreeColumn" element={<BlogThreeColumn />} />
             <Route path="/blogThreeColMasonry" element={<BlogThreeColMasonry />} />
-            <Route path="/blogDetails" element={<BlogDetails />} />
+            
             <Route path="/blogDetailsLeftSidebar" element={<DetailsLeftSideBar />} />
             <Route path="/blogDetailsAudio" element={<DetailsAudio />} />
             <Route path="/blogDetailsVideo" element={<DetailsVideo />} />

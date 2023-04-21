@@ -1,9 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HomeSingleBlogLeftSide from '../../../../components/HomeSingleBlogLeftSide/HomeSingleBlogLeftSide';
 import HomeSingleBlogRightSide from '../../../../components/HomeSingleBlogRightSide/HomeSingleBlogRightSide';
+import { useEffect } from 'react';
 
 const HomeBlogs = () => {
+
+   const [blogs,setBlogs] =useState([]);
+
+   const getBlogs=async()=>{
+      const myHeaders = new Headers();
+      myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
+      myHeaders.append("Device", "Android");
+      myHeaders.append("Language", "english");
+
+      const formData= new FormData();
+      formData.append("start_index", "0");
+      formData.append("no_of_records", "100");
+
+    const options={
+       method:'POST',
+       headers:myHeaders,
+       body: formData
+    }
+    const res= await fetch(`https://projectsites.in/silvamethod/api/home`,options)
+    const data= await res.json();
+    //console.log(data.data.blog);
+    setBlogs(data.data.blog);
+   }
+
+   useEffect(()=>{
+      getBlogs();
+   },[])
    return (
       <>
          <section className="latest-news-area pt-10">
@@ -32,9 +60,12 @@ const HomeBlogs = () => {
                </div>
 
                <div className="row">
+                  
+                  {blogs && blogs.map((blog) =>
+                  <HomeSingleBlogLeftSide data={blog}/>
+                  )}
 
-                  <HomeSingleBlogLeftSide image="https://storage.googleapis.com/mv-prod-blog-en-assets/2018/08/026b52fb-biohacking-weight-loss-featured-221210-mindvalley-daveasprey-34-%C2%A9andrewburns-344x344.webp" />
-                  <HomeSingleBlogLeftSide image="https://storage.googleapis.com/mv-prod-blog-en-assets/2018/08/026b52fb-biohacking-weight-loss-featured-221210-mindvalley-daveasprey-34-%C2%A9andrewburns-344x344.webp" />
+                  {/* <HomeSingleBlogLeftSide image="https://storage.googleapis.com/mv-prod-blog-en-assets/2018/08/026b52fb-biohacking-weight-loss-featured-221210-mindvalley-daveasprey-34-%C2%A9andrewburns-344x344.webp" /> */}
 
                   {/* <div className="col-xl-4 col-lg-12 col-md-12">
                      <div className="recent-news-list mb-120">

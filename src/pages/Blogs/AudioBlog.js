@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HomeSingleBlogLeftSide from "../../components/HomeSingleBlogLeftSide/HomeSingleBlogLeftSide";
 import Slider from "react-slick";
+import SingleAudioBlog from "./SingleAudioBlog";
 
 const AudioBlogs = () => {
   var settings = {
@@ -41,10 +42,10 @@ const AudioBlogs = () => {
           <div className="row mb-90">
             <Slider {...settings}>
               <div>
-              <HomeSingleBlogLeftSide image="http://localhost:3000/img/slide-3.webp" />
+              <SingleAudioBlog image="http://localhost:3000/img/slide-3.webp" />
               </div>
               <div>
-              <HomeSingleBlogLeftSide image="http://localhost:3000/img/slide-3.webp" />
+              <SingleAudioBlog image="http://localhost:3000/img/slide-3.webp" />
               </div>
               {/* <div>
                 <h3>3</h3>

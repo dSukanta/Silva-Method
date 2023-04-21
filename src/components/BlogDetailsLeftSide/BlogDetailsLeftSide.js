@@ -1,7 +1,9 @@
+import moment from 'moment/moment';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BlogDetailsLeftSide = ({details_topBar}) => {
+const BlogDetailsLeftSide = ({details_topBar,data}) => {
+    console.log(data)
     return (
         <>
             <div className="col-lg-8">
@@ -10,34 +12,19 @@ const BlogDetailsLeftSide = ({details_topBar}) => {
                     {details_topBar}
                     <div className="postbox__text bg-none">
                         <div className="post-meta mb-15">
-                            <span><i className="far fa-calendar-check"></i> September 15, 2021 </span>
+                            <span><i className="far fa-calendar-check"></i> {data && moment(data.created_at).format('LL')} </span>
                             <span><Link to="/blogDetails"><i className="far fa-user"></i> Diboli B. Joly</Link></span>
                             <span><Link to="/blogDetails"><i className="far fa-comments"></i> 23 Comments</Link></span>
                         </div>
                         <h3 className="blog-title">
-                            If you find yourself constantly bookmarking health sections on news.
+                           {data && data.title}
                         </h3>
                         <div className="post-text mb-20">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                aliquip ex ea commodo.</p>
-                            <p>Bccaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum. Sed ut perspiciatis
-                                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                                aperiam, eaque ipsa quae ab
-                                illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
-                                enim ipsam voluptatem quia
-                                voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui
-                                ratione voluptatem sequi
-                                nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-                                adipisci velit, sed quia non
-                                numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-                                voluptatem.</p>
-                            <blockquote>
+                            <p>{data && data.seo_description}</p>
+                            {/* <blockquote>
                                 <p>This health blog from NPR takes a fairly broad look at the medical world,.</p>
                                 <footer>- Rosalina Pong</footer>
-                            </blockquote>
+                            </blockquote> */}
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna
                                 aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut

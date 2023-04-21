@@ -22,6 +22,8 @@ import Newsletter from '../../../components/Newsletter/Newsletter';
 import CountrySection from '../../../components/CountrySection/CountrySection';
 import Map from '../../../components/CountrySection/MapContainer';
 import AudioBlogs from '../../Blogs/AudioBlog';
+import CourseSlider from '../../../components/HomeHeroSingleSlide/CourseSlide';
+import SlickSlider from '../../../components/HomeHeroSingleSlide/SlickCouseSlide';
 const Home = () => {
     return (
         <>
@@ -32,6 +34,8 @@ const Home = () => {
             {/* <HomeHeroSection/> */}
             <HomeAboutArea/>
             <FirstSlide/>
+            {/* <CourseSlider/> */}
+            {/* <SlickSlider/> */}
             <HomeServices/>
             <Reviews/>
             <AboutSilva/>

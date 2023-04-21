@@ -78,12 +78,9 @@ const ShopBanner = () => {
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                            <div className="row">
 
-                              {liveClasses && liveClasses.map((el)=>
+                              {liveClasses && liveClasses.map((classes)=>
                               
-                              <SingleShop avatar={'https://silvamethod.com/adminsilva/uploads/profile_pic/3fe28-keith-harmeyer-photo-2.jpg'} 
-                                          key ={el.class_id} place={el.address} name={el.instructor_name} title={'Four Day Immersion Seminar'} 
-                                          date={`${el.start_date.split('-').reverse().join('-')} - ${el.end_date.split('-').reverse().join('-')}`} 
-                                          language={el.language} type={"Live"} extraRef={"https://silvamethod.com/events/livedetails/3049"} CourseId={el.class_id}/>)}
+                              <SingleShop data={classes}/>)}
 
                               </div>
                         </div>
