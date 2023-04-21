@@ -126,7 +126,7 @@ const HomeHeader = () => {
                                        <li><Link to="/about">Silva Life System & Silva Intuition System (The Complete Silva Method Course)</Link></li>
                                        <li><Link to="/appoinment">Silva Life System</Link></li>
                                        <li><Link to="/portfolioTwoColumn">Silva Intuition System</Link></li>
-                                       <li><Link to="/portfolioThreeColumn">Silva Method Complete Manifesting Program</Link></li>
+                                       <li><Link to="/store/course/silva-method-manifesting-program-complete">Silva Method Complete Manifesting Program</Link></li>
                                        <li><Link to="/portfolioSlider">Manifesting course</Link></li>
                                        <li><Link to="/contact">Activating Intuition</Link></li>
                                        <li><Link to="/notMatch">Healing & Problem Solving</Link></li>

@@ -66,7 +66,7 @@ function CoursesList() {
     return (
         <div className="container text-center">
             <h2>Learn Silva Mind Control from Audio Courses</h2>
-            <p style={{ fontSize: "1.1rem", marginTop: "15px",lineHeight:"25px" }}>
+            <p>
                 These Courses below are created for those who don’t want to take the Whole Silva Life System Program and want to Learn and Practice a
                 specific part or exercise of Silva Life System. Those who are enrolling to the Silva Life System
                 digital Audio Course Should not take the courses below as these are already included in the Silva Life system Audio Course.

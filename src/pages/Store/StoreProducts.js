@@ -14,7 +14,7 @@ import OtherStoreBanners from './OtherStoreBanners';
 
 const StoreProducts = () => {
     return (
-        <>
+        <div className='storeproducts'>
             <HomeHeader />
             <CommonPageHeader title="Silva Method Online Courses" subtitle="Store" />
             {/* <BlogsArea/> */}
@@ -24,7 +24,7 @@ const StoreProducts = () => {
             <CoursesList />
             <OtherStoreBanners />
             <CustomFooter />
-        </>
+        </div>
     );
 };
 

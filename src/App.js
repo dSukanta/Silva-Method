@@ -38,6 +38,8 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import WishList from './pages/wishList/WishList';
 import HomeFive from './pages/HomeFive/HomeFive';
 import './App.css';
+import 'react-pagination-bar/dist/index.css'
+
 import NotFound from './pages/NotFound/NotFound';
 import { Toaster } from 'react-hot-toast';
 import PublicRoutes from './privateRoutes/PublicRoutes';
@@ -55,6 +57,8 @@ import SpanishBlog from './pages/Blogs/SpanishBlog';
 import CourseDetails from './pages/CourseDetails/CourseDetails';
 import WithHeaderFooter from './pages/WithHeaderFooter/WithHeaderFooter';
 import StoreProducts from './pages/Store/StoreProducts';
+import SilvaManifestationProgram from './pages/SilvaManifestationProgram/SilvaManifestationProgram';
+import BottomToTop from './pages/BottomToTop/BottomToTop';
 
 
 function App() {
@@ -98,6 +102,9 @@ function App() {
             <Route path="/store" element={<StoreProducts />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
+            {/* <Route element={<BottomToTop />} > */}
+              <Route path="/store/course/silva-method-manifesting-program-complete" element={<SilvaManifestationProgram />} />
+            {/* </Route> */}
             {/* Blogs Route Ended */}
             {/*Auth Route started */}
             <Route path="/login" element={<Login />} />
