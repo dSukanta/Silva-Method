@@ -6,7 +6,7 @@ function Homeherodiv() {
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
   return (
-    <div style={{display: 'flex' , flexDirection:isDesktopOrLaptop? 'row':'column-reverse', backgroundColor:'purple',textAlign:'center', justifyContent:'center', alignItems:'center', gap: isDesktopOrLaptop?'1rem':'0', marginBottom:'20px'}}>
+    <div style={{display: 'flex' , flexDirection:isDesktopOrLaptop? 'row':'column-reverse', background:'rgb(73,64,224)',backgroundImage: "linear-gradient(#3420e7, #da01fd)", textAlign:'center', justifyContent:'center', alignItems:'center', gap: isDesktopOrLaptop?'1rem':'0', marginBottom:'20px'}}>
         <div>
             {isDesktopOrLaptop? <h1 style={{color:'white',}}>Step into our Grateness</h1>: <h3 style={{color:'white'}}>Step into our Grateness</h3>}
             <button className='home-join-btn'>Join Silva Method Now</button>

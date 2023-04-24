@@ -1,9 +1,15 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const AboutSilva = () => {
+   const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
+   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
+
+
    return (
       <>
-         <section className={"about-area pt-50 pb-10"}>
+         <section className={isMobile?"about-area pt-50 pb-10":"about-area pt-50 pb-50" }>
             <div className="container">
                <div className="row">
                   <div className="col-xl-6 col-lg-2 about_left">
@@ -14,13 +20,13 @@ const AboutSilva = () => {
                         <div className="about-front-img">
                            <img src="img/shape/jose_silva.jpg" alt=""/>
                         </div>
-                        <div className="about-shape">
+                        {/* <div className="about-shape">
                            <img src="img/about/about-shape.png" alt=""/>
-                        </div>
+                        </div> */}
                      </div>
                   </div>
                   <div className="col-xl-6 col-lg-7">
-                     <div className="about-right-side pt-55 mb-30">
+                     <div className="about-right-side pt-15 mb-10">
                         <div className="about-title mb-20">
                            <h5>About Us</h5>
                            <h1>Short Story About Jose Silva </h1>

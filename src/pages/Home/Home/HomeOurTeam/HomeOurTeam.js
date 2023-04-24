@@ -37,6 +37,8 @@ const HomeOurTeam = () => {
       getProducts();
    },[])
 
+   console.log(products);
+
    return (
       <>
          <section className="team-area pb-5">
@@ -65,7 +67,7 @@ const HomeOurTeam = () => {
                <div style={{display:'grid', gridTemplateColumns: isMobile? '1fr 1fr':'1fr 1fr 1fr 1fr', gap:"1rem"}}>
 
                {products && products.map((product)=>
-                  <HomeSingleTeam data={product}/>
+                  <HomeSingleTeam data={products.length>0 && product}/>
                               
                )}
 

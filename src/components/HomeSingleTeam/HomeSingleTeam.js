@@ -5,9 +5,9 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const HomeSingleTeam = ({data}) => {
   
-   //console.log(data);
+   console.log(data);
 
-   const {product_image,product_name,product_type,buy_now_link,product_id}= data;
+   const {product_image,product_name,product_type,buy_now_link,product_id,author}= data;
 
    const renderTooltip = (props) => (
       <Tooltip id="button-tooltip" {...props}>

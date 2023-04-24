@@ -42,7 +42,7 @@ const HomeHeader = () => {
                      </div>
                      <div className="col-xl-5 col-lg-5 col-md-4">
                         <div className="header-top-right-btn f-right">
-                           <Link to="/contact" className="primary_btn">Explore Courses</Link>
+                           <Link to="/store/courses" className="primary_btn">Explore Courses</Link>
                         </div>
                      </div>
                   </div>
@@ -89,9 +89,9 @@ const HomeHeader = () => {
                                  {/* <li><Link to="/">Enroll Online Classes</Link></li> */}
                                  <li><Link to="/about">About</Link>
                                     <ul className="submenu">
-                                       <li><Link to="/services">About us</Link></li>
+                                       {/* <li><Link to="/services">About us</Link></li>
                                        <li><Link to="/contact">Contact Us</Link></li>
-                                       <li><Link to="/servicesDetails">Research</Link></li>
+                                       <li><Link to="/servicesDetails">Research</Link></li> */}
                                        <li><Link to="/about">About us</Link></li>
                                        <li><Link to="/contact">Contact Us</Link></li>
                                        <li><Link to="/research">Research</Link></li>

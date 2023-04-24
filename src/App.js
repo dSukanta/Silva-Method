@@ -59,6 +59,7 @@ import WithHeaderFooter from './pages/WithHeaderFooter/WithHeaderFooter';
 import StoreProducts from './pages/Store/StoreProducts';
 import SilvaManifestationProgram from './pages/SilvaManifestationProgram/SilvaManifestationProgram';
 import BottomToTop from './pages/BottomToTop/BottomToTop';
+import AllCourses from './pages/CourseDetails/Courses';
 
 
 function App() {
@@ -70,6 +71,7 @@ function App() {
           <ScrollTop />
           <Routes>
             {/* Home Route started*/}
+            <Route path="/store/courses" element={<AllCourses/>}/>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
@@ -102,6 +104,7 @@ function App() {
             <Route path="/store" element={<StoreProducts />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
+            <Route path="/blogDetails/:id" element={<BlogDetails />} />
             {/* <Route element={<BottomToTop />} > */}
               <Route path="/store/course/silva-method-manifesting-program-complete" element={<SilvaManifestationProgram />} />
             {/* </Route> */}

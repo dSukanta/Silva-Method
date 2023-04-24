@@ -8,7 +8,7 @@ const HomeAboutArea = () => {
 
   return (
     <>
-      <section className={isDesktopOrLaptop? "about-area mt-50 mb-50":"about-area mt-50"}>
+      <section className={isDesktopOrLaptop? "about-area mt-50 mb-120":"about-area mt-50"}>
         <div className="container">
           <div className="row">
             <div className="col-xl-6 col-lg-2 about_left">
@@ -19,9 +19,9 @@ const HomeAboutArea = () => {
                 <div className="about-front-img">
                   <img src="img/shape/silva_method.png" alt="" />
                 </div>
-                <div className="about-shape">
+                {/* <div className="about-shape">
                   <img src="img/about/about-shape.png" alt="" />
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="col-xl-6 col-lg-7">

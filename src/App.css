@@ -400,9 +400,18 @@ li {
   margin-top: 25px;
 }
 
-.footer-join-btn {
+.footer-contact-btn{
   background-color: black;
   color: white;
+  border-radius: 35px;
+  padding: 6.5px 20px;
+  border: none;
+  margin-top: 25px;
+}
+
+.footer-join-btn{
+  background-color: white;
+  color: black;
   margin-left: 10px;
   border-radius: 35px;
   padding: 6.5px 20px;
