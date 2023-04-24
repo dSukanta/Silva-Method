@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HomeHeader from '../Home/Home/HomeHeader/HomeHeader';
 import CustomFooter from '../Home/Home/HomeFooter/Footer';
 import SingleCourse from './SingleCourse';
+import { Link } from 'react-router-dom';
 
 const AllCourses = () => {
    
@@ -58,7 +59,13 @@ const AllCourses = () => {
                <div className="row row-cols-2 row-cols-lg-3">
 
                {courses && courses.map((course)=>
+               <div>
                   <SingleCourse key={course.course_id} data={course}/>
+                  <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
+                  <p>{course.teacher_name}</p>
+                  <Link to={`/blogLeftSideBar`}><h6>{course.course_title}</h6></Link>
+               </div>
+               </div>
                )}
               </div>
             </div>

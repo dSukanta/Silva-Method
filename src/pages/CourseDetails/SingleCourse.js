@@ -19,12 +19,6 @@ const SingleCourse = ({data}) => {
             
          <div className='overlay-section'>
             <div className='overlay-text' style={{fontSize: isMobile? '10px':'20px'}}>
-                  {/* Instructor Name
-                  <br/>
-                  <br/>
-                  {instructor_name}
-                  <br/>
-                  <br/> */}
                   <Link to={`/blogLeftSideBar`}><p style={{color:'white',}}>Read More</p></Link>
             </div>
          </div>
