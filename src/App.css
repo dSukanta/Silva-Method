@@ -160,9 +160,10 @@ body {
 }
 
 .featured-images {
-  width: 200px;
+  width: 170px;
   height: 30px;
-  filter: invert(1) grayscale(1) brightness(1200);
+
+  /* filter: invert(1) grayscale(1) brightness(1200); */
 }
 
 /* footer styles css */
