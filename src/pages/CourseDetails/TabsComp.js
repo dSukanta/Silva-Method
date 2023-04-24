@@ -11,12 +11,17 @@ import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 import serviceImg1 from "../../images/serviceimgs/more-ser-1.png"
 import moment from 'moment';
-function TabsComp({data}) {
+import { BsCalendarDate, BsCalendarEvent,BsFillPersonFill } from "react-icons/bs";
+import { MdPlace } from "react-icons/md";
+import { AiOutlineInfoCircle,AiOutlineSafetyCertificate } from "react-icons/ai";
+
+
+function TabsComp({ data }) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
-    const {address,country,course_name,course_title,delivery_method,
-        details,email,email_2,end_date,instructor_name,language,phone_number,
-        phone_number_2,photo,post_date,start_date}= data;
+    const { address, country, course_name, course_title, delivery_method,
+        details, email, email_2, end_date, instructor_name, language, phone_number,
+        phone_number_2, photo, post_date, start_date } = data;
 
     return (
         <>
@@ -24,10 +29,10 @@ function TabsComp({data}) {
                 <Row>
                     <Col sm={12} md={12} lg={12}>
                         <Nav variant="pills">
-                            <Nav.Item style={{ backgroundColor: "rgb(155, 55, 242)", marginRight: "10px", marginBottom: isDesktopOrLaptop ? "0px" : "10px" }}>
+                            <Nav.Item style={{ backgroundColor: "rgb(155, 55, 242)",marginRight:"20px"}}>
                                 <Nav.Link eventKey="first">Event Details</Nav.Link>
                             </Nav.Item>
-                            <Nav.Item style={{ backgroundColor: "rgb(155, 55, 242)" }}>
+                            <Nav.Item style={{ backgroundColor: "rgb(155, 55, 242)",marginTop:isDesktopOrLaptop?"0px":"20px" }}>
                                 <Nav.Link eventKey="second">Instructor Details</Nav.Link>
                             </Nav.Item>
                         </Nav>
@@ -79,26 +84,45 @@ function TabsComp({data}) {
                                     </div>
                                     <div className="more-service-list">
                                         <ul>
-                                            <li>
-                                                {/* <div className="more-service-icon"><img src={serviceImg1} alt="" /></div> */}
-                                                <div className="more-service-title doctor-details-title">Event Start Date <span>{moment(start_date).format('LL')}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Event End Date<span>{moment(end_date).format('LL')}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Event Mode<span>{delivery_method}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Venue<span>{address}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Details<span>{details}</span></div>
-                                            </li>
+                                            <div className="row">
+                                                <div className="col-sm-6 col-md-4 mb-3">
+                                                    <li>
+                                                        {/* <div className="more-service-icon"><BsCalendarDate size={40} /></div> */}
+                                                        <div className="more-service-title doctor-details-title"><BsCalendarDate size={40} /> Event Start Date
+                                                            <span style={{ fontSize: "1.1rem" }}>{moment(start_date).format('LL')}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4 mb-3">
+                                                    <li>
+                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
+                                                        <div className="more-service-title doctor-details-title"><BsCalendarDate size={40} /> Event End Date
+                                                            <span style={{ fontSize: "1.1rem" }}>{moment(end_date).format('LL')}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4 mb-3">
+                                                    <li>
+                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
+                                                        <div className="more-service-title doctor-details-title"><BsCalendarEvent size={40} /> Event Mode
+                                                            <span style={{ fontSize: "1.1rem" }}>{delivery_method}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4 mb-3">
+                                                    <li>
+                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
+                                                        <div className="more-service-title doctor-details-title"><MdPlace size={40} /> Venue
+                                                            <span style={{ fontSize: "1.1rem" }}>{address}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
+                                                        <div className="more-service-title doctor-details-title"><AiOutlineInfoCircle size={40} /> Details
+                                                            <span>{"This is test details"}</span></div>
+                                                    </li>
+                                                </div>
+                                            </div>
+
+
                                         </ul>
                                     </div>
                                 </div>
@@ -130,39 +154,53 @@ function TabsComp({data}) {
                                     </Card.Body>
                                 </Card> */}
                                 <div className="service-widget mb-50">
-                                   
+
                                     <div className="widget-title-box mb-30">
                                         <h3 className="widget-title">Instructor Details</h3>
                                     </div>
                                     <div className='mb-5'>
-                                        <img src={photo} style={{ width: "280px", height: "350px",borderRadius:"10px" }} />
+                                        <img src={photo} style={{ width: "280px", height: "350px", borderRadius: "10px" }} />
                                     </div>
                                     <div className="more-service-list">
                                         <ul>
-                                            <li>
-                                                {/* <div className="more-service-icon"><img src={serviceImg1} alt="" /></div> */}
-                                                <div className="more-service-title doctor-details-title">Instructor Name <span>{instructor_name}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title"><GiCheckeredFlag size={35} /> Country <span>Cras justo odio</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title"><AiOutlineContacts size={35} /> Contact Detials <span>{phone_number? phone_number:'-'}{phone_number_2?`|| ${phone_number_2}`:' '}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title"><AiOutlineMail size={35} /> Email <span>{email? email:'-'}{email_2?`|| ${email_2}`:' '}</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title"><CgWebsite size={35} /> Website <span>Porta ac consectetur ac</span></div>
-                                            </li>
-                                            <li>
-                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Is Instructor a Silva certified Instructor?<span>Vestibulum at eros</span></div>
-                                            </li>
+                                            <div className="row">
+                                                <div className="col-sm-6 col-md-4 mt-4">
+                                                    <li>
+                                                        {/* <div className="more-service-icon"><img src={serviceImg1} alt="" /></div> */}
+                                                        <div className="more-service-title doctor-details-title"><BsFillPersonFill size={35} /> Instructor Name <span>{instructor_name}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                        <div className="more-service-title doctor-details-title"><GiCheckeredFlag size={35} /> Country <span>Cras justo odio</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                        <div className="more-service-title doctor-details-title"><AiOutlineContacts size={35} /> Contact Detials <span>{phone_number ? phone_number : '-'}{phone_number_2 ? `|| ${phone_number_2}` : ' '}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                        <div className="more-service-title doctor-details-title"><AiOutlineMail size={35} /> Email <span>{email ? email : '-'}{email_2 ? `|| ${email_2}` : ' '}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                        <div className="more-service-title doctor-details-title"><CgWebsite size={35} /> Website <span>Porta ac consectetur ac</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                        <div className="more-service-title doctor-details-title"><AiOutlineSafetyCertificate size={35} /> Is Instructor a Silva certified Instructor?<span>Vestibulum at eros</span></div>
+                                                    </li>
+                                                </div>
+                                            </div>
                                         </ul>
                                     </div>
                                 </div>
