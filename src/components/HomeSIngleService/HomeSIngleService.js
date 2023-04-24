@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 const HomeSIngleService = ({data}) => {
    //console.log(data);
 
-   const {instructor_name,class_id}= data;
+   const {instructor_name,course_id}= data;
 
 
    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
@@ -25,7 +25,7 @@ const HomeSIngleService = ({data}) => {
                   {instructor_name}
                   <br/>
                   <br/>
-                  <Link to={`/coursedetails/${class_id}`}><p style={{color:'white',}}>Course Details</p></Link>
+                  <Link to={`/coursedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
             </div>
          </div>
         </div>

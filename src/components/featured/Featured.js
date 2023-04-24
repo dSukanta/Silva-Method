@@ -19,4 +19,4 @@ function Featured() {
   )
 }
 
-export default Featured
+export default Featured;

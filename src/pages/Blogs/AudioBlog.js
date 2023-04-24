@@ -42,7 +42,7 @@ const AudioBlogs = () => {
           <div className="row mb-90">
             <Slider {...settings}>
               <div>
-              <SingleAudioBlog image="http://localhost:3000/img/slide-3.webp" />
+              <SingleAudioBlog image="http://localhost:3000/img/slide-3.webp"/>
               </div>
               <div>
               <SingleAudioBlog image="http://localhost:3000/img/slide-3.webp" />
