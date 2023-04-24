@@ -608,3 +608,11 @@ li {
   -webkit-transform: skewY(10deg);
   transform: skewY(10deg);
 }
+
+
+/*  */
+
+.row > *{
+  padding-right:0px !important;
+  /* padding-left: 0px !important; */
+}
