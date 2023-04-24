@@ -75,8 +75,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
-            <Route path="/homeTwo" element={<HomeTwo />} />
-            <Route path="/homeThree" element={<HomeThree />} />
+            {/* <Route path="/homeTwo" element={<HomeTwo />} />
+            <Route path="/homeThree" element={<HomeThree />} /> */}
             {/* Home Route Ended */}
             {/*About Route started*/}
             <Route path="/about" element={<AboutUs />} />
