@@ -6,13 +6,21 @@ import ContactArea from './ContactArea/ContactArea';
 import ContactFormArea from './ContactFormArea/ContactFormArea';
 import ContactMap from './ContactMap/ContactMap';
 import CustomFooter from '../Home/Home/HomeFooter/Footer';
+import HomeFact from '../Home/Home/HomeFact/HomeFact';
+import HomeFact2 from '../Home/Home/HomeFact/HomeFact2';
+import TeamArea from '../../components/Contact/TeamArea';
+import MobileAppBanner from './ContactArea/MobileAppBanner';
 
 const Contact = () => {
     return (
         <>
             <HomeHeader/>
             <CommonPageHeader title="Contact Us" subtitle="Contact" />
+            <HomeFact2 />
+            <HomeFact />
+            <TeamArea />
             <ContactArea/>
+            <MobileAppBanner />
             <ContactFormArea/>
             <ContactMap/>
             <CustomFooter/>

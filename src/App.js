@@ -38,7 +38,11 @@ import ShoppingCart from './pages/ShoppingCart/ShoppingCart';
 import WishList from './pages/wishList/WishList';
 import HomeFive from './pages/HomeFive/HomeFive';
 import './App.css';
+import 'react-pagination-bar/dist/index.css'
+
 import NotFound from './pages/NotFound/NotFound';
+import { Toaster } from 'react-hot-toast';
+import PublicRoutes from './privateRoutes/PublicRoutes';
 import LiveEvents from './pages/events/LiveEvents';
 import OnlineEvents from './pages/events/OnlineEvents';
 import BasicLecture from './pages/seminars/BasicLecture';
@@ -51,13 +55,16 @@ import BecomeInstructor from './pages/Instructors/BecomeInstructor';
 import EnglishBlog from './pages/Blogs/EnglishBlog';
 import SpanishBlog from './pages/Blogs/SpanishBlog';
 import CourseDetails from './pages/CourseDetails/CourseDetails';
-import WithHeaderFooter from './pages/WithHraderFooter';
-
+import WithHeaderFooter from './pages/WithHeaderFooter/WithHeaderFooter';
+import StoreProducts from './pages/Store/StoreProducts';
+import SilvaManifestationProgram from './pages/SilvaManifestationProgram/SilvaManifestationProgram';
+import BottomToTop from './pages/BottomToTop/BottomToTop';
 
 
 function App() {
   return (
     <>
+    <Toaster position="bottom-center" />
       <AllContext>
         <BrowserRouter>
           <ScrollTop />
@@ -65,6 +72,9 @@ function App() {
             {/* Home Route started*/}
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            {/* <Route path="/contactus" element={<ContactUs />} /> */}
+            <Route path="/homeTwo" element={<HomeTwo />} />
+            <Route path="/homeThree" element={<HomeThree />} />
             {/* Home Route Ended */}
             {/*About Route started*/}
             <Route path="/about" element={<AboutUs />} />
@@ -80,7 +90,7 @@ function App() {
             <Route path="/events/live" element={<LiveEvents />} />
             <Route path="/events/online" element={<OnlineEvents />} />
             <Route element={<WithHeaderFooter />}>
-            <Route path="/coursedetails/:id" element={<CourseDetails/>} />
+              <Route path="/events/livedetails/:id" element={<CourseDetails/>} />
             </Route>
             {/* Event Route Ended */}
             {/* Instructor Route started */}
@@ -89,10 +99,12 @@ function App() {
             <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
             {/* Instructor Route Ended */}
             {/* Blogs Route started */}
-            <Route path="/store" element={<Blogs />} />
+            <Route path="/store" element={<StoreProducts />} />
             <Route path="/store/blogs/" element={<EnglishBlog />} />
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
-            <Route path="/blogDetails/:id" element={<BlogDetails />} />
+            {/* <Route element={<BottomToTop />} > */}
+              <Route path="/store/course/silva-method-manifesting-program-complete" element={<SilvaManifestationProgram />} />
+            {/* </Route> */}
             {/* Blogs Route Ended */}
             {/*Auth Route started */}
             <Route path="/login" element={<Login />} />
@@ -104,11 +116,7 @@ function App() {
             <Route path="/homeFive" element={<HomeFive />} />
             <Route path="/services" element={<ServicesOne />} />
             <Route path="/servicesTwo" element={<ServicesTwo />} />
-           
-          
-           
-            
-           
+        
             <Route path="/online" element={<ShopDetails />} />
             <Route path="/shoppingCart" element={<ShoppingCart />} />
             <Route path="/checkout/:id" element={<CheckoutPage />} />

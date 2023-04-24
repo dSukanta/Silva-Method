@@ -19,7 +19,7 @@
 }
  .portfolio-filter button:hover,.portfolio-filter button.active{
      position: relative;
-     color: #e12454;
+     color: #9b37f2;
 }
  .portfolio-filter button::before {
      content: '';
@@ -28,7 +28,7 @@
      position: absolute;
      bottom: -2px;
      left: 100%;
-     background: #e12454;
+     background: #9b37f2;
      -webkit-transition: all 0.3s ease;
      transition: all 0.3s ease;
 }
@@ -45,7 +45,7 @@
      position: relative;
 }
  .portfolio-image::before {
-     background: #e12454;
+     background: #9b37f2;
      content: "";
      height: 100%;
      left: 0;
@@ -184,7 +184,7 @@
      text-transform: uppercase;
 }
  .h5gallery-content>span>a:hover {
-     color: #e12454;
+     color: #9b37f2;
 }
  .gallery-button {
      text-align: center;
@@ -204,7 +204,7 @@
      transition: .4s;
 }
  .gallery-filter>button.active {
-     background: #e12454;
+     background: #9b37f2;
      border: 2px solid transparent;
      color: #fff;
      transition: .4s;

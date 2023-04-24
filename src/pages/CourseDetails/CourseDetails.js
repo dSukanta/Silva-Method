@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react'
-// import HomeHeader from '../Home/Home/HomeHeader/HomeHeader'
-// import CustomFooter from '../Home/Home/HomeFooter/Footer'
-// import CommonPageHeader from '../../components/CommonPageHeader/CommonPageHeader'
+import React, { useEffect, useState } from 'react'
+import HomeHeader from '../Home/Home/HomeHeader/HomeHeader'
+import CustomFooter from '../Home/Home/HomeFooter/Footer'
+import CommonPageHeader from '../../components/CommonPageHeader/CommonPageHeader'
 import TabsComp from './TabsComp'
 import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'react-router-dom'
-import { useState } from 'react';
 
 function CourseDetails() {
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
     const {id}= useParams();
     //console.log(id);
@@ -38,18 +38,15 @@ function CourseDetails() {
 
   //console.log(liveClasses);
 
-
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-
     return (
         <div className="container mt-5 mb-5" style={{width:isDesktopOrLaptop?"50%":"100%"}}>
             <div>
-                <h2>{singleClass.length>0 && singleClass[0].course_title }</h2>
+            <h2>{singleClass.length>0 && singleClass[0].course_title }</h2>
                 <div className='d-flex justify-content-between'>
                     <p>
                         By <span style={{ color: "#9b37f2", fontWeight: "500" }}>{singleClass.length>0 && singleClass[0].instructor_name }</span>
                     </p>
-                    <button type="button" className="btn" style={{backgroundColor:"#9b37f2",color:"white"}}>
+                    <button type="button" class="btn" style={{backgroundColor:"#9b37f2",color:"white"}}>
                        UNITED STATES
                     </button>
 

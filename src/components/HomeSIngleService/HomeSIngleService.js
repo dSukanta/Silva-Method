@@ -25,7 +25,7 @@ const HomeSIngleService = ({data}) => {
                   {instructor_name}
                   <br/>
                   <br/>
-                  <Link to={`/coursedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
+                  <Link to={`/events/livedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
             </div>
          </div>
         </div>

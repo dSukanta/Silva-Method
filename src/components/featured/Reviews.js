@@ -42,7 +42,6 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from 'react-responsive'
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -66,7 +65,7 @@ export default function Reviews() {
           clickable: true,
         }}
         autoplay={{
-          delay: 2500,
+          delay: 1000,
           disableOnInteraction: false,
         }}
         modules={[Autoplay,Pagination]}

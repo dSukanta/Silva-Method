@@ -64,7 +64,7 @@ const SingleShop = ({data}) => {
                         <p style={{color:'#012237', fontWeight:'bold'}}>{delivery_method}</p>
                     </div>
                     <div style={{width:'100%', textAlign:'center', padding:'10px 10px', backgroundColor:'#7a12d4', borderBottomLeftRadius:'15px', borderBottomRightRadius:'15px',}}>
-                     <Link to={`/coursedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
+                     <Link to={`/events/livedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
                     </div>
                 </div>
             </div>

@@ -1,9 +1,14 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 
 const HomeAboutArea = () => {
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+
   return (
     <>
-      <section className="about-area mt-10">
+      <section className={isDesktopOrLaptop? "about-area mt-50 mb-50":"about-area mt-50"}>
         <div className="container">
           <div className="row">
             <div className="col-xl-6 col-lg-2 about_left">

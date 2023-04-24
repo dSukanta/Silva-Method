@@ -34,11 +34,11 @@ const HomeServices = () => {
 
    return (
       <>
-         <section className="servcies-area gray-bg pt-115 pb-90">
+         <section className="servcies-area gray-bg pt-50 pb-20">
             <div className="container">
                <div className="row">
                   <div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
-                     <div className="section-title text-center pos-rel mb-75">
+                     <div className="section-title text-center pos-rel mb-15">
                         {/* <div className="section-icon">
                            <img className="section-back-icon" src="img/section/section-back-icon.png" alt=""/>
                         </div> */}
