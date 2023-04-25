@@ -3,6 +3,7 @@ import { BsFacebook, BsTwitter } from 'react-icons/bs';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { TfiPinterest } from 'react-icons/tfi';
 import { useMediaQuery } from 'react-responsive'
+import { NavLink } from 'react-router-dom';
 
 function CustomFooter() {
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
@@ -86,8 +87,13 @@ function CustomFooter() {
                                         <p className='text-light'>WhatsApp : +1  956-722-6391</p>
                                         <img src='https://seal-austin.bbb.org/seals/blue-seal-293-61-whitetxt-bbb-19971.png' />
                                         <div style={{ display: 'flex' }}>
+                                            <NavLink to="/contact">
                                             <button className='footer-contact-btn'>Contact Us</button>
+                                            </NavLink>
+                                            <NavLink to="/register">
                                             <button className='footer-join-btn'>Join Us</button>
+                                            </NavLink>
+                                            
                                         </div>
                                     </div>
                                 </div>

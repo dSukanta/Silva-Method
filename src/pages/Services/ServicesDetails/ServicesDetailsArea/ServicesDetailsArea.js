@@ -193,7 +193,7 @@ const ServicesDetailsArea = () => {
                         </div>
                      </article>
                   </div>
-                  <div className="col-xl-5 col-lg-4">
+                  {/* <div className="col-xl-5 col-lg-4">
                      <div className="service-widget mb-50">
                         <div className="widget-title-box mb-30">
                            <h3 className="widget-title">More Services</h3>
@@ -281,7 +281,7 @@ const ServicesDetailsArea = () => {
                            </Link>
                         </div>
                      </div>
-                  </div>
+                  </div> */}
                </div>
             </div>
          </div>

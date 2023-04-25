@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const CommonPageHeader = ({title}) => {
    return (
       <>
-         <section className="breadcrumb-bg pt-200 pb-180 page_header_bg2">
+         <section className="breadcrumb-bg pt-200 pb-180 page_header_bg">
             <div className="container">
                <div className="row">
                   <div className="col-lg-9 col-md-9">
