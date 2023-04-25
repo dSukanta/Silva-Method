@@ -19,7 +19,7 @@ const AboutUs = () => {
          <AboutArea/>
          <AboutCounter/>
          <AboutAppoinment/>
-         <HomeOurTeam/>
+         {/* <HomeOurTeam/> */}
          <HomeFact/>
          <AboutTestimonial/>
          <AboutAnalysis/>

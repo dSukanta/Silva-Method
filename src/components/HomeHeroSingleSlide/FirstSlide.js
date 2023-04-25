@@ -3,7 +3,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
 
-function FirstSlide() {
+function CourseSlide() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -94,4 +94,4 @@ function FirstSlide() {
     )
 }
 
-export default FirstSlide
+export default CourseSlide;

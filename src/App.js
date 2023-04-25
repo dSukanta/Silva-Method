@@ -60,6 +60,7 @@ import StoreProducts from './pages/Store/StoreProducts';
 import SilvaManifestationProgram from './pages/SilvaManifestationProgram/SilvaManifestationProgram';
 import BottomToTop from './pages/BottomToTop/BottomToTop';
 import AllCourses from './pages/CourseDetails/Courses';
+import SilvaHome from './pages/Home/Home/SilvaHome';
 
 
 function App() {
@@ -72,8 +73,8 @@ function App() {
           <Routes>
             {/* Home Route started*/}
             <Route path="/store/courses" element={<AllCourses/>}/>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<SilvaHome />} />
+            <Route path="/home" element={<SilvaHome />} />
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
             {/* <Route path="/homeTwo" element={<HomeTwo />} />
             <Route path="/homeThree" element={<HomeThree />} /> */}

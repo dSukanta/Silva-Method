@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive'
 
-const SingleCourse = ({data}) => {
+const HomeSingleEvents = ({data}) => {
    //console.log(data);
 
-   const {web_image,course_id,course_title,teacher_id,teacher_name}= data;
+   const {instructor_name,course_id}= data;
 
 
    const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
@@ -14,12 +14,18 @@ const SingleCourse = ({data}) => {
 
    return (
       <>
-        <div className='ovrlay-card p-4'>
-            <img src={web_image} className='overlay-card-image'/>
+        <div className='ovrlay-card'>
+            <img src='https://silvamethod.com/assets/images/silva_instructor_pooja_arora.jpeg' className='overlay-card-image'/>
             
          <div className='overlay-section'>
             <div className='overlay-text' style={{fontSize: isMobile? '10px':'20px'}}>
-                  <Link to={`/blogLeftSideBar`}><p style={{color:'white',}}>Read More</p></Link>
+                  Instructor Name
+                  <br/>
+                  <br/>
+                  {instructor_name}
+                  <br/>
+                  <br/>
+                  <Link to={`/events/livedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
             </div>
          </div>
         </div>
@@ -27,4 +33,4 @@ const SingleCourse = ({data}) => {
    );
 };
 
-export default SingleCourse;
+export default HomeSingleEvents;

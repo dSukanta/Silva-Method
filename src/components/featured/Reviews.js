@@ -51,7 +51,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination,Autoplay } from "swiper";
 
-export default function Reviews() {
+export default function Testimonials() {
   const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
