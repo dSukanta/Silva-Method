@@ -1,28 +1,33 @@
 import React from 'react';
-import CommonPageHeader from '../../components/CommonPageHeader/CommonPageHeader';
-import Footer from '../../components/Shared/Footer';
-import HomeFact from '../Home/Home/HomeFact/HomeFact';
 import HomeHeader from '../Home/Home/HomeHeader/HomeHeader';
-import HomeOurTeam from '../Home/Home/HomeOurTeam/HomeOurTeam';
-import AboutAnalysis from './AboutAnalysis/AboutAnalysis';
-import AboutAppoinment from './AboutAppoinment/AboutAppoinment';
-import AboutArea from './AboutArea/AboutArea';
-import AboutCounter from './AboutCounter/AboutCounter';
-import AboutTestimonial from './AboutTestimonial/AboutTestimonial';
+import AboutTopSection from '../../components/AboutTopSection/AboutTopSection';
+import ImageGallerySection from '../../components/ImageGallerySection/ImageGallerySection';
+import ServicesOneABout from '../Services/ServicesOne/ServicesOneAbout/ServicesOneABout';
+import ImageTextSection from '../../components/ImageTextSection/ImageTextSection';
+import AboutCounter2 from './AboutCounter/AboutCounter2';
+import DifferenceSection from '../../components/DifferenceSection/DifferenceSection';
+import ReviewsContainer from '../../components/DifferenceSection/ReviewsContainer';
+import BookContent from '../../components/Bookcontent/BookContent';
 import CustomFooter from '../Home/Home/HomeFooter/Footer';
 
 const AboutUs = () => {
+   
    return (
       <>
          <HomeHeader/>
-         <CommonPageHeader title="About Us" subtitle="About" />
-         <AboutArea/>
-         <AboutCounter/>
-         <AboutAppoinment/>
-         <HomeOurTeam/>
-         <HomeFact/>
-         <AboutTestimonial/>
-         <AboutAnalysis/>
+         <AboutTopSection/>
+         <ImageGallerySection/>
+         <ServicesOneABout/>
+         {/* <CalculateArea/> */}
+         {/* <ServicesOneHiringArea/> */}
+         <ImageTextSection />
+         <AboutCounter2/>
+         <DifferenceSection />
+         <ReviewsContainer />
+         <BookContent />
+         {/* <Footer/> */}
+         {/* <CalculateArea/> */}
+         {/* <ServicesOneHiringArea/> */}
          <CustomFooter/>
       </>
    );

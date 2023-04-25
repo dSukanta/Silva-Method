@@ -42,7 +42,7 @@ import 'react-pagination-bar/dist/index.css'
 
 import NotFound from './pages/NotFound/NotFound';
 import { Toaster } from 'react-hot-toast';
-import PublicRoutes from './privateRoutes/PublicRoutes';
+// import PublicRoutes from './privateRoutes/PublicRoutes';
 import LiveEvents from './pages/events/LiveEvents';
 import OnlineEvents from './pages/events/OnlineEvents';
 import BasicLecture from './pages/seminars/BasicLecture';

@@ -89,9 +89,9 @@ const HomeHeader = () => {
                                  {/* <li><Link to="/">Enroll Online Classes</Link></li> */}
                                  <li><Link to="/about">About</Link>
                                     <ul className="submenu">
-                                       <li><Link to="/services">About us</Link></li>
+                                       {/* <li><Link to="/services">About us</Link></li>
                                        <li><Link to="/contact">Contact Us</Link></li>
-                                       <li><Link to="/servicesDetails">Research</Link></li>
+                                       <li><Link to="/servicesDetails">Research</Link></li> */}
                                        <li><Link to="/about">About us</Link></li>
                                        <li><Link to="/contact">Contact Us</Link></li>
                                        <li><Link to="/research">Research</Link></li>
