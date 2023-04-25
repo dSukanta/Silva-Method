@@ -15,7 +15,7 @@ const SingleCourse = ({data}) => {
    return (
       <>
         <div className='ovrlay-card p-4'>
-            <img src={web_image} className='overlay-card-image'/>
+            <img src={web_image} className='overlay-card-image' height='300px'/>
             
          <div className='overlay-section'>
             <div className='overlay-text' style={{fontSize: isMobile? '10px':'20px'}}>

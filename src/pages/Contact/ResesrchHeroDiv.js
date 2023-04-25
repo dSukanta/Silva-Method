@@ -16,12 +16,12 @@ function ResesrchHeroDiv() {
           </p>
           <p style={{color:'white'}}>Our books have sold over 12 million copies, our seminars continue to sell out across the world, and our findings have been endorsed and practiced by many of the world's most respected scientists, doctors, thought leaders and spiritual teachers.</p>
         </div>
-      <div style={{width:'100%'}}>
+      <div style={{width:'100%', textAlign:'center'}}>
       <img
           src="https://silvamethod.com/assets/images/research-silvamethod.webp"
           alt="" width='100%'
         />
-        <h3>More than 7840 students are registered</h3>
+        <h3 style={{marginTop:'-35px', color:'white'}}>More than <span style={{color:'#f16101'}}>7840</span> students are registered</h3>
      </div>
         
       </div>
