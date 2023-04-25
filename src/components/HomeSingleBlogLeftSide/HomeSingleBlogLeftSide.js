@@ -2,16 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HomeSingleBlogLeftSide = ({data}) => {
-   const {blog_id,title,web_image,seo_title} = data;
+   const {blog_id,title,web_image,seo_title,category} = data;
    return (
       <>
          <div className="col-xl-4 col-lg-6 col-md-6">
             <div className="latest-news-box mb-30">
                <div>
-                  <img src={web_image} alt=""/>
+                  <img src={web_image} alt="" height='300px'/>
                </div>
                <div style={{width:'25%', padding:'5px',backgroundColor:'black', color:'white', textAlign:'center', margin:'20px 0px'}}>
-                  <b>Topic</b>
+                  <b>{category}</b>
                </div>
                <div className="latest-news-content">
                   {/* <div className="news-meta mb-10">

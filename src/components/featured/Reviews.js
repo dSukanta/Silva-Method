@@ -38,7 +38,7 @@
 //   export default Reviews;
 
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from 'react-responsive'
@@ -51,13 +51,44 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination,Autoplay } from "swiper";
 
-export default function Reviews() {
+export default function Testimonials() {
   const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
 
+  const[reviews,setReviews]=useState([]);
+
+      const getreviews = async() =>{
+         const myHeaders = new Headers();
+         myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
+         myHeaders.append("Device", "Android");
+         myHeaders.append("Language", "english");
+ 
+         const formData= new FormData();
+         formData.append("start_index", "0");
+         formData.append("no_of_records", "10");
+ 
+       const options={
+          method:'POST',
+          headers:myHeaders,
+          body: formData
+       }
+       const res= await fetch(`https://projectsites.in/silvamethod/api/testimonialList`,options)
+       const data= await res.json();
+       //console.log(data.data.classes);
+       setReviews(data.data);
+      }
+
+      useEffect(()=>{
+         getreviews()
+      },[]);
+
+      console.log(reviews);
+
+
+
   return (
-    <div className = {isMobile ? "mt-0 mb-0":"mt-40 mb-40"}>
+    <div className = {isMobile ? "mt-0 mb-0 p-4":"mt-40 mb-40 p-4"}>
       <Swiper
         slidesPerView={isDesktopOrLaptop? 3:1}
         spaceBetween={30}
@@ -71,16 +102,24 @@ export default function Reviews() {
         modules={[Autoplay,Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-           <div style={{ textAlign:"center"}}>
-            <img src="https://silvamethod.com/assets/images/silva-method-testimonial-shakti-gawain.webp" />
-            <h4>“Our rational mind is like a computer… The intuitive mind, on the other hand, seems to give access to an infinite supply of information…”</h4>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
+        {reviews && reviews.map((review)=>
+          <SwiperSlide>
+            <div style={{ textAlign:"center"}}>
+              <img src={review.image} />
+              <h3>{`${review.name}, ${review.designation}`}</h3>
+              <div
+                dangerouslySetInnerHTML={{__html: review.comment}}
+                  />
+              {/* <h4>{`"${review.comment}"`}</h4> */}
+              
+            </div>
+          </SwiperSlide>
+        )}
+       
+        {/* <SwiperSlide>
         <div style={{ textAlign:"center"}}>
           <img src="https://silvamethod.com/assets/images/silva-method-testimonial-simontion.webp"/>
-          <h4>“About the Silva system, I would say it is the most powerful single tool that I have to offer patients.”</h4>
+          <h4>“Our rational mind is like a computer… The intuitive mind, on the other hand, seems to give access to an infinite supply of information…”</h4>
           </div>
         </SwiperSlide>
         <SwiperSlide>
@@ -94,7 +133,7 @@ export default function Reviews() {
           <img src="https://silvamethod.com/assets/images/silva-method-testimonial-robert-stiller.webp"/>
           <h4>“By offering the Silva Method to (our) employees we provide an opportunity to experience for themselves the power of the mind…”</h4>
           </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
         {/* <SwiperSlide>Slide 5</SwiperSlide>
         <SwiperSlide>Slide 6</SwiperSlide>
         <SwiperSlide>Slide 7</SwiperSlide>

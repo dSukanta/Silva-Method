@@ -21,9 +21,9 @@ const ServicesOneABout = () => {
                <div className="row ">
                   <div className="col-xl-6 col-lg-6 col-md-12">
                      <div className="section-title section-title-m-0 pos-rel mb-50 text-end">
-                        <div className="section-icon">
+                        {/* <div className="section-icon">
                            <img className="section-back-icon back-icon-right" src="img/section/section-back-icon.png" alt="" />
-                        </div>
+                        </div> */}
                         <div className="section-text section-text-small pos-rel d-flex justify-content-start flex-column">
                            {/* <h5>health care facility</h5> */}
 

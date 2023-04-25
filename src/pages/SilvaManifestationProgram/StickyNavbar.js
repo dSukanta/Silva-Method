@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {IoMdArrowBack} from "react-icons/io";
+import { NavLink } from 'react-router-dom';
 
 
 function StickyNavbar() {
@@ -12,7 +13,7 @@ function StickyNavbar() {
         <Navbar bg="dark" style={{width:"100%",marginBottom:"10px"}} sticky='top' variant="dark">
             <Container>
                 <Nav.Link>
-                  <IoMdArrowBack size={30} />  Go Back
+                  <IoMdArrowBack size={30} color='white'/> <NavLink to="/"><span style={{color:'white'}}>Go Back</span></NavLink>  
                 </Nav.Link>
                 <Nav.Item className='white-color'>
                   Getting Started

@@ -400,9 +400,18 @@ li {
   margin-top: 25px;
 }
 
-.footer-join-btn {
+.footer-contact-btn{
   background-color: black;
   color: white;
+  border-radius: 35px;
+  padding: 6.5px 20px;
+  border: none;
+  margin-top: 25px;
+}
+
+.footer-join-btn{
+  background-color: white;
+  color: black;
   margin-left: 10px;
   border-radius: 35px;
   padding: 6.5px 20px;
@@ -425,7 +434,7 @@ li {
 .overlay-card-image {
   display: block;
   width: 100%;
-  height: auto;
+  /* height: 400px; */
   padding: 15px;
 }
 
@@ -480,6 +489,12 @@ li {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.newsletter-container input::placeholder{
+  color: black;
+  padding: 25px;
+  /* font-weight: bold; */
 }
 
 

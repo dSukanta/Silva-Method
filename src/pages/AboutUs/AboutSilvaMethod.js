@@ -1,7 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 
-const HomeAboutArea = () => {
+const AboutSilvaMethod = () => {
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -68,4 +68,4 @@ const HomeAboutArea = () => {
   );
 };
 
-export default HomeAboutArea;
+export default AboutSilvaMethod;

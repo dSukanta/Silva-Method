@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
-const HomeSingleTeam = ({data}) => {
+const HomeSingleProduct = ({data}) => {
   
    console.log(data);
 
@@ -57,4 +57,4 @@ const HomeSingleTeam = ({data}) => {
    );
 };
 
-export default HomeSingleTeam;
+export default HomeSingleProduct;

@@ -28,6 +28,14 @@ const AboutUs = () => {
          {/* <Footer/> */}
          {/* <CalculateArea/> */}
          {/* <ServicesOneHiringArea/> */}
+         {/* <CommonPageHeader title="About Us" subtitle="About" />
+         <AboutArea/>
+         <AboutCounter/>
+         <AboutAppoinment/>
+         <HomeOurTeam/>
+         <HomeFact/>
+         <AboutTestimonial/>
+         <AboutAnalysis/> */}
          <CustomFooter/>
       </>
    );

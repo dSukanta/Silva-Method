@@ -20,7 +20,7 @@ function TabsComp({ data }) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
     const { address, country, course_name, course_title, delivery_method,
-        details, email, email_2, end_date, instructor_name, language, phone_number,
+        details, email, email_2, end_date, instructor_name,instructor_id, language, phone_number,
         phone_number_2, photo, post_date, start_date } = data;
 
     return (
@@ -84,45 +84,26 @@ function TabsComp({ data }) {
                                     </div>
                                     <div className="more-service-list">
                                         <ul>
-                                            <div className="row">
-                                                <div className="col-sm-6 col-md-4 mb-3">
-                                                    <li>
-                                                        {/* <div className="more-service-icon"><BsCalendarDate size={40} /></div> */}
-                                                        <div className="more-service-title doctor-details-title"><BsCalendarDate size={40} /> Event Start Date
-                                                            <span style={{ fontSize: "1.1rem" }}>{moment(start_date).format('LL')}</span></div>
-                                                    </li>
-                                                </div>
-                                                <div className="col-sm-6 col-md-4 mb-3">
-                                                    <li>
-                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
-                                                        <div className="more-service-title doctor-details-title"><BsCalendarDate size={40} /> Event End Date
-                                                            <span style={{ fontSize: "1.1rem" }}>{moment(end_date).format('LL')}</span></div>
-                                                    </li>
-                                                </div>
-                                                <div className="col-sm-6 col-md-4 mb-3">
-                                                    <li>
-                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
-                                                        <div className="more-service-title doctor-details-title"><BsCalendarEvent size={40} /> Event Mode
-                                                            <span style={{ fontSize: "1.1rem" }}>{delivery_method}</span></div>
-                                                    </li>
-                                                </div>
-                                                <div className="col-sm-6 col-md-4 mb-3">
-                                                    <li>
-                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
-                                                        <div className="more-service-title doctor-details-title"><MdPlace size={40} /> Venue
-                                                            <span style={{ fontSize: "1.1rem" }}>{address}</span></div>
-                                                    </li>
-                                                </div>
-                                                <div className="col-sm-6 col-md-4">
-                                                    <li>
-                                                        {/* <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div> */}
-                                                        <div className="more-service-title doctor-details-title"><AiOutlineInfoCircle size={40} /> Details
-                                                            <span>{"This is test details"}</span></div>
-                                                    </li>
-                                                </div>
-                                            </div>
-
-
+                                            <li>
+                                                {/* <div className="more-service-icon"><img src={serviceImg1} alt="" /></div> */}
+                                                <div className="more-service-title doctor-details-title">Event Start Date <span>{moment(start_date).format('LL')}</span></div>
+                                            </li>
+                                            <li>
+                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                <div className="more-service-title doctor-details-title">Event End Date<span>{moment(end_date).format('LL')}</span></div>
+                                            </li>
+                                            <li>
+                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                <div className="more-service-title doctor-details-title">Event Mode<span>{delivery_method}</span></div>
+                                            </li>
+                                            <li>
+                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                <div className="more-service-title doctor-details-title">Venue<span>{address}</span></div>
+                                            </li>
+                                            <li>
+                                                <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                <div className="more-service-title doctor-details-title">Details<span>{details}</span></div>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

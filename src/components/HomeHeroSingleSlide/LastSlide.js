@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { useMediaQuery } from "react-responsive";
 import Slider from "react-slick";
 
-export default function LastSlide() {
+export default function InstructorsSlide() {
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -31,12 +31,6 @@ export default function LastSlide() {
           <div>
            <img src="img/slide-5.webp" style={{width:"100%"}}/>
           </div>
-          {/* <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div> */}
         </Slider>
       </div>
     );
