@@ -61,6 +61,7 @@ import SilvaManifestationProgram from './pages/SilvaManifestationProgram/SilvaMa
 import BottomToTop from './pages/BottomToTop/BottomToTop';
 import AllCourses from './pages/CourseDetails/Courses';
 import SilvaHome from './pages/Home/Home/SilvaHome';
+import IntuitionSystem from './pages/seminars/IntuitionSystem';
 
 
 function App() {
@@ -88,6 +89,8 @@ function App() {
             <Route path="/courses/basic_lecture_series" element={<BasicLecture />} />
             <Route path="/courses/seminar" element={<Seminars />} />
             <Route path="/courses/silva_life_system" element={<LifeSystem />} />
+            <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
+
             {/* Seminar Route Ended */}
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />
