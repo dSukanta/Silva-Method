@@ -1,36 +1,84 @@
 import React, { useEffect, useState } from 'react';
 import HomeSingleEvents from './HomeSignleEvents';
+import Slider from 'react-slick';
 
 const HomeEvents = () => {
-   
-      const[classes,setClasses]=useState([]);
+   const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      responsive: [
+         {
+            breakpoint: 1024,
+            settings: {
+               dots: true,
+               infinite: true,
+               speed: 500,
+               slidesToShow: 3,
+               slidesToScroll: 1,
+               autoplay: true,
+               autoplaySpeed: 3000,
+            }
+         },
+         {
+            breakpoint: 600,
+            settings: {
+               dots: true,
+               infinite: true,
+               speed: 500,
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               autoplay: true,
+               autoplaySpeed: 3000,
+            }
+         },
+         {
+            breakpoint: 480,
+            settings: {
+               dots: true,
+               infinite: true,
+               speed: 500,
+               slidesToShow: 1,
+               slidesToScroll: 1,
+               autoplay: true,
+               autoplaySpeed: 3000,
+            }
+         }
+      ]
+   };
 
-      const getData = async() =>{
-         const myHeaders = new Headers();
-         myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
-         myHeaders.append("Device", "Android");
-         myHeaders.append("Language", "english");
- 
-         const formData= new FormData();
-         formData.append("start_index", "0");
-         formData.append("no_of_records", "100");
- 
-       const options={
-          method:'POST',
-          headers:myHeaders,
-          body: formData
-       }
-       const res= await fetch(`https://projectsites.in/silvamethod/api/home`,options)
-       const data= await res.json();
-       //console.log(data.data.classes);
-       setClasses(data.data.classes);
+   const [classes, setClasses] = useState([]);
+
+   const getData = async () => {
+      const myHeaders = new Headers();
+      myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
+      myHeaders.append("Device", "Android");
+      myHeaders.append("Language", "english");
+
+      const formData = new FormData();
+      formData.append("start_index", "0");
+      formData.append("no_of_records", "100");
+
+      const options = {
+         method: 'POST',
+         headers: myHeaders,
+         body: formData
       }
+      const res = await fetch(`https://projectsites.in/silvamethod/api/home`, options)
+      const data = await res.json();
+      //console.log(data.data.classes);
+      setClasses(data.data.classes);
+   }
 
-      useEffect(()=>{
-         getData();
-      },[]);
+   useEffect(() => {
+      getData();
+   }, []);
 
-      //console.log(classes);
+   //console.log(classes);
 
    return (
       <>
@@ -47,17 +95,18 @@ const HomeEvents = () => {
                            <h2>Upcoming Live & Online Classes</h2>
                         </div>
                         <div className="section-line pos-rel">
-                           <img src="img/shape/section-title-line.png" alt=""/>
+                           <img src="img/shape/section-title-line.png" alt="" />
                         </div>
                      </div>
                   </div>
                </div>
-               <div className="row row-cols-2 row-cols-lg-3">
-
-               {classes && classes.map((classes)=>
-                  <HomeSingleEvents key={classes.class_id} data={classes}/>
-               )}
-              </div>
+               <div className="row py-3">
+                  <Slider {...settings}>
+                  {classes && classes.map((classes) =>
+                     <HomeSingleEvents key={classes.class_id} data={classes} />
+                  )}
+                  </Slider>
+               </div>
             </div>
          </section>
       </>

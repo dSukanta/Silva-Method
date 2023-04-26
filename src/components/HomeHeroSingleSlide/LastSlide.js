@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { useMediaQuery } from "react-responsive";
 import Slider from "react-slick";
+import SlideImg1 from '../../../src/img/slide-2.webp';
+import SlideImg2 from '../../../src/img/slide-3.webp'
+import SlideImg3 from '../../../src/img/slide-4.webp'
+import SlideImg4 from '../../../src/img/slide-5.webp'
 
 export default function InstructorsSlide() {
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -20,16 +24,16 @@ export default function InstructorsSlide() {
       <div className="mb-5">
         <Slider {...settings}>
           <div>
-            <img src="img/slide-2.webp" style={{width:"100%"}}/>
+            <img src={SlideImg1} style={{width:"100%"}}/>
           </div>
           <div>
-           <img src="img/slide-3.webp" style={{width:"100%"}}/>
+           <img src={SlideImg2} style={{width:"100%"}}/>
           </div>
           <div>
-            <img src="img/slide-4.webp" style={{width:"100%"}}/>
+            <img src={SlideImg3} style={{width:"100%"}}/>
           </div>
           <div>
-           <img src="img/slide-5.webp" style={{width:"100%"}}/>
+           <img src={SlideImg4} style={{width:"100%"}}/>
           </div>
         </Slider>
       </div>

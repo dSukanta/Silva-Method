@@ -60,7 +60,7 @@ function BecomeInstructorForm() {
                                 </div>
                                 <div className="col-12">
                                     <div className="form-box email-icon mb-30">
-                                        <p style={{fontFamily:"inherit",fontSize:"1.3rem",display:"flex",justifyContent:"start",gap:"20px",alignItems:"center"}}>Is there a Silva Director in charge of this area?
+                                        <p style={{fontFamily:"inherit",fontSize:"1.2rem",display:"flex",justifyContent:"start",gap:"20px",alignItems:"center"}}>Is there a Silva Director in charge of this area?
                                         <div className='d-flex'>
                                         <label class="container d-flex justify-content-start align-items-center gap-2">Yes
                                             <input type="radio" style={{width:"20px",height:"20px"}} name="radio" />
@@ -72,7 +72,7 @@ function BecomeInstructorForm() {
                                         </label>
                                         </div>
                                         </p>
-                                        <p style={{fontFamily:"inherit",fontSize:"1.3rem",}}>
+                                        <p style={{fontFamily:"inherit",fontSize:"1.2rem",}}>
                                         Note- If so, you are required to contact them directly and not to fill in this form.
                                         </p>
                                        
@@ -98,7 +98,7 @@ function BecomeInstructorForm() {
 
                                 <div className="col-12">
                                     <div className="form-box email-icon mb-30">
-                                        <p style={{fontFamily:"inherit",fontSize:"1.3rem",display:"flex",justifyContent:"start",gap:"20px",alignItems:"center"}}>
+                                        <p style={{fontFamily:"inherit",fontSize:"1.2rem",display:"flex",justifyContent:"start",gap:"20px",alignItems:"center"}}>
                                            Ultra Seminar?
                                         <div className='d-flex'>
                                         <label class="container d-flex justify-content-start align-items-center gap-2">Yes
@@ -116,7 +116,7 @@ function BecomeInstructorForm() {
 
                                 <div className="col-12">
                                     <div className="form-box email-icon mb-30">
-                                        <p style={{fontFamily:"inherit",fontSize:"1.3rem",display:"flex",justifyContent:"start",gap:"20px",alignItems:"center"}}>
+                                        <p style={{fontFamily:"inherit",fontSize:"1.2rem",display:"flex",justifyContent:"start",gap:"20px",alignItems:"center"}}>
                                           Graduate Seminar?
                                         <div className='d-flex'>
                                         <label class="container d-flex justify-content-start align-items-center gap-2">Yes

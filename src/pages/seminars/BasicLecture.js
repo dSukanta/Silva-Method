@@ -5,6 +5,7 @@ import DoctorOneTeamArea from '../Doctors/DoctorsOne/DoctorOneTeamArea/DoctorOne
 import HomeFact from '../Home/Home/HomeFact/HomeFact';
 import CounterArea from '../Doctors/DoctorsOne/CounterArea/CounterArea';
 import CustomFooter from '../Home/Home/HomeFooter/Footer';
+import SeminarOne from './SeminarOne';
 
 
 const BasicLecture = () => {
@@ -12,9 +13,10 @@ const BasicLecture = () => {
         <>
             <HomeHeader/>
             <CommonPageHeader title="BASIC LECTURE SERIES" subtitle="Doctor" />
-            <DoctorOneTeamArea/>
-            <HomeFact/>
-            <CounterArea/>
+            {/* <DoctorOneTeamArea/> */}
+            <SeminarOne />
+            {/* <HomeFact/> */}
+            {/* <CounterArea/> */}
             <CustomFooter/>
         </>
     );

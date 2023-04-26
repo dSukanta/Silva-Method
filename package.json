@@ -1,4 +1,5 @@
 {
+  "homepage": "https://projectsites.in/newsilva/",
   "name": "medi-dove",
   "version": "0.1.0",
   "private": true,
@@ -31,7 +32,8 @@
     "react-player": "^2.12.0",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
+    "react-scripts": "^5.0.1",
+    "react-scroll-parallax": "^3.4.2",
     "react-select": "^5.2.2",
     "react-share-social": "^0.1.55",
     "react-slick": "^0.28.1",

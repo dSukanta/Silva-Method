@@ -1,5 +1,7 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import SilvaLogo from '../../../src/img/shape/silva_method.png'
+import JoseSilvaImg from '../../../src/img/shape/jose_silva.jpg'
 
 const AboutSilvaMethod = () => {
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -17,7 +19,7 @@ const AboutSilvaMethod = () => {
                      </div> */}
               <div className="about-left-side pos-rel">
                 <div className="about-front-img">
-                  <img src="img/shape/silva_method.png" alt="" />
+                  <img src={SilvaLogo} alt="" />
                 </div>
                 {/* <div className="about-shape">
                   <img src="img/about/about-shape.png" alt="" />

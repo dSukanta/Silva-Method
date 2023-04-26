@@ -102,7 +102,7 @@ const HomeHeader = () => {
                                        <li><Link to="/courses/basic_lecture_series">Basic Lecture Series(BLS-4)</Link></li>
                                        <li><Link to="/courses/seminar">Seminars</Link></li>
                                        <li><Link to="/courses/silva_life_system">Silva Life System</Link></li>
-                                       <li><Link to="/doctorDetails">Silva Intuition System</Link></li>
+                                       <li><Link to="/courses/silva_intution_system">Silva Intuition System</Link></li>
                                        <li><Link to="/doctorDetails">Silva Mastery System</Link></li>
                                     </ul>
                                  </li>
