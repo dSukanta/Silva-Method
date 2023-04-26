@@ -33,13 +33,16 @@ const ProductDetailsLeftSide = ({ details_topBar, product }) => {
             }}
           >
             {details_topBar}
-            <div style={{ width: "100%" }}>
-              <h3 className="blog-title">{product && product_name}</h3>
+            <div style={{ width: "100%" ,}}>
+              <h3 className="blog-title text-uppercase">{product && product_name}</h3>
+              <h4>${price}</h4>
               <div
                 className="post-text mb-20"
+                // style={{height:'200px', overflow:'scroll'}}
                 dangerouslySetInnerHTML={{ __html: description }}
               />
               <div>
+                <b>Qty.:</b> <input type="number" style={{width:'50px', height:'40px', margin:'15px', border:'0.3px solid #eee',textAlign:'center'}} min='1' defaultValue='1'/>
                 {product && product_type == "Internal"?
                 <button className="buy-now-btn">Buy Now</button>:
                 <a href={buy_now_link} className="buy-now-link">Buy Now</a>

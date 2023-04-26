@@ -37,7 +37,7 @@ const HomeProducts = () => {
       getProducts();
    },[])
 
-   console.log(products);
+   //console.log(products);
 
    return (
       <>

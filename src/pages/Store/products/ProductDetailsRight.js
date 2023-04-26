@@ -1,23 +1,57 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import {AiOutlineSearch} from 'react-icons/ai';
-import OverlayCard from './OverlayCard';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { AiOutlineSearch } from "react-icons/ai";
+import OverlayCard from "./OverlayCard";
 
 const ProductDetailsRightSide = () => {
-    return (
-        <>
-            <div className="col-lg-4">
-                <div className="widget mb-40">
-                    <div className="widget-title-box mb-30">
-                        <span className="animate-border"></span>
-                        <h3 className="widget-title">Search Products</h3>
-                    </div>
-                    <form className="search-form">
-                        <input type="text" placeholder="Search your keyword..."/>
-                            <button type="submit"><AiOutlineSearch size={20}/></button>
-                    </form>
-                </div>
-                {/* <div className="widget mb-40">
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    const myHeaders = new Headers();
+    myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
+    myHeaders.append("Device", "Android");
+    myHeaders.append("Language", "english");
+
+    const formData = new FormData();
+    formData.append("start_index", "0");
+    formData.append("no_of_records", "15");
+
+    const options = {
+      method: "POST",
+      headers: myHeaders,
+      body: formData,
+    };
+    const res = await fetch(
+      `https://projectsites.in/silvamethod/api/productList`,
+      options
+    );
+    const data = await res.json();
+    //console.log(data.data);
+    setProducts(data.data);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
+  //console.log(products);
+
+  return (
+    <>
+      <div className="col-lg-4">
+        {/* <div className="widget mb-40">
+          <div className="widget-title-box mb-30">
+            <span className="animate-border"></span>
+            <h3 className="widget-title">Search Products</h3>
+          </div>
+          <form className="search-form">
+            <input type="text" placeholder="Search your keyword..." />
+            <button type="submit">
+              <AiOutlineSearch size={20} />
+            </button>
+          </form>
+        </div> */}
+        {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">About Me</h3>
@@ -36,68 +70,96 @@ const ProductDetailsRightSide = () => {
                             </div>
                     </div>
                 </div> */}
-                <div className="widget mb-40">
-                    <div className="widget-title-box mb-30">
-                        <span className="animate-border"></span>
-                        <h3 className="widget-title">PRODUCT CATEGORIES</h3>
-                    </div>
-                    <ul className="cat">
-                        <li>
-                            <Link to="/blogDetails">Lifestyle <span className="f-right">78</span></Link>
-                        </li>
-                        <li>
-                            <Link to="/blogDetails">Travel <span className="f-right">42</span></Link>
-                        </li>
-                        <li>
-                            <Link to="/blogDetails">Fashion <span className="f-right">32</span></Link>
-                        </li>
-                        <li>
-                            <Link to="/blogDetails">Music <span className="f-right">85</span></Link>
-                        </li>
-                        <li>
-                            <Link to="/blogDetails">Branding <span className="f-right">05</span></Link>
-                        </li>
-                    </ul>
-                </div>
-                <div className="widget mb-40">
-                    <div className="widget-title-box mb-30">
-                        <span className="animate-border"></span>
-                        <h3 className="widget-title">Popular Feeds</h3>
-                    </div>
-                    <ul className="recent-posts">
-                        <li>
-                            <div className="widget-posts-image">
-                                <Link to="/blogDetails"><img src="img/blog/details/img1.jpg" alt=""/></Link>
-                            </div>
-                            <div className="widget-posts-body">
-                                <h6 className="widget-posts-title"><Link to="/blogDetails">Lorem ipsum dolor sit
-                                    cing elit, sed do.</Link></h6>
-                                <div className="widget-posts-meta">October 18, 2021 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="widget-posts-image">
-                                <Link to="/blogDetails"><img src="img/blog/details/img2.jpg" alt=""/></Link>
-                            </div>
-                            <div className="widget-posts-body">
-                                <h6 className="widget-posts-title"><Link to="/blogDetails">Lorem ipsum dolor sit
-                                    cing elit, sed do.</Link></h6>
-                                <div className="widget-posts-meta">October 24, 2021 </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className="widget-posts-image">
-                                <Link to="/blogDetails"><img src="img/blog/details/img3.jpg" alt=""/></Link>
-                            </div>
-                            <div className="widget-posts-body">
-                                <h6 className="widget-posts-title"><Link to="/blogDetails">Lorem ipsum dolor sit
-                                    cing elit, sed do.</Link></h6>
-                                <div className="widget-posts-meta">October 28, 2021 </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                {/* <div className="widget mb-40">
+        {/* <div className="widget mb-40">
+          <div className="widget-title-box mb-30">
+            <span className="animate-border"></span>
+            <h3 className="widget-title">PRODUCT CATEGORIES</h3>
+          </div>
+          <ul className="cat">
+            <li>
+              <Link to="/blogDetails">
+              Books <span className="f-right">(21)</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogDetails">
+              Dynamic Meditation <span className="f-right">(9)</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogDetails">
+              Home Study Programs <span className="f-right">(0)</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogDetails">
+              Silva Master Classes<span className="f-right">(3)</span>
+              </Link>
+            </li>
+            <li>
+              <Link to="/blogDetails">
+              Uncategorized <span className="f-right">(0)</span>
+              </Link>
+            </li>
+          </ul>
+        </div> */}
+        <div className="widget mb-40">
+          <div className="widget-title-box mb-30">
+            <span className="animate-border"></span>
+            <h3 className="widget-title">Products</h3>
+          </div>
+          <ul className="recent-posts">
+            {products &&
+              products.map((product) => (
+                <li>
+                  <div className="widget-posts-image">
+                    <Link to="/blogDetails">
+                      <img src={product && product.product_image} alt="" />
+                    </Link>
+                  </div>
+                  <div className="widget-posts-body">
+                    <h6 className="widget-posts-title">
+                      <Link to={`/store/product/${product && product.product_id}`}>
+                        {product && product.product_name}
+                      </Link>
+                    </h6>
+                    <div className="widget-posts-meta"><h6>${product && product.price}.00</h6></div>
+                  </div>
+                </li>
+              ))}
+            {/* <li>
+              <div className="widget-posts-image">
+                <Link to="/blogDetails">
+                  <img src="img/blog/details/img2.jpg" alt="" />
+                </Link>
+              </div>
+              <div className="widget-posts-body">
+                <h6 className="widget-posts-title">
+                  <Link to="/blogDetails">
+                    Lorem ipsum dolor sit cing elit, sed do.
+                  </Link>
+                </h6>
+                <div className="widget-posts-meta">October 24, 2021 </div>
+              </div>
+            </li>
+            <li>
+              <div className="widget-posts-image">
+                <Link to="/blogDetails">
+                  <img src="img/blog/details/img3.jpg" alt="" />
+                </Link>
+              </div>
+              <div className="widget-posts-body">
+                <h6 className="widget-posts-title">
+                  <Link to="/blogDetails">
+                    Lorem ipsum dolor sit cing elit, sed do.
+                  </Link>
+                </h6>
+                <div className="widget-posts-meta">October 28, 2021 </div>
+              </div>
+            </li> */}
+          </ul>
+        </div>
+        {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Social Profile</h3>
@@ -110,7 +172,7 @@ const ProductDetailsRightSide = () => {
                         <a href="#"><i className="fab fa-youtube"></i></a>
                     </div>
                 </div> */}
-                {/* <div className="widget mb-40">
+        {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Instagram Feeds</h3>
@@ -127,7 +189,7 @@ const ProductDetailsRightSide = () => {
                         <li><a href="#"><img src="img/instagram/ins9.jpg" alt=""/></a></li>
                     </ul>
                 </div> */}
-                {/* <div className="widget mb-40">
+        {/* <div className="widget mb-40">
                     <div className="widget-title-box mb-30">
                         <span className="animate-border"></span>
                         <h3 className="widget-title">Instagram Feeds</h3>
@@ -147,14 +209,14 @@ const ProductDetailsRightSide = () => {
                         <Link to="/blogs">tech</Link>
                     </div>
                 </div> */}
-                {/* <div className="widget mb-40 p-0 b-0">
+        {/* <div className="widget mb-40 p-0 b-0">
                     <div className="banner-widget">
                    <Link to="/contact"><img src="img/blog/details/banner.png" alt=""/></Link>
                     </div>
                 </div> */}
-            </div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default ProductDetailsRightSide;

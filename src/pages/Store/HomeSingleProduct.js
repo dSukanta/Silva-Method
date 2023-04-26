@@ -4,7 +4,7 @@ import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
 const HomeSingleProduct = ({ data }) => {
-  console.log(data);
+  //console.log(data);
 
   const {
     product_image,

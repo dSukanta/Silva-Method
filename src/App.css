@@ -681,11 +681,11 @@ li {
   opacity: 0;
   visibility: none;
   transition: .5s ease;
-  background-color: #c0b6c0;
+  background-color: #2b2a2b;
 }
 
 .product-overlay-card:hover .product-card__overlay {
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .product-overlay__text {

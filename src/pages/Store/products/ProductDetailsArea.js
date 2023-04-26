@@ -9,7 +9,7 @@ import ProductDetailsRightSide from './ProductDetailsRight';
 const ProductDetailsArea = ({productId}) => {
    const [product,setProduct] =useState([]);
 
-   const getBlogDetails=async(id)=>{
+   const getProductDetails=async(id)=>{
       const myHeaders = new Headers();
       myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
       myHeaders.append("Device", "Android");
@@ -30,10 +30,10 @@ const ProductDetailsArea = ({productId}) => {
    }
 
    useEffect(()=>{
-      getBlogDetails(productId);
+      getProductDetails(productId);
    },[productId])
 
-   console.log(product);
+   //console.log(product);
 
    return (
       <>
