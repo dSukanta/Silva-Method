@@ -677,6 +677,11 @@ li {
 
 }
 
+svg{
+  color: black;
+  font-size: 1.5rem;
+}
+
 
 .accordion-button:not(.collapsed) {
   color: #ffffff;

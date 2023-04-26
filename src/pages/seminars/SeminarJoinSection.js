@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SeminarJoinSection({title="Ready to Join Our Classes?Find An Instructor now",text="",subtext=""}) {
+function SeminarJoinSection({title="Ready to Join Our Classes?Find An Instructor now",text="",subtext="",btnText}) {
     return (
         <section className="fact-area fact-map pink-bg pos-rel pt-115 pb-60">
             <div className="container">
@@ -19,7 +19,9 @@ function SeminarJoinSection({title="Ready to Join Our Classes?Find An Instructor
                     )
                    }
                     <button className='primary_btn2'>
-                        START LEARNING NOW !
+                        {
+                            btnText || "START LEARNING NOW !"
+                        }
                     </button>
                 </div>
             </div>
