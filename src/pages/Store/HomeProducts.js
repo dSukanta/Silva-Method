@@ -45,12 +45,13 @@ const HomeProducts = () => {
             <div className="container">
                <div className="row">
                   <div className="col-xl-6 col-lg-7 col-md-10">
-                     <div className="section-title pos-rel mb-75">
+                     <div className="section-title pos-rel mb-25">
                         {/* <div className="section-icon">
                            <img className="section-back-icon back-icon-left" src="img/section/section-back-icon.png" alt=""/>
                         </div> */}
                         <div className="section-text">
                            {/* <h5>Our Team</h5> */}
+                           {/* <h2><span style={{borderBottom:'4px solid #7a12d4'}}>Ch</span>e<span style={{borderBottom:'4px solid #7a12d4'}}>ck</span> our Unique Products</h2> */}
                            <h2>Check our Unique Products</h2>
                         </div>
                         <div className="section-line pos-rel">
