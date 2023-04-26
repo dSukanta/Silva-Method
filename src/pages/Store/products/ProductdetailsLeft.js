@@ -18,6 +18,7 @@ const ProductDetailsLeftSide = ({ details_topBar, product }) => {
     price,
     author,
     description,
+    buy_now_link
   } = product;
   return (
     <>
@@ -38,6 +39,12 @@ const ProductDetailsLeftSide = ({ details_topBar, product }) => {
                 className="post-text mb-20"
                 dangerouslySetInnerHTML={{ __html: description }}
               />
+              <div>
+                {product && product_type == "Internal"?
+                <button className="buy-now-btn">Buy Now</button>:
+                <a href={buy_now_link} className="buy-now-link">Buy Now</a>
+              }
+              </div>
             </div>
           </div>
 
@@ -226,16 +233,18 @@ const ProductDetailsLeftSide = ({ details_topBar, product }) => {
             </form>
           </div>
         </article>
-         <div className="p-5">
-            <h3 style={{padding:'20px 5px'}}> <span style={{borderBottom:'2px solid black'}}>Re</span>lated products</h3>
-         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        <div className="p-5">
+          <h3 style={{ padding: "20px 5px" }}>
+            {" "}
+            <span style={{ borderBottom: "2px solid black" }}>Re</span>lated
+            products
+          </h3>
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
             {[1, 2, 3].map((el) => (
-              <OverlayCard />
+              <OverlayCard/>
             ))}
           </div>
-         </div>
-          
-       
+        </div>
       </div>
     </>
   );

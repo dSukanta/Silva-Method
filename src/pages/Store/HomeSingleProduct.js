@@ -77,7 +77,7 @@ const HomeSingleProduct = ({ data }) => {
 
             
               <Link to={`/store/product/${product_id}`}>
-                <button className="buy-now-btn">Buy Now</button>
+                <button className="buy-now-btn">View Details</button>
               </Link>
             
           </div>

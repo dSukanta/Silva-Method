@@ -1,7 +1,9 @@
 import React from "react";
 import {AiOutlineEye} from 'react-icons/ai'
+import { Link } from "react-router-dom";
 
-function OverlayCard() {
+function OverlayCard({}) {
+ // console.log(product_id);
   return (
     <div>
       <div class="product-overlay-card">
@@ -12,7 +14,8 @@ function OverlayCard() {
         <div class="product-card__overlay">
           <div class="product-overlay__text">
             <a href="#" class="product-overlay-button">
-              <AiOutlineEye size={40}/>
+                <AiOutlineEye size={40}/>
+                {/* <Link to={`/store/product/${product_id}`}> <AiOutlineEye size={40}/></Link> */}
             </a>
           </div>
         </div>
