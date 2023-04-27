@@ -10,6 +10,8 @@ import { useMediaQuery } from 'react-responsive'
 import CurriCulumBanner from './CurriCulumBanner'
 import LifeSystemBanner from '../seminars/LifeSystemBanner'
 import TrainerSection from './TrainerSection'
+import SuccessBanner from './SuccessBanner'
+import Sponsors from './Sponsors'
 
 function SilvaMemberShip() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -32,6 +34,10 @@ function SilvaMemberShip() {
             />
 
             <TrainerSection />
+
+            <SuccessBanner />
+
+            <Sponsors />
             {
                 isMobile && (
                     <MemberShipFooter />
