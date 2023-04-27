@@ -5,21 +5,21 @@ import silvaimg from "../../images/newimgs/silva-collage.webp";
 import ultramindimg from "../../images/newimgs/ultra-mind-Copy.webp"
 import silvaintuitionimg from "../../images/newimgs/intution-system-Copy.webp"
 
-function LifeSystemBanner({ img = "", title = "", hasBadge = false, badgeText = "", hasButton = false, btnText = "", text1 = "", text2 = "", reverse = false }) {
+function LifeSystemBanner({img = "", title = "", hasBadge = false, badgeText = "", hasButton = false, btnText = "", text1 = "", text2 = "", reverse = false }) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
 
     return (
         <div className='container' style={{ marginTop: reverse?"20px":"40px" }}>
-            <div className="row justify-content-center align-items-start gap-3">
+            <div className="row justify-content-center align-items-center gap-3">
                 {
                     !reverse && (
                         <div className="col-sm-12 col-md-5 mb-5">
                             <img src={img}
                                 style={{
                                     width: "100%",
-                                    height: "400px",
+                                    height: "500px",
                                     objectFit: "contain",
                                     borderRadius: "10px"
                                 }}
@@ -28,12 +28,12 @@ function LifeSystemBanner({ img = "", title = "", hasBadge = false, badgeText = 
                     )
                 }
                 {
-                    isMobile && (
+                    (isMobile && reverse) && (
                         <div className="col-sm-12 col-md-5 mb-5">
                         <img src={img}
                             style={{
                                 width: "100%",
-                                height: "400px",
+                                height: "500px",
                                 objectFit: "contain",
                                 borderRadius: "10px"
                             }}
@@ -78,7 +78,7 @@ function LifeSystemBanner({ img = "", title = "", hasBadge = false, badgeText = 
                             <img src={img}
                                 style={{
                                     width: "100%",
-                                    height: "400px",
+                                    height: "500px",
                                     objectFit: "contain",
                                     borderRadius: "10px"
                                 }}

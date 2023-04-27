@@ -20,7 +20,7 @@ function MasteryBannerMain() {
                         {
                             data.map((val, i) => (
                                 <div className="col-sm-12 col-md-6" key={i}>
-                                    <p className='white-color text-start me-2 px-2 py-2' style={{ fontSize: "1.3rem",background: "rgba(51, 170, 51, .4)" }}>
+                                    <p className='white-color text-start me-2 px-2 py-2' style={{ fontSize: "1.3rem",background: "#9b37f2" }}>
                                         {"> "+ val}
                                     </p>
                                 </div>

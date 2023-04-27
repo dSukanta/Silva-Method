@@ -27,7 +27,7 @@ function SeminarBanner3() {
                         {
                             data.map((val, i) => (
                                 <div className="col-sm-12 col-md-6" key={i}>
-                                    <p className='white-color text-start me-2 px-2 py-2' style={{ fontSize: "1.3rem",background: "rgba(51, 170, 51, .4)" }}>
+                                    <p className='text-start me-2 px-5 py-3' style={{ borderRadius:"10px",fontSize: "1.1rem",background: "white",color:"black",fontWeight:"500" }}>
                                         {"> "+ val}
                                     </p>
                                 </div>

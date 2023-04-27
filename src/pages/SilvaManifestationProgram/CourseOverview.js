@@ -368,7 +368,9 @@ function CourseOverview() {
                   </div>
                 </div>
 
-                <div className="row mt-5">
+              
+            </div>
+            <div className="row mt-5 latest-courses-slide">
                     <h3 className='white-color mb-3'>Latest Courses</h3>
                     <Slider {...settings}>
                     {
@@ -378,8 +380,6 @@ function CourseOverview() {
                     }
                     </Slider>
                 </div>
-            </div>
-
 
         </div>
     )

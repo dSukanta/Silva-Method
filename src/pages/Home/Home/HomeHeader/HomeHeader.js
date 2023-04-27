@@ -3,9 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../../components/Shared/Sidebar/Sidebar';
 import useGlobalContext from '../../../../hooks/useGlobalContext';
 import { AuthContext } from '../../../../context/AllContext';
-import {BiLogOut} from "react-icons/bi";
+import { BiLogOut } from "react-icons/bi";
 import Swal from 'sweetalert2';
-import {RxHamburgerMenu} from "react-icons/rx"
+import { RxHamburgerMenu } from "react-icons/rx"
 import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
 const HomeHeader = () => {
    const navigate = useNavigate()
@@ -15,18 +15,18 @@ const HomeHeader = () => {
    const { stickyMenu } = useGlobalContext();
    const { isUserLoggedIn, userData, logout } = useContext(AuthContext)
 
-   const handleLogout = async()=>{
+   const handleLogout = async () => {
       Swal.fire({
          title: 'Are you sure, you want to logout?',
          showCancelButton: true,
          confirmButtonText: 'Logout',
-       }).then((result) => {
+      }).then((result) => {
          /* Read more about isConfirmed, isDenied below */
          if (result.isConfirmed) {
-           logout()
-           navigate("/")
+            logout()
+            navigate("/")
          }
-       })
+      })
    }
    return (
       <>
@@ -83,9 +83,17 @@ const HomeHeader = () => {
                         </div>
                         <div className="header__menu f-right">
                            <nav id="mobile-menu">
+
                               <ul>
-                                 <li><Link to="/">Home</Link>
-                                 </li>
+                                 {
+                                    !isUserLoggedIn && (
+                                       <li>
+                                          <Link to="/silva_membership">Membership</Link>
+                                       </li>
+                                    )
+                                 }
+                                 {/* <li><Link to="/">Home</Link>
+                                 </li> */}
                                  {/* <li><Link to="/">Enroll Online Classes</Link></li> */}
                                  <li><Link to="/about">About</Link>
                                     <ul className="submenu">
@@ -111,7 +119,7 @@ const HomeHeader = () => {
                                        {/* <li><Link to="/shop">Live</Link></li>
                                        <li><Link to="/shopDetails">Online</Link></li> */}
                                        <li><Link to="/events/live">Live</Link></li>
-                                       <li><Link to="/events/online">Online</Link></li>                     
+                                       <li><Link to="/events/online">Online</Link></li>
                                     </ul>
                                  </li>
                                  <li><Link to="/instructor">Instructors</Link>
@@ -147,7 +155,7 @@ const HomeHeader = () => {
                                        {/* <li><Link to="/shop">English Blogs</Link></li>
                                        <li><Link to="/shopDetails">Spanish Blogs</Link></li> */}
                                        <li><Link to="/store/blogs/">English Blogs</Link></li>
-                                       <li><Link to="/store/spanish-blogs/">Spanish Blogs</Link></li>                     
+                                       <li><Link to="/store/spanish-blogs/">Spanish Blogs</Link></li>
                                     </ul>
                                  </li>
 
@@ -157,7 +165,7 @@ const HomeHeader = () => {
                                           <button className='btn btn-danger btn-sm' onClick={handleLogout}>
                                              <BiLogOut size={20} />
                                              <span className='mx-2'>
-                                             Logout
+                                                Logout
                                              </span>
                                           </button>
                                        </li>
@@ -166,12 +174,12 @@ const HomeHeader = () => {
 
                                  {
                                     !isUserLoggedIn && (
-                                          <li><Link to="/login">Login/Register</Link>
-                                             <ul className="submenu">
-                                                <li><Link to="/login">Course Login</Link></li>
-                                                <li><Link to="/register">Course Register</Link></li>
-                                             </ul>
-                                          </li>
+                                       <li><Link to="/login">Login/Register</Link>
+                                          <ul className="submenu">
+                                             <li><Link to="/login">Course Login</Link></li>
+                                             <li><Link to="/register">Course Register</Link></li>
+                                          </ul>
+                                       </li>
                                     )
                                  }
                                  <li><Link to="/login">Course Login</Link></li>
@@ -183,8 +191,8 @@ const HomeHeader = () => {
                         <div className="side-menu-icon d-lg-none text-end">
                            <button onClick={handleShow} className="side-toggle border-0 bg-transparent">
                               {/* <i className="fas fa-bars"></i>  */}
-                               <RxHamburgerMenu color='black' size={30} />
-                              </button>
+                              <RxHamburgerMenu color='black' size={30} />
+                           </button>
                         </div>
                      </div>
                   </div>
