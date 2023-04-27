@@ -1,6 +1,7 @@
 import React from 'react'
 import SeminarReviewCard from './SeminarReviewCard'
 import Slider from 'react-slick';
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 function SeminarReviewsSection() {
     const settings = {
@@ -11,6 +12,8 @@ function SeminarReviewsSection() {
         slidesToScroll: 1,
         autoplay:true,
         autoplaySpeed:3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
         responsive: [
             {
               breakpoint: 1024,

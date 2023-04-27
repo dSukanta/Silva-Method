@@ -14,6 +14,7 @@ import testislider4 from "../../images/newimgs/silva-method-testimonial-wayne-dy
 import Slider from 'react-slick';
 import SingleProduct from './SingleProduct';
 import CustomAccordion2 from './CustomAccordion2';
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 function CourseOverview() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -27,6 +28,8 @@ function CourseOverview() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
     };
 
     const coursesdata = [

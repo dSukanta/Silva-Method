@@ -21,10 +21,10 @@ function LifeSystemExtraBanners({ title1 = "", text1 = "", text2 = "", img1, has
                                     <h3>
                                         {title1}
                                     </h3>
-                                    <p>
+                                    <p style={{fontSize:"1.1rem"}}>
                                         {text1}
                                     </p>
-                                    <p>
+                                    <p style={{fontSize:"1.1rem"}}>
                                         {text2}
                                     </p>
                                     {
@@ -68,10 +68,10 @@ function LifeSystemExtraBanners({ title1 = "", text1 = "", text2 = "", img1, has
                                     <h3>
                                         {title1}
                                     </h3>
-                                    <p>
+                                    <p style={{fontSize:"1.1rem"}}>
                                         {text1}
                                     </p>
-                                    <p>
+                                    <p style={{fontSize:"1.1rem"}}>
                                         {text2}
                                     </p>
                                     {
@@ -106,10 +106,10 @@ function LifeSystemExtraBanners({ title1 = "", text1 = "", text2 = "", img1, has
                         <h3>
                             {title2}
                         </h3>
-                        <p>
+                        <p style={{fontSize:"1.1rem"}}>
                             {text3}
                         </p>
-                        <p>
+                        <p style={{fontSize:"1.1rem"}}>
                             {text4}
                         </p>
 

@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import OurTeamCard from './OurTeamCard';
 import img1 from "../../images/newimgs/nina.png"
 import img2 from "../../images/newimgs/memo.png"
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 
 function TeamArea() {
@@ -16,6 +17,8 @@ function TeamArea() {
         slidesToScroll: 1,
         autoplay:true,
         autoplaySpeed:3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
         responsive: [
             {
               breakpoint: 1024,

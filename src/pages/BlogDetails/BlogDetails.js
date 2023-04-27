@@ -12,7 +12,7 @@ const BlogDetails = () => {
    return (
       <>
          <HomeHeader/>
-         <CommonPageHeader title={id && id.split('-').map((el)=>el.toUpperCase()).join(' ')}/>
+         {/* <CommonPageHeader title={id && id.split('-').map((el)=>el.toUpperCase()).join(' ')}/> */}
          <BlogDetailsArea id={id}/>
          <CustomFooter/>
       </>

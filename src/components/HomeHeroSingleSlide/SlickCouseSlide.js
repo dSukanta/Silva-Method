@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 export default function SlickSlider(props) {
     const settings = {
       className: "center",
@@ -12,7 +12,8 @@ export default function SlickSlider(props) {
       dots: true,
       infinite: true,
       autoPlay:true,
-
+      prevArrow: <GrFormPrevious />,
+      nextArrow: <GrFormNext />,
 
     };
     return (

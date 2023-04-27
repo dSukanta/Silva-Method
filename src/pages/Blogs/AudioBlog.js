@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 import HomeSingleBlogLeftSide from "../../components/HomeSingleBlogLeftSide/HomeSingleBlogLeftSide";
 import Slider from "react-slick";
 import SingleAudioBlog from "./SingleAudioBlog";
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+import { useMediaQuery } from "react-responsive";
+
 
 const AudioBlogs = () => {
+  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
+
   var settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow:isMobile? 1: 2,
     slidesToScroll: 1,
-    centerMode: true,
+    prevArrow: <GrFormPrevious />,
+    nextArrow: <GrFormNext />,
   };
   return (
     <>

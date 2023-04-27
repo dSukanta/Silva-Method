@@ -9,6 +9,7 @@ import courseimg4 from "../../images/newimgs/courseimg4.webp"
 import courseimg5 from "../../images/newimgs/courseimg5.webp"
 import courseimg6 from "../../images/newimgs/courseimg6.webp"
 import Slider from 'react-slick';
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 function CoursesList() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -23,6 +24,8 @@ function CoursesList() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
         responsive: [
             {
               breakpoint: 1024,

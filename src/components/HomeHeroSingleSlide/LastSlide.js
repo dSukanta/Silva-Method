@@ -5,6 +5,7 @@ import SlideImg1 from '../../../src/img/slide-2.webp';
 import SlideImg2 from '../../../src/img/slide-3.webp'
 import SlideImg3 from '../../../src/img/slide-4.webp'
 import SlideImg4 from '../../../src/img/slide-5.webp'
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 export default function InstructorsSlide() {
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -19,6 +20,8 @@ export default function InstructorsSlide() {
       speed: 2000,
       autoplaySpeed: 2000,
       cssEase: "linear",
+      prevArrow: <GrFormPrevious />,
+      nextArrow: <GrFormNext />,
     };
     return (
       <div className="mb-5">

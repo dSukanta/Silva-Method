@@ -39,11 +39,9 @@ const BlogDetailsArea = ({id}) => {
             <div className="container">
                <div className="row">
 
-                 {blog.length>0 && <BlogDetailsLeftSide details_topBar={<div className="postbox__thumb mb-35">
-                     <img src={blog && blog[0].web_image} alt="blog img"/>
-                  </div>} data={blog.length>0 && blog[0]} />}
+                 {blog.length>0 && <BlogDetailsLeftSide data={blog.length>0 && blog[0]} />}
 
-                  <BlogDetailsRightSide/>
+                  {/* <BlogDetailsRightSide/> */}
 
                </div>
             </div>

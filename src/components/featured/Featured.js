@@ -1,6 +1,7 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import Slider from 'react-slick'
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 function Featured() {
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -16,6 +17,8 @@ function Featured() {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    prevArrow: <GrFormPrevious />,
+    nextArrow: <GrFormNext />,
   };
   return (
       <Slider {...settings}>

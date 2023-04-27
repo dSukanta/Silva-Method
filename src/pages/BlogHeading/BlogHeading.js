@@ -5,6 +5,9 @@ import blogsliderimg3 from "../../images/newimgs/blogsliderimg.webp";
 import BlogSliderCard from './BlogSliderCard';
 import Slider from 'react-slick';
 import getstarted from "../../images/newimgs/getstarted.jpg"
+
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+
 function BlogHeadings() {
     const data = [
         {
@@ -38,6 +41,8 @@ function BlogHeadings() {
         slidesToScroll: 1,
         autoplay:true,
         autoplaySpeed:3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
     };
 
 
