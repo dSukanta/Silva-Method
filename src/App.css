@@ -669,7 +669,7 @@ li {
 /* product overlay card style */
 
 .product-overlay-card {
-	position: relative;
+  position: relative;
   transition: all .5s ease-in;
 }
 
@@ -730,7 +730,7 @@ li {
 
 }
 
-svg{
+svg {
   color: black;
   font-size: 1.5rem;
 }
@@ -741,3 +741,33 @@ svg{
   background-color: #29008a;
   box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
 }
+
+.slick-prev {
+  left: 15% !important;
+  z-index: 1;
+  width: 46px !important;
+  height: 46px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 10px !important;
+}
+
+.slick-next {
+  right: 15% !important;
+  z-index: 1;
+  width: 46px !important;
+  height: 46px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 10px !important;
+
+}
+
+
+
+
+
+
+
+
+

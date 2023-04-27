@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import HomeSingleBlogLeftSide from "../../components/HomeSingleBlogLeftSide/HomeSingleBlogLeftSide";
 import Slider from "react-slick";
 import SingleAudioBlog from "./SingleAudioBlog";
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 const AudioBlogs = () => {
   var settings = {
@@ -11,6 +12,8 @@ const AudioBlogs = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    prevArrow: <GrFormPrevious />,
+    nextArrow: <GrFormNext />,
   };
   return (
     <>

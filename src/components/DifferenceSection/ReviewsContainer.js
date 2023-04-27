@@ -3,6 +3,7 @@ import CustomerReviews from './CustomerReviews'
 import Slider from 'react-slick';
 import { AuthContext } from '../../context/AllContext';
 import CustomModal from './CustomModal';
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 function ReviewsContainer() {
     const [modalShow, setModalShow] = useState(false);
@@ -19,6 +20,8 @@ function ReviewsContainer() {
         slidesToScroll: 1,
         autoplay:true,
         autoplaySpeed:3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
         responsive: [
             {
               breakpoint: 1024,

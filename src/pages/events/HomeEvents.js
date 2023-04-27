@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import HomeSingleEvents from './HomeSignleEvents';
 import Slider from 'react-slick';
 import {FcNext,FcPrevious} from "react-icons/fc"
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+
 const HomeEvents = () => {
    const settings = {
       dots: true,
@@ -11,8 +13,8 @@ const HomeEvents = () => {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 3000,
-      nextArrow: <FcNext size={40} color="black" />,
-      prevArrow: <FcPrevious size={40} color="black" />,
+      nextArrow: <GrFormNext size={40} color="black" />,
+      prevArrow: <GrFormPrevious size={40} color="black" />,
       responsive: [
          {
             breakpoint: 1024,

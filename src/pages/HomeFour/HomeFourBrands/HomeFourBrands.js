@@ -1,6 +1,7 @@
 import React from 'react';
 import BrandLogo from '../../../components/BrandLogo/BrandLogo';
 import Slider from "react-slick";
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 const HomeFourBrands = () => {
    // settings
@@ -11,6 +12,8 @@ const HomeFourBrands = () => {
       arrows: false,
       slidesToShow: 5,
       slidesToScroll: 5,
+      prevArrow: <GrFormPrevious />,
+      nextArrow: <GrFormNext />,
       responsive: [
          {
             breakpoint: 1024,
