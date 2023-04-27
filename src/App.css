@@ -763,6 +763,16 @@ svg {
 
 }
 
+.not-slide-icon .slick-prev{
+  display: none !important;
+}
+
+.not-slide-icon .slick-next{
+  display: none !important;
+
+}
+
+
 
 
 

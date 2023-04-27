@@ -6,6 +6,10 @@ import SeminarJoinSection from './SeminarJoinSection'
 import SeminarJoinSection2 from './SeminarJoinSection2'
 import LifeSystemBanner from './LifeSystemBanner'
 import LifeSystemExtraBanners from './LifeSystemExtraBanners'
+import MasteryBannerMain from './MasteryBannerMain'
+import AboutInstructorSection from './AboutInstructorSection'
+import MasteryJoinUs from './MasteryJoinUs'
+import MasteryAboutKen from './MasteryAboutKen'
 
 function MasterySystem() {
     return (
@@ -51,6 +55,13 @@ function MasterySystem() {
             // subtext="These extremely high success rates are a result of over 5 decades of research and millions of dollars spent in perfecting the process of enhancing human intuition. After working with millions of Silva students of every age and demographic, we are confident that our formula is one of the most optimized, tested and effective intuition programs out there."
             />
 
+            <MasteryBannerMain />
+            
+            <AboutInstructorSection />
+
+            <MasteryJoinUs />
+
+            <MasteryAboutKen />
             <CustomFooter />
         </div>
     )

@@ -2,7 +2,7 @@ import React from 'react'
 
 function SeminarJoinSection({title="Ready to Join Our Classes?Find An Instructor now",text="",subtext="",btnText}) {
     return (
-        <section className="fact-area fact-map pink-bg pos-rel pt-115 pb-60">
+        <section className="fact-area fact-map pink-bg pos-rel pt-50 pb-60">
             <div className="container">
                 <div className="d-flex flex-column justify-content-center align-items-center">
                     <h1 className='white-color text-center'>
