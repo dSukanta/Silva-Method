@@ -16,8 +16,10 @@ const AudioBlogs = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow:isMobile? 1: 2,
+    slidesToShow:1,
     slidesToScroll: 1,
+    centerMode: true,
+    autoplay: true,
     prevArrow: <GrFormPrevious />,
     nextArrow: <GrFormNext />,
   };

@@ -28,7 +28,7 @@ const SilvaHome = () => {
             <Testimonials/>
             <AboutSilva/>
             <HomeProducts/>
-            <InstructorsSlide/>
+            {/* <InstructorsSlide/> */}
             <HomeBlogs/>
             <HomeCountrySection/>
             <AudioBlogs/>

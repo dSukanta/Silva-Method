@@ -39,6 +39,8 @@
 
 
 import React, { useEffect, useRef, useState } from "react";
+import Slider from "react-slick";
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useMediaQuery } from 'react-responsive'
@@ -57,6 +59,18 @@ export default function Testimonials() {
   const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
 
   const[reviews,setReviews]=useState([]);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow:1,
+    slidesToScroll: 1,
+    // centerMode: true,
+    autoplay: true,
+    prevArrow: <GrFormPrevious />,
+    nextArrow: <GrFormNext />,
+  };
 
       const getreviews = async() =>{
          const myHeaders = new Headers();
@@ -89,22 +103,12 @@ export default function Testimonials() {
 
   return (
     <div className = {isMobile ? "mt-0 mb-0 p-4":"mt-40 mb-40 p-4"}>
-      <Swiper
-        slidesPerView={isDesktopOrLaptop? 3:1}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        autoplay={{
-          delay: 1000,
-          disableOnInteraction: false,
-        }}
-        modules={[Autoplay,Pagination]}
-        className="mySwiper"
-      >
+      <div className="row justify-content-center">
+      <div className="col-5 text-center">
+      <h2>What Others Say about Us...</h2>
+        <Slider {...settings}>
         {reviews && reviews.map((review)=>
-          <SwiperSlide>
-            <div style={{ textAlign:"center"}}>
+            <div className="d-flex flex-column justify-content-center align-items-center">
               <img src={review.image} />
               <h3>{`${review.name}, ${review.designation}`}</h3>
               <div
@@ -113,33 +117,10 @@ export default function Testimonials() {
               {/* <h4>{`"${review.comment}"`}</h4> */}
               
             </div>
-          </SwiperSlide>
         )}
-       
-        {/* <SwiperSlide>
-        <div style={{ textAlign:"center"}}>
-          <img src="https://silvamethod.com/assets/images/silva-method-testimonial-simontion.webp"/>
-          <h4>“Our rational mind is like a computer… The intuitive mind, on the other hand, seems to give access to an infinite supply of information…”</h4>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div style={{ textAlign:"center"}}>
-          <img src="https://silvamethod.com/assets/images/silva-method-testimonial-wayne-dyer.webp"/>
-          <h4>“Anything with the name of Jose Silva as the author has my vote before I open to page one. Read it with a pen for underlining.”</h4>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-        <div style={{ textAlign:"center"}}>
-          <img src="https://silvamethod.com/assets/images/silva-method-testimonial-robert-stiller.webp"/>
-          <h4>“By offering the Silva Method to (our) employees we provide an opportunity to experience for themselves the power of the mind…”</h4>
-          </div>
-        </SwiperSlide> */}
-        {/* <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide> */}
-      </Swiper>
+        </Slider>
+      </div>
+      </div>
     </div>
   );
 }
