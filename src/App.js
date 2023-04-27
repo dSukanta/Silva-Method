@@ -61,6 +61,7 @@ import SilvaManifestationProgram from './pages/SilvaManifestationProgram/SilvaMa
 import BottomToTop from './pages/BottomToTop/BottomToTop';
 import AllCourses from './pages/CourseDetails/Courses';
 import SilvaHome from './pages/Home/Home/SilvaHome';
+import ProductDetails from './pages/Store/products/ProductDetails';
 import IntuitionSystem from './pages/seminars/IntuitionSystem';
 import MasterySystem from './pages/seminars/MasterySystem';
 
@@ -119,6 +120,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             {/*Auth Route Ended */}
+
+            {/* product route started */}
+            <Route path="/store/product/:id" element={<ProductDetails/>} />
+            {/* product route ended */}
+
+
             
             
             <Route path="/homeFour" element={<HomeFour />} />
