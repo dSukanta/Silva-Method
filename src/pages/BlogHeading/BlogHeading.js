@@ -6,30 +6,77 @@ import BlogSliderCard from './BlogSliderCard';
 import Slider from 'react-slick';
 import getstarted from "../../images/newimgs/getstarted.jpg"
 
-import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import BlogMainBanner from './BlogMainBanner';
+import { useMediaQuery } from 'react-responsive';
+import BlogSection from './BlogSection';
+import SingleProduct from '../SilvaManifestationProgram/SingleProduct';
+import SingleProduct2 from '../SilvaManifestationProgram/SingleProduct2';
 
 function BlogHeadings() {
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
+    const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+    const settings2 = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: isDesktopOrLaptop ? 3 : isTablet ? 2 : 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        prevArrow: <GrFormPrevious />,
+        nextArrow: <GrFormNext />,
+    };
+
+    const coursesdata = [
+        {
+            title: "Silva Mind and Body Healing",
+            lectures: 54,
+            students: 152,
+            price: 49
+        },
+        {
+            title: "Silva Method Manifesting Course",
+            lectures: 54,
+            students: 152,
+            price: 49
+        },
+        {
+            title: "How to Manage Mind and Body Simultaneously",
+            lectures: 54,
+            students: 152,
+            price: 49
+        },
+        {
+            title: "Silva Alpha Sound",
+            lectures: 54,
+            students: 152,
+            price: 49
+        }
+    ]
+
     const data = [
         {
-            title:"A Realistic Guide to Authentic Self-Love",
-            author:"Ram",
-            date:"March 22 2023",
-            img:blogsliderimg1,
-            category:"Soul"
+            title: "A Realistic Guide to Authentic Self-Love",
+            author: "Ram",
+            date: "March 22 2023",
+            img: blogsliderimg1,
+            category: "Soul"
         },
         {
-            title:"A Realistic Guide to Authentic Self-Love",
-            author:"Sam",
-            date:"March 3 2023",
-            img:blogsliderimg2,
-            category:"Body"
+            title: "A Realistic Guide to Authentic Self-Love",
+            author: "Sam",
+            date: "March 3 2023",
+            img: blogsliderimg2,
+            category: "Body"
         },
         {
-            title:"A Realistic Guide to Authentic Self-Love",
-            author:"Jadu",
-            date:"March 4 2023",
-            img:blogsliderimg3,
-            category:"Soul"
+            title: "A Realistic Guide to Authentic Self-Love",
+            author: "Jadu",
+            date: "March 4 2023",
+            img: blogsliderimg3,
+            category: "Soul"
         }
     ]
 
@@ -39,8 +86,8 @@ function BlogHeadings() {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay:true,
-        autoplaySpeed:3000,
+        autoplay: true,
+        autoplaySpeed: 3000,
         prevArrow: <GrFormPrevious />,
         nextArrow: <GrFormNext />,
     };
@@ -49,20 +96,35 @@ function BlogHeadings() {
 
     return (
         <div className='container text-center'>
-             <h2 className='mb-3'>Silva Method Blogs</h2>
-                <h4>Step into your greatness and learn from best-selling personal growth trainers.
-                    Don’t miss out on the latest articles on mind, body, spirit, and work.
-                </h4>
-           
+            <div className="blog-slider">
                 <Slider {...settings}>
-                {
-                    data.map((val,i)=>(
-                        <BlogSliderCard data={val} key={i} />
-                    ))
-                }
+                    {
+                        data.map((val, i) => (
+                            <BlogSliderCard data={val} key={i} />
+                        ))
+                    }
                 </Slider>
-                <img src={getstarted} style={{width:"50%",marginTop:"30px"}} />
-              
+            </div>
+
+            <BlogMainBanner />
+
+
+            <img src={"https://silvamethod.com/store/wp-content/uploads/2023/04/Silva-Meditation-The-Secret-to-Achieving-Inner-Peace-and-Personal-Growth-1.webp"}
+                style={{ width: isDesktopOrLaptop ? "100%" : "100%", marginTop: "30px", marginBottom: "30px" }} />
+
+            <BlogSection />
+
+            <div className="row mt-5 mb-5 latest-courses-slide">
+                <h3 className='mb-3'>Latest Courses</h3>
+                <Slider {...settings2}>
+                    {
+                        coursesdata.map((val, i) => (
+                            <SingleProduct2 data={val} key={i + 1} />
+                        ))
+                    }
+                </Slider>
+            </div>
+
         </div>
     )
 }

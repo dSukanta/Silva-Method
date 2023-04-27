@@ -880,4 +880,41 @@ svg {
   transition-delay: 0.2s;
 }
 
+.not-slide-icon .slick-prev{
+  display: none !important;
+}
+
+.not-slide-icon .slick-next{
+  display: none !important;
+
+}
+
+.blog-slider .slick-prev{
+  display: none !important;
+}
+.blog-slider .slick-next{
+  display: none !important;
+}
+
+.latest-courses-slide .slick-prev{
+  display: none !important;
+}
+.latest-courses-slide .slick-next{
+  display: none !important;
+}
+
+.memberslider .slick-prev{
+  display: none !important;
+}
+.memberslider .slick-next{
+  display: none !important;
+}
+
+.reviewslider .slick-prev{
+  display: none !important;
+}
+.reviewslider .slick-next{
+  display: none !important;
+}
+
 

@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AllContext';
 import CustomModal from './CustomModal';
 import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
-function ReviewsContainer() {
+function ReviewsContainer({title="What People Have To Say About Us"}) {
     const [modalShow, setModalShow] = useState(false);
     const [data,setData] = useState(null);
 
@@ -115,7 +115,7 @@ function ReviewsContainer() {
        <>
         <div className="container">
             <div className='row justify-content-center mb-4 mt-4'>
-                <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>What People Have To Say About Us</h2>
+                <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>{title}</h2>
                 <div style={{ width:  isDesktopOrLaptop?"90%":"95%" }}>
                     <Slider {...settings}>
                         {

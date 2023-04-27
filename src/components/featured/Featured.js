@@ -16,12 +16,12 @@ function Featured() {
     autoplay: true,
     speed: 2000,
     autoplaySpeed: 2000,
-    cssEase: "linear",
-    prevArrow: <GrFormPrevious />,
-    nextArrow: <GrFormNext />,
+    cssEase: "linear"
   };
   return (
-      <Slider {...settings}>
+
+     <div className="not-slide-icon">
+       <Slider {...settings}>
         <div>
           <img src='https://res.cloudinary.com/mindvalley/image/fetch/c_scale,dpr_1,f_auto,fl_lossy,q_auto,w_auto/https://a.storyblok.com/f/60579/x/897dfd4eaa/new-york-times_logo.svg?trans' className='featured-images' />
         </div>
@@ -44,6 +44,7 @@ function Featured() {
           <img src='https://storyblok-cdn.mindvalley.com/f/60579/137x63/bb261f0aca/wf_lp_aso_cnn_2x.png?trans?quality=40&auto=webp&dpr=1&width=auto' className='featured-images' />
         </div>
       </Slider>
+     </div>
     // </div>
 
   )

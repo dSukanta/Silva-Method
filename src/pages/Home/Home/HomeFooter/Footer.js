@@ -3,7 +3,7 @@ import { BsFacebook, BsTwitter } from 'react-icons/bs';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { TfiPinterest } from 'react-icons/tfi';
 import { useMediaQuery } from 'react-responsive'
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function CustomFooter() {
     const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
@@ -56,6 +56,9 @@ function CustomFooter() {
                                         <a href="#">
                                             Login as Instructor
                                         </a>
+                                        <Link to="/silva_membership">
+                                           Become a Member
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="col-md-3 m-b-30">

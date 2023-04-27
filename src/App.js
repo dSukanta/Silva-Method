@@ -64,6 +64,8 @@ import SilvaHome from './pages/Home/Home/SilvaHome';
 import ProductDetails from './pages/Store/products/ProductDetails';
 import IntuitionSystem from './pages/seminars/IntuitionSystem';
 import MasterySystem from './pages/seminars/MasterySystem';
+import SingleLecturePage from './pages/Store/SingleLecturePage/SingleLecturePage';
+import SilvaMemberShip from './pages/silvamembership/SilvaMemberShip';
 
 
 function App() {
@@ -93,7 +95,7 @@ function App() {
             <Route path="/courses/silva_life_system" element={<LifeSystem />} />
             <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
             <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
-
+            <Route path="/silva_membership" element={<SilvaMemberShip />} />
             {/* Seminar Route Ended */}
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />
@@ -114,6 +116,7 @@ function App() {
             <Route path="/blogDetails/:id" element={<BlogDetails />} />
             {/* <Route element={<BottomToTop />} > */}
               <Route path="/store/course/silva-method-manifesting-program-complete" element={<SilvaManifestationProgram />} />
+            <Route path='/store/course/learn-meditation/intros/1/preview' element={<SingleLecturePage />} />
             {/* </Route> */}
             {/* Blogs Route Ended */}
             {/*Auth Route started */}

@@ -3,7 +3,9 @@ import { Accordion, Badge } from 'react-bootstrap'
 import { HiOutlineArrowRight } from "react-icons/hi"
 import { useMediaQuery } from 'react-responsive'
 import { AiFillLock } from "react-icons/ai"
+import { useNavigate } from 'react-router-dom'
 function CustomAccordion() {
+    const navigate = useNavigate();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
     const items = [
@@ -50,7 +52,7 @@ function CustomAccordion() {
                                     {
                                         val.unlocked===true ? (
                                             <div className={`d-flex justify-content-center align-items-center gap-4 ${isDesktopOrLaptop ? "" : "flex-column"}`}>
-                                                <Badge className='badgenew' bg="light" style={{ color: "black" }}>Preview</Badge>
+                                                <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate("/store/course/learn-meditation/intros/1/preview")}>Preview</Badge>
                                                 <HiOutlineArrowRight size={20} />
                                             </div>
                                         ) : (

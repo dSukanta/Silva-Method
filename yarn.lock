@@ -4028,6 +4028,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countries-and-timezones@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.npmjs.org/countries-and-timezones/-/countries-and-timezones-3.4.1.tgz"
+  integrity sha512-INeHGCony4XUUR8iGL/lmt9s1Oi+n+gFHeJAMfbV5hJfYeDOB8JG1oxz5xFQu5oBZoRCJe/87k1Vzue9DoIauA==
+
 countup.js@^2.0.8:
   version "2.0.8"
   resolved "https://registry.npmjs.org/countup.js/-/countup.js-2.0.8.tgz"
