@@ -12,6 +12,9 @@ import SeminarReviewsSection from './SeminarReviewsSection'
 import SeminarJoinSection from './SeminarJoinSection'
 
 function Seminars() {
+
+  // document.title="Silva Method Seminars | Learn Silva Method Mind control courses";
+
   return (
     <div>
       <HomeHeader />

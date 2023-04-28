@@ -12,6 +12,9 @@ import TeamArea from '../../components/Contact/TeamArea';
 import MobileAppBanner from './ContactArea/MobileAppBanner';
 
 const Contact = () => {
+
+    // document.title="Contact Silva Method International";
+    
     return (
         <>
             <HomeHeader/>

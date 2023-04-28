@@ -12,6 +12,9 @@ import MasteryJoinUs from './MasteryJoinUs'
 import MasteryAboutKen from './MasteryAboutKen'
 
 function MasterySystem() {
+
+    // document.title="Silva mastery System by Ken Coscia | USA Silva Method Trainig Director";
+
     return (
         <div>
             <HomeHeader />

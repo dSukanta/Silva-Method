@@ -22,6 +22,8 @@ import IntuitionSystemFAQ from './IntuitionSystemFAQ.js'
 
 function IntuitionSystem() {
 
+    // document.title="Be More Intuitive | Learn Silva Intution System | SIS";
+
     const day11 = useMemo(()=>{
         return [
             {

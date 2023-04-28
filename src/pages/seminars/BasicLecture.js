@@ -9,6 +9,9 @@ import SeminarOne from './SeminarOne';
 
 
 const BasicLecture = () => {
+
+    // document.title="Silva Method BLS | Join Silva Method Besic Lecture Series";
+    
     return (
         <>
             <HomeHeader/>

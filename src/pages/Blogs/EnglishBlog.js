@@ -8,6 +8,9 @@ import BlogHeadings from '../BlogHeading/BlogHeading'
 import BlogArticlesContainer from '../BlogHeading/BlogArticlesContainer'
 
 function EnglishBlog() {
+
+  // document.title="Silva Method Blogs | Latest Updates from Silva Method";
+
   return (
     <div>
          <HomeHeader />

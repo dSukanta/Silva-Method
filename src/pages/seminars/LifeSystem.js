@@ -17,6 +17,9 @@ import LifeSystemFAQ from './LifeSystemFAQ'
 import HomeEvents from '../events/HomeEvents'
 
 function LifeSystem() {
+
+  // document.title="Silva Method | Enroll in Silva Life System Online Course SLS";
+
   return (
     <div>
       <HomeHeader />

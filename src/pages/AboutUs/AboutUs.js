@@ -11,6 +11,9 @@ import BookContent from '../../components/Bookcontent/BookContent';
 import CustomFooter from '../Home/Home/HomeFooter/Footer';
 
 const AboutUs = () => {
+
+   // document.title="About Silva Method";
+   
    
    return (
       <>

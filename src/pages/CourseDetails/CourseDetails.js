@@ -7,6 +7,7 @@ import { useMediaQuery } from 'react-responsive'
 import { useParams } from 'react-router-dom'
 
 function CourseDetails() {
+    // document.title="Course Details";
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
     const {id}= useParams();

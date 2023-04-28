@@ -6,6 +6,9 @@ import CustomFooter from '../Home/Home/HomeFooter/Footer';
 import OnlineEventGrid from './OnlineEventGrid';
 
 function OnlineEvents() {
+
+  // document.title="Learn Silva Method Online | Find Silva Online Classes | Enroll Now";
+
   return (
     <>
         <HomeHeader/>

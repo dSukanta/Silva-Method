@@ -104,8 +104,8 @@ export default function Testimonials() {
   return (
     <div className = {isMobile ? "mt-0 mb-0 p-4":"mt-40 mb-40 p-4"}>
       <div className="row justify-content-center">
-      <div className="col-5 text-center">
-      <h2>What Others Say about Us...</h2>
+      <div className="col-12 text-center">
+      <h3>What Others Say about Us...</h3>
         <Slider {...settings}>
         {reviews && reviews.map((review)=>
             <div className="d-flex flex-column justify-content-center align-items-center">
