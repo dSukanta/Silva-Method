@@ -918,3 +918,53 @@ svg {
 }
 
 
+
+/* course card styles */
+
+.course-card img {
+  height: 250px;
+  width: 100%;
+}
+.course-item-card {
+  transition: 0.5s;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+}
+.course-item-card-title {
+  font-size: 15px;
+  transition: 1s;
+  cursor: pointer;
+}
+.course-card:hover {
+  transform: scale(1.05);
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.course-card::before,
+.course-card::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: scale3d(0, 0, 1);
+  transition: transform 0.3s ease-out 0s;
+  background: rgba(255, 255, 255, 0.1);
+  content: "";
+  pointer-events: none;
+}
+.course-card::before {
+  transform-origin: left top;
+}
+.course-card::after {
+  transform-origin: right bottom;
+}
+.course-card:hover::before,
+.course-card:hover::after,
+.course-card:focus::before,
+.course-card:focus::after {
+  transform: scale3d(1, 1, 1);
+}
+
+

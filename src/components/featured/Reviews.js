@@ -97,7 +97,7 @@ export default function Testimonials() {
          getreviews()
       },[]);
 
-      console.log(reviews);
+     // console.log(reviews);
 
 
 

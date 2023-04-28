@@ -59,12 +59,12 @@ const AllCourses = () => {
                <div className="row row-cols-2 row-cols-lg-3">
 
                {courses && courses.map((course)=>
-               <div>
+               <div className='text-center p-2'>
                   <SingleCourse key={course.course_id} data={course}/>
-                  <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
+                  {/* <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
                   <p>{course.teacher_name}</p>
                   <Link to={`/blogLeftSideBar`}><h6>{course.course_title}</h6></Link>
-               </div>
+               </div> */}
                </div>
                )}
               </div>

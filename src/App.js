@@ -115,7 +115,7 @@ function App() {
             <Route path="/store/spanish-blogs/" element={<SpanishBlog/>} />
             <Route path="/blogDetails/:id" element={<BlogDetails />} />
             {/* <Route element={<BottomToTop />} > */}
-              <Route path="/store/course/silva-method-manifesting-program-complete" element={<SilvaManifestationProgram />} />
+              <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
             <Route path='/store/course/learn-meditation/intros/1/preview' element={<SingleLecturePage />} />
             {/* </Route> */}
             {/* Blogs Route Ended */}
