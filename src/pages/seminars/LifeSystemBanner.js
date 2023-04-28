@@ -11,8 +11,8 @@ function LifeSystemBanner({img = "", title = "", hasBadge = false, badgeText = "
     const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
 
     return (
-        <div className='container' style={{ marginTop: reverse?"20px":"40px" }}>
-            <div className="row justify-content-center align-items-center gap-3">
+        <div className='container mb-5' style={{ marginTop: reverse?"20px":"40px" }}>
+            <div className="row justify-content-center align-items-center">
                 {
                     !reverse && (
                         <div className="col-sm-12 col-md-5 mb-5">

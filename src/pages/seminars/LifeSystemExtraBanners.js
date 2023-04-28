@@ -42,12 +42,12 @@ function LifeSystemExtraBanners({ title1 = "", text1 = "", text2 = "", img1, has
                                 <img src={img1}
                                     style={{
                                         width: "100%",
-                                        height: "400px",
-                                        objectFit: "cover",
+                                        height: "auto",
+                                        objectFit: "contain",
                                         borderRadius: "10px"
                                     }}
                                 />
-                                {/* <ReactPlayer width={"100%"} height={"400px"} controls url='https://www.youtube.com/watch?v=zkHbJhsaNTI&feature=youtu.be' /> */}
+                                {/* <ReactPlayer width={"100%"} height={"auto"} controls url='https://www.youtube.com/watch?v=zkHbJhsaNTI&feature=youtu.be' /> */}
                             </div>
                         </>
                     ) : (
@@ -56,12 +56,12 @@ function LifeSystemExtraBanners({ title1 = "", text1 = "", text2 = "", img1, has
                                 <img src={img1}
                                     style={{
                                         width: "100%",
-                                        height: "400px",
-                                        objectFit: "cover",
+                                        height: "auto",
+                                        objectFit: "contain",
                                         borderRadius: "10px"
                                     }}
                                 />
-                                {/* <ReactPlayer width={"100%"} height={"400px"} controls url='https://www.youtube.com/watch?v=zkHbJhsaNTI&feature=youtu.be' /> */}
+                                {/* <ReactPlayer width={"100%"} height={"auto"} controls url='https://www.youtube.com/watch?v=zkHbJhsaNTI&feature=youtu.be' /> */}
                             </div>
                             <div className="col-sm-12 col-md-5">
                                 <div className='text-start'>
@@ -94,12 +94,12 @@ function LifeSystemExtraBanners({ title1 = "", text1 = "", text2 = "", img1, has
                     <img src={img2}
                         style={{
                             width: "100%",
-                            height: "400px",
-                            objectFit: "cover",
+                            height: "auto",
+                            objectFit: "contain",
                             borderRadius: "10px"
                         }}
                     />
-                    {/* <ReactPlayer width={"100%"} height={"400px"} controls url='https://www.youtube.com/watch?v=J4XNaRIhFxU' /> */}
+                    {/* <ReactPlayer width={"100%"} height={"auto"} controls url='https://www.youtube.com/watch?v=J4XNaRIhFxU' /> */}
                 </div>
                 <div className={isDesktopOrLaptop ? "col-sm-12 col-md-5 mt-5" : "col-sm-12 col-md-5"}>
                     <div className='text-start'>

@@ -916,6 +916,33 @@ svg {
 .reviewslider .slick-next{
   display: none !important;
 }
+.sponsorslider .slick-prev{
+  display: none !important;
+}
+.sponsorslider .slick-next{
+  display: none !important;
+}
+
+.maintrainer .slick-prev{
+  display: none !important;
+}
+.maintrainer .slick-next{
+  display: none !important;
+}
+
+.orderslider .slick-prev{
+  display: none !important;
+}
+
+.orderslider .slick-next{
+  right: -2% !important;
+  z-index: 1;
+  width: 25px !important;
+  height: 25px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 5px !important;
+}
 
 
 

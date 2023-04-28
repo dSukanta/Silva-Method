@@ -1,30 +1,18 @@
 import React, { useContext, useState } from 'react'
-import CustomerReviews from './CustomerReviews'
+import CustomerReviews from '../../components/DifferenceSection/CustomerReviews'
 import Slider from 'react-slick';
 import { AuthContext } from '../../context/AllContext';
-import CustomModal from './CustomModal';
 import {GrFormPrevious,GrFormNext} from "react-icons/gr";
-import { useMediaQuery } from 'react-responsive';
+import CustomModal from '../../components/DifferenceSection/CustomModal';
 
-function ReviewsContainer({title="What People Have To Say About Us"}) {
+function MemberStories({title="What People Have To Say About Us"}) {
     const [modalShow, setModalShow] = useState(false);
     const [data,setData] = useState(null);
 
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-    const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
+    const { isDesktopOrLaptop,
+        isTabletOrMobile } = useContext(AuthContext);
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: isDesktopOrLaptop?3:isTablet?2:1,
-        slidesToScroll: 1,
-        autoplay:true,
-        autoplaySpeed:3000,
-        prevArrow: <GrFormPrevious />,
-        nextArrow: <GrFormNext />,
-    };
+
     const reviews = [
         {
             img: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=699&q=80",
@@ -80,8 +68,7 @@ function ReviewsContainer({title="What People Have To Say About Us"}) {
         <div className="container">
             <div className='row justify-content-center mb-4 mt-4'>
                 <h2 style={{ fontWeight: "bolder", textAlign: "center" }}>{title}</h2>
-                <div style={{ width:  isDesktopOrLaptop?"90%":"95%" }}>
-                    <Slider {...settings}>
+                    {/* <Slider {...settings}> */}
                         {
                             reviews.map((val, i) => (
                                 <div className="col-sm-12 col-md-6 col-lg-4 mb-4">
@@ -89,8 +76,7 @@ function ReviewsContainer({title="What People Have To Say About Us"}) {
                                 </div>
                             ))
                         }
-                    </Slider>
-                </div>
+                    {/* </Slider> */}
             </div>
         </div>
         <CustomModal
@@ -102,4 +88,4 @@ function ReviewsContainer({title="What People Have To Say About Us"}) {
     )
 }
 
-export default ReviewsContainer
+export default MemberStories
