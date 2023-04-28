@@ -5,6 +5,13 @@ function SuccessBanner() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+
+
+    const handleScroll = ()=>{
+        document.querySelector(".pricingplan").scrollIntoView({
+            behavior:"smooth"
+        })
+    }
     return (
         <div className='container' style={{marginBottom:"120px"}}>
             <div className='row justify-content-center align-items-center my-5 gap-4'>
@@ -26,8 +33,8 @@ function SuccessBanner() {
                     <h1 style={{ color: "#6f25af" }}>19,064</h1>
                     <h2>Case studies of success</h2>
                     <p>Mindvalley has some of the highest success rates in the world at transforming our learners. Browse case studies and stories of success on stories.mindvalley.com.</p>
-                    <button className='primary_btn3'>
-                        Read Our Sttories
+                    <button className='primary_btn3' onClick={handleScroll}>
+                        Become A Member Now
                     </button>
                 </div>
                 {

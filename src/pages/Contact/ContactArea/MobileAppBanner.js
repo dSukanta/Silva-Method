@@ -22,12 +22,12 @@ function MobileAppBanner() {
                                     <h4 className="white-color mb-3">Access all current and upcoming Mindvalley programs in Mind, Body, Soul, Career, Entrepreneurship,
                                         Relationship & Kids, Teens and Parenting. Over 50 Quest Programs and 200+ short form trainings in everything from Parenting, to Work to Yoga.</h4>
                                     <ul className='white-color' style={{fontSize:"1.1rem",lineHeight:"40px",textIndent:"-35px",marginLeft:"35px"}}>
-                                        <li><span className='me-3'><TiTick size={20} /></span>Mindvalley’s entire curriculum of 50+ Quests</li>
-                                        <li><span className='me-3'><TiTick size={20} /></span>Daily LIVE Classes with World Class Experts and Celebrities</li>
-                                        <li><span className='me-3'><TiTick size={20} /></span>500+ Immersive Mindvalley Meditations</li>
-                                        <li><span className='me-3'><TiTick size={20} /></span>Unlimited Access to Our Private Social Network to build life-long connections</li>
-                                        <li><span className='me-3'><TiTick size={20} /></span>Accessible everywhere: Apple, Android, Desktop, iPad, Apple TV, and many more.</li>
-                                        <li><span className='me-3'><TiTick size={20} /></span>One-click refund in the first 15 days so your purchase is 100% safe.</li>
+                                        <li><span className='me-3'><TiTick color='white' size={20} /></span>Mindvalley’s entire curriculum of 50+ Quests</li>
+                                        <li><span className='me-3'><TiTick color='white' size={20} /></span>Daily LIVE Classes with World Class Experts and Celebrities</li>
+                                        <li><span className='me-3'><TiTick color='white' size={20} /></span>500+ Immersive Mindvalley Meditations</li>
+                                        <li><span className='me-3'><TiTick color='white' size={20} /></span>Unlimited Access to Our Private Social Network to build life-long connections</li>
+                                        <li><span className='me-3'><TiTick color='white' size={20} /></span>Accessible everywhere: Apple, Android, Desktop, iPad, Apple TV, and many more.</li>
+                                        <li><span className='me-3'><TiTick color='white' size={20} /></span>One-click refund in the first 15 days so your purchase is 100% safe.</li>
 
                                     </ul>
                                 </div>
