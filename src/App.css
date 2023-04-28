@@ -219,7 +219,7 @@ body {
   display: inline-block;
 }
 
-.custom-footer-social-links a {
+.custom-footer-social-links>li>a>svg {
   width: 40px;
   height: 40px;
   font-size: 20px;
@@ -229,14 +229,14 @@ body {
   /* border: 1px solid #404040; */
   border-radius: 50px;
   text-align: center;
-  color: white;
+  color: white ;
   line-height: 1;
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background 0.3s ease-in-out;
 }
 
-.custom-footer-social-links a:hover {
+.custom-footer-social-links>li>a>svg:hover {
   background: white;
   color: blue;
 }

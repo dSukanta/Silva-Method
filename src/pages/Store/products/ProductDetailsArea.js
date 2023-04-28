@@ -45,7 +45,7 @@ const ProductDetailsArea = ({productId}) => {
                         <img src={product.length>0 && product[0].product_image} alt="single product img" width='100%'/>
                   </div>} product={product.length>0 && product[0]}/>
 
-                  <ProductDetailsRightSide/>
+                  <ProductDetailsRightSide productId={productId}/>
 
                </div>
             </div>

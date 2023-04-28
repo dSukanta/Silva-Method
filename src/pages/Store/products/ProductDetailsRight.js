@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import OverlayCard from "./OverlayCard";
 
-const ProductDetailsRightSide = () => {
+const ProductDetailsRightSide = ({productId}) => {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
@@ -27,12 +27,12 @@ const ProductDetailsRightSide = () => {
     );
     const data = await res.json();
     //console.log(data.data);
-    setProducts(data.data);
+    setProducts(data.data.filter(product =>product.product_id!==productId));
   };
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [productId]);
 
   //console.log(products);
 

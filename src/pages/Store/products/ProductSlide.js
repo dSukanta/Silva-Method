@@ -57,7 +57,7 @@ function ProductSlide() {
       };
   return (
     <div className="col-lg-12 gap-3">
-      <h3 style={{color: "#7a12d4",padding:'10px 10px 10px 0'}}>Checkout our Unique Peoducts</h3>
+      <h3 style={{color: "#7a12d4",padding:'10px 10px 10px 0'}}>Check our Unique Peoducts</h3>
     <Slider {...settings}>
       {products && products.map(product=>
         <ProductOverlayCard data={product && product}/>
