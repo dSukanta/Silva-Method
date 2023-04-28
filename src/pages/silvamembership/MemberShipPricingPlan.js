@@ -58,7 +58,7 @@ function MemberShipPricingPlan() {
        </div>
         <div className="container2 " style={{marginTop:"50px",marginBottom:"40px"}}>
             <div className="column">
-                <div className="pricing-card pro">
+                <div className="pricing-card pro" style={{border:"2px solid whitesmoke"}}>
                     <div className="popular">POPULAR</div>
                     <div className="pricing-header">
                         <span className="plan-title">MONTHLY PLAN</span>
@@ -81,7 +81,7 @@ function MemberShipPricingPlan() {
                 </div>
             </div>
             <div className="column">
-                <div className="pricing-card business">
+                <div className="pricing-card business" style={{border:"2px solid whitesmoke"}}>
                     <div className="pricing-header">
                         <span className="plan-title">YEARLY PLAN</span>
                         <div className="price-circle">

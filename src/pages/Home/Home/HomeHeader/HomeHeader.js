@@ -182,8 +182,8 @@ const HomeHeader = () => {
                                        </li>
                                     )
                                  }
-                                 <li><Link to="/login">Course Login</Link></li>
-                                 <li><Link to="/">Silva Cases</Link></li>
+                                 {/* <li><Link to="/login">Course Login</Link></li> */}
+                                 <li><a className='silvacases' onClick={()=>window.open("https://www.silvacasesonline.com")}>Silva Cases</a></li>
                               </ul>
                            </nav>
                         </div>

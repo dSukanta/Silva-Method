@@ -128,9 +128,6 @@ function App() {
             <Route path="/store/product/:id" element={<ProductDetails/>} />
             {/* product route ended */}
 
-
-            
-            
             <Route path="/homeFour" element={<HomeFour />} />
             <Route path="/homeFive" element={<HomeFive />} />
             <Route path="/services" element={<ServicesOne />} />

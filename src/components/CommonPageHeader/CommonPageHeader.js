@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const CommonPageHeader = ({title,subtitle}) => {
+
    return (
       <>
          <section className="breadcrumb-bg pt-200 pb-180 page_header_bg">
