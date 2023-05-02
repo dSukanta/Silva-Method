@@ -37,12 +37,14 @@ function Stories() {
                                 <span className='white-color'>Read stories</span>
                             </div>
                             <div className="col-sm-12 col-md-5">
-                                <Form.Select aria-label="Default select example">
+                               <div style={{width:"93%"}}>
+                               <Form.Select aria-label="Default select example">
                                     <option>All Countries</option>
                                     <option value="1">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </Form.Select>
+                               </div>
                             </div>
                         </div>
 

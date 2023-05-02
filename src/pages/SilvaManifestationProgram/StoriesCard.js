@@ -20,7 +20,7 @@ function StoriesCard({ src, title, text, name, job, address }) {
 
     return (
         <>
-            <Card style={{ width: "100%", margin: "20px 0 20px 0" }} className='mainstoriescard' body>
+            <Card style={{ width: "96%", margin: "20px 0 20px 0" }} className='mainstoriescard p-4' body>
                 <div className="row justify-content-start align-items-center">
                     {
                         (isDesktopOrLaptop) && (

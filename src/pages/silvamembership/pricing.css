@@ -48,11 +48,11 @@
 }
 
 .pro .pricing-header {
-    background-color: #26de81;
+    background-color: #45aaf2;
 }
 
 .pro .price-circle {
-    border: 10px solid #26de81;
+    border: 10px solid #45aaf2;
     transition: all 0.4s;
 }
 
@@ -62,7 +62,7 @@
 
 .pro .buy-now:hover {
     background-image: none !important;
-    background-color: #26de81 !important;
+    background-color: #45aaf2 !important;
     box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.4);
 }
 

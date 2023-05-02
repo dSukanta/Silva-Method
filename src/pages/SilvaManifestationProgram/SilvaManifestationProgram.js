@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import StickyNavbar from "./StickyNavbar";
-import MainHeroSection from "./MainHeroSection";
-import MainTabs from "./MainTabs";
-import LeaveCommentBox from "./LeaveCommentBox";
-import SocialShareButtons from "./SocialShareButtons";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react'
+import StickyNavbar from './StickyNavbar'
+import MainHeroSection from './MainHeroSection'
+import MainTabs from './MainTabs'
+import LeaveCommentBox from './LeaveCommentBox'
+import SocialShareButtons from './SocialShareButtons'
+import { useParams } from 'react-router-dom'
 
 function SilvaManifestationProgram() {
   window.addEventListener("scroll", function () {
@@ -46,20 +46,19 @@ function SilvaManifestationProgram() {
 
   //console.log(course);
 
-  return (
-    <div
-      className="mainlandingpage"
-      style={{ width: "100vw", minHeight: "100vh", paddingBottom: "20px" }}
-    >
-      <StickyNavbar />
-      <div className="container">
-        <MainHeroSection />
-        <MainTabs data={course.length>0 && course[0]}/>
-        <LeaveCommentBox />
-        <SocialShareButtons />
-      </div>
-    </div>
-  );
+    return (
+        <div className="mainlandingpage" style={{ width: "100vw",minHeight:"100vh",paddingBottom:"20px" }}>
+                <StickyNavbar />
+            <div className='container'>
+                <MainHeroSection />
+                <MainTabs />
+                <LeaveCommentBox />
+                <SocialShareButtons />
+            </div>
+            
+        </div>
+
+    )
 }
 
 export default SilvaManifestationProgram;

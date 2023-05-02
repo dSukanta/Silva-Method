@@ -182,7 +182,7 @@ const HomeHeader = () => {
                                        </li>
                                     )
                                  }
-                                 {/* <li><Link to="/login">Course Login</Link></li> */}
+                                 <li><Link to="/login">Course Login</Link></li>
                                  <li><Link to="/">Silva Cases</Link></li>
                               </ul>
                            </nav>

@@ -10,7 +10,7 @@ function AboutInstructorCard() {
     return (
         <div className="container mt-4">
             <div className="row">
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div className="col-sm-12 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="picture">
                             <img className="img-fluid" src={ins1} />
@@ -35,7 +35,7 @@ function AboutInstructorCard() {
                         </ul>
                     </div>
                 </div>
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div className="col-sm-12 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="picture">
                             <img className="img-fluid" src={ins2} />
@@ -60,7 +60,7 @@ function AboutInstructorCard() {
                         </ul>
                     </div>
                 </div>
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div className="col-sm-12 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="picture">
                             <img className="img-fluid" src={ins3} />
@@ -85,7 +85,7 @@ function AboutInstructorCard() {
                         </ul>
                     </div>
                 </div>
-                <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div className="col-sm-12 col-md-4 col-lg-3">
                     <div className="our-team">
                         <div className="picture">
                             <img className="img-fluid" src={ins4} />

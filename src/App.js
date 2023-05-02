@@ -39,6 +39,7 @@ import WishList from './pages/wishList/WishList';
 import HomeFive from './pages/HomeFive/HomeFive';
 import './App.css';
 import 'react-pagination-bar/dist/index.css'
+import 'react-tooltip/dist/react-tooltip.css'
 
 import NotFound from './pages/NotFound/NotFound';
 import { Toaster } from 'react-hot-toast';
@@ -128,9 +129,6 @@ function App() {
             <Route path="/store/product/:id" element={<ProductDetails/>} />
             {/* product route ended */}
 
-
-            
-            
             <Route path="/homeFour" element={<HomeFour />} />
             <Route path="/homeFive" element={<HomeFive />} />
             <Route path="/services" element={<ServicesOne />} />

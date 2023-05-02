@@ -14,7 +14,8 @@ import testislider4 from "../../images/newimgs/silva-method-testimonial-wayne-dy
 import Slider from 'react-slick';
 import SingleProduct from './SingleProduct';
 import CustomAccordion2 from './CustomAccordion2';
-import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import MemberShipPricingPlan from '../silvamembership/MemberShipPricingPlan';
 
 function CourseOverview({data}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -24,7 +25,7 @@ function CourseOverview({data}) {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: isDesktopOrLaptop?3:isTablet?2:1,
+        slidesToShow: isDesktopOrLaptop ? 3 : isTablet ? 2 : 1,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -34,33 +35,33 @@ function CourseOverview({data}) {
 
     const coursesdata = [
         {
-          title:"Silva Mind and Body Healing",
-          lectures:54,
-          students:152,
-          price:49
+            title: "Silva Mind and Body Healing",
+            lectures: 54,
+            students: 152,
+            price: 49
         },
         {
-            title:"Silva Method Manifesting Course",
-            lectures:54,
-            students:152,
-            price:49
+            title: "Silva Method Manifesting Course",
+            lectures: 54,
+            students: 152,
+            price: 49
         },
         {
-            title:"How to Manage Mind and Body Simultaneously",
-            lectures:54,
-            students:152,
-            price:49
+            title: "How to Manage Mind and Body Simultaneously",
+            lectures: 54,
+            students: 152,
+            price: 49
         },
         {
-            title:"Silva Alpha Sound",
-            lectures:54,
-            students:152,
-            price:49
+            title: "Silva Alpha Sound",
+            lectures: 54,
+            students: 152,
+            price: 49
         }
     ]
     return (
         <div className='mt-4'>
-            <OverViewCard data={data && data}/>
+            <OverViewCard />
             <div className='row justify-content-center align-items-center mt-5'>
                 <div className="col-sm-12 col-md-8">
                     <img src={manifestcourse} style={{ width: "100%", height: isDesktopOrLaptop ? "500px" : "200px", objectFit: "cover" }} />
@@ -307,80 +308,84 @@ function CourseOverview({data}) {
                     )
                 }
 
-                <div className="row mt-3">
+                <div className="row mt-3 mx-1">
                     <Slider {...settings}>
                         <div className="col-4">
-                            <img src={testislider1} style={{ width: isDesktopOrLaptop?"90%":isTablet?"98%":"100%", height: "270px" }} alt="" />
+                            <img src={testislider1} style={{ width: isDesktopOrLaptop ? "90%" : isTablet ? "98%" : "100%", height: "270px" }} alt="" />
                         </div>
                         <div className="col-4">
-                            <img src={testislider2} style={{ width: isDesktopOrLaptop?"90%":isTablet?"98%":"100%", height: "270px" }} alt="" />
+                            <img src={testislider2} style={{ width: isDesktopOrLaptop ? "90%" : isTablet ? "98%" : "100%", height: "270px" }} alt="" />
                         </div>
                         <div className="col-4">
-                            <img src={testislider3} style={{ width: isDesktopOrLaptop?"90%":isTablet?"98%":"100%", height: "270px" }} alt="" />
+                            <img src={testislider3} style={{ width: isDesktopOrLaptop ? "90%" : isTablet ? "98%" : "100%", height: "270px" }} alt="" />
                         </div>
                         <div className="col-4">
-                            <img src={testislider4} style={{ width: isDesktopOrLaptop?"90%":isTablet?"98%":"100%", height: "270px" }} alt="" />
+                            <img src={testislider4} style={{ width: isDesktopOrLaptop ? "90%" : isTablet ? "98%" : "100%", height: "270px" }} alt="" />
                         </div>
                     </Slider>
                 </div>
 
-                <div className="row justify-content-center align-items-center mt-5">
-                {
-                    isDesktopOrLaptop ? (
-                        <h1 style={{ color: "#D980FA" }}>
-                            The Curriculum
-                        </h1>
-                    ) : (
-                        <h2 style={{ color: "#D980FA" }}>
-                            The Curriculum
-                        </h2>
-                    )
-                }
+                <div className="row justify-content-center align-items-center mt-5 mx-1">
+                    {
+                        isDesktopOrLaptop ? (
+                            <h1 style={{ color: "#D980FA" }}>
+                                The Curriculum
+                            </h1>
+                        ) : (
+                            <h2 style={{ color: "#D980FA" }}>
+                                The Curriculum
+                            </h2>
+                        )
+                    }
 
-                  <div className="col-sm-12">
-                    <CustomAccordion2 name={"warm up"} title={"Preparation"} 
-                    text={"Your journey begins with an eye-opening exploration of what meditation can really do for you - and why the traditional approach to meditation often robs you of many of its best outcomes. You’ll also discover the key principles of the 6 Phase Meditation, and how to maximize your results with the program."} />
-                  </div>
+                    <div className="col-sm-12">
+                        <CustomAccordion2 name={"warm up"} title={"Preparation"}
+                            text={"Your journey begins with an eye-opening exploration of what meditation can really do for you - and why the traditional approach to meditation often robs you of many of its best outcomes. You’ll also discover the key principles of the 6 Phase Meditation, and how to maximize your results with the program."} />
+                    </div>
 
-                  <div className="col-sm-12">
-                    <CustomAccordion2 name={"phase 1"} title={"Love & Compassion"} 
-                    text={"Phase 1 is the protocol for activating deep love and connection. This is a hugely powerful tool, because you won’t just level up your connection with yourself - but with others and even the world at large. You’ll gain the perspective and disposition needed to be a naturally kinder, nicer human being in every moment."} />
-                  </div>
+                    <div className="col-sm-12">
+                        <CustomAccordion2 name={"phase 1"} title={"Love & Compassion"}
+                            text={"Phase 1 is the protocol for activating deep love and connection. This is a hugely powerful tool, because you won’t just level up your connection with yourself - but with others and even the world at large. You’ll gain the perspective and disposition needed to be a naturally kinder, nicer human being in every moment."} />
+                    </div>
 
-                  <div className="col-sm-12">
-                    <CustomAccordion2 name={"phase 2"} title={"Happiness & Gratitude"} 
-                    text={"The secret to happiness is gratitude: and by learning how to embody unconditional thankfulness in Phase 2, you’ll create space for limitless joy - along with far greater resistance to anxiety, negative thought patterns, and all feelings of lack. You’ll even sleep better, and wake up every day with an abundance of uplifting energy."} />
-                  </div>
+                    <div className="col-sm-12">
+                        <CustomAccordion2 name={"phase 2"} title={"Happiness & Gratitude"}
+                            text={"The secret to happiness is gratitude: and by learning how to embody unconditional thankfulness in Phase 2, you’ll create space for limitless joy - along with far greater resistance to anxiety, negative thought patterns, and all feelings of lack. You’ll even sleep better, and wake up every day with an abundance of uplifting energy."} />
+                    </div>
 
-                  <div className="col-sm-12">
-                    <CustomAccordion2 name={"phase 3"} title={"Peace & Forgiveness"} 
-                    text={"Forgiveness is a superpower: and in Phase 3, you’ll feel a huge weight being taken off your shoulders, as you embrace the freedom to move on with life as a bigger, better, more resilient person. The added beauty of forgiveness and the peace it brings is you also experience a glow up in your health, your emotional bliss, and your resilience in rising above life’s challenges."} />
-                  </div>
+                    <div className="col-sm-12">
+                        <CustomAccordion2 name={"phase 3"} title={"Peace & Forgiveness"}
+                            text={"Forgiveness is a superpower: and in Phase 3, you’ll feel a huge weight being taken off your shoulders, as you embrace the freedom to move on with life as a bigger, better, more resilient person. The added beauty of forgiveness and the peace it brings is you also experience a glow up in your health, your emotional bliss, and your resilience in rising above life’s challenges."} />
+                    </div>
 
-                  <div className="col-sm-12">
-                    <CustomAccordion2 name={"phase 4"} title={"Vision for Your Future"} 
-                    text={"It’s hugely energizing to have a clear vision pulling you forward, rather than letting the ebbs and flows of life dictate your destiny. Phase 4 will empower you to envision, create, and fine-tune your life vision and your goals, so you’re primed to start living life on your terms and nobody else’s."} />
-                  </div>
+                    <div className="col-sm-12">
+                        <CustomAccordion2 name={"phase 4"} title={"Vision for Your Future"}
+                            text={"It’s hugely energizing to have a clear vision pulling you forward, rather than letting the ebbs and flows of life dictate your destiny. Phase 4 will empower you to envision, create, and fine-tune your life vision and your goals, so you’re primed to start living life on your terms and nobody else’s."} />
+                    </div>
 
-                  <div className="col-sm-12">
-                    <CustomAccordion2 name={"final"} title={"Closing"} 
-                    text={"The final step of your journey is an opportunity for deep reflection and the welcoming of a better you. You’ll gain a roadmap for harmonizing each phase into an enjoyable daily meditation practice: one you’ll stick to effortlessly for life, and that rewards you with countless breakthroughs in the coming weeks, months, and years."} />
-                  </div>
+                    <div className="col-sm-12">
+                        <CustomAccordion2 name={"final"} title={"Closing"}
+                            text={"The final step of your journey is an opportunity for deep reflection and the welcoming of a better you. You’ll gain a roadmap for harmonizing each phase into an enjoyable daily meditation practice: one you’ll stick to effortlessly for life, and that rewards you with countless breakthroughs in the coming weeks, months, and years."} />
+                    </div>
                 </div>
 
-              
+
             </div>
-            <div className="row mt-5 latest-courses-slide">
-                    <h3 className='white-color mb-3'>Latest Courses</h3>
-                    <Slider {...settings}>
+            <div className="row mx-2 mt-5 latest-courses-slide">
+                <h3 className='white-color mb-3'>Latest Courses</h3>
+                <Slider {...settings}>
                     {
-                        coursesdata.map((val,i)=>(
-                            <SingleProduct data={val} key={i+1} />
+                        coursesdata.map((val, i) => (
+                            <SingleProduct data={val} key={i + 1} />
                         ))
                     }
-                    </Slider>
-                </div>
-
+                </Slider>
+            </div>
+        
+            <div className="row mx-2 mt-5 latest-courses-slide">
+               <MemberShipPricingPlan white={true} />
+            </div>
+        
         </div>
     )
 }

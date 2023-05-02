@@ -64,20 +64,19 @@ function BetterSection() {
                     <img style={{ width: isDesktopOrLaptop ? "100%" : "98%", marginBottom: isDesktopOrLaptop ? "0" : "10px" }} src="https://storyblok-cdn.mindvalley.com/f/60579/1600x1200/3cf5d3a177/mvcom_hp_outcome_01.jpg?trans?quality=40&auto=webp&dpr=1&width=300" alt="" />
                 </div>
             </div>
-            <div className="row my-4">
-                {
+            <div className="my-4 py-4">
+               <div style={{maxHeight:"450px",overflowY:"scroll"}} className="scrollable d-flex justify-content-center gap-4 align-items-center flex-wrap">
+               {
                     btntexts.map((text, i) => (
-                        <div className="col-sm-4 col-md-2 my-2">
-                            {/* <div style={{ borderRadius: '999em 999em 999em 999em', boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px", display: "block", padding: '20px', gap: '1rem', backgroundColor: 'white' }}> */}
-                                <div style={{ display: 'flex', border: "2px solid black", color: 'black', fontWeight: 'bold', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                                    {text}
-                                </div>
-                            {/* </div> */}
-                        </div>
+                        <span className='badge rounded-pill py-2 px-4' style={{ backgroundColor: "#9b37f2",fontSize:"1.1rem" }}>
+                            {text}
+                        </span>
                     ))
                 }
-                <h5 className='text-center text-dark mt-4'>And hundreds more areas of transformation.</h5>
+               </div>
             </div>
+            {/* <h3 className='text-center text-dark mt-4'>And hundreds more areas of transformation.</h3> */}
+
         </div>
     )
 }
