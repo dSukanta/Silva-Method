@@ -13,13 +13,14 @@ const SingleCourse = ({ data }) => {
 
   return (
     <>
-      <div className="course-card course-item-card card-block">
-        <img src={web_image} alt="Photo of sunset" />
-        <p className="pt-2">{teacher_name}</p>
-        <Link to={`/store/course/${course_id}`}>
+      <Link to={`/store/course/${course_id}`}>
+        <div className="course-card course-item-card card-block">
+          <img src={web_image} alt="Photo of sunset" />
+          <p className="pt-2">{teacher_name}</p>
+
           <h5 className="course-item-card-title mt-2 mb-3">{course_title}</h5>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </>
   );
 };

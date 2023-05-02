@@ -5,7 +5,7 @@ import Resources from './Resources'
 import Stories from './Stories'
 import CourseOverview from './CourseOverview'
 // ,borderBottom:"5px solid #9b37f2", marginBottom: "-1px"
-function MainTabs() {
+function MainTabs({data}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -24,7 +24,7 @@ function MainTabs() {
         </div>
          {
             activeTab ==="Lessons" && (
-                <Lessons />
+                <Lessons data={data && data}/>
             )
          }
 
@@ -41,7 +41,7 @@ function MainTabs() {
 
          {
             activeTab==="Overview" && (
-                <CourseOverview />
+                <CourseOverview data={data && data}/>
             )
          }
         </>

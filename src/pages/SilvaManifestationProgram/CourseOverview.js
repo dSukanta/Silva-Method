@@ -16,7 +16,7 @@ import SingleProduct from './SingleProduct';
 import CustomAccordion2 from './CustomAccordion2';
 import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
-function CourseOverview() {
+function CourseOverview({data}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -60,7 +60,7 @@ function CourseOverview() {
     ]
     return (
         <div className='mt-4'>
-            <OverViewCard />
+            <OverViewCard data={data && data}/>
             <div className='row justify-content-center align-items-center mt-5'>
                 <div className="col-sm-12 col-md-8">
                     <img src={manifestcourse} style={{ width: "100%", height: isDesktopOrLaptop ? "500px" : "200px", objectFit: "cover" }} />

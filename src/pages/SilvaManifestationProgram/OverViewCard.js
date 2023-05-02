@@ -4,7 +4,7 @@ import {BsBook,BsFillPeopleFill} from "react-icons/bs";
 import {AiOutlineClockCircle} from "react-icons/ai";
 import { useMediaQuery } from 'react-responsive';
 
-function OverViewCard() {
+function OverViewCard({data}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
     return (
@@ -13,7 +13,7 @@ function OverViewCard() {
                 <div className="col-sm-12 col-md-4" style={{ borderRight: isDesktopOrLaptop ? "1px solid gray" : "" }}>
                     <div className='d-flex justify-content-center gap-3 align-content-center align-items-center'>
                         <BsBook size={40} color='white' />
-                        <h4 className='white-color mt-1'>7 Lessons</h4>
+                        <h4 className='white-color mt-1'>{data && data.chapters.length} Chapters</h4>
                     </div>
                 </div>
                 <div className="col-sm-12 col-md-4" style={{ borderRight: isDesktopOrLaptop ? "1px solid gray" : "" }}>
