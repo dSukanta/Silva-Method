@@ -1,6 +1,7 @@
 import { hover } from "@testing-library/user-event/dist/hover";
 import React, { useState } from "react";
 import { useMediaQuery } from "react-responsive";
+import { baseUrl, requestData } from "../../utils/baseUrl";
 
 var NorthAmerica = [
   {
@@ -200,6 +201,14 @@ function CountrySection() {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 });
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 });
+
+
+  const getLocation=async()=>{
+    const res = await requestData("locationList")
+  //console.log(data.data.blog);
+ }
+
+
 
   return (
     <>

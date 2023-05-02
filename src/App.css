@@ -855,17 +855,45 @@ svg {
 }
 
 .activediv{
-  background-color: transparent;
-  padding-left: 10px;
+  background-color: #2b3a4b;
+  padding: 12px;
+  border-left: 5px solid white;
+}
+.cardbody:hover{
+  scale: 1.1;
+  transition: 0.3s ease-in;
 }
 
 
 
+/*  */
+
+.newslider .slick-prev {
+  left: 0% !important;
+  z-index: 1;
+  width: 46px !important;
+  height: 46px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 10px !important;
+}
+
+.newslider .slick-next {
+  right: 1% !important;
+  z-index: 1;
+  width: 46px !important;
+  height: 46px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 10px !important;
+
+}
 
 
+.meditateslider .slick-next{
+  display: none !important;
+}
 
-
-
-
-
-
+.meditateslider .slick-prev{
+  display: none !important;
+}
