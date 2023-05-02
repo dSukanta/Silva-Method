@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const SingleAudioBlog = ({image}) => {
    return (
       <>
-         <div className="col-xl-4 col-lg-6 col-md-6">
+         <div className="col-xl-4 col-lg-6 col-md-6 w-100">
             <div className="latest-news-box mb-30">
                <div>
-                  <img src={image} alt="" width='100%' height='300px'/>
+                  <img src={image} alt="" width='100%' height='350px'/>
                </div>
                <div className="latest-news-content">
                   {/* <div className="news-meta mb-10">

@@ -1,19 +1,19 @@
-import React from 'react'
-import CustomAccordion from './CustomAccordion'
+import React, { useEffect, useState } from "react";
+import CustomAccordion from "./CustomAccordion";
 
-function Lessons() {
-    return (
-        <div className='mt-3'>
-           <CustomAccordion />
-           <CustomAccordion />
-           {/* <CustomAccordion />
+function Lessons({ data }) {
+  return (
+    <div className="mt-3">
+      {data &&
+        data.chapters.map((chapter) => <CustomAccordion data={chapter} />)}
+      {/* <CustomAccordion /> */}
+      {/* <CustomAccordion />
            <CustomAccordion />
            <CustomAccordion />
            <CustomAccordion />
            <CustomAccordion /> */}
-
-        </div>
-    )
+    </div>
+  );
 }
 
-export default Lessons
+export default Lessons;

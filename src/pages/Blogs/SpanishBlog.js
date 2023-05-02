@@ -6,6 +6,9 @@ import BlogPageHrader from './BlogPageHrader'
 import CustomFooter from '../Home/Home/HomeFooter/Footer'
 
 function SpanishBlog() {
+
+  // document.title="Spanish Blogs - Silva International Inc.";
+
   return (
     <div>
          <HomeHeader />

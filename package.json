@@ -39,6 +39,7 @@
     "react-scripts": "^5.0.1",
     "react-scroll-parallax": "^3.4.2",
     "react-select": "^5.2.2",
+    "react-share": "^4.4.1",
     "react-share-social": "^0.1.55",
     "react-slick": "^0.28.1",
     "react-stars": "^2.2.5",

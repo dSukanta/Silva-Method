@@ -5,6 +5,9 @@ import HomeHeader from '../Home/Home/HomeHeader/HomeHeader';
 import CustomFooter from '../Home/Home/HomeFooter/Footer';
 
 function LiveEvents() {
+
+  // document.title="Silva Method Live Events by Silva Method Certified Instructors";
+
   return (
     <>
             <HomeHeader/>

@@ -21,7 +21,7 @@ function TabsComp({ data }) {
 
     const { address, country, course_name, course_title, delivery_method,
         details, email, email_2, end_date, instructor_name,instructor_id, language, phone_number,
-        phone_number_2, photo, post_date, start_date } = data;
+        phone_number_2, photo, post_date, start_date,is_certified_instructor,is_coach } = data;
 
     return (
         <>
@@ -94,7 +94,7 @@ function TabsComp({ data }) {
                                             </li>
                                             <li>
                                                 <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Event Mode<span>{delivery_method}</span></div>
+                                                <div className="more-service-title doctor-details-title">Event Mode<span>{delivery_method=='live'? 'Live(Offline)':'Online'}</span></div>
                                             </li>
                                             <li>
                                                 <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
@@ -178,7 +178,13 @@ function TabsComp({ data }) {
                                                 <div className="col-sm-6 col-md-4">
                                                     <li>
                                                         <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                        <div className="more-service-title doctor-details-title"><AiOutlineSafetyCertificate size={35} /> Is Instructor a Silva certified Instructor?<span>Vestibulum at eros</span></div>
+                                                        <div className="more-service-title doctor-details-title"><AiOutlineSafetyCertificate size={35} /> Is Instructor a Silva certified Coach?<span>{is_certified_instructor=="N"|| is_certified_instructor==null? 'No':'Yes'}</span></div>
+                                                    </li>
+                                                </div>
+                                                <div className="col-sm-6 col-md-4">
+                                                    <li>
+                                                        <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
+                                                        <div className="more-service-title doctor-details-title"><AiOutlineSafetyCertificate size={35} /> Is Instructor a Silva certified Instructor?<span>{is_coach=="N"|| is_coach==null? 'No':'Yes'}</span></div>
                                                     </li>
                                                 </div>
                                             </div>

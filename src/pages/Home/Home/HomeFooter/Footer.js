@@ -107,7 +107,7 @@ function CustomFooter() {
                         <div>
                             <p className='text-light'>Copyright © 2023, All Rights Reserved</p>
                         </div>
-                        <div className="custom-footer-social-links m-t-30">
+                        <div className="custom-footer-social-links">
                             <li>
                                 <a href="#">
                                     <BsFacebook />

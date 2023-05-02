@@ -10,6 +10,9 @@ import { NavLink } from "react-router-dom";
 import { Table } from "react-bootstrap";
 
 function Research() {
+
+  // document.title="Silva Method Research";
+  
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 999 });
   const isMobile = useMediaQuery({ minWidth: 200, maxWidth: 480 });

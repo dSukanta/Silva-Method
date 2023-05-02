@@ -10616,7 +10616,7 @@ react-share-social@^0.1.55:
     gh-pages "^4.0.0"
     react-share "^4.3.1"
 
-react-share@^4.3.1:
+react-share@^4.3.1, react-share@^4.4.1:
   version "4.4.1"
   resolved "https://registry.npmjs.org/react-share/-/react-share-4.4.1.tgz"
   integrity sha512-AJ9m9RiJssqvYg7MoJUc9J0D7b/liWrsfQ99ndKc5vJ4oVHHd4Fy87jBlKEQPibT40oYA3AQ/a9/oQY6/yaigw==

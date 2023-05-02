@@ -5,6 +5,9 @@ import CommonPageHeader from '../../components/CommonPageHeader/CommonPageHeader
 import BecomeInstructorBanners from './BecomeInstructorBanners';
 
 function BecomeInstructor() {
+  
+  // document.title="Get CSMI Certification | Become Certified Silva Method Instructors";
+
   return (
     <div>
         <HomeHeader/>

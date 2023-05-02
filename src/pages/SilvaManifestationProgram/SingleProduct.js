@@ -8,7 +8,7 @@ function SingleProduct({ data }) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
-    console.log(data)
+    //console.log(data)
     return (
         <div className='col-12'>
             <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%",minHeight:"280px"}}>

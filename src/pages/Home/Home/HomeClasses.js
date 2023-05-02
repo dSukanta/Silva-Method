@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import HomeHeader from '../Home/Home/HomeHeader/HomeHeader';
-import CustomFooter from '../Home/Home/HomeFooter/Footer';
-import SingleCourse from './SingleCourse';
-import { Link } from 'react-router-dom';
+import HomeSingleClass from './HomeSingleClass';
 
-const AllCourses = () => {
+const HomeClasses = () => {
    
-      const[courses,setCourses]=useState([]);
+      const[classes,setClasses]=useState([]);
 
-      const getCourses = async() =>{
+      const getData = async() =>{
          const myHeaders = new Headers();
          myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
          myHeaders.append("Device", "Android");
@@ -23,21 +20,20 @@ const AllCourses = () => {
           headers:myHeaders,
           body: formData
        }
-       const res= await fetch(`https://projectsites.in/silvamethod/api/courseListWithChild`,options)
+       const res= await fetch(`https://projectsites.in/silvamethod/api/home`,options)
        const data= await res.json();
        //console.log(data.data.classes);
-       setCourses(data.data);
+       setClasses(data.data.classes);
       }
 
       useEffect(()=>{
-        getCourses();
+         getData();
       },[]);
 
-      //console.log(courses);
+      //console.log(classes);
 
    return (
       <>
-      <HomeHeader/>
          <section className="servcies-area gray-bg pt-50 pb-20">
             <div className="container">
                <div className="row">
@@ -48,7 +44,7 @@ const AllCourses = () => {
                         </div> */}
                         <div className="section-text pos-rel home_ser_title">
                            {/* <h5>Upcoming Live & Online Classes</h5> */}
-                           <h2></h2>
+                           <h2>Upcoming Live & Online Classes</h2>
                         </div>
                         <div className="section-line pos-rel">
                            <img src="img/shape/section-title-line.png" alt=""/>
@@ -58,21 +54,14 @@ const AllCourses = () => {
                </div>
                <div className="row row-cols-2 row-cols-lg-3">
 
-               {courses && courses.map((course)=>
-               <div className='text-center p-2'>
-                  <SingleCourse key={course.course_id} data={course}/>
-                  {/* <div style={{display:'flex', flexDirection:'column',justifyContent:'center', alignItems:'center' }}>
-                  <p>{course.teacher_name}</p>
-                  <Link to={`/blogLeftSideBar`}><h6>{course.course_title}</h6></Link>
-               </div> */}
-               </div>
+               {classes && classes.map((classes)=>
+                  <HomeSingleClass key={classes.class_id} data={classes}/>
                )}
               </div>
             </div>
          </section>
-         <CustomFooter/>
       </>
    );
 };
 
-export default AllCourses;
+export default HomeClasses;

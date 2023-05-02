@@ -4,7 +4,7 @@ import { HiOutlineArrowRight } from "react-icons/hi"
 import { useMediaQuery } from 'react-responsive'
 import { AiFillLock } from "react-icons/ai"
 import { useNavigate } from 'react-router-dom'
-function CustomAccordion() {
+function CustomAccordion({data}) {
     const navigate = useNavigate();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
@@ -33,19 +33,19 @@ function CustomAccordion() {
             <Accordion.Item eventKey="0" className='mb-4'>
                 <Accordion.Header>
                     <div className='d-flex justify-content-start flex-column'>
-                        <h4 className='white-color'>Preparation</h4>
-                        <p className='white-color'>Start program to access all lessons</p>
+                        <h4 className='white-color'>{data && data.course_id}</h4>
+                        <p className='white-color'>{data && data.chapter_title}</p>
                     </div>
                 </Accordion.Header>
                 <Accordion.Body>
                     <li>
                         {
-                            items.map((val, i) => (
+                            data && data.lession.map((val, i) => (
                                 <ul className='d-flex justify-content-between mt-3 pb-2' style={{ borderBottom: "2px solid gray" }}>
                                     <div className='d-flex justify-content-start gap-3'>
-                                        <img src={val.img} style={{ width: "120px", height: "60px", objectFit: "cover" }} />
+                                        <img src={"https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg"} style={{ width: "120px", height: "60px", objectFit: "cover" }} />
                                         <div className='d-flex justify-content-center align-items-start flex-column'>
-                                            <p className='white-color' style={{ fontSize: isDesktopOrLaptop ? "1.2rem" : "0.8rem" }}>{val.title}</p>
+                                            <p className='white-color' style={{ fontSize: isDesktopOrLaptop ? "1.2rem" : "0.8rem" }}>{val.lesson_title}</p>
                                             <p style={{ color: "lightgray" }}>{val.duration}</p>
                                         </div>
                                     </div>

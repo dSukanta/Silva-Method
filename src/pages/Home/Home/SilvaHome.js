@@ -15,6 +15,7 @@ import Newsletter from '../../../components/Newsletter/Newsletter';
 import CustomFooter from './HomeFooter/Footer';
 import AboutSilva from '../../../components/AboutSilva/AboutSilva';
 import HomeCountrySection from '../../../components/CountrySection/HomeCountrySection';
+import HomeClasses from './HomeClasses';
 
 const SilvaHome = () => {
     return (
@@ -24,11 +25,12 @@ const SilvaHome = () => {
             <Featured/>
             <AboutSilvaMethod/>
             <CourseSlide/>
-            <HomeEvents/>
+            <HomeClasses/>
             <Testimonials/>
             <AboutSilva/>
             <HomeProducts/>
-            <InstructorsSlide/>
+            {/* <InstructorsSlide/> */}
+            {/* <HomeEvents/> */}
             <HomeBlogs/>
             <HomeCountrySection/>
             <AudioBlogs/>

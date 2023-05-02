@@ -9,6 +9,9 @@ import SilvaInstructorsBanner from './SilvaInstructorsBanner'
 
 
 function Instructors() {
+
+  // document.title="Learn Silva Method from Certified Instructors | Contact Silva Instructors";
+
   return (
     <>
         <HomeHeader/>

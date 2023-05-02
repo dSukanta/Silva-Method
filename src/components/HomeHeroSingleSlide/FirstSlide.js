@@ -3,30 +3,7 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
 import {FcPrevious,FcNext} from "react-icons/fc";
-import {GrFormPrevious,GrFormNext} from "react-icons/gr"
-function SampleNextArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-        <div
-            className={className}
-            style={{ ...style, display: "block", background: "red" }}
-            onClick={onClick}
-        />
-    );
-}
-
-function SamplePrevArrow(props) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={className}
-        style={{ ...style, display: "block", background: "green" }}
-        onClick={onClick}
-      />
-    );
-  }
-
-
+import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 
 function CourseSlide() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -60,7 +37,7 @@ function CourseSlide() {
         getCourses();
     }, []);
 
-    console.log(courses);
+    //console.log(courses);
 
 
 
