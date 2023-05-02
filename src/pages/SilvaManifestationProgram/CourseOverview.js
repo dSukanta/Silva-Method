@@ -61,7 +61,7 @@ function CourseOverview({data}) {
     ]
     return (
         <div className='mt-4'>
-            <OverViewCard />
+            <OverViewCard data={data && data}/>
             <div className='row justify-content-center align-items-center mt-5'>
                 <div className="col-sm-12 col-md-8">
                     <img src={manifestcourse} style={{ width: "100%", height: isDesktopOrLaptop ? "500px" : "200px", objectFit: "cover" }} />

@@ -67,6 +67,8 @@ import IntuitionSystem from './pages/seminars/IntuitionSystem';
 import MasterySystem from './pages/seminars/MasterySystem';
 import SingleLecturePage from './pages/Store/SingleLecturePage/SingleLecturePage';
 import SilvaMemberShip from './pages/silvamembership/SilvaMemberShip';
+import PaymentSuccess from './pages/payment/PaymentSuccess';
+import PaymentUnSuccess from './pages/payment/PaymentUnsuccess';
 
 
 function App() {
@@ -117,6 +119,7 @@ function App() {
             <Route path="/blogDetails/:id" element={<BlogDetails />} />
             {/* <Route element={<BottomToTop />} > */}
               <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
+              {/* <Route path="/store/course/*" element={<NotFound/>} /> */}
             <Route path='/store/course/learn-meditation/intros/1/preview' element={<SingleLecturePage />} />
             {/* </Route> */}
             {/* Blogs Route Ended */}
@@ -128,6 +131,11 @@ function App() {
             {/* product route started */}
             <Route path="/store/product/:id" element={<ProductDetails/>} />
             {/* product route ended */}
+
+            <Route path="/paymentSuccess" element={<PaymentSuccess />} />
+            <Route path="/paymentError" element={<PaymentUnSuccess />} />
+
+
 
             <Route path="/homeFour" element={<HomeFour />} />
             <Route path="/homeFive" element={<HomeFive />} />

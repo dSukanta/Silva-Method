@@ -34,17 +34,17 @@ function StoriesCard({ src, title, text, name, job, address }) {
                     <div className="col-sm-12 col-lg-8">
                         <div className="row">
                             <div className="col-12">
-                                <h3>{title}</h3>
+                                {/* <h3>{title}</h3> */}
                                 <p style={{ fontSize: "1.1rem" }}>
                                     {text}
                                 </p>
-                                <h5 style={{ color: "#9b37f2" }} onClick={() => handleShow("md-down")}>Read more</h5>
+                                {/* <h5 style={{ color: "#9b37f2" }} onClick={() => handleShow("md-down")}>Read more</h5> */}
                                 {
                                     isDesktopOrLaptop && (
                                         <div className='mt-4'>
-                                            <p style={{ margin: "0", fontSize: "1.1rem" }}>{name}</p>
-                                            <p style={{ margin: "0" }}>{job}</p>
-                                            <p style={{ margin: "0" }}>{address}</p>
+                                            <p style={{ margin: "0", fontSize: "1.1rem",color: "#9b37f2" }}>{name}</p>
+                                            {/* <p style={{ margin: "0" }}>{job}</p>
+                                            <p style={{ margin: "0" }}>{address}</p> */}
                                         </div>
                                     )
                                 }
@@ -56,8 +56,8 @@ function StoriesCard({ src, title, text, name, job, address }) {
                                                 alt="" />
                                             <div>
                                                 <p style={{ margin: "0" }}>{name}</p>
-                                                <p style={{ margin: "0" }}>{job}</p>
-                                                <p style={{ margin: "0" }}>{address}</p>
+                                                {/* <p style={{ margin: "0" }}>{job}</p>
+                                                <p style={{ margin: "0" }}>{address}</p> */}
                                             </div>
 
                                         </div>

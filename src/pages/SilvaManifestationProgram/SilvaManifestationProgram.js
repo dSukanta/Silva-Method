@@ -44,15 +44,15 @@ function SilvaManifestationProgram() {
     getCourses();
   }, [id]);
 
-  //console.log(course);
+ // console.log(course);
 
     return (
         <div className="mainlandingpage" style={{ width: "100vw",minHeight:"100vh",paddingBottom:"20px" }}>
                 <StickyNavbar />
             <div className='container'>
                 <MainHeroSection />
-                <MainTabs />
-                <LeaveCommentBox />
+                <MainTabs data={course.length>0 && course[0]}/>
+                <LeaveCommentBox data={course.length>0 && course[0]}/>
                 <SocialShareButtons />
             </div>
             

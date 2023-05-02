@@ -12,7 +12,7 @@ function MainTabs({data}) {
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
     const [activeTab, setActiveTab] = useState("Overview")
-    const tabs = ["Overview", "Lessons", "Resources", "Stories"]
+    const tabs = ["Overview", "Chapters", "Resources", "Comments"]
     return (
         <>
          <div className={`w-100 d-flex justify-content-start tabsmainview ${isDesktopOrLaptop?"gap-5":"gap-3"}`} style={{ marginTop: isDesktopOrLaptop?"40px":"0", borderBottom: "1px solid gray" }}>
@@ -26,7 +26,7 @@ function MainTabs({data}) {
         </div>
          <div>
          {
-            activeTab ==="Lessons" && (
+            activeTab ==="Chapters" && (
                 <Lessons data={data && data}/>
             )
          }
@@ -37,8 +37,8 @@ function MainTabs({data}) {
             )
          }
          {
-            activeTab==="Stories" && (
-                <Stories />
+            activeTab==="Comments" && (
+                <Stories data={data && data}/>
             )
          }
 
