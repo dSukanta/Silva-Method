@@ -9,7 +9,7 @@ function SocialShareButtons() {
         },
       };
   return (
-    <div className='mt-4'>
+    <div className='mt-4' style={{marginBottom:"100px"}}>
      <h4 className='white-color'>Share: </h4>
      <ShareSocial 
      url ="https://silvamethod.com/store/course/silva-method-manifesting-program-complete/"

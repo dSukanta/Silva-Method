@@ -4,6 +4,8 @@ import Lessons from './Lessons'
 import Resources from './Resources'
 import Stories from './Stories'
 import CourseOverview from './CourseOverview'
+import MemberShipFooter from '../silvamembership/MemberShipFooter'
+import SingleProductFooter from './SingleProductFooter'
 // ,borderBottom:"5px solid #9b37f2", marginBottom: "-1px"
 function MainTabs() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
@@ -22,6 +24,7 @@ function MainTabs() {
                 ))
             }
         </div>
+         <div>
          {
             activeTab ==="Lessons" && (
                 <Lessons />
@@ -44,6 +47,8 @@ function MainTabs() {
                 <CourseOverview />
             )
          }
+         </div>
+          {/* <MemberShipFooter /> */}
         </>
     )
 }

@@ -111,6 +111,7 @@ function SingleLecturePage() {
             height={height}
             gravity={0.3}
             numberOfPieces={numofConfetti}
+            tweenDuration={1000}
           />
         )
       }

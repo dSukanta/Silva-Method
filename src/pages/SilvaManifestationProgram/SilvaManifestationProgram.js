@@ -4,6 +4,7 @@ import MainHeroSection from './MainHeroSection'
 import MainTabs from './MainTabs'
 import LeaveCommentBox from './LeaveCommentBox'
 import SocialShareButtons from './SocialShareButtons'
+import SingleProductFooter from './SingleProductFooter'
 
 function SilvaManifestationProgram() {
     window.addEventListener("scroll",function(){
@@ -19,6 +20,9 @@ function SilvaManifestationProgram() {
                 <LeaveCommentBox />
                 <SocialShareButtons />
             </div>
+
+         <SingleProductFooter />
+
             
         </div>
 

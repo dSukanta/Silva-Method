@@ -854,6 +854,10 @@ svg {
   position: fixed;
 }
 
+.activediv{
+  background-color: transparent;
+  padding-left: 10px;
+}
 
 
 
