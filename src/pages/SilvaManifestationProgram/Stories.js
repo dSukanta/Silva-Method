@@ -25,7 +25,7 @@ function Stories({ data }) {
       <div>
         <div className="row justify-content-between align-items-center mt-4">
           <div className="col-sm-12 col-md-6 col-lg-7">
-            {data && data.course_comment.length > 0 ? (
+            {data && data.length > 0 ? (
               <p className="white-color" style={{ fontSize: "1.1rem" }}>
                 Stories are from people whose lives changed because of this
                 program.{" "}
@@ -57,7 +57,7 @@ function Stories({ data }) {
           </div>
 
           {data &&
-            data.course_comment
+            data
               .slice(
                 (currentPage - 1) * pagePostsLimit,
                 currentPage * pagePostsLimit
@@ -76,7 +76,7 @@ function Stories({ data }) {
                 </div>
               ))}
 
-          {data && data.course_comment.length >= 5 && (
+          {data && data.length >= 5 && (
             <Pagination
               currentPage={currentPage}
               itemsPerPage={pagePostsLimit}

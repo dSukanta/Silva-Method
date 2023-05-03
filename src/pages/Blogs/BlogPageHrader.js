@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function BlogPageHrader({title,subtitle}) {
   return (
     <>
-    <section className="breadcrumb-bg pt-200 pb-180 blog_page_header_bg">
+    <section className="breadcrumb-bg pt-200 pb-180 blog_page_header_bg mb-50">
        <div className="container">
           <div className="row">
              <div className="col-lg-9 col-md-9">

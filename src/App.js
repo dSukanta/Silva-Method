@@ -70,6 +70,7 @@ import SilvaMemberShip from './pages/silvamembership/SilvaMemberShip';
 import SilvaHome2 from './pages/Home/Home/SilvaHome2';
 import PaymentSuccess from './pages/payment/PaymentSuccess';
 import PaymentUnSuccess from './pages/payment/PaymentUnsuccess';
+import Books from './pages/Store/Books';
 
 
 function App() {
@@ -132,6 +133,7 @@ function App() {
             {/*Auth Route Ended */}
 
             {/* product route started */}
+            <Route path="/store/books" element={<Books/>} />
             <Route path="/store/product/:id" element={<ProductDetails/>} />
             {/* product route ended */}
 

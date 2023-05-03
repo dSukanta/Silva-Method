@@ -45,7 +45,7 @@ const HomeProducts = () => {
             <div className="container">
                <div className="row">
                   <div className="col-xl-6 col-lg-7 col-md-10">
-                     <div className="section-title pos-rel mb-25">
+                     <div className="section-title pos-rel">
                         {/* <div className="section-icon">
                            <img className="section-back-icon back-icon-left" src="img/section/section-back-icon.png" alt=""/>
                         </div> */}

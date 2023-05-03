@@ -1,31 +1,39 @@
-import React from 'react';
-import { Offcanvas } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import Collapsible from 'react-collapsible';
+import React from "react";
+import { Offcanvas } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import Collapsible from "react-collapsible";
 
-const Sidebar = ({ show, handleClose }) => {
-   // const Home = <NavLink to="/home">Home</NavLink>
-   const About = <NavLink to="/about">About</NavLink>
-   const Seminars = <NavLink to="/courses/basic_lecture_series">Seminars </NavLink>
-   const Events = <NavLink to="/events/live">Events</NavLink>
-   const Instructors = <NavLink to="/instructor">Instructors</NavLink>
-   const Products = <NavLink to="/store">Products</NavLink>
-   const Blogs = <NavLink to="/store/blogs/">Blogs</NavLink>
+const Sidebar = ({ show, handleClose, listData }) => {
+  // const Home = <NavLink to="/home">Home</NavLink>
+  const About = <NavLink to="/about">About</NavLink>;
+  const Seminars = (
+    <NavLink to="/courses/basic_lecture_series">Seminars </NavLink>
+  );
+  const Events = <NavLink to="/events/live">Events</NavLink>;
+  const Instructors = <NavLink to="/instructor">Instructors</NavLink>;
+  const Products = <NavLink to="/store">Products</NavLink>;
+  const Blogs = <NavLink to="/store/blogs/">Blogs</NavLink>;
 
-   return (
-      <>
-
-         <div >
-            <Offcanvas show={show} onHide={handleClose} placement='end' className='side__bar'>
-               <Offcanvas.Header closeButton>
-                  {/* <Offcanvas.Title>Offcanvas</Offcanvas.Title> */}
-               </Offcanvas.Header>
-               <Offcanvas.Body>
-
-                 <ul style={{paddingBottom:'10px'}}>
-                  <li> <NavLink to="/">Home</NavLink></li>
-                 </ul>
-                  {/* <Collapsible trigger={Home} triggerTagName="div"
+  return (
+    <>
+      <div>
+        <Offcanvas
+          show={show}
+          onHide={handleClose}
+          placement="end"
+          className="side__bar"
+        >
+          <Offcanvas.Header closeButton>
+            {/* <Offcanvas.Title>Offcanvas</Offcanvas.Title> */}
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <ul style={{ paddingBottom: "10px" }}>
+              <li>
+                {" "}
+                <NavLink to="/">Home</NavLink>
+              </li>
+            </ul>
+            {/* <Collapsible trigger={Home} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
                      <ul className="sidebar_sub_menu text-white mt-3">
                         <li><NavLink to="/home">Home</NavLink></li>
@@ -33,50 +41,120 @@ const Sidebar = ({ show, handleClose }) => {
                         <li><NavLink to="/homeThree">Home style 3</NavLink></li>
                         <li><NavLink to="/homeFour">Home style 4</NavLink></li>
                         <li><NavLink to="/homeFive">Home style 5</NavLink></li> */}
-                     {/* </ul>
+            {/* </ul>
                   </Collapsible> */}
 
-                  <Collapsible trigger={About} triggerTagName="div"
-                     triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
-                           <li><NavLink to="/about">About us</NavLink></li>
-                           <li><NavLink to="/contact">Contact Us</NavLink></li>
-                           <li><NavLink to="/research">Research</NavLink></li>
-                     </ul>
-                  </Collapsible>
+            <Collapsible
+              trigger={About}
+              triggerTagName="div"
+              triggerOpenedClassName="icon_close"
+              triggerClassName="iconAdd"
+              open={false}
+            >
+              <ul className="sidebar_sub_menu text-white mt-3">
+                <li>
+                  <NavLink to="/about">About us</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/contact">Contact Us</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/research">Research</NavLink>
+                </li>
+              </ul>
+            </Collapsible>
 
-                  <Collapsible trigger={Seminars} triggerTagName="div"
-                     triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
-                           <li><NavLink to="/courses/basic_lecture_series">Basic Lecture Series(BLS-4)</NavLink></li>
-                           <li><NavLink to="/courses/seminar">Seminars</NavLink></li>
-                           <li><NavLink to="/courses/silva_life_system">Silva Life System</NavLink></li>
-                           <li><NavLink to="/">Silva Intuition System</NavLink></li>
-                           <li><NavLink to="/">Silva Mastery System</NavLink></li>
-                     </ul>
-                  </Collapsible>
+            <Collapsible
+              trigger={Seminars}
+              triggerTagName="div"
+              triggerOpenedClassName="icon_close"
+              triggerClassName="iconAdd"
+              open={false}
+            >
+              <ul className="sidebar_sub_menu text-white mt-3">
+                <li>
+                  <NavLink to="/courses/basic_lecture_series">
+                    Basic Lecture Series(BLS-4)
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/courses/seminar">Seminars</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/courses/silva_life_system">
+                    Silva Life System
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Silva Intuition System</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/">Silva Mastery System</NavLink>
+                </li>
+              </ul>
+            </Collapsible>
 
-                  <Collapsible trigger={Events} triggerTagName="div"
-                     triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
-                           <li><NavLink to="/events/live">Live</NavLink></li>
-                           <li><NavLink to="/events/online">Online</NavLink></li>  
-                     </ul>
-                  </Collapsible>
+            <Collapsible
+              trigger={Events}
+              triggerTagName="div"
+              triggerOpenedClassName="icon_close"
+              triggerClassName="iconAdd"
+              open={false}
+            >
+              <ul className="sidebar_sub_menu text-white mt-3">
+                <li>
+                  <NavLink to="/events/live">Live</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/events/online">Online</NavLink>
+                </li>
+              </ul>
+            </Collapsible>
 
-                  <Collapsible trigger={Instructors} triggerTagName="div"
-                     triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
-                           <li><NavLink to="/instructor">Instructors</NavLink></li>
-                           <li><NavLink to="/instructor/find_instructor">Find Instructor</NavLink></li>
-                           <li><NavLink to="/instructor/become_silva_instructor">Become an Instructor</NavLink></li>
-                     </ul>
-                  </Collapsible>
+            <Collapsible
+              trigger={Instructors}
+              triggerTagName="div"
+              triggerOpenedClassName="icon_close"
+              triggerClassName="iconAdd"
+              open={false}
+            >
+              <ul className="sidebar_sub_menu text-white mt-3">
+                <li>
+                  <NavLink to="/instructor">Instructors</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/instructor/find_instructor">
+                    Find Instructor
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/instructor/become_silva_instructor">
+                    Become an Instructor
+                  </NavLink>
+                </li>
+              </ul>
+            </Collapsible>
 
-                  <Collapsible trigger={Products} triggerTagName="div"
-                     triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
-                           <li><NavLink to="/about">Silva Life System & Silva Intuition System (The Complete Silva Method Course)</NavLink></li>
+            <Collapsible
+              trigger={Products}
+              triggerTagName="div"
+              triggerOpenedClassName="icon_close"
+              triggerClassName="iconAdd"
+              open={false}
+            >
+              <ul className="sidebar_sub_menu text-white mt-3">
+                {listData &&
+                  listData.map((listItem) => (
+                    <li>
+                      <NavLink to={`/store/course/${listItem.course_id}`}>
+                        {listItem.course_title}
+                      </NavLink>
+                    </li>
+                  ))}
+                <li>
+                  <NavLink to="/store/books">Books</NavLink>
+                </li>
+                {/* <li><NavLink to="/about">Silva Life System & Silva Intuition System (The Complete Silva Method Course)</NavLink></li>
                            <li><NavLink to="/appoinment">Silva Life System</NavLink></li>
                            <li><NavLink to="/portfolioTwoColumn">Silva Intuition System</NavLink></li>
                            <li><NavLink to="/portfolioThreeColumn">Silva Method Complete Manifesting Program</NavLink></li>
@@ -92,32 +170,40 @@ const Sidebar = ({ show, handleClose }) => {
                            <li><NavLink to="/notMatch">Books</NavLink></li>
                            <li><NavLink to="/portfolioSlider">Dynamic Meditation</NavLink></li>
                            <li><NavLink to="/contact">Silva Master Classes</NavLink></li>
-                           <li><NavLink to="/notMatch">Long Relax Exercise by Jose Silva</NavLink></li>
-                     </ul>
-                  </Collapsible>
-                  <Collapsible trigger={Blogs} triggerTagName="div"
-                     triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
-                     <ul className="sidebar_sub_menu text-white mt-3">
-                           <li><NavLink to="/store/blogs/">English Blogs</NavLink></li>
-                           <li><NavLink to="/store/spanish-blogs/">Spanish Blogs</NavLink></li>  
-                     </ul>
-                  </Collapsible>
-                  <ul style={{paddingBottom:'10px'}}>
-                     <li><NavLink to="/login">Course Login</NavLink></li>
-                  </ul>
-                  <ul style={{paddingTop:'5px'}}>
-                     <li><NavLink to="/">Silva Cases</NavLink></li>
-                  </ul>
-                  
-                  
-
-                  
-
-               </Offcanvas.Body>
-            </Offcanvas>
-         </div>
-      </>
-   );
+                           <li><NavLink to="/notMatch">Long Relax Exercise by Jose Silva</NavLink></li> */}
+              </ul>
+            </Collapsible>
+            <Collapsible
+              trigger={Blogs}
+              triggerTagName="div"
+              triggerOpenedClassName="icon_close"
+              triggerClassName="iconAdd"
+              open={false}
+            >
+              <ul className="sidebar_sub_menu text-white mt-3">
+                <li>
+                  <NavLink to="/store/blogs/">English Blogs</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/store/spanish-blogs/">Spanish Blogs</NavLink>
+                </li>
+              </ul>
+            </Collapsible>
+            <ul style={{ paddingBottom: "10px" }}>
+              <li>
+                <NavLink to="/login">Course Login</NavLink>
+              </li>
+            </ul>
+            <ul style={{ paddingTop: "5px" }}>
+              <li>
+                <NavLink to="/">Silva Cases</NavLink>
+              </li>
+            </ul>
+          </Offcanvas.Body>
+        </Offcanvas>
+      </div>
+    </>
+  );
 };
 
 export default Sidebar;

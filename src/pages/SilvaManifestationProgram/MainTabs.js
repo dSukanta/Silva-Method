@@ -38,7 +38,7 @@ function MainTabs({data}) {
          }
          {
             activeTab==="Comments" && (
-                <Stories data={data && data}/>
+                <Stories data={data && data.course_comment}/>
             )
          }
 

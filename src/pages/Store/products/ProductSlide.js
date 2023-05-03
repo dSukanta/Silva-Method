@@ -48,7 +48,7 @@ function ProductSlide() {
         speed: 500,
         slidesToShow: isMobile? 1: isTablet?2:4,
         slidesToScroll: 1,
-        centerMode: true,
+        centerMode: false,
         autoplay: true,
         autoplaySpeed: 2000,
         pauseOnHover: false,

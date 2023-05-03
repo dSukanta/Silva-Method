@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../../components/Shared/Sidebar/Sidebar';
 import useGlobalContext from '../../../../hooks/useGlobalContext';
@@ -8,13 +8,16 @@ import Swal from 'sweetalert2';
 import { RxHamburgerMenu } from "react-icons/rx"
 import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
 import { Dropdown } from 'react-bootstrap';
+import { requestData } from '../../../../utils/baseUrl';
 const HomeHeader = () => {
    const navigate = useNavigate()
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
    const { stickyMenu } = useGlobalContext();
-   const { isUserLoggedIn, userData, logout } = useContext(AuthContext)
+   const { isUserLoggedIn, userData, logout } = useContext(AuthContext);
+   const [listData,setListData] = useState([]);
+
 
    const handleLogout = async () => {
       Swal.fire({
@@ -29,6 +32,22 @@ const HomeHeader = () => {
          }
       })
    }
+
+const getAllData=async()=>{
+   const res= await requestData('latestCourseList',"POST",{
+      "start_index":"0",
+      "no_of_records":"20"
+   })
+   //console.log(res);
+   setListData(res.data);
+}
+
+useEffect(()=>{
+getAllData();
+},[])
+
+
+
    return (
       <>
          <header>
@@ -132,9 +151,11 @@ const HomeHeader = () => {
                                  </li>
                                  <li><Link to="/store">Products</Link>
                                     <ul className="submenu">
-                                       
-                                       <li><Link to="/about">Silva Life System & Silva Intuition System (The Complete Silva Method Course)</Link></li>
-                                       <li><Link to="/appoinment">Silva Life System</Link></li>
+                                       {listData && listData.map((listItem)=>
+                                       <li><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
+                                       )}
+                                       <li><Link to="/store/books">Books</Link></li>
+                                       {/* <li><Link to="/appoinment">Silva Life System</Link></li>
                                        <li><Link to="/portfolioTwoColumn">Silva Intuition System</Link></li>
                                        <li><Link to="/store/course/silva-method-manifesting-program-complete">Silva Method Complete Manifesting Program</Link></li>
                                        <li><Link to="/portfolioSlider">Manifesting course</Link></li>
@@ -149,7 +170,7 @@ const HomeHeader = () => {
                                        <li><Link to="/notMatch">Books</Link></li>
                                        <li><Link to="/portfolioSlider">Dynamic Meditation</Link></li>
                                        <li><Link to="/contact">Silva Master Classes</Link></li>
-                                       <li><Link to="/notMatch">Long Relax Exercise by Jose Silva</Link></li>
+                                       <li><Link to="/notMatch">Long Relax Exercise by Jose Silva</Link></li> */}
                                     </ul>
                                  </li>
                                  <li><Link to="/store/blogs/">Blogs</Link>
@@ -213,7 +234,7 @@ const HomeHeader = () => {
             </div >
          </header >
 
-         <Sidebar show={show} handleClose={handleClose} />
+         <Sidebar show={show} handleClose={handleClose} listData={listData}/>
       </>
    );
 };

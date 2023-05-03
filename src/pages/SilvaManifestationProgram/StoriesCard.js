@@ -26,7 +26,7 @@ function StoriesCard({ src, title, text, name, job, address }) {
                         (isDesktopOrLaptop) && (
                             <div className="col-sm-12 col-md-3">
                                 <img src={src}
-                                    style={{ width: "300px", height: "300px", borderRadius: "10px" }}
+                                    style={{ width: "200px", height: "200px", borderRadius: "50%" }}
                                     alt="" />
                             </div>
                         )
@@ -52,7 +52,7 @@ function StoriesCard({ src, title, text, name, job, address }) {
                                     (isMobile || isTablet) && (
                                         <div className="d-flex justify-content-start gap-3 align-items-center align-content-center mt-4">
                                             <img src={src}
-                                                style={{ width: "100px", height: "90px", borderRadius: "10px" }}
+                                                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
                                                 alt="" />
                                             <div>
                                                 <p style={{ margin: "0" }}>{name}</p>
