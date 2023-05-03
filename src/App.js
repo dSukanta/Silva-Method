@@ -1,6 +1,6 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import ScrollTop from './components/ScrollTop';
-import AllContext from './context/AllContext';
+import AllContext, { AuthContext } from './context/AllContext';
 import AboutUs from './pages/AboutUs/AboutUs';
 import Appointment from './pages/Appointment/Appointment';
 import BlogDetails from './pages/BlogDetails/BlogDetails';
@@ -71,13 +71,36 @@ import SilvaHome2 from './pages/Home/Home/SilvaHome2';
 import PaymentSuccess from './pages/payment/PaymentSuccess';
 import PaymentUnSuccess from './pages/payment/PaymentUnsuccess';
 import Books from './pages/Store/Books';
+import ProfilePage from './pages/ProfilePage/ProfilePage';
+import MyCoursesPage from './pages/ProfilePage/MyCoursesPage';
+import MyQuizzesPage from './pages/ProfilePage/MyQuizzesPage';
+import MyOrdersPage from './pages/ProfilePage/MyOrdersPage';
+import MyBasicInfo from './pages/ProfilePage/MyBasicInfo';
+import MyAvatar from './pages/ProfilePage/MyAvatar';
+import ChangePassword from './pages/ProfilePage/ChangePassword';
+import { useContext } from 'react';
+import { useEffect } from 'react';
+import { requestData2 } from './utils/baseUrl';
 
 
 function App() {
+
+  const { setUserData,isUserLoggedIn } = useContext(AuthContext);
+  const getProfile = async () => {
+    const res = await requestData2("getStudentProfile", "POST", {});
+    if (res && res.error === false) {
+      setUserData(res.data);
+    }
+  }
+
+  useEffect(() => {
+    if(isUserLoggedIn){
+      getProfile()
+    }
+  }, [isUserLoggedIn])
   return (
     <>
     <Toaster position="bottom-center" />
-      <AllContext>
         <BrowserRouter>
           <ScrollTop />
           <Routes>
@@ -103,8 +126,29 @@ function App() {
             <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
             <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
             <Route path="/silva_membership" element={<SilvaMemberShip />} />
-            <Route path="/myProfile" element={<SilvaMemberShip />} />
+            <Route path="/store/profile" element={<Navigate to="/store/profile/avijit123/courses" />}>
+            </Route>
+            <Route element={<ProfilePage />}>
+              <Route path='/store/profile/:username/courses' element={<MyCoursesPage />} />
+            </Route>
+            <Route element={<ProfilePage />}>
+              <Route path='/store/profile/:username/quizzes' element={<MyQuizzesPage />} />
+            </Route>
+            <Route element={<ProfilePage />}>
+              <Route path='/store/profile/:username/orders' element={<MyOrdersPage />} />
+            </Route>
 
+            <Route element={<ProfilePage />}>
+              <Route path='/store/profile/:username/settings/basic_information' element={<MyBasicInfo />} />
+            </Route>
+
+            <Route element={<ProfilePage />}>
+              <Route path='/store/profile/:username/settings/avatar' element={<MyAvatar />} />
+            </Route>
+
+            <Route element={<ProfilePage />}>
+              <Route path='/store/profile/:username/settings/change_password' element={<ChangePassword />} />
+            </Route>
             {/* Seminar Route Ended */}
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />
@@ -176,7 +220,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-      </AllContext>
     </>
   );
 }

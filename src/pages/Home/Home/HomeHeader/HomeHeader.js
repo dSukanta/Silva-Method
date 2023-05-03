@@ -106,7 +106,8 @@ getAllData();
 
                               <ul>
                                  {
-                                    !isUserLoggedIn && (
+
+                                    userData && !userData.subscription && (
                                        <li>
                                           <Link to="/silva_membership">Membership</Link>
                                        </li>
@@ -189,7 +190,7 @@ getAllData();
                                              style={{ width: "30px", height: "30px" }}
                                           /></Link>
                                           <ul className='submenu'>
-                                            <li onClick={handleLogout} className='mx-2'>Logout</li>
+                                             <li onClick={handleLogout} className='mx-2'>Logout</li>
                                           </ul>
                                           {/* <button className='btn btn-danger btn-sm' onClick={handleLogout}>
                                              <BiLogOut size={20} />
