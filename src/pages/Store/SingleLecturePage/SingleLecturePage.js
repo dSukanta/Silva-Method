@@ -10,6 +10,9 @@ import SidebarExample from './SidebarExample'
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { Image } from 'react-bootstrap'
+import CommonSectionArea from '../../../components/CommonSectionArea/CommonSectionArea'
+import Stories from '../../SilvaManifestationProgram/Stories'
+import LeaveCommentBox from '../../SilvaManifestationProgram/LeaveCommentBox'
 
 
 function SingleLecturePage() {
@@ -116,6 +119,11 @@ function SingleLecturePage() {
           </div>
         </div>
 
+      </div>
+
+      <div className='container p-4 singlelecturebg'>
+        <Stories />
+        <LeaveCommentBox color={true} />
       </div>
       <SingleLectureFooter setMarked={setMarked} marked={marked} setModalShow={openModal} />
       {

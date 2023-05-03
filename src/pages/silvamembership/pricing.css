@@ -51,6 +51,19 @@
     background-color: #45aaf2;
 }
 
+.pro2 .pricing-header {
+    background-color: #1dd1a1;
+}
+
+.pro2 .price-circle {
+    border: 10px solid #1dd1a1;
+    transition: all 0.4s;
+}
+.pro2:hover .price-circle {
+    border-width: 5px;
+}
+
+
 .pro .price-circle {
     border: 10px solid #45aaf2;
     transition: all 0.4s;
@@ -130,7 +143,7 @@
     -webkit-transition: 0.4s background-color ease;
     -ms-transition: 0.4s background-color ease;
     transition: 0.4s background-color ease;
-    height: 350px;
+    height: 380px;
     background-color: white;
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
@@ -161,7 +174,7 @@
 
 .pricing-card .badge-box {
     padding: 0 40px;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 .pricing-card .badge-box span {
@@ -197,8 +210,8 @@
 
 .pricing-card .pricing-header .price-circle {
     width: calc(33.3% - 30px);
-    width: 120px;
-    height: 120px;
+    width: 145px;
+    height: 145px;
     border-radius: 100%;
     left: calc(50% - 60px);
     top: 60%;

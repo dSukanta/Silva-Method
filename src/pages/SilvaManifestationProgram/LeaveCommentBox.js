@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import toast, { Toaster } from "react-hot-toast";
 import { baseUrl } from "../../utils/axioscall";
 
-function LeaveCommentBox({ data }) {
+function LeaveCommentBox({ data,color }) {
  // console.log(data);
   const [commentData, setCommentData] = useState({
     comment: "",
@@ -78,7 +78,7 @@ function LeaveCommentBox({ data }) {
       <div className="post-comments-form">
         <form id="contacts-form" className="conatct-post-form">
           <div className="post-comments-title">
-            <h2 className="white-color">Post Comments</h2>
+            <h2 className={"white-color"}>Post Comments</h2>
           </div>
           <div className="row">
             <div className="col-xl-12">

@@ -102,6 +102,8 @@ function App() {
             <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
             <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
             <Route path="/silva_membership" element={<SilvaMemberShip />} />
+            <Route path="/myProfile" element={<SilvaMemberShip />} />
+
             {/* Seminar Route Ended */}
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />

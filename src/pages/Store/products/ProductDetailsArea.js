@@ -8,6 +8,7 @@ import ProductDetailsRightSide from './ProductDetailsRight';
 
 const ProductDetailsArea = ({productId}) => {
    const [product,setProduct] =useState([]);
+   const [products, setProducts] = useState([]);
 
    const getProductDetails=async(id)=>{
       const myHeaders = new Headers();
@@ -43,9 +44,9 @@ const ProductDetailsArea = ({productId}) => {
 
                  <ProductDetailsLeftSide details_topBar={<div className="postbox__thumb mb-35 w-100">
                         <img src={product.length>0 && product[0].product_image} alt="single product img" width='100%'/>
-                  </div>} product={product.length>0 && product[0]}/>
+                  </div>} product={product.length>0 && product[0]} products={products} />
 
-                  <ProductDetailsRightSide productId={productId}/>
+                  <ProductDetailsRightSide productId={productId} products={products} setProducts={setProducts} />
 
                </div>
             </div>
