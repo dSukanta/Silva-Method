@@ -18,7 +18,7 @@ const AudioBlogs = () => {
     speed: 500,
     slidesToShow:1,
     slidesToScroll: 1,
-    centerMode: true,
+    centerMode: false,
     autoplay: true,
     prevArrow: <GrFormPrevious />,
     nextArrow: <GrFormNext />,

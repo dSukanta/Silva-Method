@@ -7,6 +7,7 @@ import { BiLogOut } from "react-icons/bi";
 import Swal from 'sweetalert2';
 import { RxHamburgerMenu } from "react-icons/rx"
 import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
+import { Dropdown } from 'react-bootstrap';
 const HomeHeader = () => {
    const navigate = useNavigate()
    const [show, setShow] = useState(false);
@@ -163,13 +164,24 @@ const HomeHeader = () => {
                                  {
                                     isUserLoggedIn && (
                                        <li>
-                                          <button className='btn btn-danger btn-sm' onClick={handleLogout}>
+                                          <Link to="/"> <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
+                                             style={{ width: "30px", height: "30px" }}
+                                          /></Link>
+                                          <ul className='submenu'>
+                                            <li onClick={handleLogout} className='mx-2'>Logout</li>
+                                          </ul>
+                                          {/* <button className='btn btn-danger btn-sm' onClick={handleLogout}>
                                              <BiLogOut size={20} />
                                              <span className='mx-2'>
                                                 Logout
                                              </span>
                                           </button>
+                                          <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
+                                             style={{ width: "30px", height: "30px" }}
+                                          /> */}
+
                                        </li>
+
                                     )
                                  }
 
@@ -184,7 +196,7 @@ const HomeHeader = () => {
                                     )
                                  }
                                  {/* <li><Link to="/login">Course Login</Link></li> */}
-                                 <li><a className='silvacases' onClick={()=>window.open("https://www.silvacasesonline.com")}>Silva Cases</a></li>
+                                 <li><a className='silvacases' onClick={() => window.open("https://www.silvacasesonline.com")}>Silva Cases</a></li>
                               </ul>
                            </nav>
                         </div>

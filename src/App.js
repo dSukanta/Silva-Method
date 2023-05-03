@@ -67,6 +67,7 @@ import IntuitionSystem from './pages/seminars/IntuitionSystem';
 import MasterySystem from './pages/seminars/MasterySystem';
 import SingleLecturePage from './pages/Store/SingleLecturePage/SingleLecturePage';
 import SilvaMemberShip from './pages/silvamembership/SilvaMemberShip';
+import SilvaHome2 from './pages/Home/Home/SilvaHome2';
 import PaymentSuccess from './pages/payment/PaymentSuccess';
 import PaymentUnSuccess from './pages/payment/PaymentUnsuccess';
 
@@ -82,6 +83,8 @@ function App() {
             {/* Home Route started*/}
             <Route path="/store/courses" element={<AllCourses/>}/>
             <Route path="/" element={<SilvaHome />} />
+            <Route path="/today" element={<SilvaHome2 />} />
+
             <Route path="/home" element={<SilvaHome />} />
             {/* <Route path="/contactus" element={<ContactUs />} /> */}
             {/* <Route path="/homeTwo" element={<HomeTwo />} />

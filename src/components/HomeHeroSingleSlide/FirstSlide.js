@@ -43,7 +43,7 @@ function CourseSlide() {
 
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -81,7 +81,7 @@ function CourseSlide() {
                 {courses && courses.map(course =>
                     <div className='col-12'>
                         <img src={course.web_image || "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}
-                         style={{ width: isDesktopOrLaptop?"98%":"96.5%",margin:isDesktopOrLaptop?"20px":"0px",borderRadius:"10px", height: isDesktopOrLaptop ? "430px" : isTablet?"300px":"200px" }} />
+                         style={{ width: isDesktopOrLaptop?"97%":"96.5%",margin:isDesktopOrLaptop?"30px":"0px",borderRadius:"10px", height: isDesktopOrLaptop ? "500px" : isTablet?"320px":"200px" }} />
                     </div>)}
                 {/* <div className='col-12'>
                     <img src="img/slide-2.webp" style={{ width: "100%", height: isDesktopOrLaptop?"400px":"200px" }} />
