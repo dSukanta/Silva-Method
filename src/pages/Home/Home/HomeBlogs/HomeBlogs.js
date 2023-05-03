@@ -62,7 +62,7 @@ const HomeBlogs = () => {
                <div className="row">
                   
                   {blogs && blogs.map((blog) =>
-                  <HomeSingleBlogLeftSide data={blog}/>
+                  <HomeSingleBlogLeftSide key={blog.blog_id} data={blog}/>
                   )}
 
                   {/* <HomeSingleBlogLeftSide image="https://storage.googleapis.com/mv-prod-blog-en-assets/2018/08/026b52fb-biohacking-weight-loss-featured-221210-mindvalley-daveasprey-34-%C2%A9andrewburns-344x344.webp" /> */}

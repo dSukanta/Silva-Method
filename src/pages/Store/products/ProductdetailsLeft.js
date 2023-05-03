@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaTwitter, FaGoogle, FaPinterestP } from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
 import OverlayCard from "./OverlayCard";
 
-const ProductDetailsLeftSide = ({ details_topBar, product }) => {
+const ProductDetailsLeftSide = ({ details_topBar, product,products }) => {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 999 });
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 });
 
   //console.log(product);
+
+
+  useEffect(()=>{
+   console.log(products,"products");
+   
+  },[products])
   const {
     product_id,
     product_name,

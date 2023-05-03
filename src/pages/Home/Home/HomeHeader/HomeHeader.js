@@ -152,7 +152,7 @@ getAllData();
                                  <li><Link to="/store">Products</Link>
                                     <ul className="submenu">
                                        {listData && listData.map((listItem)=>
-                                       <li><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
+                                       <li key={listItem.course_id}><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
                                        )}
                                        <li><Link to="/store/books">Books</Link></li>
                                        {/* <li><Link to="/appoinment">Silva Life System</Link></li>

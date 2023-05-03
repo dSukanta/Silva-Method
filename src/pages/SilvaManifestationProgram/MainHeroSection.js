@@ -7,7 +7,7 @@ import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import { TiTick } from "react-icons/ti";
 
-function MainHeroSection() {
+function MainHeroSection({data}) {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 });
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 });
@@ -17,11 +17,11 @@ function MainHeroSection() {
       {isDesktopOrLaptop ? (
         <>
           <div className="col-sm-12 col-md-5">
-            <h2 className="white-color">Getting Started with Mindvalley</h2>
+            <h2 className="white-color">{data && data.course_title}</h2>
             <div className="">
               <div className="d-flex align-items-center gap-4 mb-3">
                 <img
-                  src="https://assets.mindvalley.com/api/v1/assets/a89b9d20-8462-4dfa-80f1-a46233a510d0.png"
+                  src={data && data.web_image}
                   alt=""
                   style={{
                     width: "80px",
@@ -30,9 +30,9 @@ function MainHeroSection() {
                     objectFit: "cover",
                   }}
                 />
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column">By
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
-                    Vishen
+                  {data && data.teacher_id}
                   </span>
                   <span className="text-muted" style={{ fontSize: "1.1rem" }}>
                     Founder and CEO of Mindvalley
@@ -85,11 +85,11 @@ function MainHeroSection() {
             />
           </div>
           <div className="col-sm-12 col-md-5 mt-4 mb-5">
-            <h2 className="white-color">Getting Started with Mindvalley</h2>
+            <h2 className="white-color">{data && data.course_title}</h2>
             <div className="">
               <div className="d-flex align-items-center gap-4 mb-3">
                 <img
-                  src="https://assets.mindvalley.com/api/v1/assets/a89b9d20-8462-4dfa-80f1-a46233a510d0.png"
+                  src={data && data.web_image}
                   alt=""
                   style={{
                     width: "80px",
@@ -98,9 +98,9 @@ function MainHeroSection() {
                     objectFit: "cover",
                   }}
                 />
-                <div className="d-flex flex-column">
+                <div className="d-flex flex-column"> By
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
-                    Vishen
+                    {data && data.teacher_id}
                   </span>
                   <span className="text-muted" style={{ fontSize: "1.1rem" }}>
                     Founder and CEO of Mindvalley

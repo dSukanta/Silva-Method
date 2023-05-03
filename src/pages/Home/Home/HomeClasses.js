@@ -55,7 +55,7 @@ const HomeClasses = () => {
                <div className="row row-cols-2 row-cols-lg-3">
 
                {classes && classes.map((classes)=>
-                  <HomeSingleClass key={classes.class_id} data={classes}/>
+                  <HomeSingleClass key={classes.course_id} data={classes}/>
                )}
               </div>
             </div>

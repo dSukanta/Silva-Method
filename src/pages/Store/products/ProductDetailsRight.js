@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
 import OverlayCard from "./OverlayCard";
 
-const ProductDetailsRightSide = ({productId}) => {
-  const [products, setProducts] = useState([]);
+const ProductDetailsRightSide = ({productId,products,setProducts}) => {
 
   const getProducts = async () => {
     const myHeaders = new Headers();

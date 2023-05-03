@@ -60,7 +60,7 @@ function ProductSlide() {
       <h3 style={{color: "#7a12d4",padding:'10px 10px 10px 0'}}>Check our Unique Peoducts</h3>
     <Slider {...settings}>
       {products && products.map(product=>
-        <ProductOverlayCard data={product && product}/>
+        <ProductOverlayCard key={product.product_id} data={product && product}/>
         )}
     </Slider>
     </div>

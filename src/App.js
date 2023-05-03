@@ -103,6 +103,8 @@ function App() {
             <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
             <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
             <Route path="/silva_membership" element={<SilvaMemberShip />} />
+            <Route path="/myProfile" element={<SilvaMemberShip />} />
+
             {/* Seminar Route Ended */}
             {/*Events Route Started */}
             <Route path="/events/live" element={<LiveEvents />} />
@@ -124,7 +126,7 @@ function App() {
             {/* <Route element={<BottomToTop />} > */}
               <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
               {/* <Route path="/store/course/*" element={<NotFound/>} /> */}
-            <Route path='/store/course/learn-meditation/intros/1/preview' element={<SingleLecturePage />} />
+            <Route path='/store/course/:course_id/:chapter_id/:lession_id' element={<SingleLecturePage />} />
             {/* </Route> */}
             {/* Blogs Route Ended */}
             {/*Auth Route started */}

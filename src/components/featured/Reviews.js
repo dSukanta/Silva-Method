@@ -108,7 +108,7 @@ export default function Testimonials() {
       <h3>What Others Say about Us...</h3>
         <Slider {...settings}>
         {reviews && reviews.map((review)=>
-            <div className="d-flex flex-column justify-content-center align-items-center">
+            <div key={review.id} className="d-flex flex-column justify-content-center align-items-center">
               <img src={review.image} />
               <h3>{`${review.name}, ${review.designation}`}</h3>
               <div

@@ -10,9 +10,21 @@ import SidebarExample from './SidebarExample'
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { Image } from 'react-bootstrap'
+import CommonSectionArea from '../../../components/CommonSectionArea/CommonSectionArea'
+import Stories from '../../SilvaManifestationProgram/Stories'
+import LeaveCommentBox from '../../SilvaManifestationProgram/LeaveCommentBox'
+import { requestData } from '../../../utils/baseUrl'
+import { useParams } from 'react-router'
+import toast, { Toaster } from "react-hot-toast";
 
 
 function SingleLecturePage() {
+  const {course_id, chapter_id,lession_id}= useParams();
+  //console.log(course_id, chapter_id,lession_id);
+
+  const [lessionComment,setlessionComment] = useState([]);
+
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -50,6 +62,48 @@ function SingleLecturePage() {
       }, 4000)
     }
   }, [marked])
+
+    const getLessonComments=async()=>{
+      const res= await requestData('courseDetail','POST',{
+        "course_id": course_id,
+      })
+      //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment);
+      setlessionComment(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment)
+    }
+
+    useEffect(()=>{
+      getLessonComments()
+    },[])
+
+
+    const postLessonComment=async(e,data)=>{
+      e.preventDefault();
+      const options={
+          "lesson_id": lession_id,
+          "comment": data.comment,
+          "name": data.name,
+          "email": data.email,
+      }
+      try {
+        const res= await requestData("lessonComment","POST",options)
+        //console.log(res);
+        toast.success(
+          "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
+          {
+            position: "top-center",
+          }
+        );
+        getLessonComments();
+      } catch (error) {
+        toast.error("Something went wrong ! Please try after some time.", {
+          position: "top-center",
+        });
+        //console.log(error);
+      }
+      //console.log(options)
+    }
+
+
   return (
     <>
       <div className='d-flex justify-content-center align-items-center flex-column text-center'>
@@ -116,6 +170,11 @@ function SingleLecturePage() {
           </div>
         </div>
 
+      </div>
+
+      <div className='container p-4 singlelecturebg'>
+        <Stories data={lessionComment}/>
+        <LeaveCommentBox color={true} handleSubmit={postLessonComment}/>
       </div>
       <SingleLectureFooter setMarked={setMarked} marked={marked} setModalShow={openModal} />
       {

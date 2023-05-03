@@ -1,10 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
-import StickyNavbar from './StickyNavbar'
-import MainHeroSection from './MainHeroSection'
-import MainTabs from './MainTabs'
-import LeaveCommentBox from './LeaveCommentBox'
-import SocialShareButtons from './SocialShareButtons'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from "react";
+import StickyNavbar from "./StickyNavbar";
+import MainHeroSection from "./MainHeroSection";
+import MainTabs from "./MainTabs";
+import LeaveCommentBox from "./LeaveCommentBox";
+import SocialShareButtons from "./SocialShareButtons";
+import { useParams } from "react-router-dom";
+import { requestData } from "../../utils/baseUrl";
+import toast, { Toaster } from "react-hot-toast";
 
 function SilvaManifestationProgram() {
   window.addEventListener("scroll", function () {
@@ -44,21 +46,50 @@ function SilvaManifestationProgram() {
     getCourses();
   }, [id]);
 
- // console.log(course);
+  const postCourseComment = async (e, data) => {
+    e.preventDefault();
+    const options = {
+      course_id: id,
+      comment: data.comment,
+      name: data.name,
+      email: data.email,
+      website: data.website ? data.website : "",
+    };
+    try {
+      const res = await requestData("CourseComment", "POST", options);
+      //console.log(res);
+      toast.success(
+        "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
+        {
+          position: "top-center",
+        }
+      );
+      getCourses();
+    } catch (error) {
+      //console.log(error);
+      toast.error("Something went wrong ! Please try after some time.", {
+        position: "top-center",
+      });
+    }
+    //console.log(options)
+  };
 
-    return (
-        <div className="mainlandingpage" style={{ width: "100vw",minHeight:"100vh",paddingBottom:"20px" }}>
-                <StickyNavbar />
-            <div className='container'>
-                <MainHeroSection />
-                <MainTabs data={course.length>0 && course[0]}/>
-                <LeaveCommentBox data={course.length>0 && course[0]} getCourses={getCourses}/>
-                <SocialShareButtons />
-            </div>
-            
-        </div>
+  // console.log(course);
 
-    )
+  return (
+    <div
+      className="mainlandingpage"
+      style={{ width: "100vw", minHeight: "100vh", paddingBottom: "20px" }}
+    >
+      <StickyNavbar />
+      <div className="container">
+        <MainHeroSection data={course.length > 0 && course[0]}/>
+        <MainTabs data={course.length > 0 && course[0]} />
+        <LeaveCommentBox handleSubmit={postCourseComment} />
+        <SocialShareButtons />
+      </div>
+    </div>
+  );
 }
 
 export default SilvaManifestationProgram;

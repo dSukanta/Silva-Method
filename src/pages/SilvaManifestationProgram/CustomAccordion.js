@@ -5,6 +5,7 @@ import { useMediaQuery } from 'react-responsive'
 import { AiFillLock } from "react-icons/ai"
 import { useNavigate } from 'react-router-dom'
 function CustomAccordion({data}) {
+    //console.log(data.lession);
     const navigate = useNavigate();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
 
@@ -50,9 +51,9 @@ function CustomAccordion({data}) {
                                         </div>
                                     </div>
                                     {
-                                        val.unlocked===true ? (
+                                        true ? (
                                             <div className={`d-flex justify-content-center align-items-center gap-4 ${isDesktopOrLaptop ? "" : "flex-column"}`}>
-                                                <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate("/store/course/learn-meditation/intros/1/preview")}>Preview</Badge>
+                                                <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate(`/store/course/${data.course_id}/${data.chapter_id}/${val.lesson_id}`)}>Preview</Badge>
                                                 <HiOutlineArrowRight size={20} />
                                             </div>
                                         ) : (

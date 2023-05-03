@@ -145,7 +145,7 @@ const Sidebar = ({ show, handleClose, listData }) => {
               <ul className="sidebar_sub_menu text-white mt-3">
                 {listData &&
                   listData.map((listItem) => (
-                    <li>
+                    <li key={listItem.course_id}>
                       <NavLink to={`/store/course/${listItem.course_id}`}>
                         {listItem.course_title}
                       </NavLink>
