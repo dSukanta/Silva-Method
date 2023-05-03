@@ -94,6 +94,7 @@ function App() {
   }
 
   useEffect(() => {
+    console.log(isUserLoggedIn,"isUserLoggedIn")
     if(isUserLoggedIn){
       getProfile()
     }

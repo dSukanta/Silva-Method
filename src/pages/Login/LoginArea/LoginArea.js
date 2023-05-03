@@ -13,6 +13,7 @@ import OtpModal from '../../../components/OtpModal/OtpModal';
 import SendOTP from './SendOTP';
 import VerifyOTP from './VerifyOTP';
 import FacebookLogin from '@greatsumini/react-facebook-login';
+import { requestData2 } from '../../../utils/baseUrl';
 
 
 const LoginArea = () => {
@@ -32,9 +33,17 @@ const LoginArea = () => {
    const navigate = useNavigate()
    // const { loginUser, passwordResetWithEmail, googleSignIn } = useAuth();
    const [showPass, setShowPass] = useState(false);
-   const { isUserLoggedIn, setIsUserLoggedIn, userData } = useContext(AuthContext)
+   const { isUserLoggedIn, setIsUserLoggedIn,setUserData, userData } = useContext(AuthContext)
 
    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    
+   const getProfile = async () => {
+      const res = await requestData2("getStudentProfile", "POST", {});
+      if (res && res.error === false) {
+         setUserData(res.data);
+      }
+   }
    const onSubmit = async (data) => {
       // console.log(data)
 
@@ -79,6 +88,7 @@ const LoginArea = () => {
          localStorage.setItem("token", data.data.token)
          setIsUserLoggedIn(true)
          toast.success(data.messages)
+
          navigate("/")
       } else {
          toast.error(data.messages)

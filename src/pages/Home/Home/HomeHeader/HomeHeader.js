@@ -8,16 +8,22 @@ import Swal from 'sweetalert2';
 import { RxHamburgerMenu } from "react-icons/rx"
 import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
 import { Dropdown } from 'react-bootstrap';
-import { requestData } from '../../../../utils/baseUrl';
+import { requestData, requestData2 } from '../../../../utils/baseUrl';
 const HomeHeader = () => {
    const navigate = useNavigate()
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
    const { stickyMenu } = useGlobalContext();
-   const { isUserLoggedIn, userData, logout } = useContext(AuthContext);
-   const [listData,setListData] = useState([]);
+   const { isUserLoggedIn, userData, setUserData, logout } = useContext(AuthContext);
+   const [listData, setListData] = useState([]);
 
+   const getProfile = async () => {
+      const res = await requestData2("getStudentProfile", "POST", {});
+      if (res && res.error === false) {
+         setUserData(res.data);
+      }
+   }
 
    const handleLogout = async () => {
       Swal.fire({
@@ -33,18 +39,25 @@ const HomeHeader = () => {
       })
    }
 
-const getAllData=async()=>{
-   const res= await requestData('latestCourseList',"POST",{
-      "start_index":"0",
-      "no_of_records":"20"
-   })
-   //console.log(res);
-   setListData(res.data);
-}
+   const getAllData = async () => {
+      const res = await requestData('latestCourseList', "POST", {
+         "start_index": "0",
+         "no_of_records": "20"
+      })
+      //console.log(res);
+      setListData(res.data);
+   }
 
-useEffect(()=>{
-getAllData();
-},[])
+   useEffect(() => {
+      getAllData();
+   }, [])
+
+
+   useEffect(() => {
+      if (isUserLoggedIn) {
+         getProfile()
+      }
+   }, [isUserLoggedIn])
 
 
 
@@ -107,7 +120,7 @@ getAllData();
                               <ul>
                                  {
 
-                                    userData && userData.strip_payment_status!=="paid" && (
+                                    userData && userData.strip_payment_status !== "paid" && (
                                        <li>
                                           <Link to="/silva_membership">Membership</Link>
                                        </li>
@@ -152,8 +165,8 @@ getAllData();
                                  </li>
                                  <li><Link to="/store">Products</Link>
                                     <ul className="submenu">
-                                       {listData && listData.map((listItem)=>
-                                       <li key={listItem.course_id}><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
+                                       {listData && listData.map((listItem) =>
+                                          <li key={listItem.course_id}><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
                                        )}
                                        <li><Link to="/store/books">Books</Link></li>
                                        {/* <li><Link to="/appoinment">Silva Life System</Link></li>
@@ -235,7 +248,7 @@ getAllData();
             </div >
          </header >
 
-         <Sidebar show={show} handleClose={handleClose} listData={listData}/>
+         <Sidebar show={show} handleClose={handleClose} listData={listData} />
       </>
    );
 };
