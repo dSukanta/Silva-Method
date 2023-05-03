@@ -3,7 +3,7 @@ import { useMediaQuery } from "react-responsive";
 import toast, { Toaster } from "react-hot-toast";
 import { baseUrl } from "../../utils/axioscall";
 
-function LeaveCommentBox({ data }) {
+function LeaveCommentBox({ data,getCourses }) {
  // console.log(data);
   const [commentData, setCommentData] = useState({
     comment: "",
@@ -40,7 +40,7 @@ function LeaveCommentBox({ data }) {
 
     const formData = new FormData();
     formData.append("course_id", data && data.course_id);
-    formData.append("comment_id", Date.now());
+    // formData.append("comment_id", Date.now());
     formData.append("comment", commentData.comment);
     formData.append("name", commentData.name);
     formData.append("email", commentData.email);
@@ -52,7 +52,7 @@ function LeaveCommentBox({ data }) {
       body: formData,
     };
     try {
-    const res = await fetch(`${baseUrl}replyCourseComment`, options);
+    const res = await fetch(`${baseUrl}CourseComment`, options);
     console.log(res);
     toast.success(
         "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
@@ -60,6 +60,7 @@ function LeaveCommentBox({ data }) {
           position: "top-center",
         }
       );
+      getCourses()
     } catch (error) {
         console.log(error);
         toast.error(

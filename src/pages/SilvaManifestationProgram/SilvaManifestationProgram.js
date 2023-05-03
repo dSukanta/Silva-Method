@@ -52,7 +52,7 @@ function SilvaManifestationProgram() {
             <div className='container'>
                 <MainHeroSection />
                 <MainTabs data={course.length>0 && course[0]}/>
-                <LeaveCommentBox data={course.length>0 && course[0]}/>
+                <LeaveCommentBox data={course.length>0 && course[0]} getCourses={getCourses}/>
                 <SocialShareButtons />
             </div>
             
