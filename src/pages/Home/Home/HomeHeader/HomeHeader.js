@@ -107,7 +107,7 @@ getAllData();
                               <ul>
                                  {
 
-                                    userData && !userData.subscription && (
+                                    userData && userData.strip_payment_status!=="paid" && (
                                        <li>
                                           <Link to="/silva_membership">Membership</Link>
                                        </li>
