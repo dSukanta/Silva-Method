@@ -35,10 +35,10 @@ function SilvaMembershipNavbar() {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav>
-              <Nav.Link>
+              <Nav.Link href='/login'>
               <Button variant="outline-dark" style={{ borderRadius: "50px" }}> Sign In</Button>
               </Nav.Link>
-              <Nav.Link>
+              <Nav.Link href='/register'>
               <Button variant="outline-dark" style={{ borderRadius: "50px" }}> Sign Up</Button>
               </Nav.Link>
             </Nav>
