@@ -7,14 +7,17 @@ import './index.scss';
 import 'bootstrap/dist/js/bootstrap.min.js';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ParallaxProvider } from 'react-scroll-parallax';
+import AllContext from './context/AllContext';
 
 ReactDOM.render(
   <React.Fragment>
-    <ParallaxProvider>
-    <GoogleOAuthProvider clientId='619560474308-u5d68c0vgfnvlsonqs7iotgvqapb0cpa.apps.googleusercontent.com'>
-      <App />
-    </GoogleOAuthProvider>
-    </ParallaxProvider>
+    <AllContext>
+      <ParallaxProvider>
+        <GoogleOAuthProvider clientId='619560474308-u5d68c0vgfnvlsonqs7iotgvqapb0cpa.apps.googleusercontent.com'>
+          <App />
+        </GoogleOAuthProvider>
+      </ParallaxProvider>
+    </AllContext>
   </React.Fragment>,
   document.getElementById('root')
 );
