@@ -68,6 +68,7 @@ const AllContext = ({children}) => {
         if(token){
             localStorage.removeItem("token");
         }
+        setUserData(null);
         setIsUserLoggedIn(false)
         toast.success("Logged Out successfully")
     }
