@@ -1,15 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./pricing.css";
 import { TiTick } from "react-icons/ti";
-import { requestData } from '../../utils/baseUrl';
+import { requestData, requestData2 } from '../../utils/baseUrl';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Tooltip } from 'react-tooltip'
 import ReactDOMServer from 'react-dom/server';
+import { AuthContext } from '../../context/AllContext';
+import { useNavigate } from 'react-router';
+import { toast } from 'react-hot-toast';
 
 function MemberShipPricingPlan({ white = false }) {
-
-    const [plans, setPlans] = useState([])
+    const {isUserLoggedIn}= useContext(AuthContext)
+    const [plans, setPlans] = useState([]);
+    const [loading,setloading]= useState(false);
+    const navigate= useNavigate();
     const fetchPlans = async () => {
         const res = await requestData("subscriptionPlanList", "POST", {});
         console.log(res)
@@ -19,6 +24,21 @@ function MemberShipPricingPlan({ white = false }) {
     useEffect(() => {
         fetchPlans()
     }, [])
+
+    const handleSubscription=async(id) => {
+            //console.log(id);
+        if(isUserLoggedIn){
+            const res= await requestData2(`subscribeNowCourse?plan_id=${id}`,"POST");
+        console.log(res);
+        if(res && res.error===false){
+            window.location.assign(res.data)
+        }
+        }else{
+            toast.error("Please Login to subscribe")
+            navigate("/")
+        }
+    }
+
     return (
         <>
             <div className="container" style={{ marginTop: "80px" }}>
@@ -103,7 +123,7 @@ function MemberShipPricingPlan({ white = false }) {
                         }
 
                         <div className="buy-button-box">
-                            <a href="#" className="buy-now">JOIN MEMBERSHIP</a>
+                            <a href="#" className="buy-now" onClick={()=>handleSubscription(plans[0]?.id)}>JOIN MEMBERSHIP</a>
                         </div>
                     </div>
                 </div>
@@ -138,7 +158,7 @@ function MemberShipPricingPlan({ white = false }) {
                             )
                         }
                         <div className="buy-button-box">
-                            <a href="#" className="buy-now">JOIN MEMBERSHIP</a>
+                            <a href="#" className="buy-now" onClick={()=>handleSubscription(plans[1]?.id)}>JOIN MEMBERSHIP</a>
                         </div>
                     </div>
                 </div>
@@ -171,7 +191,7 @@ function MemberShipPricingPlan({ white = false }) {
                             )
                         }
                         <div className="buy-button-box">
-                            <a href="#" className="buy-now">JOIN MEMBERSHIP</a>
+                            <a href="#" className="buy-now" onClick={()=>handleSubscription(plans[2]?.id)}>JOIN MEMBERSHIP</a>
                         </div>
                     </div>
                 </div>
