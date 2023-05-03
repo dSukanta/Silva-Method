@@ -6,7 +6,12 @@ export const requestData = async function (path, method = "POST", body) {
     myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
     myHeaders.append("Device", "Android");
     myHeaders.append("Language", "english");
+    const token = localStorage.getItem("token")
 
+    if(token){
+        console.log(token)
+        myHeaders.append("Token",token)
+    }
     const formData = new FormData();
 
     const keys = Object.keys(body);
