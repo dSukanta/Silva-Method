@@ -84,7 +84,7 @@ import { requestData2 } from './utils/baseUrl';
 
 function App() {
 
-  const { setUserData } = useContext(AuthContext);
+  const { setUserData,isUserLoggedIn } = useContext(AuthContext);
   const getProfile = async () => {
     const res = await requestData2("getStudentProfile", "POST", {});
     if (res && res.error === false) {
@@ -93,8 +93,10 @@ function App() {
   }
 
   useEffect(() => {
-    getProfile()
-  }, [])
+    if(isUserLoggedIn){
+      getProfile()
+    }
+  }, [isUserLoggedIn])
   return (
     <>
     <Toaster position="bottom-center" />
