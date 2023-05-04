@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SingleLectureNavbar from './SingleLectureNavbar'
 import ReactPlayer from 'react-player'
 import { useMediaQuery } from 'react-responsive'
@@ -19,6 +19,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 
 function SingleLecturePage() {
+  const audioRef = useRef();
+
   const {course_id, chapter_id,lession_id}= useParams();
   //console.log(course_id, chapter_id,lession_id);
   const [lesson,setLesson]= useState({}) ;
@@ -109,9 +111,20 @@ function SingleLecturePage() {
     }
 
 
+    useEffect(()=>{
+      document.querySelector(".navhead").scrollIntoView({
+        behavior:"smooth"
+      })
+      if(audioRef.current){
+          audioRef.current.audio.current.pause()
+          console.log("audio playing")
+      }
+    },[audioRef.current])
+
+
   return (
     <>
-      <div className='d-flex justify-content-center align-items-center flex-column text-center'>
+      <div className='d-flex justify-content-center align-items-center flex-column text-center navhead'>
         <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title}/>
         <h2 className='mt-1'>{lesson && lesson.lesson_title}</h2>
         <div className="row justify-content-center align-items-center">
@@ -132,8 +145,8 @@ function SingleLecturePage() {
             /> */}
 
             <AudioPlayer
+              ref={audioRef}
               src={lesson && lesson.lesson_file? lesson.lesson_file:"https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"}
-              onPlay={e => console.log("onPlay")}
               header={<Image src={lesson && lesson.image? lesson.image:'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
             // other props here
             />

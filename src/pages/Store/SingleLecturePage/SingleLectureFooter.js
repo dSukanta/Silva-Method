@@ -9,10 +9,10 @@ function SingleLectureFooter({ setMarked,marked,setModalShow }) {
     return (
         <Navbar>
             <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-between">
-                <Navbar.Text className='mx-5 text-dark'>
+            <Navbar.Collapse className="justify-content-center">
+                {/* <Navbar.Text className='mx-5 text-dark'>
                     <GrLinkPrevious style={{ marginRight: "10px" }} size={25} /> Previous
-                </Navbar.Text>
+                </Navbar.Text> */}
                {
                 !marked && (
                     <button className='primary_btn2' onClick={() => {
@@ -26,9 +26,9 @@ function SingleLectureFooter({ setMarked,marked,setModalShow }) {
                     <h4 className='text-success'><TiTickOutline color='green' /> Completed</h4>
                 )
                }
-                <Navbar.Text className='mx-5 text-dark'>
+                {/* <Navbar.Text className='mx-5 text-dark'>
                     Next <GrLinkNext style={{ marginLeft: "10px" }} size={25} />
-                </Navbar.Text>
+                </Navbar.Text> */}
             </Navbar.Collapse>
         </Navbar>
     )
