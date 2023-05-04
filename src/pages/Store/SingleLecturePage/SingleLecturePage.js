@@ -21,8 +21,10 @@ import toast, { Toaster } from "react-hot-toast";
 function SingleLecturePage() {
   const {course_id, chapter_id,lession_id}= useParams();
   //console.log(course_id, chapter_id,lession_id);
+  const [lesson,setLesson]= useState({}) ;
 
-  const [lessionComment,setlessionComment] = useState([]);
+
+  //const [lessionComment,setlessionComment] = useState([]);
 
 
   const [show, setShow] = useState(false);
@@ -67,14 +69,17 @@ function SingleLecturePage() {
       const res= await requestData('courseDetail','POST',{
         "course_id": course_id,
       })
+      //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]);
+      setLesson(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0])
       //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment);
-      setlessionComment(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment)
+      //setlessionComment(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment)
     }
 
     useEffect(()=>{
       getLessonComments()
-    },[])
+    },[lession_id])
 
+    console.log(lesson);
 
     const postLessonComment=async(e,data)=>{
       e.preventDefault();
@@ -107,8 +112,8 @@ function SingleLecturePage() {
   return (
     <>
       <div className='d-flex justify-content-center align-items-center flex-column text-center'>
-        <SingleLectureNavbar handleShow={handleShow} />
-        <h2 className='mt-5'>The Truth About Meditation</h2>
+        <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title}/>
+        <h2 className='mt-1'>{lesson && lesson.lesson_title}</h2>
         <div className="row justify-content-center align-items-center">
           <div className="col-sm-12 col-md-8 col-lg-6">
             {/* <ReactPlayer
@@ -127,9 +132,9 @@ function SingleLecturePage() {
             /> */}
 
             <AudioPlayer
-              src="https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"
+              src={lesson && lesson.lesson_file? lesson.lesson_file:"https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"}
               onPlay={e => console.log("onPlay")}
-              header={<Image src='https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg' thumbnail />}
+              header={<Image src={lesson && lesson.image? lesson.image:'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
             // other props here
             />
 
@@ -173,7 +178,7 @@ function SingleLecturePage() {
       </div>
 
       <div className='container p-4 singlelecturebg'>
-        <Stories data={lessionComment}/>
+        <Stories data={lesson && lesson.lesson_comment}/>
         <LeaveCommentBox color={true} handleSubmit={postLessonComment}/>
       </div>
       <SingleLectureFooter setMarked={setMarked} marked={marked} setModalShow={openModal} />
@@ -197,7 +202,7 @@ function SingleLecturePage() {
         />
       }
       <div className="offcan">
-        <SidebarExample placement={"end"} show={show} handleClose={handleClose} />
+        <SidebarExample placement={"end"} show={show} handleClose={handleClose} course={course_id}/>
       </div>
     </>
   )
