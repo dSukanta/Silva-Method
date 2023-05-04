@@ -28,7 +28,8 @@ import { AuthContext } from '../../../context/AllContext';
 import { requestData2 } from '../../../utils/baseUrl';
 
 const SilvaHome2 = () => {
-  
+    const { userData } = useContext(AuthContext);
+
     return (
         <>
             <HomeHeader />
@@ -58,7 +59,9 @@ const SilvaHome2 = () => {
 
             <CompleteProfileCard />
 
-            <MemberShipPricingPlan />
+            {(!userData) || (userData && userData.strip_payment_status !== "paid") && (
+                <MemberShipPricingPlan />
+            )}
 
             <CustomFooter />
         </>

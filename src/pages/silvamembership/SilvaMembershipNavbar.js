@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import silvalogo from "../../images/newimgs/silvamethod-logo.png";
@@ -7,8 +7,10 @@ import { Button, Nav } from 'react-bootstrap';
 import { BiLogIn } from "react-icons/bi";
 import {FaBars} from "react-icons/fa";
 import {AiOutlineClose} from "react-icons/ai";
+import { AuthContext } from '../../context/AllContext';
 
 function SilvaMembershipNavbar() {
+  const {userData,isUserLoggedIn,logout} = useContext(AuthContext);
   const navigate = useNavigate();
   const [toggled,setToggled] = useState(false)
   return (
@@ -35,12 +37,27 @@ function SilvaMembershipNavbar() {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
             <Nav>
-              <Nav.Link href='/login'>
-              <Button variant="outline-dark" style={{ borderRadius: "50px" }}> Sign In</Button>
-              </Nav.Link>
-              <Nav.Link href='/register'>
-              <Button variant="outline-dark" style={{ borderRadius: "50px" }}> Sign Up</Button>
-              </Nav.Link>
+             {
+              !isUserLoggedIn && (
+                <>
+                <Nav.Link onClick={()=>navigate("/login")}>
+                <Button variant="outline-dark" style={{ borderRadius: "50px" }}> Sign In</Button>
+                </Nav.Link>
+                <Nav.Link onClick={()=>navigate("/register")}>
+                <Button variant="outline-dark" style={{ borderRadius: "50px" }}> Sign Up</Button>
+                </Nav.Link>
+                </>
+              ) 
+             }
+             {
+              isUserLoggedIn && (
+                <>
+                <Nav.Link>
+                <Button variant="outline-dark" style={{ borderRadius: "50px" }} onClick={logout}> Logout</Button>
+                </Nav.Link>
+                </>
+              )
+             }
             </Nav>
           </Navbar.Collapse>
         </Container>

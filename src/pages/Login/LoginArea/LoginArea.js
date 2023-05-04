@@ -89,7 +89,11 @@ const LoginArea = () => {
          setIsUserLoggedIn(true)
          toast.success(data.messages)
          setUserData(data.data.profile)
-         navigate("/today")
+         if(data.data.profile.strip_payment_status==="paid"){
+            navigate("/today")
+         }else{
+            navigate("/silva_membership")
+         }
       } else {
          toast.error(data.messages)
       }
