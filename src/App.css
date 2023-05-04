@@ -1112,4 +1112,13 @@ svg {
   cursor: pointer;
 }
 
+.cardiv .list-group-item{
+  /* border-bottom: 1px solid lightgray !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-top: none !important; */
+  border: none !important;
+  border-bottom: 1px solid lightgray !important;
+}
+
 

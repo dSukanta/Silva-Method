@@ -7,7 +7,7 @@ import SidebarComp from './SidebarComp'
 
 function ProfilePage() {
   return (
-    <div>
+    <>
         <HomeHeader />
         <CommonPageHeader title="My Profile" subtitle="Profile" />
         <div className="container">
@@ -21,7 +21,7 @@ function ProfilePage() {
           </div>
         </div>
         <CustomFooter />
-    </div>
+    </>
   )
 }
 
