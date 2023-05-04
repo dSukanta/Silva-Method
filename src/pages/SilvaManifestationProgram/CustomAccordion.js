@@ -34,8 +34,8 @@ function CustomAccordion({data}) {
             <Accordion.Item eventKey="0" className='mb-4'>
                 <Accordion.Header>
                     <div className='d-flex justify-content-start flex-column'>
-                        <h4 className='white-color'>{data && data.course_id}</h4>
-                        <p className='white-color'>{data && data.chapter_title}</p>
+                        {/* <h4 className='white-color'>{data && data.course_id}</h4> */}
+                        <h4 className='white-color'>{data && data.chapter_title}</h4>
                     </div>
                 </Accordion.Header>
                 <Accordion.Body>

@@ -9,7 +9,7 @@ import { TbMessages } from "react-icons/tb";
 import { BsBook } from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive';
 
-function SingleLectureNavbar({handleShow}) {
+function SingleLectureNavbar({handleShow,lession}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -23,7 +23,7 @@ function SingleLectureNavbar({handleShow}) {
                     )}
                 </Nav.Link>
                 <Nav.Item>
-                    <span>Intro 1 {(isDesktopOrLaptop || isTablet) && (<span>-The Truth About Meditation</span>)}</span>
+                    <span> {(isDesktopOrLaptop || isTablet) && (<span>{lession}</span>)}</span>
                 </Nav.Item>
                 <Nav.Item>
                     <TbMessages size={30} style={{marginRight:isMobile ? "15px":"0px"}} />
