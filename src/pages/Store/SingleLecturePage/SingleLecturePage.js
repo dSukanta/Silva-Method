@@ -79,7 +79,7 @@ function SingleLecturePage() {
       getLessonComments()
     },[lession_id])
 
-    console.log(lesson);
+    //console.log(lesson);
 
     const postLessonComment=async(e,data)=>{
       e.preventDefault();
@@ -181,7 +181,7 @@ function SingleLecturePage() {
         <Stories data={lesson && lesson.lesson_comment}/>
         <LeaveCommentBox color={true} handleSubmit={postLessonComment}/>
       </div>
-      <SingleLectureFooter setMarked={setMarked} marked={marked} setModalShow={openModal} />
+      <SingleLectureFooter setMarked={setMarked} marked={marked} setModalShow={openModal} lession_id={lession_id} chapter_id={chapter_id} course_id={course_id}/>
       {
         marked && (
           <Confetti
