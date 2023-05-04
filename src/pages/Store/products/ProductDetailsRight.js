@@ -13,7 +13,7 @@ const ProductDetailsRightSide = ({productId,products,setProducts}) => {
 
     const formData = new FormData();
     formData.append("start_index", "0");
-    formData.append("no_of_records", "15");
+    formData.append("no_of_records", "10");
 
     const options = {
       method: "POST",
@@ -213,6 +213,7 @@ const ProductDetailsRightSide = ({productId,products,setProducts}) => {
                    <Link to="/contact"><img src="img/blog/details/banner.png" alt=""/></Link>
                     </div>
                 </div> */}
+         <Link to='/store/books'> <button>Show More products</button></Link>
       </div>
     </>
   );
