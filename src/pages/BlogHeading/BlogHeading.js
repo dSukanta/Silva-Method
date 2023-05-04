@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import blogsliderimg1 from "../../images/newimgs/blogsliderimg1.jpg";
 import blogsliderimg2 from "../../images/newimgs/blogsliderimg2.jpg"
 import blogsliderimg3 from "../../images/newimgs/blogsliderimg.webp";
@@ -12,8 +12,11 @@ import { useMediaQuery } from 'react-responsive';
 import BlogSection from './BlogSection';
 import SingleProduct from '../SilvaManifestationProgram/SingleProduct';
 import SingleProduct2 from '../SilvaManifestationProgram/SingleProduct2';
+import { requestData } from '../../utils/baseUrl';
 
 function BlogHeadings() {
+    const [coursesData2,setCoursesData2] = useState([]);
+
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -93,6 +96,22 @@ function BlogHeadings() {
     };
 
 
+    const getLatestCourses = async()=>{
+        const res =await requestData("latestCourseList","POST",{
+            start_index:0,
+            no_of_records:10
+        })
+        if(res && res.error===false){
+            setCoursesData2(res.data);
+        }
+    }
+
+
+    useEffect(()=>{
+     getLatestCourses();
+    },[])
+
+
 
     return (
         <div className='container text-center'>
@@ -118,7 +137,7 @@ function BlogHeadings() {
                 <h3 className='mb-3'>Latest Courses</h3>
                 <Slider {...settings2}>
                     {
-                        coursesdata.map((val, i) => (
+                        coursesData2.map((val, i) => (
                             <SingleProduct2 data={val} key={i + 1} />
                         ))
                     }

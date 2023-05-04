@@ -11,21 +11,23 @@ function SingleProduct({ data }) {
     //console.log(data)
     return (
         <div className='col-12'>
-            <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%",minHeight:"280px"}}>
+            <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%", minHeight: "280px" }}>
 
                 <Card.Body>
                     <div className='d-flex justify-content-center'>
-                        <img src={silvalogo} style={{ width: "50px", height: "50px" }} alt="" />
+                        <img src={data.web_image || silvalogo} style={{ width: "50px", height: "50px" }} alt="" />
                     </div>
-                    <Card.Text>The Silva Method International</Card.Text>
+                    <Card.Text>
+                        {data.teacher_name}
+                    </Card.Text>
                     <Card.Title>
                         {
-                            data.title
+                            data.course_title
                         }
                     </Card.Title>
 
                 </Card.Body>
-                <Card.Footer>
+                {/* <Card.Footer>
                     <div className="d-flex justify-content-between">
                         <div className='d-flex gap-4 align-items-center'>
                             <span className='d-flex gap-2 align-items-center'>
@@ -52,7 +54,7 @@ function SingleProduct({ data }) {
                             <p class="cross">$189.99</p>
                         </div>
                     </div>
-                </Card.Footer>
+                </Card.Footer> */}
             </Card>
         </div>
     )

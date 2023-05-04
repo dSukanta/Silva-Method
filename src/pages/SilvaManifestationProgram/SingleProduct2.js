@@ -15,18 +15,21 @@ function SingleProduct2({ data }) {
 
                 <Card.Body>
                     <div className='d-flex justify-content-center'>
-                        <img src={silvalogo} style={{ width: "50px", height: "50px" }} alt="" />
+                        <img src={data.web_image || silvalogo} style={{ width: "100px", height: "100px" }} alt="" />
                     </div>
-                    <Card.Text>The Silva Method International</Card.Text>
+                    <Card.Text>
+                        {data.teacher_name}
+                    </Card.Text>
                     <Card.Title>
                         {
-                            data.title
+                            data.course_title
                         }
                     </Card.Title>
 
                 </Card.Body>
-                <Card.Footer>
-                    <div className="d-flex justify-content-between">
+                {/* <Card.Footer>
+                    <div className="d-flex justify-content-center">
+
                         <div className='d-flex gap-4 align-items-center'>
                             <span className='d-flex gap-2 align-items-center'>
                                 <BsBook size={30} />
@@ -52,7 +55,7 @@ function SingleProduct2({ data }) {
                             <p class="cross">$189.99</p>
                         </div>
                     </div>
-                </Card.Footer>
+                </Card.Footer> */}
             </Card>
         </div>
     )
