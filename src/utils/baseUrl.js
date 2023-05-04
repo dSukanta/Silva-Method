@@ -41,10 +41,13 @@ export const requestData2 = async function (path, method = "POST") {
     myHeaders.append("Language", "english");
     const token = localStorage.getItem("token")
 
+
     if(token){
         console.log(token)
         myHeaders.append("Token",token)
     }
+
+    console.log(myHeaders)
     const options = {
         method: method,
         headers: myHeaders,

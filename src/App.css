@@ -1101,3 +1101,15 @@ svg {
 }
 
 
+.logoutli{
+  color: #647589;
+  font-weight: 500;
+  display: block;
+  margin-left: 30px;
+  font-size: 14px;
+}
+.logoutli:hover{
+  cursor: pointer;
+}
+
+

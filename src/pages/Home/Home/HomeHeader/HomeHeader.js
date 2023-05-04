@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../../components/Shared/Sidebar/Sidebar';
 import useGlobalContext from '../../../../hooks/useGlobalContext';
 import { AuthContext } from '../../../../context/AllContext';
@@ -10,6 +10,7 @@ import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
 import { Dropdown } from 'react-bootstrap';
 import { requestData, requestData2 } from '../../../../utils/baseUrl';
 const HomeHeader = () => {
+   const location = useLocation();
    const navigate = useNavigate()
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
@@ -53,11 +54,11 @@ const HomeHeader = () => {
    }, [])
 
 
-   useEffect(() => {
-      if (isUserLoggedIn) {
-         getProfile()
-      }
-   }, [isUserLoggedIn])
+   // useEffect(() => {
+   //    if (isUserLoggedIn) {
+   //       getProfile()
+   //    }
+   // }, [isUserLoggedIn, location.pathname])
 
 
 
@@ -120,7 +121,7 @@ const HomeHeader = () => {
                               <ul>
                                  {
 
-                                    userData && userData.strip_payment_status !== "paid" && (
+                                    isUserLoggedIn && (
                                        <li>
                                           <Link to="/silva_membership">Membership</Link>
                                        </li>
@@ -199,11 +200,13 @@ const HomeHeader = () => {
                                  {
                                     isUserLoggedIn && (
                                        <li>
-                                          <Link to="/"> <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
-                                             style={{ width: "30px", height: "30px" }}
+                                          <Link to="/store/profile"> <img src={userData?.profile_image || "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"}
+                                             style={{ width: "70px", height: "70px" }}
                                           /></Link>
                                           <ul className='submenu'>
-                                             <li onClick={handleLogout} className='mx-2'>Logout</li>
+                                             <li onClick={handleLogout}><span className='logoutli'>Logout</span></li>
+                                             <li><Link to="/store/profile">My Pofile</Link></li>
+
                                           </ul>
                                           {/* <button className='btn btn-danger btn-sm' onClick={handleLogout}>
                                              <BiLogOut size={20} />

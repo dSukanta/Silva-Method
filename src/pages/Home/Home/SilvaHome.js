@@ -18,9 +18,11 @@ import HomeCountrySection from "../../../components/CountrySection/HomeCountrySe
 import HomeClasses from "./HomeClasses";
 import ProductSlide from "../../Store/products/ProductSlide";
 import AllContext, { AuthContext } from "../../../context/AllContext";
+import { requestData2 } from "../../../utils/baseUrl";
 
 const SilvaHome = () => {
-    const { isDesktopOrLaptop,isTabletOrMobile}= useContext(AuthContext);
+    const { isDesktopOrLaptop,isTabletOrMobile,setUserData,isUserLoggedIn}= useContext(AuthContext);
+  
   return (
     <>
       <HomeHeader />

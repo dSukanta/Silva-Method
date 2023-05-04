@@ -13,7 +13,7 @@ import OtpModal from '../../../components/OtpModal/OtpModal';
 import SendOTP from './SendOTP';
 import VerifyOTP from './VerifyOTP';
 import FacebookLogin from '@greatsumini/react-facebook-login';
-import { requestData2 } from '../../../utils/baseUrl';
+import { requestData, requestData2 } from '../../../utils/baseUrl';
 
 
 const LoginArea = () => {
@@ -88,8 +88,8 @@ const LoginArea = () => {
          localStorage.setItem("token", data.data.token)
          setIsUserLoggedIn(true)
          toast.success(data.messages)
-
-         navigate("/")
+         setUserData(data.data.profile)
+         navigate("/today")
       } else {
          toast.error(data.messages)
       }
@@ -126,7 +126,7 @@ const LoginArea = () => {
          localStorage.setItem("google_login", true)
          setIsUserLoggedIn(true)
          toast.success(data.messages)
-         navigate("/")
+         navigate("/today")
       } else {
          toast.error(data.messages)
       }

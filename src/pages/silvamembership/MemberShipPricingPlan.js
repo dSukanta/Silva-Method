@@ -13,14 +13,15 @@ import { set } from 'js-cookie';
 import Spinner from 'react-bootstrap/Spinner';
 
 function MemberShipPricingPlan({ white = false }) {
-    const {isUserLoggedIn}= useContext(AuthContext)
+
+    const { isUserLoggedIn, userData } = useContext(AuthContext)
     const [plans, setPlans] = useState([]);
-    const [loading,setLoading]= useState({
-        state:false,
+    const [loading, setLoading] = useState({
+        state: false,
         id: null
     });
 
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     const fetchPlans = async () => {
         const res = await requestData("subscriptionPlanList", "POST", {});
         console.log(res)
@@ -31,25 +32,25 @@ function MemberShipPricingPlan({ white = false }) {
         fetchPlans()
     }, [])
 
-    const handleSubscription=async(id) => {
-            //console.log(id);
+    const handleSubscription = async (id) => {
+        //console.log(id);
         setLoading({
             state: true,
             id: id
         });
-        if(isUserLoggedIn){
-            const res= await requestData2(`subscribeNowCourse?plan_id=${id}`,"POST");
+        if (isUserLoggedIn) {
+            const res = await requestData2(`subscribeNowCourse?plan_id=${id}`, "POST");
             setLoading({
                 state: false,
                 id: id
             });
-        console.log(res);
-        if(res && res.error===false){
-            window.location.assign(res.data)
-        }
-        }else{
-            toast.error("Please Login to subscribe",{
-                position:"top-center"
+            console.log(res);
+            if (res && res.error === false) {
+                window.location.assign(res.data)
+            }
+        } else {
+            toast.error("Please Login to subscribe", {
+                position: "top-center"
             })
             navigate("/login")
         }
@@ -57,6 +58,9 @@ function MemberShipPricingPlan({ white = false }) {
 
     return (
         <>
+
+
+
             <div className="container" style={{ marginTop: "80px" }}>
                 <div className="row justify-content-center">
                     <div className="col-sm-12 col-md-8">
@@ -139,9 +143,9 @@ function MemberShipPricingPlan({ white = false }) {
                         }
 
                         <div className="buy-button-box">
-                            {loading.id==plans[0]?.id && loading.state ?
-                             <Spinner animation="border" variant="primary" />:
-                             <a href="#" className="buy-now" onClick={()=>handleSubscription(plans[0]?.id)}>JOIN MEMBERSHIP</a>
+                            {loading.id == plans[0]?.id && loading.state ?
+                                <Spinner animation="border" variant="primary" /> :
+                                <a href="#" className="buy-now" onClick={() => handleSubscription(plans[0]?.id)}>JOIN MEMBERSHIP</a>
                             }
                         </div>
                     </div>
@@ -177,9 +181,9 @@ function MemberShipPricingPlan({ white = false }) {
                             )
                         }
                         <div className="buy-button-box">
-                            {loading.id==plans[1]?.id && loading.state?
-                             <Spinner animation="border" variant="primary" />:
-                             <a href="#" className="buy-now" onClick={()=>handleSubscription(plans[1]?.id)}>JOIN MEMBERSHIP</a>
+                            {loading.id == plans[1]?.id && loading.state ?
+                                <Spinner animation="border" variant="primary" /> :
+                                <a href="#" className="buy-now" onClick={() => handleSubscription(plans[1]?.id)}>JOIN MEMBERSHIP</a>
                             }
                         </div>
                     </div>
@@ -213,9 +217,9 @@ function MemberShipPricingPlan({ white = false }) {
                             )
                         }
                         <div className="buy-button-box">
-                            {loading.id==plans[2]?.id && loading.state? 
-                             <Spinner animation="border" variant="primary" />:
-                            <a href="#" className="buy-now" onClick={()=>handleSubscription(plans[2]?.id)}>JOIN MEMBERSHIP</a>
+                            {loading.id == plans[2]?.id && loading.state ?
+                                <Spinner animation="border" variant="primary" /> :
+                                <a href="#" className="buy-now" onClick={() => handleSubscription(plans[2]?.id)}>JOIN MEMBERSHIP</a>
                             }
                         </div>
                     </div>
@@ -224,6 +228,10 @@ function MemberShipPricingPlan({ white = false }) {
             <Tooltip id="my-tooltip" />
             <Tooltip id="my-tooltip2" />
             <Tooltip id="my-tooltip3" />
+
+
+
+
         </>
     )
 }
