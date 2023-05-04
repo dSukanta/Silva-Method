@@ -18,9 +18,15 @@ import HomeCountrySection from "../../../components/CountrySection/HomeCountrySe
 import HomeClasses from "./HomeClasses";
 import ProductSlide from "../../Store/products/ProductSlide";
 import AllContext, { AuthContext } from "../../../context/AllContext";
+import { requestData2 } from "../../../utils/baseUrl";
+import { Navigate } from "react-router-dom";
 
 const SilvaHome = () => {
-    const { isDesktopOrLaptop,isTabletOrMobile}= useContext(AuthContext);
+    const { isDesktopOrLaptop,isTabletOrMobile,setUserData,isUserLoggedIn}= useContext(AuthContext);
+    
+    if(isUserLoggedIn){
+      return <Navigate to="/today" />
+    }
   return (
     <>
       <HomeHeader />

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Sidebar from '../../../../components/Shared/Sidebar/Sidebar';
 import useGlobalContext from '../../../../hooks/useGlobalContext';
 import { AuthContext } from '../../../../context/AllContext';
@@ -8,16 +8,23 @@ import Swal from 'sweetalert2';
 import { RxHamburgerMenu } from "react-icons/rx"
 import logoimg from "../../../../images/newimgs/silvamethod-logo.png"
 import { Dropdown } from 'react-bootstrap';
-import { requestData } from '../../../../utils/baseUrl';
+import { requestData, requestData2 } from '../../../../utils/baseUrl';
 const HomeHeader = () => {
+   const location = useLocation();
    const navigate = useNavigate()
    const [show, setShow] = useState(false);
    const handleClose = () => setShow(false);
    const handleShow = () => setShow(true);
    const { stickyMenu } = useGlobalContext();
-   const { isUserLoggedIn, userData, logout } = useContext(AuthContext);
-   const [listData,setListData] = useState([]);
+   const { isUserLoggedIn, userData, setUserData, logout } = useContext(AuthContext);
+   const [listData, setListData] = useState([]);
 
+   const getProfile = async () => {
+      const res = await requestData2("getStudentProfile", "POST", {});
+      if (res && res.error === false) {
+         setUserData(res.data);
+      }
+   }
 
    const handleLogout = async () => {
       Swal.fire({
@@ -33,18 +40,25 @@ const HomeHeader = () => {
       })
    }
 
-const getAllData=async()=>{
-   const res= await requestData('latestCourseList',"POST",{
-      "start_index":"0",
-      "no_of_records":"20"
-   })
-   //console.log(res);
-   setListData(res.data);
-}
+   const getAllData = async () => {
+      const res = await requestData('latestCourseList', "POST", {
+         "start_index": "0",
+         "no_of_records": "20"
+      })
+      //console.log(res);
+      setListData(res.data);
+   }
 
-useEffect(()=>{
-getAllData();
-},[])
+   useEffect(() => {
+      getAllData();
+   }, [])
+
+
+   // useEffect(() => {
+   //    if (isUserLoggedIn) {
+   //       getProfile()
+   //    }
+   // }, [isUserLoggedIn, location.pathname])
 
 
 
@@ -107,7 +121,7 @@ getAllData();
                               <ul>
                                  {
 
-                                    userData && userData.strip_payment_status!=="paid" && (
+                                    isUserLoggedIn && (
                                        <li>
                                           <Link to="/silva_membership">Membership</Link>
                                        </li>
@@ -152,8 +166,8 @@ getAllData();
                                  </li>
                                  <li><Link to="/store">Products</Link>
                                     <ul className="submenu">
-                                       {listData && listData.map((listItem)=>
-                                       <li key={listItem.course_id}><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
+                                       {listData && listData.map((listItem) =>
+                                          <li key={listItem.course_id}><Link to={`/store/course/${listItem.course_id}`}>{listItem.course_title}</Link></li>
                                        )}
                                        <li><Link to="/store/books">Books</Link></li>
                                        {/* <li><Link to="/appoinment">Silva Life System</Link></li>
@@ -186,11 +200,13 @@ getAllData();
                                  {
                                     isUserLoggedIn && (
                                        <li>
-                                          <Link to="/"> <img src="https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
-                                             style={{ width: "30px", height: "30px" }}
+                                          <Link to="/store/profile"> <img src={userData?.profile_image || "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"}
+                                             style={{ width: "70px", height: "70px" }}
                                           /></Link>
                                           <ul className='submenu'>
-                                             <li onClick={handleLogout} className='mx-2'>Logout</li>
+                                             <li onClick={handleLogout}><span className='logoutli'>Logout</span></li>
+                                             <li><Link to="/store/profile">My Pofile</Link></li>
+
                                           </ul>
                                           {/* <button className='btn btn-danger btn-sm' onClick={handleLogout}>
                                              <BiLogOut size={20} />
@@ -235,7 +251,7 @@ getAllData();
             </div >
          </header >
 
-         <Sidebar show={show} handleClose={handleClose} listData={listData}/>
+         <Sidebar show={show} handleClose={handleClose} listData={listData} />
       </>
    );
 };

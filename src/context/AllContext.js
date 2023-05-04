@@ -90,7 +90,6 @@ const AllContext = ({children}) => {
     const [isOpen, setIsOpen] = useState(false);
 
 
-    
     const value = {
         auth: useFirebase(),
         isOpen,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SilvaMembershipNavbar from './SilvaMembershipNavbar'
 import BecomeMemberSection from './BecomeMemberSection'
 import MemberHeroSection from './MemberHeroSection'
@@ -22,8 +22,11 @@ import OrderMembershipSection from './OrderMembershipSection'
 import MemberShipFAQ from './MemberShipFAQ'
 import PaddingComponent from './PaddingComponent'
 import CustomFooter from '../Home/Home/HomeFooter/Footer'
+import { AuthContext } from '../../context/AllContext'
 
 function SilvaMemberShip() {
+    const { userData } = useContext(AuthContext);
+
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -49,7 +52,11 @@ function SilvaMemberShip() {
 
             <Sponsors />
 
-            <MemberShipPricingPlan />
+            {
+                userData && userData.strip_payment_status!=="paid" && (
+                    <MemberShipPricingPlan />
+                )
+            }
 
             <MemberShipHowItWorks />
 
@@ -73,7 +80,11 @@ function SilvaMemberShip() {
 
             <MemberShipFAQ />
 
-            <MemberShipPricingPlan />
+            {
+                 userData && userData.strip_payment_status!=="paid" && (
+                    <MemberShipPricingPlan />
+                )
+            }
 
             <PaddingComponent />
 

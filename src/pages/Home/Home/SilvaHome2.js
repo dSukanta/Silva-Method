@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import HomeHeader from './HomeHeader/HomeHeader';
 import Homeherodiv from './HomeHeroSection/Homeherodiv';
 import Featured from '../../../components/featured/Featured';
@@ -24,16 +24,20 @@ import LiveEventsCard from './Hero/LiveEventsCard';
 import CompleteProfileCard from './Hero/CompleteProfileCard';
 import SilvaMemberShip from '../../silvamembership/SilvaMemberShip';
 import MemberShipPricingPlan from '../../silvamembership/MemberShipPricingPlan';
+import { AuthContext } from '../../../context/AllContext';
+import { requestData2 } from '../../../utils/baseUrl';
 
 const SilvaHome2 = () => {
+    const { userData } = useContext(AuthContext);
+
     return (
         <>
-            <HomeHeader/>
+            <HomeHeader />
             <LoggedInHeroSection text={"Hi, Avijit"} />
             {/* <Homeherodiv/> */}
             {/* <Featured/> */}
             {/* <AboutSilvaMethod/> */}
-            <CourseSlide/>
+            <CourseSlide />
             <WelcomeToSilvaBanner />
             {/* <HomeEvents/> */}
             {/* <Testimonials/> */}
@@ -55,9 +59,11 @@ const SilvaHome2 = () => {
 
             <CompleteProfileCard />
 
-            <MemberShipPricingPlan />
+            {(!userData) || (userData && userData.strip_payment_status !== "paid") && (
+                <MemberShipPricingPlan />
+            )}
 
-            <CustomFooter/>
+            <CustomFooter />
         </>
     );
 };

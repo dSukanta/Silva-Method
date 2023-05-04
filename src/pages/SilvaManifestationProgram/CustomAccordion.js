@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Accordion, Badge } from 'react-bootstrap'
 import { HiOutlineArrowRight } from "react-icons/hi"
 import { useMediaQuery } from 'react-responsive'
 import { AiFillLock } from "react-icons/ai"
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../context/AllContext'
 function CustomAccordion({data}) {
+    const [isSubscribed,setIsSubscribed] = useState(false);
     //console.log(data.lession);
     const navigate = useNavigate();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+    const {userData} = useContext(AuthContext);
 
     const items = [
         {
@@ -29,6 +32,15 @@ function CustomAccordion({data}) {
             unlocked: true
         },
     ]
+
+
+    useEffect(()=>{
+       if(userData){
+         if(userData.strip_payment_status==="paid"){
+            setIsSubscribed(true)
+         }
+       }
+    },[userData])
     return (
         <Accordion>
             <Accordion.Item eventKey="0" className='mb-4'>
@@ -51,7 +63,7 @@ function CustomAccordion({data}) {
                                         </div>
                                     </div>
                                     {
-                                        true ? (
+                                        isSubscribed ? (
                                             <div className={`d-flex justify-content-center align-items-center gap-4 ${isDesktopOrLaptop ? "" : "flex-column"}`}>
                                                 <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate(`/store/course/${data.course_id}/${data.chapter_id}/${val.lesson_id}`)}>Preview</Badge>
                                                 <HiOutlineArrowRight size={20} />
