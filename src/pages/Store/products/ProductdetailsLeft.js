@@ -249,8 +249,8 @@ const ProductDetailsLeftSide = ({ details_topBar, product,products }) => {
             products
           </h3>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-            {[1, 2, 3].map((el) => (
-              <OverlayCard/>
+            {products.map((el) => (
+              <OverlayCard data={el}/>
             ))}
           </div>
         </div>
