@@ -41,7 +41,7 @@ function SidebarComp() {
                     <Card.Header className='d-flex justify-content-start gap-4 align-items-center bg-transparent'>
                         <img
                             style={{ width: "100px", height: "100px" }}
-                            src="https://images.unsplash.com/photo-1682696936116-126db8e073d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                            src={userData?.profile_image || "https://images.unsplash.com/photo-1682696936116-126db8e073d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"}
                             alt=""
                         />
                         <h5>Avijit123</h5>

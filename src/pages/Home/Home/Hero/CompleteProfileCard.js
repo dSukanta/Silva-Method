@@ -5,8 +5,10 @@ import { useMediaQuery } from 'react-responsive'
 import { AiFillCloseCircle } from "react-icons/ai";
 import { ImProfile } from "react-icons/im";
 import { Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function CompleteProfileCard() {
+    const navigate = useNavigate();
     const [showShow, setShouldShow] = useState(true);
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
@@ -31,7 +33,9 @@ function CompleteProfileCard() {
                 <div>
                     <span>It helps us improve your Mindvalley experience with better recommendations</span>
                 </div>
-                <button className='primary_btn3 mx-3' style={{ marginTop: isMobile ? "20px" : "0px" }}>Update Profile</button>
+                <button className='primary_btn3 mx-3' style={{ marginTop: isMobile ? "20px" : "0px" }}
+                onClick={()=>navigate("/store/profile")}
+                >Update Profile</button>
            </Card.Body>
             </Card>
             </div>

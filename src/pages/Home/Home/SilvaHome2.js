@@ -33,7 +33,7 @@ const SilvaHome2 = () => {
     return (
         <>
             <HomeHeader />
-            <LoggedInHeroSection text={"Hi, Avijit"} />
+            <LoggedInHeroSection text={"Hi "+userData?.first_name || "Hi ,Annonymous"} />
             {/* <Homeherodiv/> */}
             {/* <Featured/> */}
             {/* <AboutSilvaMethod/> */}
@@ -57,7 +57,13 @@ const SilvaHome2 = () => {
 
             <LiveEventsCard />
 
-            <CompleteProfileCard />
+            {
+              (userData) && ( !userData?.first_name || !userData?.last_name
+                || !userData?.phone || !userData?.email ||
+               !userData?.profile_image || !userData.biographical_info) && (
+                    <CompleteProfileCard />
+                )
+            }
 
             {(!userData) || (userData && userData.strip_payment_status !== "paid") && (
                 <MemberShipPricingPlan />

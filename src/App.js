@@ -127,7 +127,7 @@ function App() {
           <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
           <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
           <Route path="/silva_membership" element={<SilvaMemberShip />} />
-          <Route path="/store/profile" element={<Navigate to="/store/profile/avijit123/courses" />}>
+          <Route path="/store/profile" element={<Navigate to="/store/profile/avijit123/settings/basic_information" />}>
           </Route>
           <Route element={<ProfilePage />}>
             <Route path='/store/profile/:username/courses' element={<MyCoursesPage />} />

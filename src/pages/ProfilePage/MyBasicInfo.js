@@ -200,6 +200,7 @@ function MyBasicInfo() {
             </i>
           </div>
           <div className="col-12 mb-3">
+            <label className='text-dark'>Upload An Avatar</label>
             <FileUploader handleChange={handleChange2} name="file" types={fileTypes} />
           </div>
 
