@@ -6,7 +6,7 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { requestData } from "../../../utils/baseUrl";
 import { useNavigate, useParams } from "react-router-dom";
 
-function SidebarExample({ show, handleClose, ...props }) {
+function SidebarExample({ show, handleClose,lession, ...props }) {
   //console.log(props);
   const completed = 3;
   const [chapters, setChapters] = useState([]);
@@ -27,80 +27,9 @@ function SidebarExample({ show, handleClose, ...props }) {
     getChapters();
   }, []);
 
-  const data = [
-    {
-      title: "Preparation",
-      completed: "3 / 3",
-      lessons: [
-        {
-          title: "Intro 1 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "10 mins",
-          completed: true,
-        },
-        {
-          title: "Intro 2 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "15 mins",
-          completed: true,
-        },
-        {
-          title: "Intro 3 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "12 mins",
-          completed: true,
-        },
-      ],
-    },
-    {
-      title: "The Six Phase Medication",
-      completed: "2 / 7",
-      lessons: [
-        {
-          title: "Intro 1 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "10 mins",
-          completed: true,
-        },
-        {
-          title: "Intro 2 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "15 mins",
-          completed: true,
-        },
-        {
-          title: "Intro 3 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "4 mins",
-          completed: false,
-        },
-        {
-          title: "Intro 4 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "5 mins",
-          completed: false,
-        },
-        {
-          title: "Intro 5 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "20 mins",
-          completed: false,
-        },
-        {
-          title: "Intro 6 - Blah Blah Blah bah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "10 mins",
-          completed: false,
-        },
-        {
-          title: "Intro 7 - Blah Blah Blah",
-          img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg?transform=q_90,w_160,c_fill",
-          duration: "8 mins",
-          completed: false,
-        },
-      ],
-    },
-  ];
+  console.log("lession",lession)
+
+
   return (
     <Offcanvas show={show} onHide={handleClose} {...props} responsive="lg">
       <Offcanvas.Header className="d-flex justify-content-end">
@@ -125,7 +54,7 @@ function SidebarExample({ show, handleClose, ...props }) {
               </p>
               {chapter.lession.map((lessionItem, i) => (
                 <div
-                  className="d-flex justify-content-between align-items-center align-content-center mb-4 activediv"
+                  className={`d-flex justify-content-between align-items-center align-content-center mb-4 activehoverdiv ${lession?.lesson_title===lessionItem?.lesson_title?'activediv':''}`}
                   onClick={() => {
                     navigate(
                       `/store/course/${props.course}/${lessionItem.chapter_id}/${lessionItem.lesson_id}`
@@ -139,7 +68,7 @@ function SidebarExample({ show, handleClose, ...props }) {
                         ? lessionItem.image
                         : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                     }
-                    style={{ width: "120px", height: "100%" }}
+                    style={{ width: "80px", height: "100%" }}
                   />
                   <div className="d-flex flex-column align-items-center justify-content-center mx-3">
                     <a

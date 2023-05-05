@@ -6,8 +6,12 @@ import { AuthContext } from '../../context/AllContext';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { Card } from 'react-bootstrap';
+import { useMediaQuery } from 'react-responsive';
 
 function ChangePassword() {
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
   const { setUserData, userData, logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const [newPassword, setNewPassword] = useState("");
@@ -93,7 +97,7 @@ function ChangePassword() {
 
 
   return (
-    <Card className='mx-5 my-4' style={{width:"100%"}}>
+    <Card className='my-4' style={{width:"98%",marginLeft:isDesktopOrLaptop?"80px":"0px"}}>
       <Card.Body>
         <div className='mt-3 mx-3 mb-3'>
           <h3 className='text-center'>Change/Create Password</h3>

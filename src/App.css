@@ -1121,4 +1121,10 @@ svg {
   border-bottom: 1px solid lightgray !important;
 }
 
+.activehoverdiv:hover{
+  cursor: pointer;
+}
+.side__bar a {
+  font-size: 16px !important;
+}
 

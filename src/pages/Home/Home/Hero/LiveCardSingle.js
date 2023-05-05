@@ -3,12 +3,14 @@ import { Card } from 'react-bootstrap'
 import {BsFillPersonFill} from "react-icons/bs";
 import {AiFillLock} from "react-icons/ai";
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 function LiveCardSingle({data}) {
-    
+    console.log(data)
     if(data){
         return (
-            <Card style={{ width: "90%", borderRadius: "20px" }}>
+           <Link to={`/events/livedetails/${data.course_id}`}>
+             <Card style={{ width: "90%", borderRadius: "20px" }}>
                 <Card.Img variant="top" style={{ borderRadius: "20px 20px 0 0", height: "300px", objectFit: "cover" }} src={data.photo || "https://assets.mindvalley.com/api/v1/assets/10b1de3f-44d4-4dd5-84d7-dc2456a79da4.jpeg?auto=webp&fit=cover&quality=50&dpr=2&width=442&height=248"} />
                 <Card.Body>
                     <Card.Text>
@@ -35,6 +37,7 @@ function LiveCardSingle({data}) {
                     </div> */}
                 </Card.Body>
             </Card>
+           </Link>
         )
     }
 }

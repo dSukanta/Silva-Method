@@ -1,13 +1,17 @@
 import React from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, Tooltip } from 'react-bootstrap'
 import { useMediaQuery } from 'react-responsive'
 import silvalogo from "../../images/newimgs/silvalogo.png";
 import { BsBook, BsFillPeopleFill } from "react-icons/bs";
+import ReactDOMServer from 'react-dom/server';
+import { useNavigate } from 'react-router-dom';
 
 function SingleProduct({ data }) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+    const navigate = useNavigate();
+
     //console.log(data)
     return (
         <div className='col-12'>
@@ -25,6 +29,12 @@ function SingleProduct({ data }) {
                             data.course_title
                         }
                     </Card.Title>
+                    {/* <a data-tooltip-id={data.category_id} data-tooltip-place="bottom" data-tooltip-html={ReactDOMServer.renderToStaticMarkup(<div dangerouslySetInnerHTML={{ __html: data.course_description }}></div>)}>
+                        <div className="badge-box">
+                            <span>Hover to see Description</span>
+                        </div>
+                    </a> */}
+                    <button className='primary_btn3' onClick={()=>navigate(`/store/course/${data.course_id}`)}>View More</button>
 
                 </Card.Body>
                 {/* <Card.Footer>
@@ -56,6 +66,7 @@ function SingleProduct({ data }) {
                     </div>
                 </Card.Footer> */}
             </Card>
+            <Tooltip id={data.category_id} />
         </div>
     )
 }

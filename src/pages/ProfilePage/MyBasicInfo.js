@@ -8,12 +8,17 @@ import { useEffect } from 'react'
 import { FileUploader } from 'react-drag-drop-files'
 import { useNavigate } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
+import { useMediaQuery } from 'react-responsive'
 
 
 
 const fileTypes = ["JPG", "PNG", "JPEG"];
 
 function MyBasicInfo() {
+
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
   const navigate = useNavigate()
   const {userData,setUserData} = useContext(AuthContext);
   const [values, setValues] = useState({
@@ -170,7 +175,7 @@ function MyBasicInfo() {
   },[userData])
 
   return (
-    <Card style={{width:"100%"}} className='mx-5 my-4'>
+    <Card style={{width:"96%",marginRight:"25px",marginLeft:isDesktopOrLaptop?"80px":"0px"}} className='my-4'>
       <Card.Body>
       <div className='mt-5'>
       <h2 className='text-center'>General Settings</h2>

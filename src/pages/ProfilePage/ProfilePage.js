@@ -12,10 +12,10 @@ function ProfilePage() {
         <CommonPageHeader title="My Profile" subtitle="Profile" />
         <div className="container">
           <div className="row justify-content-center align-items-start">
-            <div className="col-sm-12 col-md-4">
+            <div className="col-sm-12 col-md-12 col-lg-4">
             <SidebarComp />
             </div>
-            <div className="col-sm-12 col-md-8">
+            <div className="col-sm-12 col-md-12 col-lg-8">
               <Outlet />
             </div>
           </div>

@@ -13,8 +13,8 @@ const Sidebar = ({ show, handleClose, listData }) => {
   const Instructors = <NavLink to="/instructor">Instructors</NavLink>;
   const Products = <NavLink to="/store">Products</NavLink>;
   const Blogs = <NavLink to="/store/blogs/">Blogs</NavLink>;
-
-  return (
+  const navfont = {}
+  return ( 
     <>
       <div>
         <Offcanvas
@@ -73,22 +73,22 @@ const Sidebar = ({ show, handleClose, listData }) => {
             >
               <ul className="sidebar_sub_menu text-white mt-3">
                 <li>
-                  <NavLink to="/courses/basic_lecture_series">
+                  <NavLink to="/courses/basic_lecture_series" style={navfont}>
                     Basic Lecture Series(BLS-4)
                   </NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/courses/seminar">Seminars</NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/courses/silva_life_system">
                     Silva Life System
                   </NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/">Silva Intuition System</NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/">Silva Mastery System</NavLink>
                 </li>
               </ul>
@@ -102,10 +102,10 @@ const Sidebar = ({ show, handleClose, listData }) => {
               open={false}
             >
               <ul className="sidebar_sub_menu text-white mt-3">
-                <li>
+                <li style={navfont}>
                   <NavLink to="/events/live">Live</NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/events/online">Online</NavLink>
                 </li>
               </ul>
@@ -119,15 +119,15 @@ const Sidebar = ({ show, handleClose, listData }) => {
               open={false}
             >
               <ul className="sidebar_sub_menu text-white mt-3">
-                <li>
+                <li style={navfont}>
                   <NavLink to="/instructor">Instructors</NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/instructor/find_instructor">
                     Find Instructor
                   </NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/instructor/become_silva_instructor">
                     Become an Instructor
                   </NavLink>
@@ -145,13 +145,13 @@ const Sidebar = ({ show, handleClose, listData }) => {
               <ul className="sidebar_sub_menu text-white mt-3">
                 {listData &&
                   listData.map((listItem) => (
-                    <li key={listItem.course_id}>
+                    <li key={listItem.course_id} style={navfont}>
                       <NavLink to={`/store/course/${listItem.course_id}`}>
                         {listItem.course_title}
                       </NavLink>
                     </li>
                   ))}
-                <li>
+                <li style={navfont}>
                   <NavLink to="/store/books">Books</NavLink>
                 </li>
                 {/* <li><NavLink to="/about">Silva Life System & Silva Intuition System (The Complete Silva Method Course)</NavLink></li>
@@ -181,21 +181,21 @@ const Sidebar = ({ show, handleClose, listData }) => {
               open={false}
             >
               <ul className="sidebar_sub_menu text-white mt-3">
-                <li>
+                <li style={navfont}>
                   <NavLink to="/store/blogs/">English Blogs</NavLink>
                 </li>
-                <li>
+                <li style={navfont}>
                   <NavLink to="/store/spanish-blogs/">Spanish Blogs</NavLink>
                 </li>
               </ul>
             </Collapsible>
             <ul style={{ paddingBottom: "10px" }}>
-              <li>
+              <li style={navfont}>
                 <NavLink to="/login">Course Login</NavLink>
               </li>
             </ul>
             <ul style={{ paddingTop: "5px" }}>
-              <li>
+              <li style={navfont}>
                 <NavLink to="/">Silva Cases</NavLink>
               </li>
             </ul>

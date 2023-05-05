@@ -215,7 +215,7 @@ function SingleLecturePage() {
         />
       }
       <div className="offcan">
-        <SidebarExample placement={"end"} show={show} handleClose={handleClose} course={course_id}/>
+        <SidebarExample placement={"end"} show={show} lession={lesson} handleClose={handleClose} course={course_id}/>
       </div>
     </>
   )

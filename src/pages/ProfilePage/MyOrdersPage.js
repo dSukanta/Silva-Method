@@ -1,9 +1,14 @@
 import React from 'react'
 import { Alert } from 'react-bootstrap'
+import { useMediaQuery } from 'react-responsive'
 
 function MyOrdersPage() {
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+
   return (
-    <div className='mt-5'>
+    <div className='mt-5 mb-4 px-4' style={{marginLeft:isDesktopOrLaptop?"80px":"0px"}}>
       <Alert key={"danger"} variant={"danger"}>
         No Orders Found...
       </Alert>
