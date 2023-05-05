@@ -25,7 +25,7 @@ const HomeSingleClass = ({data}) => {
                   {instructor_name}
                   <br/>
                   <br/>
-                  <Link to={`/events/livedetails/${course_id}`}><p style={{color:'white',}}>Course Details</p></Link>
+                  <Link to={`/events/livedetails/${course_id}`}><p style={{color:'white',}}>Show more details</p></Link>
             </div>
          </div>
         </div>
