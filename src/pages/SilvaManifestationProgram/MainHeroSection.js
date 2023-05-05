@@ -7,15 +7,21 @@ import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import { TiTick } from "react-icons/ti";
 import { AuthContext } from "../../context/AllContext";
-import {GrDocumentLocked} from 'react-icons/gr';
+import { GrDocumentLocked } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { BsShieldLock } from "react-icons/bs";
 
-function MainHeroSection({data}) {
+function MainHeroSection({ data }) {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 });
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 });
-  const {userData}= useContext(AuthContext);
-  //console.log(userData?.strip_payment_status);
+  const { userData } = useContext(AuthContext);
+  // console.log(data && data);
+  // const firstChapterId= data && data.chapters[0] && data?.chapters[0]?.chapter_id;
+  // const firstLessonId= data && data.chapters[0] && data.chapters[0].lession && data.chapters[0].lession[0].lesson_id;
+
+  console.log(data && data?.chapters[0]?.lession[0]?.lesson_id);
+
   return (
     <div className="row mx-2 mt-5">
       {isDesktopOrLaptop ? (
@@ -34,9 +40,10 @@ function MainHeroSection({data}) {
                     objectFit: "cover",
                   }}
                 />
-                <div className="d-flex flex-column">By
+                <div className="d-flex flex-column">
+                  By
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
-                  {data && data.teacher_id}
+                    {data && data.teacher_id}
                   </span>
                   {/* <span className="text-muted" style={{ fontSize: "1.1rem" }}>
                     Founder and CEO of Mindvalley
@@ -51,18 +58,35 @@ function MainHeroSection({data}) {
                   <IoMdContacts size={20} /> 35,374 Enrolled
                 </span> */}
               </div>
-             {userData && userData.strip_payment_status!==null?
-              <div className="d-flex justify-content-start align-items-center">
-              <TiTick size={25} color="white" />
-              <p className="white-color mt-3" style={{ fontSize: "1.1rem" }}>
-                You Own This Program
-              </p>
-            </div>:
-            <div>
-              <Link to={`/silva_membership`}><GrDocumentLocked/><span className="white-color ms-2">To view All Enroll to our Exciting Courses</span></Link>
-            </div>
-             }
-              <button className="primary_btn2 mt-4">Start Program</button>
+              {userData && userData.strip_payment_status !== null ? (
+                <div className="d-flex justify-content-start align-items-center">
+                  <TiTick size={25} color="white" />
+                  <p
+                    className="white-color mt-3"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    You Own This Program
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <Link to={`/silva_membership`}>
+                    <GrDocumentLocked />
+                    <span className="white-color ms-2">
+                      To view All Enroll to our Exciting Courses
+                    </span>
+                  </Link>
+                </div>
+              )}
+              {userData && userData.strip_payment_status !== null && (
+                <Link
+                  to={`/store/course/${data && data?.course_id}/${
+                    data && data?.chapters[0]?.chapter_id
+                  }/${data && data?.chapters[0]?.lession[0]?.lesson_id}`}
+                >
+                  <button className="primary_btn2 mt-4">Start Program</button>
+                </Link>
+              )}
             </div>
           </div>
           <div className="col-sm-12 col-md-7">
@@ -107,7 +131,9 @@ function MainHeroSection({data}) {
                     objectFit: "cover",
                   }}
                 />
-                <div className="d-flex flex-column"> By
+                <div className="d-flex flex-column">
+                  {" "}
+                  By
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
                     {data && data.teacher_id}
                   </span>
@@ -124,18 +150,35 @@ function MainHeroSection({data}) {
                   <IoMdContacts size={20} /> 35,374 Enrolled
                 </span> */}
               </div>
-              {userData && userData.strip_payment_status!==null?
-              <div className="d-flex justify-content-start align-items-center">
-              <TiTick size={25} color="white" />
-              <p className="white-color mt-3" style={{ fontSize: "1.1rem" }}>
-                You Own This Program
-              </p>
-            </div>:
-            <div>
-              <Link to={`/silva_membership`}><GrDocumentLocked/><span className="white-color ms-2">To view All Enroll to our Exciting Courses</span></Link>
-            </div>
-             }
-              <button className="primary_btn2 mt-4">Start Program</button>
+              {userData && userData.strip_payment_status !== null ? (
+                <div className="d-flex justify-content-start align-items-center">
+                  <TiTick size={25} color="white" />
+                  <p
+                    className="white-color mt-3"
+                    style={{ fontSize: "1.1rem" }}
+                  >
+                    You Own This Program
+                  </p>
+                </div>
+              ) : (
+                <div>
+                  <Link to={`/silva_membership`}>
+                    <GrDocumentLocked />
+                    <span className="white-color ms-2">
+                      To view All Enroll to our Exciting Courses
+                    </span>
+                  </Link>
+                </div>
+              )}
+              {userData && userData.strip_payment_status !== null && (
+                <Link
+                  to={`/store/course/${data && data?.course_id}/${
+                    data && data?.chapters[0]?.chapter_id
+                  }/${data && data?.chapters[0]?.lession[0]?.lesson_id}`}
+                >
+                  <button className="primary_btn2 mt-4">Start Program</button>
+                </Link>
+              )}
             </div>
           </div>
         </>
