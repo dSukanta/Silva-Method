@@ -44,7 +44,7 @@ function SidebarComp() {
                             src={userData?.profile_image || "https://images.unsplash.com/photo-1682696936116-126db8e073d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"}
                             alt=""
                         />
-                        <h5>Avijit123</h5>
+                        <h5>{userData && userData.first_name}</h5>
                     </Card.Header>
                     <ListGroup className="list-group-flush">
                         {/* <NavLink to={"/store/profile/avijit123/courses"}

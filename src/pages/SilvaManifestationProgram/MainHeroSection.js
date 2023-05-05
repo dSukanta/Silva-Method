@@ -30,7 +30,7 @@ function MainHeroSection({ data }) {
             <h2 className="white-color">{data && data.course_title}</h2>
             <div className="">
               <div className="d-flex align-items-center gap-4 mb-3">
-                <img
+                {/* <img
                   src={data && data.web_image}
                   alt=""
                   style={{
@@ -39,7 +39,7 @@ function MainHeroSection({ data }) {
                     borderRadius: "15px",
                     objectFit: "cover",
                   }}
-                />
+                /> */}
                 <div className="d-flex flex-column">
                   By
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
@@ -90,7 +90,7 @@ function MainHeroSection({ data }) {
             </div>
           </div>
           <div className="col-sm-12 col-md-7">
-            <ReactPlayer
+            {/* <ReactPlayer
               width={"100%"}
               playing={true}
               height={"400px"}
@@ -98,7 +98,17 @@ function MainHeroSection({ data }) {
               url={
                 "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
               }
-            />
+            /> */}
+            <img
+                  src={data && data.web_image? data.web_image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNGGjrfSqqv8UjL18xS4YypbK-q7po_8oVQ&usqp=CAU"}
+                  alt=""
+                  style={{
+                    width: "50%",
+                    height: "200px",
+                    borderRadius: "15px",
+                    objectFit: "cover",
+                  }}
+                />
             {/* <Plyr ref={ref} source={{ type: 'video', sources: [{ src: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" }] }}
             autoPlay={true}
            /> */}
@@ -107,7 +117,7 @@ function MainHeroSection({ data }) {
       ) : (
         <>
           <div className="col-sm-12 col-md-7">
-            <ReactPlayer
+            {/* <ReactPlayer
               width={"100%"}
               playing={true}
               height={"180px"}
@@ -115,13 +125,23 @@ function MainHeroSection({ data }) {
               url={
                 "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
               }
-            />
+            /> */}
+            <img
+                  src={data && data.web_image? data.web_image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsNGGjrfSqqv8UjL18xS4YypbK-q7po_8oVQ&usqp=CAU"}
+                  alt=""
+                  style={{
+                    width: "50%",
+                    height: "300px",
+                    borderRadius: "15px",
+                    objectFit: "cover",
+                  }}
+                />
           </div>
           <div className="col-sm-12 col-md-5 mt-4 mb-5">
             <h2 className="white-color">{data && data.course_title}</h2>
-            <div className="">
+            <div className="w-100">
               <div className="d-flex align-items-center gap-4 mb-3">
-                <img
+                {/* <img
                   src={data && data.web_image}
                   alt=""
                   style={{
@@ -130,7 +150,7 @@ function MainHeroSection({ data }) {
                     borderRadius: "15px",
                     objectFit: "cover",
                   }}
-                />
+                /> */}
                 <div className="d-flex flex-column">
                   {" "}
                   By
