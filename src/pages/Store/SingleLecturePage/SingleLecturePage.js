@@ -257,6 +257,11 @@ function SingleLecturePage() {
   }
 
 
+  useEffect(()=>{
+    console.log("lesson",lesson)
+  },[lesson])
+
+
 
   return (
     <>
