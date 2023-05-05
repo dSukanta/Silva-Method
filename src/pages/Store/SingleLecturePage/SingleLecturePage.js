@@ -23,7 +23,7 @@ function SingleLecturePage() {
   const navigate = useNavigate();
   const params = useParams();
   const audioRef = useRef();
-  const [allLessonList, setAllLessonList] = useState([])
+  // const [allLessonList, setAllLessonList] = useState([])
   const [allCoursesList, setAllCoursesList] = useState([]);
   const { course_id, chapter_id, lession_id } = useParams();
   //console.log(course_id, chapter_id,lession_id);

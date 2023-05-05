@@ -197,7 +197,9 @@ function App() {
         {/* <Route element={<BottomToTop />} > */}
         <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
         {/* <Route path="/store/course/*" element={<NotFound/>} /> */}
+        <Route element={<PrivateRoute />}>
         <Route path='/store/course/:course_id/:chapter_id/:lession_id' element={<SingleLecturePage />} />
+        </Route>
         {/* </Route> */}
         {/* Blogs Route Ended */}
         {/*Auth Route started */}
