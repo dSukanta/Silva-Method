@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import { AiOutlineClose } from "react-icons/ai";
 import Modal from 'react-modal';
 import { useMediaQuery } from 'react-responsive';
+import { Link, useParams } from 'react-router-dom';
 import ReactStars from 'react-stars';
 
-function CustomCourseModal({ show, openModal, closeModal }) {
-
+function CustomCourseModal({ show, openModal, closeModal,handleNext }) {
+    const params = useParams();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -52,9 +53,11 @@ function CustomCourseModal({ show, openModal, closeModal }) {
                     className='stars'
                 />
                 <div className='d-flex justify-content-center flex-column gap-4'>
-                    <button className='primary_btn2 mx-4'>Continue to Lesson 3</button>
+                    <button className='primary_btn2 mx-4' onClick={handleNext}>Next Lesson</button>
 
+                    <Link to={`/store/course/${params.course_id}`}>
                     <p className='text-center' style={{ fontSize: "1.1rem", color: "#9b37f2" }}>Back to all lessons</p>
+                    </Link>
                 </div>
             </div>
         </Modal>

@@ -5,7 +5,7 @@ import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
 import {TiTickOutline} from "react-icons/ti";
 
 
-function SingleLectureFooter({ setMarked,marked,setModalShow }) {
+function SingleLectureFooter({ setMarked,marked,setModalShow,handleAudioDuration2,audioRef,openModal }) {
     return (
         <Navbar>
             <Navbar.Toggle />
@@ -17,7 +17,8 @@ function SingleLectureFooter({ setMarked,marked,setModalShow }) {
                 !marked && (
                     <button className='primary_btn2' onClick={() => {
                         setMarked(true)
-                        setModalShow()
+                        openModal()
+                        handleAudioDuration2(audioRef.current.audio.current.duration)
                     }}>Mark As Complete</button>
                 )
                }
