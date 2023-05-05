@@ -66,7 +66,7 @@ function SidebarExample({ show, handleClose,lession, ...props }) {
                     src={
                       lessionItem.image
                         ? lessionItem.image
-                        : "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                        : "https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg"
                     }
                     style={{ width: "80px", height: "100%" }}
                   />

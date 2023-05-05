@@ -102,7 +102,6 @@ function App() {
   return (
     <>
       <Toaster position="bottom-center" />
-      <BrowserRouter>
         <ScrollTop />
         <Routes>
           {/* Home Route started*/}
@@ -223,7 +222,6 @@ function App() {
           <Route path="/notMatch" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
     </>
   );
 }

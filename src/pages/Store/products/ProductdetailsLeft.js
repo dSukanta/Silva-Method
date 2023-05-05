@@ -242,18 +242,18 @@ const ProductDetailsLeftSide = ({ details_topBar, product,products }) => {
             </form>
           </div>
         </article>
-        <div className="p-5">
+        {/* <div className="p-5">
           <h3 style={{ padding: "20px 5px" }}>
             {" "}
             <span style={{ borderBottom: "2px solid black" }}>Re</span>lated
             products
           </h3>
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-            {[1, 2, 3].map((el) => (
-              <OverlayCard/>
+            {products.map((el) => (
+              <OverlayCard data={el}/>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

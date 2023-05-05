@@ -33,7 +33,7 @@ function MobileAppBanner() {
                                 </div>
                             </div>
                             <div className="section-button section-button-left mb-30">
-                                <Link to="/contact" className="primary_btn btn-icon ml-0"><span>+</span>Become A Member Now</Link>
+                                <Link to="/silva_membership" className="primary_btn btn-icon ml-0"><span>+</span>Become A Member Now</Link>
                             </div>
                             <div className='mt-3 mb-3'>
                                 <h6 className='white-color'>Available On:</h6>

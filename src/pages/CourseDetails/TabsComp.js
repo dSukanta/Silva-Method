@@ -102,7 +102,10 @@ function TabsComp({ data }) {
                                             </li>
                                             <li>
                                                 <div className="more-service-icon"><img src="img/services/more-ser-5.png" alt="" /></div>
-                                                <div className="more-service-title doctor-details-title">Details<span>{details}</span></div>
+                                                <div className="more-service-title doctor-details-title">
+                                                    Details
+                                                    <div dangerouslySetInnerHTML={{__html:details}}/>
+                                                    </div>
                                             </li>
                                         </ul>
                                     </div>

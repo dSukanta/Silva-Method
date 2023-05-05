@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { GoBook } from "react-icons/go";
 import { IoMdContacts } from "react-icons/io";
 import ReactPlayer from "react-player";
@@ -6,12 +6,16 @@ import { useMediaQuery } from "react-responsive";
 import Plyr from "plyr-react";
 import "plyr-react/plyr.css";
 import { TiTick } from "react-icons/ti";
+import { AuthContext } from "../../context/AllContext";
+import {GrDocumentLocked} from 'react-icons/gr';
+import { Link } from "react-router-dom";
 
 function MainHeroSection({data}) {
   const isDesktopOrLaptop = useMediaQuery({ query: "(min-width: 1280px)" });
   const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 });
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 });
-
+  const {userData}= useContext(AuthContext);
+  //console.log(userData?.strip_payment_status);
   return (
     <div className="row mx-2 mt-5">
       {isDesktopOrLaptop ? (
@@ -34,26 +38,31 @@ function MainHeroSection({data}) {
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
                   {data && data.teacher_id}
                   </span>
-                  <span className="text-muted" style={{ fontSize: "1.1rem" }}>
+                  {/* <span className="text-muted" style={{ fontSize: "1.1rem" }}>
                     Founder and CEO of Mindvalley
-                  </span>
+                  </span> */}
                 </div>
               </div>
               <div className="d-flex gap-4 white-color mt-4">
                 <span style={{ fontSize: "1.1rem" }}>
-                  <GoBook size={20} /> 10 Lessons
+                  <GoBook size={20} /> {data && data.total_lessons} Lessons
                 </span>
-                <span style={{ fontSize: "1.1rem" }}>
+                {/* <span style={{ fontSize: "1.1rem" }}>
                   <IoMdContacts size={20} /> 35,374 Enrolled
-                </span>
+                </span> */}
               </div>
+             {userData && userData.strip_payment_status!==null?
               <div className="d-flex justify-content-start align-items-center">
-                <TiTick size={25} color="white" />
-                <p className="white-color mt-3" style={{ fontSize: "1.1rem" }}>
-                  You Own This Program
-                </p>
-              </div>
-              <button className="primary_btn2">Start Program</button>
+              <TiTick size={25} color="white" />
+              <p className="white-color mt-3" style={{ fontSize: "1.1rem" }}>
+                You Own This Program
+              </p>
+            </div>:
+            <div>
+              <Link to={`/silva_membership`}><GrDocumentLocked/><span className="white-color ms-2">To view All Enroll to our Exciting Courses</span></Link>
+            </div>
+             }
+              <button className="primary_btn2 mt-4">Start Program</button>
             </div>
           </div>
           <div className="col-sm-12 col-md-7">
@@ -102,26 +111,31 @@ function MainHeroSection({data}) {
                   <span className="white-color" style={{ fontSize: "1.1rem" }}>
                     {data && data.teacher_id}
                   </span>
-                  <span className="text-muted" style={{ fontSize: "1.1rem" }}>
+                  {/* <span className="text-muted" style={{ fontSize: "1.1rem" }}>
                     Founder and CEO of Mindvalley
-                  </span>
+                  </span> */}
                 </div>
               </div>
               <div className="d-flex gap-4 white-color mt-4">
                 <span style={{ fontSize: "1.1rem" }}>
-                  <GoBook size={20} /> 10 Lessons
+                  <GoBook size={20} /> {data && data.total_lessons} Lessons
                 </span>
-                <span style={{ fontSize: "1.1rem" }}>
+                {/* <span style={{ fontSize: "1.1rem" }}>
                   <IoMdContacts size={20} /> 35,374 Enrolled
-                </span>
+                </span> */}
               </div>
+              {userData && userData.strip_payment_status!==null?
               <div className="d-flex justify-content-start align-items-center">
-                <TiTick size={25} color="white" />
-                <p className="white-color mt-3" style={{ fontSize: "1.1rem" }}>
-                  You Own This Program
-                </p>
-              </div>
-              <button className="primary_btn2">Start Program</button>
+              <TiTick size={25} color="white" />
+              <p className="white-color mt-3" style={{ fontSize: "1.1rem" }}>
+                You Own This Program
+              </p>
+            </div>:
+            <div>
+              <Link to={`/silva_membership`}><GrDocumentLocked/><span className="white-color ms-2">To view All Enroll to our Exciting Courses</span></Link>
+            </div>
+             }
+              <button className="primary_btn2 mt-4">Start Program</button>
             </div>
           </div>
         </>

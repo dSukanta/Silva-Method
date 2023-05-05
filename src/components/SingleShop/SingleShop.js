@@ -56,7 +56,7 @@ const SingleShop = ({data}) => {
                         </OverlayTrigger>
                         <h6>{course_title}</h6>                        
                         <div className='pb-10'>
-                            <span className="text-center">Date: {`${start_date.split("-").reverse().join('-')} - ${end_date.split("-").reverse().join()}`}</span>
+                            <span className="text-center">Date: {`${start_date.split("-").reverse().join('-')} - ${end_date.split("-").reverse().join("-")}`}</span>
                         </div>
                     </div>
                     <div style={{display:'flex', justifyContent:'space-between', padding:'1rem', border:'0.5px solid #f1f1f1'}}>

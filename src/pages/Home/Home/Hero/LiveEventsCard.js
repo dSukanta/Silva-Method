@@ -28,13 +28,13 @@ function LiveEventsCard() {
 
     const getEvents = async () => {
         const res = await requestData("latestClassListbyStartDate", "POST", { start_index: 0, no_of_records: 20 });
-        console.log(res)
+        //console.log(res)
         if (res && res.error === false) {
             const data = res.data.filter((d, i) => {
                 return d.delivery_method === "live"
             })
             setLiveCourses(data)
-            console.log(data, "Data")
+            //console.log(data, "Data")
         }
     }
 

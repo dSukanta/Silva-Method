@@ -1,30 +1,50 @@
 import React from "react";
-import {AiOutlineEye} from 'react-icons/ai'
+import { AiOutlineEye } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
+import ReactDOMServer from 'react-dom/server';
 
-function OverlayCard({}) {
- // console.log(product_id);
+
+function OverlayCard({ data }) {
+  //console.log(data);
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {data && data.product_name}
+    </Tooltip>
+  );
+
+  const renderSubTitle = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {""}
+    </Tooltip>
+  );
+
   return (
     <div>
       <div class="product-overlay-card">
-        <img
-          src="https://images.unsplash.com/photo-1517021897933-0e0319cfbc28?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
-          class="product-card__image"
-        />
+        <img src={data && data.product_image} class="product-card__image" />
         <div class="product-card__overlay">
           <div class="product-overlay__text">
-            <a href="#" class="product-overlay-button">
-                <AiOutlineEye size={40}/>
-                {/* <Link to={`/store/product/${product_id}`}> <AiOutlineEye size={40}/></Link> */}
-            </a>
+            {/* <a href="#" class="product-overlay-button">
+              <AiOutlineEye size={40} />
+              <Link to={`/store/product/${product_id}`}> <AiOutlineEye size={40}/></Link>
+            </a> */}
+            <Link to={`/store/product/${data && data.product_id}`}>
+              <AiOutlineEye size={40} color="white"/>
+            </Link>
           </div>
         </div>
       </div>
       <div className="text-center p-3">
-      <h5>Product Name</h5>
-      <b>Price</b>
-      <p>Description</p>
+        <a data-tooltip-id="product-name" data-tooltip-content={data && data.product_name}>
+          <h5>{data && data.product_name.split('').splice(0,10)}....</h5>
+        </a>
+
+        {/* <b>{data && data.price}</b> */}
       </div>
+      <Tooltip id="product-name" />
+      <Tooltip id="product-name" />
     </div>
   );
 }
