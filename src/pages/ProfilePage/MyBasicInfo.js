@@ -17,8 +17,7 @@ const fileTypes = ["JPG", "PNG", "JPEG"];
 function MyBasicInfo() {
 
   const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+  
   const navigate = useNavigate()
   const {userData,setUserData} = useContext(AuthContext);
   const [values, setValues] = useState({
