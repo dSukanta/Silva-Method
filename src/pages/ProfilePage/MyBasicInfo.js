@@ -1,19 +1,33 @@
 import React from 'react'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
-import { requestData } from '../../utils/baseUrl'
+import { requestData, requestData2 } from '../../utils/baseUrl'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/AllContext'
 import { useEffect } from 'react'
+import { FileUploader } from 'react-drag-drop-files'
+import { useNavigate } from 'react-router-dom'
+import { Card } from 'react-bootstrap'
+import { useMediaQuery } from 'react-responsive'
+
+
+
+const fileTypes = ["JPG", "PNG", "JPEG"];
 
 function MyBasicInfo() {
-  const {userData} = useContext(AuthContext);
+
+  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+  const navigate = useNavigate()
+  const {userData,setUserData} = useContext(AuthContext);
   const [values, setValues] = useState({
     first_name: "",
     last_name: "",
     email: "",
     phone: "",
     biographical_info: "",
+    profile_image:""
   })
 
   const handleChange = (e) => {
@@ -70,6 +84,8 @@ function MyBasicInfo() {
       data.biographical_info = values.biographical_info
     }
 
+    
+
 
     console.log(data);
 
@@ -114,12 +130,54 @@ function MyBasicInfo() {
       if(userData.biographical_info){
         data.biographical_info = userData.biographical_info
       }
+      if(userData.profile_image){
+        data.profile_image = userData.profile_image
+      }
       setValues(data)
     }
   },[userData])
 
+
+  const getProfile = async () => {
+    const res = await requestData2("getStudentProfile", "POST", {});
+    if (res && res.error === false) {
+      setUserData(res.data);
+    }
+  }
+
+  const handleChange2 = async(file) => {
+    const data = 
+    {
+      profile_image:file,
+      first_name:values.first_name,
+      last_name:values.last_name,
+      email:values.email,
+      phone:values.phone
+    }
+    const res = await requestData("editStudentProfile","POST",data);
+
+    if(res && res.error===false){
+      toast.success("Profile updated successfully");
+      getProfile()
+    }else{
+      toast.error(res.messages)
+    }
+
+  };
+
+  useEffect(()=>{
+   if(userData){
+     if(!userData.first_name || !userData.last_name || !userData.email || !userData.phone){
+       toast.error("Enter your basic information first !");
+       navigate("/store/profile/avijit123/settings/basic_information");
+     }
+   }
+  },[userData])
+
   return (
-    <div className='mt-5 mx-5'>
+    <Card style={{width:"96%",marginRight:"25px",marginLeft:isDesktopOrLaptop?"80px":"0px"}} className='my-4'>
+      <Card.Body>
+      <div className='mt-5'>
       <h2 className='text-center'>General Settings</h2>
       <form onSubmit={handleSubmit}>
         <div className="row me-2">
@@ -146,12 +204,19 @@ function MyBasicInfo() {
               Share a little biographical information to fill out your profile. This may be shown publicly.
             </i>
           </div>
+          <div className="col-12 mb-3">
+            <label className='text-dark'>Upload An Avatar</label>
+            <FileUploader handleChange={handleChange2} name="file" types={fileTypes} />
+          </div>
 
           <button type='submit' className='primary_btn4 mx-2 mb-5'>Save Changes</button>
         </div>
       </form>
 
     </div>
+      </Card.Body>
+
+    </Card>
   )
 }
 

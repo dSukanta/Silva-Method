@@ -16,9 +16,9 @@ function SidebarComp() {
     const [hovered, currentHovered] = useState(null);
     const [popupOpen, setPopUpOpen] = useState(false)
     const { isUserLoggedIn, userData, logout } = useContext(AuthContext)
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-    const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1281px)' })
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1280 })
+    const isMobile = useMediaQuery({ minWidth: 280, maxWidth: 950 })
 
 
     const handleLogout = async () => {
@@ -37,17 +37,17 @@ function SidebarComp() {
     return (
         <>
             <div style={{ position: "relative", marginBottom: "20px", marginTop: "50px" }}>
-                <Card style={{ width: "97%", height: "100%" }}>
+                <Card style={{ width: "97%", height: "100%",border:"none",boxShadow:"none" }} className='cardiv'>
                     <Card.Header className='d-flex justify-content-start gap-4 align-items-center bg-transparent'>
                         <img
                             style={{ width: "100px", height: "100px" }}
-                            src="https://images.unsplash.com/photo-1682696936116-126db8e073d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                            src={userData?.profile_image || "https://images.unsplash.com/photo-1682696936116-126db8e073d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"}
                             alt=""
                         />
                         <h5>Avijit123</h5>
                     </Card.Header>
                     <ListGroup className="list-group-flush">
-                        <NavLink to={"/store/profile/avijit123/courses"}
+                        {/* <NavLink to={"/store/profile/avijit123/courses"}
                             className={({ isActive }) =>
                                 isActive ? "activesidebar" : ""
                             }
@@ -62,10 +62,10 @@ function SidebarComp() {
                                 <BsBook color='purple' />
                                 <span className='mx-4' style={{ fontWeight: "600" }}>Courses</span>
                             </ListGroup.Item>
-                        </NavLink>
+                        </NavLink> */}
 
 
-                        <NavLink to={"/store/profile/avijit123/quizzes"}
+                        {/* <NavLink to={"/store/profile/avijit123/quizzes"}
                             className={({ isActive }) =>
                                 isActive ? "activesidebar" : ""
                             }
@@ -77,7 +77,7 @@ function SidebarComp() {
                                 onMouseLeave={() => currentHovered(null)}
                                 style={{ fontSize: "1.2rem", borderLeft: hovered === 2 ? "5px solid #9b37f2" : "none" }}><MdQuiz color='purple' />
                                 <span className='mx-4' style={{ fontWeight: "600" }}>Quizzes</span></ListGroup.Item>
-                        </NavLink>
+                        </NavLink> */}
 
 
                         <NavLink to={"/store/profile/avijit123/orders"}
@@ -98,7 +98,7 @@ function SidebarComp() {
 
                         <ListGroup.Item
                             onMouseEnter={() => {
-                               if(!isMobile){
+                               if((!isMobile || !isTablet)){
                                 currentHovered(4);
                                 setPopUpOpen(true)
                                }
@@ -107,7 +107,7 @@ function SidebarComp() {
                                 currentHovered(null)
                             }}
                             onClick={()=>{
-                                if(isMobile){
+                                if(isMobile || isTablet){
                                     setPopUpOpen(!popupOpen)
                                 }
                             }}
@@ -119,7 +119,7 @@ function SidebarComp() {
                             {/* list items */}
 
                             {
-                                (popupOpen && isMobile) && (
+                                (popupOpen && (isMobile || isTablet)) && (
                                     <ListGroup className="list-group mx-3 mt-4">
                                         <NavLink to={"/store/profile/avijit123/settings/basic_information"}
                                             className={({ isActive }) =>
@@ -129,12 +129,12 @@ function SidebarComp() {
                                             <ListGroup.Item
                                                 onMouseEnter={() => currentHovered(6)}
                                                 onMouseLeave={() => currentHovered(null)}
-                                                style={{ fontSize: "1.2rem", borderLeft: hovered === 6 ? "5px solid #9b37f2" : "1px solid lightgray" }}><AiOutlineHome color='purple' />
+                                                style={{ fontSize: "1.2rem", borderLeft: hovered === 6 ? "5px solid #9b37f2" : "none" }}><AiOutlineHome color='purple' />
                                                 <span className='mx-4' style={{ fontWeight: "600" }}>General</span></ListGroup.Item>
                                         </NavLink>
 
 
-                                        <NavLink to={"/store/profile/avijit123/settings/avatar"}
+                                        {/* <NavLink to={"/store/profile/avijit123/settings/avatar"}
                                             className={({ isActive }) =>
                                                 isActive ? "activesidebar" : ""
                                             }
@@ -142,9 +142,9 @@ function SidebarComp() {
                                             <ListGroup.Item
                                                 onMouseEnter={() => currentHovered(7)}
                                                 onMouseLeave={() => currentHovered(null)}
-                                                style={{ fontSize: "1.2rem", borderLeft: hovered === 7 ? "5px solid #9b37f2" : "1px solid lightgray" }}><RxAvatar color='purple' />
+                                                style={{ fontSize: "1.2rem", borderLeft: hovered === 7 ? "5px solid #9b37f2" : "none" }}><RxAvatar color='purple' />
                                                 <span className='mx-4' style={{ fontWeight: "600" }}>Avatar</span></ListGroup.Item>
-                                        </NavLink>
+                                        </NavLink> */}
 
                                         <NavLink to={"/store/profile/avijit123/settings/change_password"}
                                             className={({ isActive }) =>
@@ -154,7 +154,7 @@ function SidebarComp() {
                                             <ListGroup.Item
                                                 onMouseEnter={() => currentHovered(8)}
                                                 onMouseLeave={() => currentHovered(null)}
-                                                style={{ fontSize: "1.2rem", borderLeft: hovered === 8 ? "5px solid #9b37f2" : "1px solid lightgray" }}><BsFillKeyFill color='purple' />
+                                                style={{ fontSize: "1.2rem", borderLeft: hovered === 8 ? "5px solid #9b37f2" : "none" }}><BsFillKeyFill color='purple' />
                                                 <span className='mx-4' style={{ fontWeight: "600" }}>Password</span></ListGroup.Item>
                                         </NavLink>
                                     </ListGroup>
@@ -175,8 +175,8 @@ function SidebarComp() {
 
                 </Card>
                 {
-                    popupOpen && (
-                        <Card style={{ width: "250px", position: "absolute", top: "255px", left: "311px",zIndex:"50000" }} onMouseLeave={() => {
+                   (popupOpen && isDesktopOrLaptop) && (
+                        <Card style={{ width: "250px", position: "absolute", top: "150px", left: "230px",zIndex:"50000",border:"none",boxShadow:"none" }} onMouseLeave={() => {
                             setPopUpOpen(false)
                         }}>
                             <Card.Body>
@@ -189,12 +189,12 @@ function SidebarComp() {
                                         <ListGroup.Item
                                             onMouseEnter={() => currentHovered(6)}
                                             onMouseLeave={() => currentHovered(null)}
-                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 6 ? "5px solid #9b37f2" : "1px solid lightgray" }}><AiOutlineHome color='purple' />
+                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 6 ? "5px solid #9b37f2" : "none" }}><AiOutlineHome color='purple' />
                                             <span className='mx-4' style={{ fontWeight: "600" }}>General</span></ListGroup.Item>
                                     </NavLink>
 
 
-                                    <NavLink to={"/store/profile/avijit123/settings/avatar"}
+                                    {/* <NavLink to={"/store/profile/avijit123/settings/avatar"}
                                         className={({ isActive }) =>
                                             isActive ? "activesidebar" : ""
                                         }
@@ -202,9 +202,9 @@ function SidebarComp() {
                                         <ListGroup.Item
                                             onMouseEnter={() => currentHovered(7)}
                                             onMouseLeave={() => currentHovered(null)}
-                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 7 ? "5px solid #9b37f2" : "1px solid lightgray" }}><RxAvatar color='purple' />
+                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 7 ? "5px solid #9b37f2" : "none" }}><RxAvatar color='purple' />
                                             <span className='mx-4' style={{ fontWeight: "600" }}>Avatar</span></ListGroup.Item>
-                                    </NavLink>
+                                    </NavLink> */}
 
                                     <NavLink to={"/store/profile/avijit123/settings/change_password"}
                                         className={({ isActive }) =>
@@ -214,7 +214,7 @@ function SidebarComp() {
                                         <ListGroup.Item
                                             onMouseEnter={() => currentHovered(8)}
                                             onMouseLeave={() => currentHovered(null)}
-                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 8 ? "5px solid #9b37f2" : "1px solid lightgray" }}><BsFillKeyFill color='purple' />
+                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 8 ? "5px solid #9b37f2" : "none" }}><BsFillKeyFill color='purple' />
                                             <span className='mx-4' style={{ fontWeight: "600" }}>Password</span></ListGroup.Item>
                                     </NavLink>
                                 </ListGroup>

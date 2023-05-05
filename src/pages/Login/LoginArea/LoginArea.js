@@ -125,12 +125,18 @@ const LoginArea = () => {
 
       const res = await fetch(baseUrl + "loginWithSocial", requestOptions);
       const data = await res.json();
+      console.log(data,"socialdata")
       if (data && data.error === false) {
          localStorage.setItem("token", data.data.token)
          localStorage.setItem("google_login", true)
          setIsUserLoggedIn(true)
          toast.success(data.messages)
-         navigate("/today")
+         setUserData(data.data.profile)
+         if(data.data.profile.strip_payment_status==="paid"){
+            navigate("/today")
+         }else{
+            navigate("/silva_membership")
+         }
       } else {
          toast.error(data.messages)
       }

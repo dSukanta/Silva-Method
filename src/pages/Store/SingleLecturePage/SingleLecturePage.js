@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import SingleLectureNavbar from './SingleLectureNavbar'
 import ReactPlayer from 'react-player'
 import { useMediaQuery } from 'react-responsive'
@@ -14,14 +14,20 @@ import CommonSectionArea from '../../../components/CommonSectionArea/CommonSecti
 import Stories from '../../SilvaManifestationProgram/Stories'
 import LeaveCommentBox from '../../SilvaManifestationProgram/LeaveCommentBox'
 import { requestData } from '../../../utils/baseUrl'
-import { useParams } from 'react-router'
+import { useParams, useNavigate, useLocation } from 'react-router'
 import toast, { Toaster } from "react-hot-toast";
 
 
 function SingleLecturePage() {
-  const {course_id, chapter_id,lession_id}= useParams();
+  const location = useLocation()
+  const navigate = useNavigate();
+  const params = useParams();
+  const audioRef = useRef();
+  const [allLessonList, setAllLessonList] = useState([])
+  const [allCoursesList, setAllCoursesList] = useState([]);
+  const { course_id, chapter_id, lession_id } = useParams();
   //console.log(course_id, chapter_id,lession_id);
-  const [lesson,setLesson]= useState({}) ;
+  const [lesson, setLesson] = useState({});
 
 
   //const [lessionComment,setlessionComment] = useState([]);
@@ -49,70 +55,218 @@ function SingleLecturePage() {
 
 
   function openModal() {
+    setNumOfConfetti(300)
     setIsOpen(true);
   }
 
   function closeModal() {
+    setNumOfConfetti(0)
     setIsOpen(false);
   }
 
 
+  // useEffect(() => {
+  //   if (marked) {
+  //     setTimeout(() => {
+  //       setNumOfConfetti(0)
+  //     }, 4000)
+  //   }
+  // }, [marked])
+
+  const getLessonComments = async () => {
+    const res = await requestData('courseDetail', 'POST', {
+      "course_id": course_id,
+    })
+
+    console.log(res.data, "Resdata")
+    //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]);
+    setLesson(res?.data[0]?.chapters?.filter((chapter) => chapter.chapter_id === chapter_id)[0]?.lession.filter((lessionItem) => lessionItem.lesson_id === lession_id)[0])
+    //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment);
+    //setlessionComment(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment)
+  }
+
   useEffect(() => {
-    if (marked) {
-      setTimeout(() => {
-        setNumOfConfetti(0)
-      }, 4000)
+    getLessonComments()
+  }, [lession_id])
+
+  console.log(lesson);
+
+  const postLessonComment = async (e, data) => {
+    e.preventDefault();
+    const options = {
+      "lesson_id": lession_id,
+      "comment": data.comment,
+      "name": data.name,
+      "email": data.email,
     }
-  }, [marked])
-
-    const getLessonComments=async()=>{
-      const res= await requestData('courseDetail','POST',{
-        "course_id": course_id,
-      })
-      //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]);
-      setLesson(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0])
-      //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment);
-      //setlessionComment(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment)
-    }
-
-    useEffect(()=>{
-      getLessonComments()
-    },[lession_id])
-
-    //console.log(lesson);
-
-    const postLessonComment=async(e,data)=>{
-      e.preventDefault();
-      const options={
-          "lesson_id": lession_id,
-          "comment": data.comment,
-          "name": data.name,
-          "email": data.email,
-      }
-      try {
-        const res= await requestData("lessonComment","POST",options)
-        //console.log(res);
-        toast.success(
-          "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
-          {
-            position: "top-center",
-          }
-        );
-        getLessonComments();
-      } catch (error) {
-        toast.error("Something went wrong ! Please try after some time.", {
+    try {
+      const res = await requestData("lessonComment", "POST", options)
+      //console.log(res);
+      toast.success(
+        "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
+        {
           position: "top-center",
-        });
-        //console.log(error);
-      }
-      //console.log(options)
+        }
+      );
+      getLessonComments();
+    } catch (error) {
+      toast.error("Something went wrong ! Please try after some time.", {
+        position: "top-center",
+      });
+      //console.log(error);
     }
+    //console.log(options)
+  }
+
+
+  const fetchAllCourses = async () => {
+    const res = await requestData("courseListWithChild", "POST", { start_index: 0 });
+    console.log(res, "resduta")
+    setAllCoursesList(res.data);
+  }
+
+  const handleNext = () => {
+    console.log(allCoursesList);
+    console.log(params)
+    console.log(lesson)
+    const foundCourse = allCoursesList.find((val, i) => {
+      if (val.course_id === params.course_id) {
+        return val;
+      }
+    })
+
+
+
+    let allLessonsInCurrentCourse = [];
+
+    foundCourse.chapters.forEach((chapter, i) => {
+      const lessionsInSingleChapter = chapter.lession;
+      allLessonsInCurrentCourse = [...allLessonsInCurrentCourse, ...lessionsInSingleChapter]
+    })
+
+    console.log(allLessonsInCurrentCourse)
+    let nextLesson;
+    const foundLession = allLessonsInCurrentCourse.find((val, i) => {
+      if (val.lesson_id === params.lession_id) {
+        nextLesson = i + 1;
+        return val
+      }
+    })
+
+    console.log(allLessonsInCurrentCourse[nextLesson], "NEXTLESSON")
+
+    if (allLessonsInCurrentCourse[nextLesson]) {
+      closeModal();
+      navigate(`/store/course/${params.course_id}/${allLessonsInCurrentCourse[nextLesson].chapter_id}/${allLessonsInCurrentCourse[nextLesson].lesson_id}`)
+    } else {
+      toast.success("Congradulations, Your Course Has been Completed!!")
+    }
+
+
+
+
+
+
+    // const currentCourseChapterLastIdx = foundCourse.chapters.length-1;
+
+    // let nextChapter;
+    // const foundChapter = foundCourse.chapters.find((val,i)=>{
+    //     if(val.chapter_id===params.chapter_id){
+    //       console.log(i,currentCourseChapterLastIdx)
+    //       if(i===currentCourseChapterLastIdx){
+    //            nextChapter=null
+    //            return val
+    //       }else{
+    //         nextChapter=i+1
+    //         return val
+    //       }
+    //     }
+    // })
+
+
+
+
+
+
+
+
+  }
+
+
+  useEffect(() => {
+    document.querySelector(".navhead").scrollIntoView({
+      behavior: "smooth"
+    })
+
+    // if (audioRef.current) {
+    //   audioRef.current.audio.current.currentTime = 200
+    // }
+
+    fetchAllCourses()
+
+  }, [])
+
+
+
+
+
+  const handleAudioDuration = async (d) => {
+    const duration = Math.floor(d);
+    const h = Math.floor(duration / 3600);
+    const m = Math.floor((duration - h * 3600) / 60);
+    const s = duration % 60;
+    const H = h === 0 ? '' : `${h}:`;
+    const M = m < 10 ? `0${m}:` : `${m}:`;
+    const S = s < 10 ? `0${s}` : `${s}`;
+    const dur = H + M + S
+    console.log(dur, "duration")
+    const res = await requestData("lessonActivity", "POST", {
+      chapter_id: params.chapter_id,
+      lesson_id: params.lession_id,
+      status: "Started",
+      duration: dur
+    })
+
+    if (res && res.error === false) {
+      console.log("success api call", res)
+    }
+
+  }
+
+  const handleAudioDuration2 = async (d) => {
+    const duration = Math.floor(d);
+    const h = Math.floor(duration / 3600);
+    const m = Math.floor((duration - h * 3600) / 60);
+    const s = duration % 60;
+    const H = h === 0 ? '' : `${h}:`;
+    const M = m < 10 ? `0${m}:` : `${m}:`;
+    const S = s < 10 ? `0${s}` : `${s}`;
+    const dur = H + M + S
+    console.log(dur, "duration")
+    const res = await requestData("lessonActivity", "POST", {
+      chapter_id: params.chapter_id,
+      lesson_id: params.lession_id,
+      status: "Completed",
+      duration: dur
+    })
+
+    if (res && res.error === false) {
+      console.log("success api call", res)
+    }
+
+  }
+
+
+  useEffect(()=>{
+    console.log("lesson",lesson)
+  },[lesson])
+
 
 
   return (
     <>
-      <div className='d-flex justify-content-center align-items-center flex-column text-center'>
-        <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title}/>
+      <div className='d-flex justify-content-center align-items-center flex-column text-center navhead'>
+        <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title} />
         <h2 className='mt-1'>{lesson && lesson.lesson_title}</h2>
         <div className="row justify-content-center align-items-center">
           <div className="col-sm-12 col-md-8 col-lg-6">
@@ -132,9 +286,27 @@ function SingleLecturePage() {
             /> */}
 
             <AudioPlayer
-              src={lesson && lesson.lesson_file? lesson.lesson_file:"https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"}
-              onPlay={e => console.log("onPlay")}
-              header={<Image src={lesson && lesson.image? lesson.image:'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
+              ref={audioRef}
+              autoPlay={false}
+              // onListen={(e)=>{
+              //   console.log(audioRef.current.audio.current.currentTime)
+              //   handleAudioDuration(audioRef.current.audio.current.currentTime)
+              //   console.log(audioRef.current.audio.current.duration)
+              // }}
+              onPause={() => {
+                console.log("Paused")
+                if (audioRef.current.audio.current.currentTime !== audioRef.current.audio.current.duration) {
+                  handleAudioDuration(audioRef.current.audio.current.currentTime)
+                }
+              }}
+              onEnded={() => {
+                setMarked(true)
+                openModal()
+                handleAudioDuration2(audioRef.current.audio.current.duration)
+              }}
+              autoPlayAfterSrcChange={false}
+              src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"}
+              header={<Image src={lesson && lesson.image ? lesson.image : 'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
             // other props here
             />
 
@@ -178,10 +350,11 @@ function SingleLecturePage() {
       </div>
 
       <div className='container p-4 singlelecturebg'>
-        <Stories data={lesson && lesson.lesson_comment}/>
-        <LeaveCommentBox color={true} handleSubmit={postLessonComment}/>
+        <Stories data={lesson && lesson.lesson_comment} />
+        <LeaveCommentBox color={true} handleSubmit={postLessonComment} />
       </div>
-      <SingleLectureFooter setMarked={setMarked} marked={marked} setModalShow={openModal} lession_id={lession_id} chapter_id={chapter_id} course_id={course_id}/>
+      <SingleLectureFooter openModal={openModal} handleAudioDuration2={handleAudioDuration2}
+        audioRef={audioRef} setMarked={setMarked} marked={marked} setModalShow={openModal} />
       {
         marked && (
           <Confetti
@@ -195,6 +368,7 @@ function SingleLecturePage() {
       }
       {
         <CustomCourseModal
+          handleNext={handleNext}
           show={modalIsOpen}
           openModal={openModal}
           closeModal={closeModal}
@@ -202,7 +376,7 @@ function SingleLecturePage() {
         />
       }
       <div className="offcan">
-        <SidebarExample placement={"end"} show={show} handleClose={handleClose} course={course_id}/>
+        <SidebarExample placement={"end"} show={show} lession={lesson} handleClose={handleClose} course={course_id} />
       </div>
     </>
   )

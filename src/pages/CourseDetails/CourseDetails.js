@@ -37,12 +37,18 @@ function CourseDetails() {
         getSingleClass(id)
    },[id]);
 
+   useEffect(()=>{
+    document.querySelector(".startdiv").scrollIntoView({
+        behavior:"smooth"
+    })
+   },[])
+
   //console.log(liveClasses);
 
     return (
         <div className="container mt-5 mb-5" style={{width:isDesktopOrLaptop?"50%":"100%"}}>
             <div>
-            <h2>{singleClass.length>0 && singleClass[0].course_title }</h2>
+            <h2 className='startdiv'>{singleClass.length>0 && singleClass[0].course_title }</h2>
                 <div className='d-flex justify-content-between'>
                     <p>
                         By <span style={{ color: "#9b37f2", fontWeight: "500" }}>{singleClass.length>0 && singleClass[0].instructor_name }</span>

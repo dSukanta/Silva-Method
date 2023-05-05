@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import OverViewCard from './OverViewCard';
 import manifestcourse from "../../images/newimgs/Silva-Manifesting-course.webp";
 import { useMediaQuery } from 'react-responsive';
@@ -16,11 +16,14 @@ import SingleProduct from './SingleProduct';
 import CustomAccordion2 from './CustomAccordion2';
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import MemberShipPricingPlan from '../silvamembership/MemberShipPricingPlan';
+import { requestData } from '../../utils/baseUrl';
 
 function CourseOverview({data}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+    const [coursesData2,setCoursesData2] = useState([]);
+
     const settings = {
         dots: true,
         infinite: true,
@@ -59,6 +62,23 @@ function CourseOverview({data}) {
             price: 49
         }
     ]
+
+    
+    const getLatestCourses = async()=>{
+        const res =await requestData("latestCourseList","POST",{
+            start_index:0,
+            no_of_records:10
+        })
+        if(res && res.error===false){
+            setCoursesData2(res.data);
+        }
+    }
+
+
+    useEffect(()=>{
+     getLatestCourses();
+    },[])
+
     return (
         <div className='mt-4'>
             <OverViewCard data={data && data}/>
@@ -375,7 +395,7 @@ function CourseOverview({data}) {
                 <h3 className='white-color mb-3'>Latest Courses</h3>
                 <Slider {...settings}>
                     {
-                        coursesdata.map((val, i) => (
+                        coursesData2.map((val, i) => (
                             <SingleProduct data={val} key={i + 1} />
                         ))
                     }

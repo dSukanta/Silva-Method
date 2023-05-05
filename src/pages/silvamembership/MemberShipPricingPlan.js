@@ -9,7 +9,6 @@ import ReactDOMServer from 'react-dom/server';
 import { AuthContext } from '../../context/AllContext';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-hot-toast';
-import { set } from 'js-cookie';
 import Spinner from 'react-bootstrap/Spinner';
 
 function MemberShipPricingPlan({ white = false }) {

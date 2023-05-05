@@ -76,11 +76,19 @@ function SilvaManifestationProgram() {
 
   // console.log(course);
 
+
+  useEffect(()=>{
+    document.querySelector(".nothing").scrollIntoView({
+      behavior:"smooth"
+    })
+  },[])
+
   return (
     <div
       className="mainlandingpage"
       style={{ width: "100vw", minHeight: "100vh", paddingBottom: "20px" }}
     >
+      <div className="nothing"></div>
       <StickyNavbar />
       <div className="container">
         <MainHeroSection data={course.length > 0 && course[0]}/>
