@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import toast, { Toaster } from "react-hot-toast";
 import { baseUrl } from "../../utils/axioscall";
 import { requestData } from "../../utils/baseUrl";
+import { AuthContext } from "../../context/AllContext";
 
 function LeaveCommentBox({handleSubmit}) {
+
+  const {userData} = useContext(AuthContext);
  // console.log(data);
 //  const [options,setOptions] = useState({})
   const [commentData, setCommentData] = useState({
@@ -32,6 +35,21 @@ function LeaveCommentBox({handleSubmit}) {
     setValidEmail(result);
   }, [commentData.email]);
 
+  useEffect(()=>{
+    if(userData){
+      const data = {
+        email: userData.email,
+        name:((userData.first_name||"")+" "+(userData.last_name || ""))
+      }
+
+      console.log(data,"USERDATA")
+      setCommentData({
+        ...commentData,
+        ...data
+      })
+    }
+  },[userData])
+
   return (
     <div className="mt-5">
       <div className="post-comments-form">
@@ -58,6 +76,7 @@ function LeaveCommentBox({handleSubmit}) {
                   type="text"
                   placeholder="Your Name...."
                   name="name"
+                  value={commentData.name}
                   onChange={handleChange}
                 />
               </div>
@@ -68,6 +87,7 @@ function LeaveCommentBox({handleSubmit}) {
                   type="email"
                   placeholder="Your Email...."
                   name="email"
+                  value={commentData.email}
                   onChange={handleChange}
                 />
               </div>
