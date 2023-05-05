@@ -126,6 +126,9 @@ function SingleLecturePage() {
   }
 
   const handleNext = () => {
+
+    // all lessons in current course list
+
     console.log(allCoursesList);
     console.log(params)
     console.log(lesson)
@@ -145,6 +148,12 @@ function SingleLecturePage() {
     })
 
     console.log(allLessonsInCurrentCourse)
+
+    
+    // all lessons
+
+
+    // 
     let nextLesson;
     const foundLession = allLessonsInCurrentCourse.find((val, i) => {
       if (val.lesson_id === params.lession_id) {
@@ -265,7 +274,7 @@ function SingleLecturePage() {
 
   return (
     <>
-      <div className='d-flex justify-content-center align-items-center flex-column text-center navhead'>
+      <div className='d-flex justify-content-center align-items-center flex-column text-center navhead mx-4 my-4'>
         <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title} />
         <h2 className='mt-1'>{lesson && lesson.lesson_title}</h2>
         <div className="row justify-content-center align-items-center">
@@ -305,7 +314,7 @@ function SingleLecturePage() {
                 handleAudioDuration2(audioRef.current.audio.current.duration)
               }}
               autoPlayAfterSrcChange={false}
-              src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"}
+              src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://samplelib.com/lib/preview/mp3/sample-15s.mp3"}
               header={<Image src={lesson && lesson.image ? lesson.image : 'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
             // other props here
             />

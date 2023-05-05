@@ -15,7 +15,7 @@ function SingleProduct2({ data }) {
     console.log(data)
     return (
         <div className='col-12 pe-2'>
-            <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%", minHeight: "350px" }}>
+            <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%", minHeight: "400px" }}>
 
                 <Card.Body>
                     {/* <div className='d-flex justify-content-center'>
