@@ -8,7 +8,7 @@ import { requestData } from '../../../../utils/baseUrl';
 
 function LiveEventsCard() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 820 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
     const [liveCourses, setLiveCourses] = useState([]);
 
@@ -19,10 +19,10 @@ function LiveEventsCard() {
         speed: 300,
         prevArrow: <GrFormPrevious />,
         nextArrow: <GrFormNext />,
-        slidesToShow: isDesktopOrLaptop ? 4 : isTablet ? 3 : 1,
+        slidesToShow: isDesktopOrLaptop ? 4 : isTablet ? 2 : 1,
         slidesToScroll: 1,
         centerMode: true,
-        centerPadding: isDesktopOrLaptop ? '0%' : "10%",
+        centerPadding: isDesktopOrLaptop ? '0%' : "15%",
 
     };
 
@@ -42,13 +42,13 @@ function LiveEventsCard() {
         getEvents();
     },[])
     return (
-        <div className='container my-5'>
+        <div className={`my-5 ${isDesktopOrLaptop?'container':'mx-2'}`}>
             <div className='d-flex justify-content-between'>
                 <h3>Live Events</h3>
                 <Link to="/events/live" style={{ color: "blue", textDecoration: "underline", fontWeight: "600" }}>See All</Link>
             </div>
 
-            <div className="row">
+            <div className="row livecard">
                 <Slider {...settings}>
                    {
                     liveCourses && liveCourses.map((lc,i)=>(

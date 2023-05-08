@@ -376,8 +376,10 @@ function SingleLecturePage() {
                   // }}
                   onPause={() => {
                     console.log("Paused")
-                    if (audioRef.current.audio.current.currentTime !== audioRef.current.audio.current.duration) {
-                      handleAudioDuration(audioRef.current.audio.current.currentTime)
+                    if(audioRef.current){
+                      if (audioRef.current?.audio?.current.currentTime !== audioRef?.current?.audio.current.duration) {
+                        handleAudioDuration(audioRef.current.audio.current.currentTime)
+                      }
                     }
                   }}
                   onEnded={() => {

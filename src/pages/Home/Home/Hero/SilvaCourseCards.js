@@ -3,15 +3,16 @@ import { Badge, Button, Card, ProgressBar } from 'react-bootstrap'
 import { GrFormNext } from "react-icons/gr";
 import { BsFillPersonFill } from "react-icons/bs";
 import { requestData } from '../../../../utils/baseUrl';
+import { useMediaQuery } from 'react-responsive';
 
 function SilvaCourseCards() {
     const [allCourses, setAllCourses] = useState([]);
+    
+
 
     const fetchAllCourses = async () => {
         const res = await requestData("courseListWithChild", "POST", { start_index: 0 });
         console.log(res, "resduta")
-
-
 
         let courses = []
         for (let course of res.data) {
@@ -35,7 +36,7 @@ function SilvaCourseCards() {
     }, [])
 
     return (
-        <div className="container mb-5">
+        <div className="container mb-5 mt-5">
             <div className="row justify-content-center gap-4">
                 <div className="col-sm-10 col-md-5">
                     <Card className="text-start cardbody" style={{ borderRadius: "20px", width: "97%" }}>
