@@ -1,16 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Badge, Button, Card, ProgressBar } from 'react-bootstrap'
 import { GrFormNext } from "react-icons/gr";
 import { BsFillPersonFill } from "react-icons/bs";
+import { requestData } from '../../../../utils/baseUrl';
 
 function SilvaCourseCards() {
+    const [allCourses, setAllCourses] = useState([]);
+
+    const fetchAllCourses = async () => {
+        const res = await requestData("courseListWithChild", "POST", { start_index: 0 });
+        console.log(res, "resduta")
+
+
+
+        let courses = []
+        for (let course of res.data) {
+            let allLessonsInCurrentCourse = [];
+            course.chapters.forEach((chapter, i) => {
+                const lessionsInSingleChapter = chapter.lession;
+                allLessonsInCurrentCourse = [...allLessonsInCurrentCourse, ...lessionsInSingleChapter]
+            })
+            courses.push({
+                courseData: course,
+                allLessonsInCurrentCourse
+            })
+        }
+
+        console.log(courses,"courses")
+        // setAllCourses(res.data);
+    }
+
+    useEffect(() => {
+        fetchAllCourses()
+    }, [])
+
     return (
         <div className="container mb-5">
             <div className="row justify-content-center gap-4">
                 <div className="col-sm-10 col-md-5">
-                    <Card className="text-start cardbody" style={{ borderRadius: "20px",width:"97%" }}>
+                    <Card className="text-start cardbody" style={{ borderRadius: "20px", width: "97%" }}>
                         <Card.Header className='bg-transparent'
-                            style={{ borderBottom: "none",minHeight:"100px" }}
+                            style={{ borderBottom: "none", minHeight: "100px" }}
                         >
                             <div className='d-flex justify-content-start align-content-center gap-3 mt-3'>
                                 <h5><Badge bg="dark">New</Badge></h5>
@@ -37,24 +67,24 @@ function SilvaCourseCards() {
                 {/*  */}
 
                 <div className="col-sm-10 col-md-5">
-                    <Card className="text-start cardbody" style={{ borderRadius: "20px",width:"97%" }}>
+                    <Card className="text-start cardbody" style={{ borderRadius: "20px", width: "97%" }}>
                         <Card.Header className='bg-transparent'
                             style={{ borderBottom: "none" }}
                         >
                             <div className='d-flex justify-content-start align-items-center gap-3'>
                                 {/* <h5><Badge bg="dark">New</Badge></h5> */}
                                 <img src="https://cdn.mindvalley.com/asset/2741a992-a959-4e26-89d8-7856ee14e434/6Phase_MainCover_1920x1080px_EN_thumbnail.png?auto=webp&fit=cover&quality=50&width=80&height=44"
-                                style={{width:"70px",height:"40px"}}
-                                alt="" />
-                               <div className=''>
-                                <h5 className='text-dark'>The 6 Phase Medication</h5>
-                                <p>
-                                    3 of 7 Lessons completed
-                                </p>
-                                <ProgressBar variant="warning" now={60} />
+                                    style={{ width: "70px", height: "40px" }}
+                                    alt="" />
+                                <div className=''>
+                                    <h5 className='text-dark'>The 6 Phase Medication</h5>
+                                    <p>
+                                        3 of 7 Lessons completed
+                                    </p>
+                                    <ProgressBar variant="warning" now={60} />
 
-                               </div>
-                               <GrFormNext size={30} />
+                                </div>
+                                <GrFormNext size={30} />
                             </div>
                         </Card.Header>
                         <Card.Body>
@@ -75,7 +105,7 @@ function SilvaCourseCards() {
 
                 {/*  */}
 
-                 
+
             </div>
         </div>
     )

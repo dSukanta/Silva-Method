@@ -238,11 +238,6 @@ function SingleLecturePage() {
   }
 
 
-  function onDocumentLoadSuccess({ numPages }) {
-    console.log("object:", numPages, pages);
-    setPages(numPages);
-    setPageNumber(1);
-  }
 
 
   useEffect(() => {
