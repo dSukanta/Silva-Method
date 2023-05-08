@@ -5,7 +5,7 @@ import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
 import {TiTickOutline} from "react-icons/ti";
 
 
-function SingleLectureFooter({ setMarked,marked,setModalShow,handleAudioDuration2,audioRef,openModal }) {
+function SingleLectureFooter({lessonDetails,fetchLessonDetails, lesson, setMarked,marked,setModalShow,handleAudioDuration2,audioRef,openModal }) {
     return (
         <Navbar>
             <Navbar.Toggle />
@@ -16,14 +16,17 @@ function SingleLectureFooter({ setMarked,marked,setModalShow,handleAudioDuration
                {
                 !marked && (
                     <button className='primary_btn2' onClick={() => {
-                        setMarked(true)
+                        // setMarked(true)
                         openModal()
                         handleAudioDuration2(audioRef.current.audio.current.duration)
+                        if(lesson){
+                            fetchLessonDetails(lesson.lesson_id)
+                        }
                     }}>Mark As Complete</button>
                 )
                }
                {
-                marked && (
+                (marked) && (
                     <h4 className='text-success'><TiTickOutline color='green' /> Completed</h4>
                 )
                }

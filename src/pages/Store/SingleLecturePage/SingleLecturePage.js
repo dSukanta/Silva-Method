@@ -16,14 +16,21 @@ import LeaveCommentBox from '../../SilvaManifestationProgram/LeaveCommentBox'
 import { requestData } from '../../../utils/baseUrl'
 import { useParams, useNavigate, useLocation } from 'react-router'
 import toast, { Toaster } from "react-hot-toast";
+import { Document } from "react-pdf";
+import MoonLoader from "react-spinners/MoonLoader";
 
 
 function SingleLecturePage() {
+  const [chapters, setChapters] = useState([]);
+  const [loading,setLoading] = useState(false)
+  const [pages, setPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [hasNext, setHasNext] = useState(true)
+  const [lessonDetails, setLessonDetails] = useState({});
   const location = useLocation()
   const navigate = useNavigate();
   const params = useParams();
   const audioRef = useRef();
-  // const [allLessonList, setAllLessonList] = useState([])
   const [allCoursesList, setAllCoursesList] = useState([]);
   const { course_id, chapter_id, lession_id } = useParams();
   //console.log(course_id, chapter_id,lession_id);
@@ -74,20 +81,23 @@ function SingleLecturePage() {
   // }, [marked])
 
   const getLessonComments = async () => {
-    const res = await requestData('courseDetail', 'POST', {
-      "course_id": course_id,
-    })
 
-    console.log(res.data, "Resdata")
+    // const res = await requestData('courseDetail', 'POST', {
+    //   "course_id": course_id,
+    // })
+
+    // console.log(res.data, "Resdata")
+    fetchLessonDetails(params.lession_id);
+
     //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]);
-    setLesson(res?.data[0]?.chapters?.filter((chapter) => chapter.chapter_id === chapter_id)[0]?.lession.filter((lessionItem) => lessionItem.lesson_id === lession_id)[0])
+    // setLesson(res?.data[0]?.chapters?.filter((chapter) => chapter.chapter_id === chapter_id)[0]?.lession.filter((lessionItem) => lessionItem.lesson_id === lession_id)[0])
     //console.log(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment);
     //setlessionComment(res?.data[0]?.chapters?.filter((chapter)=> chapter.chapter_id ===chapter_id)[0]?.lession.filter((lessionItem)=>lessionItem.lesson_id===lession_id)[0]?.lesson_comment)
   }
 
   useEffect(() => {
     getLessonComments()
-  }, [lession_id])
+  }, [location.pathname])
 
   console.log(lesson);
 
@@ -125,6 +135,16 @@ function SingleLecturePage() {
     setAllCoursesList(res.data);
   }
 
+  
+  const getChapters = async () => {
+    const res = await requestData("courseDetail", "POST", {
+      course_id: params.course_id,
+    });
+    console.log("ressss",res)
+    //console.log(res.data[0].chapters)
+    setChapters(res.data[0].chapters);
+  };
+
   const handleNext = () => {
 
     // all lessons in current course list
@@ -149,16 +169,17 @@ function SingleLecturePage() {
 
     console.log(allLessonsInCurrentCourse)
 
-    
+
     // all lessons
 
 
     // 
     let nextLesson;
-    const foundLession = allLessonsInCurrentCourse.find((val, i) => {
+    let prevLesson;
+    allLessonsInCurrentCourse.forEach((val, i) => {
       if (val.lesson_id === params.lession_id) {
         nextLesson = i + 1;
-        return val
+        prevLesson = i - 1;
       }
     })
 
@@ -168,37 +189,59 @@ function SingleLecturePage() {
       closeModal();
       navigate(`/store/course/${params.course_id}/${allLessonsInCurrentCourse[nextLesson].chapter_id}/${allLessonsInCurrentCourse[nextLesson].lesson_id}`)
     } else {
-      toast.success("Congradulations, Your Course Has been Completed!!")
+      closeModal();
+      navigate(`/store/course/${params.course_id}/${allLessonsInCurrentCourse[prevLesson].chapter_id}/${allLessonsInCurrentCourse[prevLesson].lesson_id}`)
     }
 
+  }
 
 
+  const hasNextRender = async () => {
+    const foundCourse = allCoursesList.find((val, i) => {
+      if (val.course_id === params.course_id) {
+        return val;
+      }
+    })
 
 
+    let allLessonsInCurrentCourse = [];
 
-    // const currentCourseChapterLastIdx = foundCourse.chapters.length-1;
+    if (foundCourse && Object.keys(foundCourse).length) {
+      foundCourse.chapters.forEach((chapter, i) => {
+        const lessionsInSingleChapter = chapter.lession;
+        allLessonsInCurrentCourse = [...allLessonsInCurrentCourse, ...lessionsInSingleChapter]
+      })
+    }
 
-    // let nextChapter;
-    // const foundChapter = foundCourse.chapters.find((val,i)=>{
-    //     if(val.chapter_id===params.chapter_id){
-    //       console.log(i,currentCourseChapterLastIdx)
-    //       if(i===currentCourseChapterLastIdx){
-    //            nextChapter=null
-    //            return val
-    //       }else{
-    //         nextChapter=i+1
-    //         return val
-    //       }
-    //     }
-    // })
+    console.log(allLessonsInCurrentCourse, "ALLCOURSELIST")
+
+    // all lessons
 
 
+    // 
+    let nextLesson;
+    let prevLesson;
+    allLessonsInCurrentCourse.forEach((val, i) => {
+      if (val.lesson_id === params.lession_id) {
+        nextLesson = i + 1;
+        prevLesson = i - 1;
+      }
+    })
+
+    console.log(allLessonsInCurrentCourse[nextLesson], "hasNext")
+
+    if (allLessonsInCurrentCourse[nextLesson]) {
+      setHasNext(true)
+    } else {
+      setHasNext(false)
+    }
+  }
 
 
-
-
-
-
+  function onDocumentLoadSuccess({ numPages }) {
+    console.log("object:", numPages, pages);
+    setPages(numPages);
+    setPageNumber(1);
   }
 
 
@@ -210,12 +253,15 @@ function SingleLecturePage() {
     // if (audioRef.current) {
     //   audioRef.current.audio.current.currentTime = 200
     // }
-
+    getChapters()
     fetchAllCourses()
+    fetchLessonDetails(params.lession_id)
 
   }, [])
 
-
+  useEffect(() => {
+    hasNextRender()
+  }, [location.pathname])
 
 
 
@@ -252,25 +298,68 @@ function SingleLecturePage() {
     const S = s < 10 ? `0${s}` : `${s}`;
     const dur = H + M + S
     console.log(dur, "duration")
-    const res = await requestData("lessonActivity", "POST", {
-      chapter_id: params.chapter_id,
-      lesson_id: params.lession_id,
-      status: "Completed",
-      duration: dur
-    })
 
-    if (res && res.error === false) {
-      console.log("success api call", res)
+    if (lessonDetails && lessonDetails.lesson_activity_status !== "Completed") {
+      const res = await requestData("lessonActivity", "POST", {
+        chapter_id: params.chapter_id,
+        lesson_id: params.lession_id,
+        status: "Completed",
+        duration: dur
+      })
+      if (res && res.error === false) {
+        console.log("success api call", res)
+      }
+      fetchLessonDetails(params.lession_id)
     }
+
 
   }
 
+  async function fetchLessonDetails(lession_id) {
+    setLoading(true)
+    const res = await requestData("lessonDetails", "POST", {
+      lesson_id: lession_id
+    })
+    setLoading(false)
 
-  useEffect(()=>{
-    console.log("lesson",lesson)
-  },[lesson])
+    if (res && res.error === false) {
+      setLessonDetails(res.data[0])
+      setLesson(res.data[0])
+    }
+    console.log(res, "lessondetails")
+  }
 
 
+
+
+  useEffect(() => {
+    if (lessonDetails) {
+      if (lessonDetails.lesson_activity_status === "Completed") {
+        setMarked(true)
+      } else {
+        setMarked(false)
+      }
+    }
+  }, [lessonDetails])
+
+
+  useEffect(() => {
+    console.log("lesson", lesson.lesson_file)
+  }, [lesson])
+
+
+  if(loading){
+    return (
+      <div style={{height:"100%"}}>
+        <div className='d-flex justify-content-center align-content-center align-items-center'>
+        <MoonLoader
+        color='black'
+        size={150}
+        />
+      </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -279,45 +368,57 @@ function SingleLecturePage() {
         <h2 className='mt-1'>{lesson && lesson.lesson_title}</h2>
         <div className="row justify-content-center align-items-center">
           <div className="col-sm-12 col-md-8 col-lg-6">
-            {/* <ReactPlayer
-              light="https://images.unsplash.com/photo-1542681575-352258e0c854?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-              width={"100%"}
-              height={!isMobile ? "500px" : "200px"}
-              url={"https://file-examples.com/storage/fe644084cb644d3709528c4/2017/11/file_example_MP3_1MG.mp3"}
-              controls
-              config={{
-                file: {
-                  attributes: {
-                    controlsList: 'nodownload'
-                  }
-                }
-              }}
-            /> */}
 
-            <AudioPlayer
-              ref={audioRef}
-              autoPlay={false}
-              // onListen={(e)=>{
-              //   console.log(audioRef.current.audio.current.currentTime)
-              //   handleAudioDuration(audioRef.current.audio.current.currentTime)
-              //   console.log(audioRef.current.audio.current.duration)
-              // }}
-              onPause={() => {
-                console.log("Paused")
-                if (audioRef.current.audio.current.currentTime !== audioRef.current.audio.current.duration) {
-                  handleAudioDuration(audioRef.current.audio.current.currentTime)
-                }
-              }}
-              onEnded={() => {
-                setMarked(true)
-                openModal()
-                handleAudioDuration2(audioRef.current.audio.current.duration)
-              }}
-              autoPlayAfterSrcChange={false}
-              src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://samplelib.com/lib/preview/mp3/sample-15s.mp3"}
-              header={<Image src={lesson && lesson.image ? lesson.image : 'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
-            // other props here
-            />
+            {
+              lesson && Object.keys(lesson).length > 0 && lesson.lesson_file && lesson.lesson_file.split(".").slice(-1)[0] === "mp3" && (
+                <AudioPlayer
+                  ref={audioRef}
+                  autoPlay={false}
+                  // onListen={(e)=>{
+                  //   console.log(audioRef.current.audio.current.currentTime)
+                  //   handleAudioDuration(audioRef.current.audio.current.currentTime)
+                  //   console.log(audioRef.current.audio.current.duration)
+                  // }}
+                  onPause={() => {
+                    console.log("Paused")
+                    if (audioRef.current.audio.current.currentTime !== audioRef.current.audio.current.duration) {
+                      handleAudioDuration(audioRef.current.audio.current.currentTime)
+                    }
+                  }}
+                  onEnded={() => {
+                    // setMarked(true)
+                    openModal()
+                    handleAudioDuration2(audioRef.current.audio.current.duration)
+                  }}
+                  autoPlayAfterSrcChange={false}
+                  src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://samplelib.com/lib/preview/mp3/sample-15s.mp3"}
+                  header={<Image src={lesson && lesson.image ? lesson.image : 'https://png.pngtree.com/template/20210823/ourmid/pngtree-music-album-cover-modern-style-color-sns-image_578891.jpg'} thumbnail />}
+                // other props here
+                />
+
+              )
+            }
+
+            {
+              lesson && Object.keys(lesson).length > 0 && lesson.lesson_file && lesson.lesson_file.split(".").slice(-1)[0] === "pdf" && (
+                <div className='mt-3' onContextMenu={(e)=>{
+                  e.preventDefault()
+                  return false
+                }}>
+                  {/* <h2>{JSON.stringify(lesson.lesson_file.replace(/\s/g, "%"))}</h2> */}
+                  {/* <Document
+                    file={{
+                      url: 'https://projectsites.in/silvamethod/assets/uploads/0.Silva%20Mind%20Body%20Healing%20Program.pdf'
+                    }}
+                  /> */}
+                  <embed onContextMenu={(e)=>{
+                    e.preventDefault()
+                    return false
+                  }} src={`${lesson.lesson_file}#toolbar=0&navpanes=0&scrollbar=0`} style={{width:"100%",height:"500px"}}></embed>
+                  {/* <object width="100%" height="600" data={lesson.lesson_file} type="application/pdf">   </object> */}
+                </div>
+              )
+            }
 
 
 
@@ -362,10 +463,12 @@ function SingleLecturePage() {
         <Stories data={lesson && lesson.lesson_comment} />
         <LeaveCommentBox color={true} handleSubmit={postLessonComment} />
       </div>
-      <SingleLectureFooter openModal={openModal} handleAudioDuration2={handleAudioDuration2}
+      <SingleLectureFooter
+        fetchLessonDetails={fetchLessonDetails} lesson={lesson}
+        lessonDetails={lessonDetails} openModal={openModal} handleAudioDuration2={handleAudioDuration2}
         audioRef={audioRef} setMarked={setMarked} marked={marked} setModalShow={openModal} />
       {
-        marked && (
+        (marked && modalIsOpen) && (
           <Confetti
             width={width}
             height={height}
@@ -377,6 +480,7 @@ function SingleLecturePage() {
       }
       {
         <CustomCourseModal
+          hasNext={hasNext}
           handleNext={handleNext}
           show={modalIsOpen}
           openModal={openModal}
@@ -385,7 +489,7 @@ function SingleLecturePage() {
         />
       }
       <div className="offcan">
-        <SidebarExample placement={"end"} show={show} lession={lesson} handleClose={handleClose} course={course_id} />
+        <SidebarExample chapters={chapters} placement={"end"} show={show} lessonDetails={lessonDetails} lession={lesson} handleClose={handleClose} course={course_id} />
       </div>
     </>
   )
