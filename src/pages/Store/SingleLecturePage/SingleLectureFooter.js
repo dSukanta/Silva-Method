@@ -5,7 +5,7 @@ import { GrLinkPrevious, GrLinkNext } from "react-icons/gr";
 import {TiTickOutline} from "react-icons/ti";
 
 
-function SingleLectureFooter({lessonDetails,fetchLessonDetails, lesson, setMarked,marked,setModalShow,handleAudioDuration2,audioRef,openModal }) {
+function SingleLectureFooter({getChapters,lessonDetails,fetchLessonDetails, lesson, setMarked,marked,setModalShow,handleAudioDuration2,audioRef,openModal }) {
     return (
         <Navbar>
             <Navbar.Toggle />
@@ -19,6 +19,7 @@ function SingleLectureFooter({lessonDetails,fetchLessonDetails, lesson, setMarke
                         // setMarked(true)
                         openModal()
                         handleAudioDuration2(audioRef.current.audio.current.duration)
+                        getChapters()
                         if(lesson){
                             fetchLessonDetails(lesson.lesson_id)
                         }

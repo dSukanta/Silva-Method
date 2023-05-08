@@ -19,10 +19,10 @@ function LiveEventsCard() {
         speed: 300,
         prevArrow: <GrFormPrevious />,
         nextArrow: <GrFormNext />,
-        slidesToShow: isDesktopOrLaptop ? 4 : isTablet ? 2 : 1,
+        slidesToShow: isDesktopOrLaptop ? 4 : isTablet ? 2 : 2,
         slidesToScroll: 1,
         centerMode: true,
-        centerPadding: isDesktopOrLaptop ? '0%' : "15%",
+        centerPadding: isDesktopOrLaptop ? '0%' : "5%",
 
     };
 
@@ -52,7 +52,7 @@ function LiveEventsCard() {
                 <Slider {...settings}>
                    {
                     liveCourses && liveCourses.map((lc,i)=>(
-                    <div className="col-3">
+                    <div className="col-3 p-2">
                         <LiveCardSingle data={lc} />
                     </div>
                     ))

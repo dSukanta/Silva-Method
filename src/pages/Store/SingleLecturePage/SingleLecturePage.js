@@ -386,6 +386,10 @@ function SingleLecturePage() {
                     // setMarked(true)
                     openModal()
                     handleAudioDuration2(audioRef.current.audio.current.duration)
+                    if(lesson){
+                        fetchLessonDetails(lesson.lesson_id)
+                    }
+                    getChapters()
                   }}
                   autoPlayAfterSrcChange={false}
                   src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://samplelib.com/lib/preview/mp3/sample-15s.mp3"}
@@ -461,6 +465,7 @@ function SingleLecturePage() {
         <LeaveCommentBox color={true} handleSubmit={postLessonComment} />
       </div>
       <SingleLectureFooter
+        getChapters={getChapters}
         fetchLessonDetails={fetchLessonDetails} lesson={lesson}
         lessonDetails={lessonDetails} openModal={openModal} handleAudioDuration2={handleAudioDuration2}
         audioRef={audioRef} setMarked={setMarked} marked={marked} setModalShow={openModal} />

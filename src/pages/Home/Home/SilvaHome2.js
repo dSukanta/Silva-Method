@@ -37,7 +37,7 @@ const SilvaHome2 = () => {
             {/* <Homeherodiv/> */}
             {/* <Featured/> */}
             {/* <AboutSilvaMethod/> */}
-            <CourseSlide />
+            {/* <CourseSlide /> */}
             {
                 userData && userData.strip_payment_status !== "paid" && (
                     <WelcomeToSilvaBanner />

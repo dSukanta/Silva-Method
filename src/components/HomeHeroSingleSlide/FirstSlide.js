@@ -7,7 +7,7 @@ import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 import { Link } from 'react-router-dom';
 
 function CourseSlide() {
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 913px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 912 })
     const isMobile = useMediaQuery({ minWidth: 412, maxWidth: 480 })
 

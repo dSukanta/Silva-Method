@@ -986,6 +986,15 @@ svg {
   
 }
 
+@media only screen and (max-width: 500px) {
+  .coursesslider .slick-prev{
+    display: none !important;
+  }
+  .coursesslider .slick-next{
+    display: none !important;
+  }
+  
+}
 
 
 
@@ -1038,7 +1047,7 @@ svg {
   border-left: 5px solid white;
 }
 .cardbody:hover{
-  scale: 1.1;
+  scale: 1.05;
   transition: 0.3s ease-in;
 }
 

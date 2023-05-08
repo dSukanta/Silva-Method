@@ -6,7 +6,8 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { requestData } from "../../../utils/baseUrl";
 import { useNavigate, useParams } from "react-router-dom";
 
-function SidebarExample({chapters, show,handleClose, lession, lessonDetails, ...props }) {
+function SidebarExample({ chapters, show, handleClose, lession, lessonDetails, ...props }) {
+  const [durations,setDurations] = useState([]);
   //console.log(props);
   const completed = 3;
   const params = useParams()
@@ -33,7 +34,7 @@ function SidebarExample({chapters, show,handleClose, lession, lessonDetails, ...
   //   getLessonList()
   // },[chapters])
 
-  async function getLessonList(){
+  async function getLessonList() {
     // const foundCourse = chapters.find((val, i) => {
     //   if (val.course_id === params.course_id) {
     //     return val;
@@ -42,14 +43,14 @@ function SidebarExample({chapters, show,handleClose, lession, lessonDetails, ...
 
     let allLessonsInCurrentCourse = [];
 
-   
-      chapters.forEach((chapter, i) => {
-        const lessionsInSingleChapter = chapter.lession;
-        allLessonsInCurrentCourse = [...allLessonsInCurrentCourse, ...lessionsInSingleChapter]
-      })
 
-      // setallLessonList(allLessonsInCurrentCourse)
-      console.log(allLessonsInCurrentCourse,"ALLCOURSELIST")
+    chapters.forEach((chapter, i) => {
+      const lessionsInSingleChapter = chapter.lession;
+      allLessonsInCurrentCourse = [...allLessonsInCurrentCourse, ...lessionsInSingleChapter]
+    })
+
+    // setallLessonList(allLessonsInCurrentCourse)
+    console.log(allLessonsInCurrentCourse, "ALLCOURSELIST")
   }
 
 
@@ -73,6 +74,29 @@ function SidebarExample({chapters, show,handleClose, lession, lessonDetails, ...
   //     console.log(newres,"ALLCOURSELIST")
   //   }
   // }
+
+
+  useEffect(() => {
+    console.log(chapters, "chapters")
+  }, [chapters])
+
+  const getAudioDuration = (url) => {
+    console.log(url, "babyy");
+    let au = document.createElement('audio');
+
+    // Define the URL of the MP3 audio file
+    au.src = url;
+
+    // Once the metadata has been loaded, display the duration in the console
+    au.addEventListener('loadedmetadata', function(){
+      // Obtain the duration in seconds of the audio file (with milliseconds as well, a float value)
+      setDurations([...durations,au.duration])
+      // example 12.3234 seconds
+      // Alternatively, just display the integer value with
+      // parseInt(duration)
+      // 12 seconds
+  },false);
+  }
 
 
   return (
@@ -127,13 +151,16 @@ function SidebarExample({chapters, show,handleClose, lession, lessonDetails, ...
                         style={{ wordBreak: "break-word" }}
                       >
                         {lessionItem.lesson_title.substring(0, 20)}
+                        <br />
+                      
+                       
                       </p>
                     </a>
                     {/* <p className='white-color'>{value.duration}</p> */}
                   </div>
                   {
-                    true ? (
-                      <BsCheckCircleFill size={30} color={"green"} onClick={()=>{
+                    lessionItem.lesson_activity_status === "Completed" ? (
+                      <BsCheckCircleFill size={30} color={"green"} onClick={() => {
                         console.log(lessionItem)
                       }} />
                     ) : (
