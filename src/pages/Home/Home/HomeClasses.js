@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import HomeSingleClass from "./HomeSingleClass";
 import { AuthContext } from "../../../context/AllContext";
+import SingleClassCards from "./SingleClassCard";
 
 const HomeClasses = () => {
    const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
@@ -66,7 +67,7 @@ const HomeClasses = () => {
           <div className="row row-cols-2 row-cols-lg-3">
             {classes &&
               classes.map((classes) => (
-                <HomeSingleClass key={classes.course_id} data={classes} />
+                <SingleClassCards key={classes.course_id} data={classes} />
               ))}
           </div>
         </div>
