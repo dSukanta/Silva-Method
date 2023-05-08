@@ -161,10 +161,10 @@
 /* button style */
  .primary_btn {
      -moz-user-select: none;
-     background: white;
+     background: #801cb6;
      border: medium none;
      border-radius: 0;
-     color: #9b37f2;
+     color: white;
      cursor: pointer;
      display: inline-block;
      font-size: 14px;
@@ -183,7 +183,7 @@
 }
  .primary_btn:hover {
      background: #581d8b;
-     color: #fff;
+     color: black;
 }
 
 .primary_btn2 {

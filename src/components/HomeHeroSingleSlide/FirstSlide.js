@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
 import { useMediaQuery } from 'react-responsive';
 import Slider from 'react-slick';
 import {FcPrevious,FcNext} from "react-icons/fc";
 import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AllContext';
 
 function CourseSlide() {
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-    const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+    const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
 
     const [courses, setCourses] = useState([]);
 
@@ -77,13 +76,19 @@ function CourseSlide() {
         <div className='next-slide'>
         <img src={slide== items.length-1?items[0]: items[slide+1]} height="100%"/>
         </div> */}
+
+            <div className='w-75 m-auto text-center'>
+            <h2 style={{fontWeight: "800",fontSize: isDesktopOrLaptop ? "60px" : "30px",}}>One Membership, Multiple Courses</h2>
+            <h5 className="mt-3">Over 6 Million people in 110 countries have experienced what Silva Method Meditation can do.</h5>
+            </div>
+
             <Slider {...settings} arrows>
 
                 {courses && courses.map(course =>
                     <Link to={`/store/course/${course.course_id}`}>
                     <div key={course.course_id} className='col-12'>
                         <img src={course.web_image || "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}
-                         style={{ width: isDesktopOrLaptop?"97%":"96.5%",margin:isDesktopOrLaptop?"30px":"0px",borderRadius:"10px", height: isDesktopOrLaptop ? "500px" : isTablet?"320px":"200px" }} />
+                         style={{ width: isDesktopOrLaptop?"97%":"96.5%",margin:isDesktopOrLaptop?"30px":"0px",borderRadius:"10px", height: isDesktopOrLaptop ? "500px" : isTabletOrMobile?"320px":"200px" }} />
                     </div>
                     </Link>)}
                 {/* <div className='col-12'>

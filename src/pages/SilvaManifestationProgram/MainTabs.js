@@ -15,7 +15,7 @@ function MainTabs({data}) {
     const tabs = ["Overview", "Chapters","Comments"]
     return (
         <>
-         <div className={`w-100 d-flex justify-content-center tabsmainview ${isDesktopOrLaptop?"gap-5":"gap-3"}`} style={{ marginTop: isDesktopOrLaptop?"40px":"0", borderBottom: "1px solid gray" }}>
+         <div className={`w-100 d-flex justify-content-start tabsmainview ${isDesktopOrLaptop?"gap-5":"gap-3"}`} style={{ marginTop: isDesktopOrLaptop?"40px":"0", borderBottom: "1px solid gray" }}>
             {
                 tabs.map((t, i) => (
                     <h5 style={{ color: "whitesmoke",fontSize:isDesktopOrLaptop?"1.4rem":"1rem" }} className={activeTab === t ? 'activenavtab' : ""} onClick={() => {
