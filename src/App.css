@@ -1222,3 +1222,8 @@ svg {
   color: white;
   padding: 10px 20px;
 }
+
+
+.row>*{
+  padding-left: 0 !important;
+}

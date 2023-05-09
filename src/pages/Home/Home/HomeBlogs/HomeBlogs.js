@@ -59,7 +59,7 @@ const HomeBlogs = () => {
                   </div> */}
                </div>
 
-               <div className="row">
+               <div className="row gap-3 blogSectionDiv">
                   
                   {blogs && blogs.map((blog) =>
                   <HomeSingleBlogLeftSide key={blog.blog_id} data={blog}/>
