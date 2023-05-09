@@ -61,15 +61,16 @@ export default function Testimonials() {
   const[reviews,setReviews]=useState([]);
 
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow:1,
-    slidesToScroll: 1,
+    className: "center",
     centerMode: true,
-    autoplay: true,
-    prevArrow: <GrFormPrevious />,
+    infinite: true,
+    centerPadding: "40px",
+    slidesToShow: isDesktopOrLaptop ? 1 : 1,
+    speed: 500,
+    prevArrow: <GrFormPrevious/>,
     nextArrow: <GrFormNext />,
+    dots:true,
+    autoplay:true
   };
 
       const getreviews = async() =>{
@@ -109,7 +110,7 @@ export default function Testimonials() {
         <Slider {...settings}>
         
         {reviews && reviews.map((review)=>
-            <div key={review.id} className="d-flex justify-content-center align-items-center text-start border border-1 w-75 m-auto">
+            <div key={review.id} className="d-flex flex-column flex-md-row justify-content-center align-items-center text-start border border-1 p-3 text-center">
               <img src={review.image}/>
               <div>
               <div

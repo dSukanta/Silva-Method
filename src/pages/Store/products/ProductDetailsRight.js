@@ -213,7 +213,7 @@ const ProductDetailsRightSide = ({productId,products,setProducts}) => {
                    <Link to="/contact"><img src="img/blog/details/banner.png" alt=""/></Link>
                     </div>
                 </div> */}
-         <Link to='/store/books'> <button>Show More products</button></Link>
+         <Link to='/store/books'> <button className="show-more-products">Show More products</button></Link>
       </div>
     </>
   );

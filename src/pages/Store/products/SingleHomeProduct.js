@@ -33,7 +33,7 @@ function SingleHomeProducts({data}) {
                             <div className='d-flex justify-content-between align-items-center'>
                                 <div className='d-flex flex-column'>
                                     <Card.Text className='text-dark'>
-                                        <b>by</b> <br />  {data && data.author? data.author:"Author Name"}
+                                        <b>by</b>  {data && data.author? data.author:"Author Name"}
                                     </Card.Text>
                                 </div>
                             </div>

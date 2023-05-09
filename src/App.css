@@ -995,7 +995,7 @@ svg {
   border-left: 5px solid white;
 }
 .cardbody:hover{
-  scale: 1.1;
+  scale: 1.05;
   transition: 0.3s ease-in;
 }
 
@@ -1210,4 +1210,15 @@ svg {
 
 .card{
   margin-bottom: 25px !important;
+}
+
+
+.show-more-products{
+  width: auto;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  background-color: #801cb6;
+  color: white;
+  padding: 10px 20px;
 }
