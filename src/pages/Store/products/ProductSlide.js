@@ -61,22 +61,28 @@ function ProductSlide() {
     className: "center",
     centerMode: true,
     infinite: true,
-    centerPadding:isDesktopOrLaptop? "60px":"0px",
+    centerPadding: isDesktopOrLaptop ? "60px" : "0px",
     slidesToShow: isDesktopOrLaptop ? 3 : 2,
     speed: 500,
     rows: 2,
     slidesPerRow: 1,
-    prevArrow: <GrFormPrevious/>,
+    prevArrow: <GrFormPrevious />,
     nextArrow: <GrFormNext />,
-    dots:true,
-    autoplay:true
+    dots: true,
+    autoplay: true,
   };
 
   return (
-    <div className="col-lg-12 gap-3 not-slide-icon">
-      <h3 style={{ color: "black", padding: "10px 10px 10px 0" }}>
-        Check our Unique Peoducts
-      </h3>
+    <div className="col-lg-12 gap-3 not-slide-icon text-center">
+      <h2
+        style={{
+          fontWeight: "800",
+          fontSize: isDesktopOrLaptop ? "60px" : "30px",
+          marginBottom:'50px'
+        }}
+      >
+        Check our Unique Products
+      </h2>
       <Slider {...settings}>
         {products &&
           products.map((product) => (
