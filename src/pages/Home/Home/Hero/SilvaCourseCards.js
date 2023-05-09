@@ -38,7 +38,7 @@ function SilvaCourseCards() {
 
     const fetchAllCourses = async () => {
         setLoading(true);
-        const res = await requestData3("courseListWithChild", "POST", {});
+        const res = await requestData("courseListWithChild", "POST", {});
         setLoading(false);
         console.log(res, "resduta")
 

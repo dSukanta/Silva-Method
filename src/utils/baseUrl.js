@@ -3,6 +3,7 @@ import {reactLocalStorage} from 'reactjs-localstorage';
 
 
 export const baseUrl = 'https://projectsites.in/silvamethod/api/';
+const token3 = reactLocalStorage.get("token")
 
 export const requestData = async function (path, method = "POST", body) {
     //console.log(body);
@@ -10,11 +11,10 @@ export const requestData = async function (path, method = "POST", body) {
     myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
     myHeaders.append("Device", "Android");
     myHeaders.append("Language", "english");
-    const token = reactLocalStorage.get("token");
 
-    if(token){
-        console.log(token)
-        myHeaders.append("Token",token)
+    if(token3){
+        console.log(token3)
+        myHeaders.append("Token",token3)
     }
     const formData = new FormData();
 
@@ -43,12 +43,11 @@ export const requestData2 = async function (path, method = "POST") {
     myHeaders.append("ApiKey", "40bb9d38c66e40a86678979286f4e2b5");
     myHeaders.append("Device", "Android");
     myHeaders.append("Language", "english");
-    const token = localStorage.getItem("token")
+  
 
-
-    if(token){
-        console.log(token)
-        myHeaders.append("Token",token)
+    if(token3){
+        console.log(token3)
+        myHeaders.append("Token",token3)
     }
 
     console.log(myHeaders)
@@ -63,7 +62,6 @@ export const requestData2 = async function (path, method = "POST") {
 }
 
 
-const token3 = reactLocalStorage.get("token")
 
 export const requestData3 = async function (path, method = "POST", body) {
     //console.log(body);
