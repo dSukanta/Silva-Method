@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Badge, Button, Card, ProgressBar } from 'react-bootstrap'
 import { GrFormNext } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 import Noimage from '../../../img/noimage.jpg'
 import { Tooltip } from 'react-tooltip';
+import { AuthContext } from '../../../context/AllContext';
 
 function SingleHomeProducts({data}) {
   //console.log(data);
+  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
+
     return (
         
-                <div className="col-sm-10 col-md-12">
+                <div>
                     <Card className="text-start cardbody" style={{ borderRadius: "20px",width:"90%"}}>
                         <Card.Header className='bg-transparent'
                             style={{ borderBottom: "none"}}
@@ -26,7 +29,7 @@ function SingleHomeProducts({data}) {
                             </div>
                         </Card.Header>
                         <Card.Body>
-                            <Card.Img style={{ width: "100%",height:'300px'}} src={data && data.product_image? data.product_image:Noimage} />
+                            <Card.Img style={{ width:"100%",height:isDesktopOrLaptop?"300px":"100px"}} src={data && data.product_image? data.product_image:Noimage} />
                             <div className='d-flex justify-content-between align-items-center'>
                                 <div className='d-flex flex-column'>
                                     <Card.Text className='text-dark'>

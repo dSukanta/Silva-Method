@@ -3,14 +3,15 @@ import Slider from "react-slick";
 import OverlayCard from "./OverlayCard";
 import ProductOverlayCard from "./ProductOverlayCard";
 import { useMediaQuery } from "react-responsive";
-import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import SingleHomeProducts from "./SingleHomeProduct";
 import { AuthContext } from "../../../context/AllContext";
 
 function ProductSlide() {
-  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
+  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =
+    useContext(AuthContext);
 
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
     const myHeaders = new Headers();
@@ -42,32 +43,32 @@ function ProductSlide() {
 
   //console.log(products);
 
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: isDesktopOrLaptop? 4:1,
-        slidesToScroll: 1,
-        centerMode: false,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        pauseOnHover: false,
-        prevArrow: <GrFormPrevious />,
-        nextArrow: <GrFormNext />,
-      };
+  // var settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: isDesktopOrLaptop ? 4 : 2,
+  //   slidesToScroll: 1,
+  //   centerMode: false,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  //   pauseOnHover: false,
+  //   prevArrow: <GrFormPrevious />,
+  //   nextArrow: <GrFormNext />,
+  // };
   return (
     <div className="col-lg-12 gap-3">
-      <h3 style={{color: "black",padding:'10px 10px 10px 0'}}>Check our Unique Peoducts</h3>
-    <Slider {...settings}>
-     
-      {products && products.map(product=>
+      <h3 style={{ color: "black", padding: "10px 10px 10px 0" }}>
+        Check our Unique Peoducts
+      </h3>
+      {/* <Slider {...settings}></Slider> */}
+     <div className="d-flex w-100 row row-cols-2 row-cols-lg-3 justify-content-center align-items-center p-3">
+     {products && products.map(product=>
           <SingleHomeProducts key={product.product_id} data={product && product}/>
-        )}
-   
-      
-    </Slider>
+      )}
+     </div>
     </div>
-  )
+  );
 }
 
-export default ProductSlide
+export default ProductSlide;
