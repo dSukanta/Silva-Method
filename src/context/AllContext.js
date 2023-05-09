@@ -18,7 +18,7 @@ const AllContext = ({children}) => {
         }
     });
     const [userData,setUserData] = useState(null);
-
+    const [userToken,setUserToken] = useState("");
 
     const isDesktopOrLaptop = useMediaQuery({
         query: '(min-width: 1224px)'
@@ -106,7 +106,9 @@ const AllContext = ({children}) => {
         setIsUserLoggedIn,
         userData,
         setUserData,
-        logout
+        logout,
+        setUserToken,
+        userToken
     }
     return (
        <>

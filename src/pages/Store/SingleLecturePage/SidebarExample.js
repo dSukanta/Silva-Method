@@ -6,8 +6,11 @@ import { BsCheckCircleFill } from "react-icons/bs";
 import { requestData } from "../../../utils/baseUrl";
 import { useNavigate, useParams } from "react-router-dom";
 
+
 function SidebarExample({ chapters, show, handleClose, lession, lessonDetails, ...props }) {
-  const [durations,setDurations] = useState([]);
+  const [durations, setDurations] = useState([]);
+  const [chapterData, setChapterData] = useState(null);
+  const [allLesson, setAllLessions] = useState([]);
   //console.log(props);
   const completed = 3;
   const params = useParams()
@@ -77,26 +80,67 @@ function SidebarExample({ chapters, show, handleClose, lession, lessonDetails, .
 
 
   useEffect(() => {
-    console.log(chapters, "chapters")
+    if (chapters) {
+      const obj = {}
+      let allLessions = [];
+      chapters.forEach((val, i) => {
+        let completed = 0;
+        obj[val.chapter_id] = {};
+        obj[val.chapter_id].total = val.lession.length;
+        for (let less of val.lession) {
+          if (less.lesson_activity_status === "Completed") {
+            ++completed
+          }
+        }
+        obj[val.chapter_id].completed = completed
+
+        allLessions = [...allLessions, ...val.lession]
+      })
+      setChapterData(obj);
+      setAllLessions(allLessions)
+    }
   }, [chapters])
 
-  const getAudioDuration = (url) => {
-    console.log(url, "babyy");
-    let au = document.createElement('audio');
+  // const getAudioDuration = (audioUrl) => {
+  //   const audioElement = new Audio();
 
-    // Define the URL of the MP3 audio file
-    au.src = url;
+  //   audioElement.addEventListener('loadedmetadata', () => {
+  //     const duration = audioElement.duration;
+  //     console.log(duration, "DURATIONS"); // log audio duration in seconds
+  //   });
 
-    // Once the metadata has been loaded, display the duration in the console
-    au.addEventListener('loadedmetadata', function(){
-      // Obtain the duration in seconds of the audio file (with milliseconds as well, a float value)
-      setDurations([...durations,au.duration])
-      // example 12.3234 seconds
-      // Alternatively, just display the integer value with
-      // parseInt(duration)
-      // 12 seconds
-  },false);
-  }
+  //   audioElement.src = audioUrl;
+  // }
+
+  // useEffect(() => {
+  //   if (allLesson.length > 0) {
+  //     const getDurations = async () => {
+  //       const filtered = allLesson.filter((val)=>{
+  //         const file = val.lesson_file.split(".").slice(-1)[0];
+  //         console.log(file,"filtereddata")
+  //         return file==="mp3"
+  //       })
+  //       console.log("filtereddata",filtered)
+  //       // const durations2 = await Promise.all(filtered.map(getAudioDuration2));
+  //       // console.log(durations2,"durationsbaby")
+  //     };
+
+  //     getDurations();
+  //   }
+  // }, [allLesson])
+
+
+  const getAudioDuration2 = (lession) =>
+  new Promise((resolve, reject) => {
+    const audio = new Audio();
+    console.log(lession.lesson_file,"lessionfile")
+    
+    audio.src = lession.lesson_file;
+    audio.addEventListener('loadedmetadata', () => {
+      resolve(audio.duration);
+    });
+    audio.addEventListener('error', reject);
+  });
 
 
   return (
@@ -110,12 +154,23 @@ function SidebarExample({ chapters, show, handleClose, lession, lessonDetails, .
             <div>
               {chapter.lession.length > 0 && (
                 <div style={{ width: "100%" }}>
-                  <ProgressBar
-                    now={(100 * completed) / chapter.lession.length}
-                  />
-                  <h6 className="mt-3 white-color">
-                    {completed} / {chapter.lession.length} Lessons completed
-                  </h6>
+                  {
+                    chapterData && (
+                      <ProgressBar
+                        now={Math.floor((chapterData[chapter.chapter_id]?.completed /
+                          chapterData[chapter.chapter_id]?.total) * 100)}
+                      />
+
+                    )
+                  }
+                  {
+                    chapterData && (
+                      <h6 className="mt-3 white-color">
+                        {chapterData[chapter.chapter_id]?.completed} / {chapterData[chapter.chapter_id]?.total} Lessons completed
+                      </h6>
+                    )
+                  }
+
                 </div>
               )}
               <p className="text-start white-color">
@@ -131,6 +186,7 @@ function SidebarExample({ chapters, show, handleClose, lession, lessonDetails, .
                     //window.location.reload();
                   }}
                 >
+                  {/* <h6>{getAudioDuration()}</h6> */}
                   <img
                     src={
                       lessionItem.image
@@ -152,8 +208,8 @@ function SidebarExample({ chapters, show, handleClose, lession, lessonDetails, .
                       >
                         {lessionItem.lesson_title.substring(0, 20)}
                         <br />
-                      
-                       
+
+
                       </p>
                     </a>
                     {/* <p className='white-color'>{value.duration}</p> */}

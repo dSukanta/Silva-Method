@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import SingleLectureNavbar from './SingleLectureNavbar'
 import ReactPlayer from 'react-player'
 import { useMediaQuery } from 'react-responsive'
@@ -16,13 +16,14 @@ import LeaveCommentBox from '../../SilvaManifestationProgram/LeaveCommentBox'
 import { requestData } from '../../../utils/baseUrl'
 import { useParams, useNavigate, useLocation } from 'react-router'
 import toast, { Toaster } from "react-hot-toast";
-import { Document } from "react-pdf";
 import MoonLoader from "react-spinners/MoonLoader";
+import { AuthContext } from '../../../context/AllContext'
 
 
 function SingleLecturePage() {
+  const { userData } = useContext(AuthContext)
   const [chapters, setChapters] = useState([]);
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [pages, setPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
   const [hasNext, setHasNext] = useState(true)
@@ -135,12 +136,12 @@ function SingleLecturePage() {
     setAllCoursesList(res.data);
   }
 
-  
+
   const getChapters = async () => {
     const res = await requestData("courseDetail", "POST", {
       course_id: params.course_id,
     });
-    console.log("ressss",res)
+    console.log("ressss", res)
     //console.log(res.data[0].chapters)
     setChapters(res.data[0].chapters);
   };
@@ -250,8 +251,12 @@ function SingleLecturePage() {
     // }
     getChapters()
     fetchAllCourses()
-    fetchLessonDetails(params.lession_id)
-
+    if (localStorage.getItem("token")) {
+      fetchLessonDetails(params.lession_id)
+    } else {
+      setLesson(location.state)
+    }
+    console.log(location.state, "locationstate")
   }, [])
 
   useEffect(() => {
@@ -338,28 +343,26 @@ function SingleLecturePage() {
   }, [lessonDetails])
 
 
-  useEffect(() => {
-    console.log("lesson", lesson.lesson_file)
-  }, [lesson])
 
 
-  if(loading){
+  if (loading) {
     return (
-      <div style={{height:"100%"}}>
+      <div style={{ height: "100%" }}>
         <div className='d-flex justify-content-center align-content-center align-items-center'>
-        <MoonLoader
-        color='black'
-        size={150}
-        />
-      </div>
+          <MoonLoader
+            color='black'
+            size={150}
+          />
+        </div>
       </div>
     )
   }
 
+
   return (
     <>
       <div className='d-flex justify-content-center align-items-center flex-column text-center navhead mx-4 my-4'>
-        <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title} />
+        <SingleLectureNavbar handleShow={handleShow} lession={lesson && lesson.lesson_title} userData={userData} />
         <h2 className='mt-1'>{lesson && lesson.lesson_title}</h2>
         <div className="row justify-content-center align-items-center">
           <div className="col-sm-12 col-md-8 col-lg-6">
@@ -376,7 +379,7 @@ function SingleLecturePage() {
                   // }}
                   onPause={() => {
                     console.log("Paused")
-                    if(audioRef.current){
+                    if (audioRef.current && localStorage.getItem("token")) {
                       if (audioRef.current?.audio?.current.currentTime !== audioRef?.current?.audio.current.duration) {
                         handleAudioDuration(audioRef.current.audio.current.currentTime)
                       }
@@ -384,12 +387,14 @@ function SingleLecturePage() {
                   }}
                   onEnded={() => {
                     // setMarked(true)
-                    openModal()
-                    handleAudioDuration2(audioRef.current.audio.current.duration)
-                    if(lesson){
+                    if (localStorage.getItem("token")) {
+                      openModal()
+                      handleAudioDuration2(audioRef.current.audio.current.duration)
+                      if (lesson) {
                         fetchLessonDetails(lesson.lesson_id)
+                      }
+                      getChapters()
                     }
-                    getChapters()
                   }}
                   autoPlayAfterSrcChange={false}
                   src={lesson && lesson.lesson_file ? lesson.lesson_file : "https://samplelib.com/lib/preview/mp3/sample-15s.mp3"}
@@ -402,7 +407,7 @@ function SingleLecturePage() {
 
             {
               lesson && Object.keys(lesson).length > 0 && lesson.lesson_file && lesson.lesson_file.split(".").slice(-1)[0] === "pdf" && (
-                <div className='mt-3' onContextMenu={(e)=>{
+                <div className='mt-3' onContextMenu={(e) => {
                   e.preventDefault()
                   return false
                 }}>
@@ -412,10 +417,10 @@ function SingleLecturePage() {
                       url: 'https://projectsites.in/silvamethod/assets/uploads/0.Silva%20Mind%20Body%20Healing%20Program.pdf'
                     }}
                   /> */}
-                  <embed onContextMenu={(e)=>{
+                  <embed onContextMenu={(e) => {
                     e.preventDefault()
                     return false
-                  }} src={`${lesson.lesson_file}#toolbar=0&navpanes=0&scrollbar=0`} style={{width:"100%",height:"500px"}}></embed>
+                  }} src={`${lesson.lesson_file}#toolbar=0&navpanes=0&scrollbar=0`} style={{ width: "100%", height: "500px" }}></embed>
                   {/* <object width="100%" height="600" data={lesson.lesson_file} type="application/pdf">   </object> */}
                 </div>
               )
@@ -460,15 +465,23 @@ function SingleLecturePage() {
 
       </div>
 
-      <div className='container p-4 singlelecturebg'>
+      {
+        userData && localStorage.getItem("token") && (
+          <div className='container p-4 singlelecturebg mb-3'>
         <Stories data={lesson && lesson.lesson_comment} />
         <LeaveCommentBox color={true} handleSubmit={postLessonComment} />
       </div>
-      <SingleLectureFooter
-        getChapters={getChapters}
-        fetchLessonDetails={fetchLessonDetails} lesson={lesson}
-        lessonDetails={lessonDetails} openModal={openModal} handleAudioDuration2={handleAudioDuration2}
-        audioRef={audioRef} setMarked={setMarked} marked={marked} setModalShow={openModal} />
+        )
+      }
+      {
+        userData && localStorage.getItem("token") && (
+          <SingleLectureFooter
+          getChapters={getChapters}
+          fetchLessonDetails={fetchLessonDetails} lesson={lesson}
+          lessonDetails={lessonDetails} openModal={openModal} handleAudioDuration2={handleAudioDuration2}
+          audioRef={audioRef} setMarked={setMarked} marked={marked} setModalShow={openModal} />
+        )
+      }
       {
         (marked && modalIsOpen) && (
           <Confetti
@@ -490,9 +503,13 @@ function SingleLecturePage() {
           setModalShow={setIsOpen}
         />
       }
-      <div className="offcan">
-        <SidebarExample chapters={chapters} placement={"end"} show={show} lessonDetails={lessonDetails} lession={lesson} handleClose={handleClose} course={course_id} />
-      </div>
+      {
+        userData && userData.strip_payment_status === "paid" && (
+          <div className="offcan">
+            <SidebarExample chapters={chapters} placement={"end"} show={show} lessonDetails={lessonDetails} lession={lesson} handleClose={handleClose} course={course_id} />
+          </div>
+        )
+      }
     </>
   )
 }

@@ -33,11 +33,11 @@ const LoginArea = () => {
    const navigate = useNavigate()
    // const { loginUser, passwordResetWithEmail, googleSignIn } = useAuth();
    const [showPass, setShowPass] = useState(false);
-   const { isUserLoggedIn, setIsUserLoggedIn,setUserData, userData } = useContext(AuthContext)
+   const { isUserLoggedIn, setIsUserLoggedIn, setUserData, userData, setUserToken } = useContext(AuthContext)
 
    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    
+
    const getProfile = async () => {
       const res = await requestData2("getStudentProfile", "POST", {});
       if (res && res.error === false) {
@@ -89,9 +89,9 @@ const LoginArea = () => {
          setIsUserLoggedIn(true)
          toast.success(data.messages)
          setUserData(data.data.profile)
-         if(data.data.profile.strip_payment_status==="paid"){
-            navigate("/today")
-         }else{
+         if (data.data.profile.strip_payment_status === "paid" && localStorage.getItem("token")) {
+            navigate("/")
+         } else {
             navigate("/silva_membership")
          }
       } else {
@@ -125,18 +125,27 @@ const LoginArea = () => {
 
       const res = await fetch(baseUrl + "loginWithSocial", requestOptions);
       const data = await res.json();
-      console.log(data,"socialdata")
+      console.log(data, "socialdata")
       if (data && data.error === false) {
+         setUserToken(data.data.token)
          localStorage.setItem("token", data.data.token)
          localStorage.setItem("google_login", true)
          setIsUserLoggedIn(true)
          toast.success(data.messages)
          setUserData(data.data.profile)
-         if(data.data.profile.strip_payment_status==="paid"){
-            navigate("/today")
-         }else{
-            navigate("/silva_membership")
-         }
+        
+            // Clear the token from local storage and redirect to login page
+            if (data.data.profile.strip_payment_status === "paid") {
+               navigate("/")
+               // window.location.href = "http://localhost:3000/newsilva/"
+            } else {
+               navigate("/silva_membership")
+            }
+         
+
+         // const res = await requestData("courseListWithChild", "POST", { start_index: 0 });
+         console.log(data.data.profile.strip_payment_status, "linkres")
+
       } else {
          toast.error(data.messages)
       }
@@ -221,24 +230,24 @@ const LoginArea = () => {
                            <Link to="/register"><button className="primary_btn theme-btn w-100">Register Now</button></Link>
                         </form>
                         <div className="or-divide or-login"><span>or login with </span>
-                         <div className='d-flex justify-content-center mb-4 mt-4'>
-                         <GoogleLogin
-                          theme='filled_black'
-                          onSuccess={credentialResponse => {
-                             console.log(credentialResponse);
-                             const res = jwt_decode(credentialResponse.credential)
-                             fetchSocialLogin(res.email,res.given_name,res.family_name,res.picture)
-                          }}
-                          onError={() => {
-                             toast.error("Login with google failed")
-                          }}
-                       />
-                         </div>
-                       <button className="primary_btn2 theme-btn" onClick={handleShow}>
-                         Login with OTP
-                       </button>
-                       </div>
-                       
+                           <div className='d-flex justify-content-center mb-4 mt-4'>
+                              <GoogleLogin
+                                 theme='filled_black'
+                                 onSuccess={credentialResponse => {
+                                    console.log(credentialResponse);
+                                    const res = jwt_decode(credentialResponse.credential)
+                                    fetchSocialLogin(res.email, res.given_name, res.family_name, res.picture)
+                                 }}
+                                 onError={() => {
+                                    toast.error("Login with google failed")
+                                 }}
+                              />
+                           </div>
+                           <button className="primary_btn2 theme-btn" onClick={handleShow}>
+                              Login with OTP
+                           </button>
+                        </div>
+
                      </div>
                   </div>
                </div>

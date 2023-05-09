@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Badge, Button, Card, ProgressBar } from 'react-bootstrap'
 import { BsFillPersonFill } from "react-icons/bs";
-import { requestData } from '../../../../utils/baseUrl';
+import { baseUrl, requestData, requestData3 } from '../../../../utils/baseUrl';
 import { useMediaQuery } from 'react-responsive';
 import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MoonLoader from "react-spinners/MoonLoader";
 import LoggedInHeroSection from './LoggedInHeroSection';
 import LoggedInHeroSection2 from './LoginHeroSection2';
+import { AuthContext } from '../../../../context/AllContext';
 
 function SilvaCourseCards() {
+    const { userData, userToken } = useContext(AuthContext);
+
     const [loading, setLoading] = useState(false);
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 1279 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
     const [allCourses, setAllCourses] = useState([]);
     const [startedCourses, setStartedCourses] = useState([]);
@@ -35,10 +38,13 @@ function SilvaCourseCards() {
 
     const fetchAllCourses = async () => {
         setLoading(true);
-        const res = await requestData("courseListWithChild", "POST", { start_index: 0 });
+        const res = await requestData3("courseListWithChild", "POST", {});
         setLoading(false);
         console.log(res, "resduta")
 
+        if (!res) {
+            return false;
+        }
         let courses = []
         for (let course of res.data) {
             // let isCourseStarted=false;
@@ -87,6 +93,9 @@ function SilvaCourseCards() {
     }
 
     useEffect(() => {
+        // setTimeout(()=>{
+        //     fetchAllCourses()
+        // },5000)
         fetchAllCourses()
     }, [])
 

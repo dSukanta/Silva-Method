@@ -12,28 +12,6 @@ function CustomAccordion({data}) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const {userData} = useContext(AuthContext);
 
-    const items = [
-        {
-            img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg",
-            title: "Intro 1, The Truth About Meditation",
-            duration: "16 min",
-            unlocked: true
-        },
-        {
-            img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg",
-            title: "Intro 2 - Introducing The 6 Phases",
-            duration: "15 min",
-            unlocked: false
-        },
-        {
-            img: "https://assets.mindvalley.com/api/v1/assets/c6cfed91-b485-43fc-9284-098f77dde4ff.jpg",
-            title: "Intro 3 - How to Practice The 6 Phase Meditation",
-            duration: "9 min",
-            unlocked: true
-        },
-    ]
-
-
     useEffect(()=>{
        if(userData){
          if(userData.strip_payment_status==="paid"){
@@ -41,6 +19,12 @@ function CustomAccordion({data}) {
          }
        }
     },[userData])
+
+    useEffect(()=>{
+       if(data){
+        console.log(data)
+       }
+    },[data])
     return (
         <Accordion>
             <Accordion.Item eventKey="0" className='mb-4'>
@@ -63,9 +47,9 @@ function CustomAccordion({data}) {
                                         </div>
                                     </div>
                                     {
-                                        isSubscribed ? (
+                                        (isSubscribed || val.preview_available!=="No") ? (
                                             <div className={`d-flex justify-content-center align-items-center gap-4 ${isDesktopOrLaptop ? "" : "flex-column"}`}>
-                                                <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate(`/store/course/${data.course_id}/${data.chapter_id}/${val.lesson_id}`)}>Preview</Badge>
+                                                <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate(`/store/course/${data.course_id}/${data.chapter_id}/${val.lesson_id}`,{state:val})}>Preview</Badge>
                                                 <HiOutlineArrowRight size={20} />
                                             </div>
                                         ) : (

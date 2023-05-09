@@ -109,7 +109,9 @@ function App() {
         {/* Home Route started*/}
         <Route path="/store/courses" element={<AllCourses />} />
         <Route path="/" element={<SilvaHome />} />
-        <Route path="/today" element={<SilvaHome2 />} />
+        <Route element={<PrivateRoute />}>
+           <Route path="/today" element={<SilvaHome2 />} />
+        </Route>
 
         <Route path="/home" element={<SilvaHome />} />
         {/* <Route path="/contactus" element={<ContactUs />} /> */}
@@ -129,7 +131,7 @@ function App() {
         <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
         <Route path="/silva_membership" element={<SilvaMemberShip />} />
         <Route element={<PrivateRoute />}>
-        <Route path="/store/profile" element={<Navigate to={`/store/profile/${userData?.first_name}/settings/basic_information`} />}>
+          <Route path="/store/profile" element={<Navigate to={`/store/profile/${userData?.first_name}/settings/basic_information`} />}>
         </Route>
         </Route>
         <Route element={<PrivateRoute />}>
@@ -197,9 +199,9 @@ function App() {
         {/* <Route element={<BottomToTop />} > */}
         <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
         {/* <Route path="/store/course/*" element={<NotFound/>} /> */}
-        <Route element={<PrivateRoute />}>
+        {/* <Route element={<PrivateRoute />}> */}
         <Route path='/store/course/:course_id/:chapter_id/:lession_id' element={<SingleLecturePage />} />
-        </Route>
+        {/* </Route> */}
         {/* </Route> */}
         {/* Blogs Route Ended */}
         {/*Auth Route started */}
