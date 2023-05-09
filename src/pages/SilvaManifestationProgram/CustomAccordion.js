@@ -47,7 +47,7 @@ function CustomAccordion({data}) {
                                         </div>
                                     </div>
                                     {
-                                        (isSubscribed || val.preview_available!=="No") ? (
+                                        (isSubscribed || val.preview_available==="Yes") ? (
                                             <div className={`d-flex justify-content-center align-items-center gap-4 ${isDesktopOrLaptop ? "" : "flex-column"}`}>
                                                 <Badge className='badgenew' bg="light" style={{ color: "black" }} onClick={()=>navigate(`/store/course/${data.course_id}/${data.chapter_id}/${val.lesson_id}`,{state:val})}>Preview</Badge>
                                                 <HiOutlineArrowRight size={20} />

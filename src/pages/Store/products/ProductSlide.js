@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import OverlayCard from "./OverlayCard";
 import ProductOverlayCard from "./ProductOverlayCard";
 import { useMediaQuery } from "react-responsive";
-import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import SingleHomeProducts from "./SingleHomeProduct";
+import { AuthContext } from "../../../context/AllContext";
 
 function ProductSlide() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =
+    useContext(AuthContext);
 
-    const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
     const myHeaders = new Headers();
@@ -42,29 +43,53 @@ function ProductSlide() {
 
   //console.log(products);
 
-    var settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: isMobile? 1: isTablet?2:4,
-        slidesToScroll: 1,
-        centerMode: false,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        pauseOnHover: false,
-        prevArrow: <GrFormPrevious />,
-        nextArrow: <GrFormNext />,
-      };
+  // var settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: isDesktopOrLaptop ? 4 : 2,
+  //   slidesToScroll: 1,
+  //   centerMode: false,
+  //   autoplay: true,
+  //   autoplaySpeed: 2000,
+  //   pauseOnHover: false,
+  //   prevArrow: <GrFormPrevious />,
+  //   nextArrow: <GrFormNext />,
+  // };
+
+  const settings = {
+    className: "center",
+    centerMode: true,
+    infinite: true,
+    centerPadding:isDesktopOrLaptop? "80px":"0px",
+    slidesToShow: isDesktopOrLaptop ? 3 : 2,
+    speed: 500,
+    rows: 2,
+    slidesPerRow: 1,
+    prevArrow: <GrFormPrevious/>,
+    nextArrow: <GrFormNext />,
+    dots:true,
+    autoplay:true
+  };
+
   return (
-    <div className="col-lg-12 gap-3">
-      <h3 style={{color: "black",padding:'10px 10px 10px 0'}}>Check our Unique Peoducts</h3>
-    <Slider {...settings}>
-      {products && products.map(product=>
-        <ProductOverlayCard key={product.product_id} data={product && product}/>
-        )}
-    </Slider>
+    <div className="col-lg-12 gap-3 not-slide-icon">
+      <h3 className="text-center" style={{ color: "black", padding: "10px 10px 10px 0" }}>
+        Check our Unique Peoducts
+      </h3>
+      <Slider {...settings}>
+        {products &&
+          products.map((product) => (
+            // <div className="d-flex w-100 row row-cols-2 row-cols-lg-3 justify-content-center align-items-center p-3">
+            <SingleHomeProducts
+              key={product.product_id}
+              data={product && product}
+            />
+            //  </div>
+          ))}
+      </Slider>
     </div>
-  )
+  );
 }
 
-export default ProductSlide
+export default ProductSlide;

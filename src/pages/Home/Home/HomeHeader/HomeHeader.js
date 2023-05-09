@@ -65,7 +65,7 @@ const HomeHeader = () => {
    return (
       <>
          <header>
-            <div className="top-bar d-flex d-md-block p-1 p-md-4 text-center">
+            {/* <div className="top-bar d-flex d-md-block p-1 p-md-4 text-center">
                <div className="container">
                   <div className="row d-flex align-items-center">
                      <div className="col-xl-7 offset-xl-0 col-lg-6 offset-lg-1 col-md-7 offset-md-1">
@@ -74,14 +74,14 @@ const HomeHeader = () => {
                            <span>digital@silvamethod.com</span>
                         </div>
                      </div>
-                     {/* <div className="col-xl-5 col-lg-5 col-md-4">
+                     <div className="col-xl-5 col-lg-5 col-md-4">
                         <div className="header-top-right-btn f-right">
                            <Link to="/store/courses" className="primary_btn">Explore Courses</Link>
                         </div>
-                     </div> */}
+                     </div>
                   </div>
                </div>
-            </div>
+            </div> */}
 
             <div className={stickyMenu ? "header-menu-area sticky_menu" : "header-menu-area"}>
                <div className="container menu_wrapper">

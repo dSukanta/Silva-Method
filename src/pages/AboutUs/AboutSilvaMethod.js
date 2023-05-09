@@ -1,71 +1,64 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useMediaQuery } from "react-responsive";
-import SilvaLogo from '../../../src/img/shape/silva_method.png'
-import JoseSilvaImg from '../../../src/img/shape/jose_silva.jpg'
+import SilvaLogo from "../../../src/img/shape/silva_method.png";
+import JoseSilvaImg from "../../../src/img/about/joseSilva.png";
+import { AuthContext } from "../../context/AllContext";
+import { Link } from "react-router-dom";
 
 const AboutSilvaMethod = () => {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =
+    useContext(AuthContext);
 
   return (
     <>
-      <section className={isDesktopOrLaptop? "about-area mt-50 mb-120":"about-area mt-50"}>
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-6 col-lg-2 about_left">
-              {/* <div className="medical-icon-brand-2">
-                        <img src="img/logo/title-logo.png" alt="title-logo.png"/>
-                     </div> */}
-              <div className="about-left-side pos-rel">
-                <div className="about-front-img">
-                  <img src={SilvaLogo} alt="" />
-                </div>
-                {/* <div className="about-shape">
-                  <img src="img/about/about-shape.png" alt="" />
-                </div> */}
-              </div>
-            </div>
-            <div className="col-xl-6 col-lg-7">
-              <div className="about-right-side pt-5 mb-30">
-                <div className="about-title mb-20">
-                  <h5>About Us</h5>
-                  <h1>Short Story About Silva Method.</h1>
-                </div>
-                <div className="about-text">
-                  <p>
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                    irure dolor in reprehenderit in voluptate velit esse cillum
-                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum.
-                  </p>
-                  <br />
-                </div>
-                {/* <div className="about-author d-flex align-items-center">
-                           <div className="author-ava">
-                              <img src="img/about/author-ava.png" alt=""/>
-                           </div>
-                           <div className="author-desination">
-                              <h4>Rosalina D. Williamson</h4>
-                              <h6>founder</h6>
-                           </div>
-                        </div> */}
-              </div>
-            </div>
-          </div>
+      <div
+        className={
+          isDesktopOrLaptop
+            ? "text-center mt-5 w-50 m-auto p-2 mb-3"
+            : "text-center mt-2 p-3"
+        }
+      >
+        <div>
+          <h2
+            style={{
+              fontWeight: "800",
+              fontSize: isDesktopOrLaptop ? "60px" : "30px",
+            }}
+          >
+            America's{" "}
+            <span style={{ color: "#801cb6", fontWeight: "800" }}>First</span>{" "}
+            personal growth program since 1966…
+          </h2>
+          <h5 className="mt-3">
+            Over 6 Million people in 110 countries have experienced what Silva
+            Method Meditation can do.
+          </h5>
+          <img src={JoseSilvaImg} />
         </div>
-      </section>
+        <div>
+          <p style={{ fontSize: isDesktopOrLaptop ? "18px" : "15px", paddingTop:'15px' , paddingBottom:'15px' }}>
+            At The Silva Method, we believe the key to the next stage of human
+            evolution lies in the mind’s hidden potential. Our mission is to
+            awaken this potential for everyone on the planet. Since 1966, we’ve
+            helped over 6 million people in 110 countries harness their minds
+            and improve their lives in various meaningful ways. Through a
+            scientific and time-tested curriculum based on the findings of our
+            late founder Jose Silva (the man widely credited with bringing
+            modern meditation to the West), we’ve helped our graduates spark
+            profound and lasting positive change in their careers, finances,
+            health, emotional wellbeing and relationships.
+          </p>
+          <Link
+            to="/#"
+            style={{
+              maxWidth: isDesktopOrLaptop || isBigScreen ? "50%" : "70%",
+            }}
+            
+          >
+          <button className="moreAboutJoseSilvaBtn">Read More About Jose Silva</button>
+          </Link>
+        </div>
+      </div>
     </>
   );
 };

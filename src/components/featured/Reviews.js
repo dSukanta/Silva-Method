@@ -38,7 +38,7 @@
 //   export default Reviews;
 
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import {GrFormPrevious,GrFormNext} from "react-icons/gr";
 // Import Swiper React components
@@ -52,24 +52,27 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination,Autoplay } from "swiper";
+import { AuthContext } from "../../context/AllContext";
+import NewReviewsCard from "./NewReviewsCard";
 
 export default function Testimonials() {
-  const isDesktopOrLaptop = useMediaQuery({query: '(min-width: 1280px)'})
-  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-  const isMobile = useMediaQuery({minWidth: 320, maxWidth:480  })
+  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
+
 
   const[reviews,setReviews]=useState([]);
 
   const settings = {
-    dots: true,
+    className: "center",
     infinite: true,
+    cssEase: "linear",
+    centerMode: true,
+    centerPadding: isDesktopOrLaptop?'20%':"10%",
+    slidesToShow: isDesktopOrLaptop ? 1 : 1,
     speed: 500,
-    slidesToShow:1,
-    slidesToScroll: 1,
-    // centerMode: true,
-    autoplay: true,
-    prevArrow: <GrFormPrevious />,
+    prevArrow: <GrFormPrevious/>,
     nextArrow: <GrFormNext />,
+    dots:true,
+    autoplay:true
   };
 
       const getreviews = async() =>{
@@ -102,23 +105,38 @@ export default function Testimonials() {
 
 
   return (
-    <div className = {isMobile ? "mt-0 mb-0 p-4":"mt-40 mb-40 p-4"}>
+    <div className = {isTabletOrMobile ? "mt-0 mb-0 p-4":"mt-40 mb-40 p-4"}>
       <div className="row justify-content-center">
-      <div className="col-12 text-center">
-      <h3>What Others Say about Us...</h3>
-        <Slider {...settings}>
+      <h3 className="text-center">What Others Say about Us...</h3>
+
+      <div className="col-12 text-center bestslider">
+
+      <Slider {...settings}>
+      <NewReviewsCard />
+      <NewReviewsCard />
+      <NewReviewsCard />
+      <NewReviewsCard />
+      <NewReviewsCard />
+      <NewReviewsCard />
+
+      </Slider>
+
+        {/* <Slider {...settings}>
+        
         {reviews && reviews.map((review)=>
-            <div key={review.id} className="d-flex flex-column justify-content-center align-items-center">
-              <img src={review.image} />
-              <h3>{`${review.name}, ${review.designation}`}</h3>
+            <div key={review.id} className="d-flex flex-column flex-md-row justify-content-center align-items-center text-start border border-1 p-3 text-center">
+              <img src={review.image}/>
+              <div>
               <div
                 dangerouslySetInnerHTML={{__html: review.comment}}
                   />
-              {/* <h4>{`"${review.comment}"`}</h4> */}
+              <h5>{`${review.name}, ${review.designation}`}</h5>
+              </div>
               
             </div>
         )}
-        </Slider>
+        
+        </Slider> */}
       </div>
       </div>
     </div>

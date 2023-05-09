@@ -20,6 +20,8 @@ import ProductSlide from "../../Store/products/ProductSlide";
 import AllContext, { AuthContext } from "../../../context/AllContext";
 import { requestData2 } from "../../../utils/baseUrl";
 import { Navigate } from "react-router-dom";
+import NewHomeSlider from "../NewHomeSlider";
+import SilvaBenefits from "./SilvaBenefits";
 
 const SilvaHome = () => {
     const { isDesktopOrLaptop,isTabletOrMobile,setUserData,isUserLoggedIn}= useContext(AuthContext);
@@ -34,10 +36,11 @@ const SilvaHome = () => {
       <Featured />
       <AboutSilvaMethod />
       <CourseSlide />
+      <SilvaBenefits/>
       <HomeClasses />
       <Testimonials />
-      <AboutSilva />
-      <div className={isDesktopOrLaptop?"col-8 m-auto pt-2 pb-5":"col-12 m-auto pt-2 pb-5"}>
+      {/* <AboutSilva /> */}
+      <div className={isDesktopOrLaptop?"":"col-12 m-auto pt-2 pb-5"}>
         <ProductSlide/>
       </div>
 
