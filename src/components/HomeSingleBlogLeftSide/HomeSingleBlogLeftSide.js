@@ -20,7 +20,7 @@ const HomeSingleBlogLeftSide = ({data}) => {
                      <span><Link to="/blogDetails" className="news-tag">Medicine</Link></span>
                   </div> */}
                   <h3 style={{textTransform:'capitalize'}}><Link to={`/blogDetails/${blog_id}`}>{title}</Link></h3>
-                  <p>{moment(created_at).format("MMM Do YY")}</p>
+                  <b>{moment(created_at).format("LL")}</b>
                </div>
             </div>
          </div>
