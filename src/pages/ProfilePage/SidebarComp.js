@@ -10,6 +10,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../context/AllContext';
 import Swal from 'sweetalert2';
 import { useMediaQuery } from 'react-responsive';
+import {MdOutlineUnsubscribe} from "react-icons/md";
 
 function SidebarComp() {
     const navigate = useNavigate();
@@ -80,7 +81,7 @@ function SidebarComp() {
                         </NavLink> */}
 
 
-                        <NavLink to={"/store/profile/avijit123/orders"}
+                        <NavLink to={`/store/profile/${userData?.first_name}/orders`}
                             className={({ isActive }) =>
                                 isActive ? "activesidebar" : ""
                             }
@@ -114,6 +115,8 @@ function SidebarComp() {
                             style={{ fontSize: "1.2rem", borderLeft: hovered === 4 ? "5px solid #9b37f2" : "none" }}><AiFillSetting color='purple' />
                             <span className='mx-4' style={{ fontWeight: "600" }}>Settings</span>
 
+                           
+
 
 
                             {/* list items */}
@@ -121,7 +124,7 @@ function SidebarComp() {
                             {
                                 (popupOpen && (isMobile || isTablet)) && (
                                     <ListGroup className="list-group mx-3 mt-4">
-                                        <NavLink to={"/store/profile/avijit123/settings/basic_information"}
+                                        <NavLink to={`/store/profile/${userData?.first_name}/settings/basic_information`}
                                             className={({ isActive }) =>
                                                 isActive ? "activesidebar" : ""
                                             }
@@ -146,7 +149,7 @@ function SidebarComp() {
                                                 <span className='mx-4' style={{ fontWeight: "600" }}>Avatar</span></ListGroup.Item>
                                         </NavLink> */}
 
-                                        <NavLink to={"/store/profile/avijit123/settings/change_password"}
+                                        <NavLink to={`/store/profile/${userData?.first_name}/settings/change_password`}
                                             className={({ isActive }) =>
                                                 isActive ? "activesidebar" : ""
                                             }
@@ -161,7 +164,20 @@ function SidebarComp() {
                                 )
                             }
                         </ListGroup.Item>
-
+                        <NavLink to={`/store/profile/${userData?.first_name}/settings/myplan`}
+                            className={({ isActive }) =>
+                                isActive ? "activesidebar" : ""
+                            }
+                        >
+                            <ListGroup.Item
+                                onMouseEnter={() => {
+                                    currentHovered(5)
+                                    setPopUpOpen(false)
+                                }}
+                                onMouseLeave={() => currentHovered(null)}
+                                style={{ fontSize: "1.2rem", borderLeft: hovered === 5 ? "5px solid #9b37f2" : "none" }}><MdOutlineUnsubscribe color='purple' />
+                                <span className='mx-4' style={{ fontWeight: "600" }}>Subscription</span></ListGroup.Item>
+                        </NavLink>
                         <ListGroup.Item
                             onMouseEnter={() => {
                                 currentHovered(5)
@@ -181,7 +197,7 @@ function SidebarComp() {
                         }}>
                             <Card.Body>
                                 <ListGroup className="list-group-flush">
-                                    <NavLink to={"/store/profile/avijit123/settings/basic_information"}
+                                    <NavLink to={`/store/profile/${userData?.first_name}/settings/basic_information`}
                                         className={({ isActive }) =>
                                             isActive ? "activesidebar" : ""
                                         }
@@ -189,7 +205,7 @@ function SidebarComp() {
                                         <ListGroup.Item
                                             onMouseEnter={() => currentHovered(6)}
                                             onMouseLeave={() => currentHovered(null)}
-                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 6 ? "5px solid #9b37f2" : "none" }}><AiOutlineHome color='purple' />
+                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 6 ? "5px solid #9b37f2" : "1px solid lightgray" }}><AiOutlineHome color='purple' />
                                             <span className='mx-4' style={{ fontWeight: "600" }}>General</span></ListGroup.Item>
                                     </NavLink>
 
@@ -206,7 +222,7 @@ function SidebarComp() {
                                             <span className='mx-4' style={{ fontWeight: "600" }}>Avatar</span></ListGroup.Item>
                                     </NavLink> */}
 
-                                    <NavLink to={"/store/profile/avijit123/settings/change_password"}
+                                    <NavLink to={`/store/profile/${userData.first_name}/settings/change_password`}
                                         className={({ isActive }) =>
                                             isActive ? "activesidebar" : ""
                                         }
@@ -214,7 +230,7 @@ function SidebarComp() {
                                         <ListGroup.Item
                                             onMouseEnter={() => currentHovered(8)}
                                             onMouseLeave={() => currentHovered(null)}
-                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 8 ? "5px solid #9b37f2" : "none" }}><BsFillKeyFill color='purple' />
+                                            style={{ fontSize: "1.2rem", borderLeft: hovered === 8 ? "5px solid #9b37f2" : "1px solid lightgray" }}><BsFillKeyFill color='purple' />
                                             <span className='mx-4' style={{ fontWeight: "600" }}>Password</span></ListGroup.Item>
                                     </NavLink>
                                 </ListGroup>

@@ -8,16 +8,19 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import AllContext from './context/AllContext';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <React.Fragment>
-    <AllContext>
-      <ParallaxProvider>
-        <GoogleOAuthProvider clientId='619560474308-u5d68c0vgfnvlsonqs7iotgvqapb0cpa.apps.googleusercontent.com'>
-          <App />
-        </GoogleOAuthProvider>
-      </ParallaxProvider>
-    </AllContext>
+    <BrowserRouter basename={'/newsilva'}>
+      <AllContext>
+        <ParallaxProvider>
+          <GoogleOAuthProvider clientId='619560474308-u5d68c0vgfnvlsonqs7iotgvqapb0cpa.apps.googleusercontent.com'>
+            <App />
+          </GoogleOAuthProvider>
+        </ParallaxProvider>
+      </AllContext>
+    </BrowserRouter>
   </React.Fragment>,
   document.getElementById('root')
 );

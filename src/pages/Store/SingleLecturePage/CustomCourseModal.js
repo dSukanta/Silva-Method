@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 import { Link, useParams } from 'react-router-dom';
 import ReactStars from 'react-stars';
 
-function CustomCourseModal({ show, openModal, closeModal,handleNext }) {
+function CustomCourseModal({ show, openModal,hasNext, closeModal,handleNext }) {
     const params = useParams();
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
@@ -53,7 +53,14 @@ function CustomCourseModal({ show, openModal, closeModal,handleNext }) {
                     className='stars'
                 />
                 <div className='d-flex justify-content-center flex-column gap-4'>
-                    <button className='primary_btn2 mx-4' onClick={handleNext}>Next Lesson</button>
+                    {
+                        hasNext ? (
+                            <button className='primary_btn2 mx-4' onClick={handleNext}>Next Lesson</button>
+                        ):(
+
+                            <button className='primary_btn2 mx-4' onClick={handleNext}>Previous Lecture</button>
+                        )
+                    }
 
                     <Link to={`/store/course/${params.course_id}`}>
                     <p className='text-center' style={{ fontSize: "1.1rem", color: "#9b37f2" }}>Back to all lessons</p>

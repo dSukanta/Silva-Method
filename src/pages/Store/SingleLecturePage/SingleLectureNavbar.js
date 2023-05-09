@@ -9,7 +9,7 @@ import { TbMessages } from "react-icons/tb";
 import { BsBook } from "react-icons/bs";
 import { useMediaQuery } from 'react-responsive';
 
-function SingleLectureNavbar({handleShow,lession}) {
+function SingleLectureNavbar({ handleShow, lession, userData }) {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
     const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
@@ -26,22 +26,34 @@ function SingleLectureNavbar({handleShow,lession}) {
                     <span> {(isDesktopOrLaptop || isTablet) && (<span>{lession}</span>)}</span>
                 </Nav.Item>
                 <Nav.Item>
-                    <TbMessages size={30} style={{marginRight:isMobile ? "15px":"0px"}} />
-                    {
+                    {/* <TbMessages size={30} style={{marginRight:isMobile ? "15px":"0px"}} /> */}
+                    {/* {
                         (isDesktopOrLaptop || isTablet) && (
                             <span style={{ fontSize: "1.2rem", color: "black", fontWeight: "500", marginRight: "20px", marginLeft: "5px" }}>
                                 Discussion
                             </span>
                         )
-                    }
-                    <BsBook size={30} onClick={handleShow} />
+                    } */}
+
                     {
-                        (isDesktopOrLaptop || isTablet) && (
+                        (userData && userData.strip_payment_status === "paid") && (
+                            <BsBook size={30} onClick={handleShow} />
+                        )
+                    }
+                    {
+                        ((userData && userData.strip_payment_status === "paid") && (isDesktopOrLaptop || isTablet)) && (
                             <span style={{ fontSize: "1.2rem", color: "black", fontWeight: "500", marginLeft: "5px" }} onClick={handleShow}>
                                 Lessons
                             </span>
                         )
                     }
+                    {/* {
+                        (isDesktopOrLaptop || isTablet) && (
+                            <span style={{ fontSize: "1.2rem", color: "black", fontWeight: "500", marginLeft: "5px" }} onClick={handleShow}>
+                                Lessons
+                            </span>
+                        )
+                    } */}
                 </Nav.Item>
             </Container>
         </Navbar>

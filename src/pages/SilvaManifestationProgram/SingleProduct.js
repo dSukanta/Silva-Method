@@ -15,11 +15,11 @@ function SingleProduct({ data }) {
     //console.log(data)
     return (
         <div className='col-12'>
-            <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%", minHeight: "280px" }}>
+            <Card className="text-center" style={{ width: isDesktopOrLaptop ? "95%" : isTablet ? "95%" : "100%", minHeight: "400px" }}>
 
                 <Card.Body>
                     <div className='d-flex justify-content-center'>
-                        <img src={data.web_image || silvalogo} style={{ width: "50px", height: "50px" }} alt="" />
+                        <img src={data.web_image || silvalogo} style={{ width: "100%", height: "200px", objectFit: "contain" }} alt="" />
                     </div>
                     <Card.Text>
                         {data.teacher_name}

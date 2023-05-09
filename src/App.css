@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Ubuntu:wght@300;400&display=swap");
 
-h1,h2,h3,h4,h5,h6,p{
+h1,h2,h3,h4,h5,h6,p,span{
   font-family: 'Poppins', sans-serif !important;
 }
 
 html,
-body,span{
+body{
   width: 100%;
   height: 100%;
   margin: 0px;
@@ -948,9 +948,66 @@ svg {
   display: none !important;
 }
 
+
+.firstslide .slick-prev {
+  left: 12% !important;
+  z-index: 1;
+  width: 46px !important;
+  height: 46px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 10px !important;
+}
+
+.firstslide .slick-next {
+  right: 10% !important;
+  z-index: 1;
+  width: 46px !important;
+  height: 46px !important;
+  background-color: rgb(255, 255, 255) !important;
+  border-radius: 50%;
+  padding: 10px !important;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .firstslide .slick-prev{
+    display: none !important;
+  }
+  .firstslide .slick-next{
+    display: none !important;
+  }
+  
+}
+
+
+@media only screen and (max-width: 500px) {
+  .livecard .slick-prev{
+    display: none !important;
+  }
+  .livecard .slick-next{
+    display: none !important;
+  }
+  
+}
+
+@media only screen and (max-width: 500px) {
+  .coursesslider .slick-prev{
+    display: none !important;
+  }
+  .coursesslider .slick-next{
+    display: none !important;
+  }
+  
+}
+
+
+
+
 .orderslider .slick-prev{
   display: none !important;
 }
+
 
 .orderslider .slick-next{
   right: -2% !important;
@@ -1133,15 +1190,6 @@ svg {
   font-size: 16px !important;
 }
 
-.moreAboutJoseSilvaBtn{
-  width: auto;
-  height: 50px;
-  border: none;
-  background-color: #801cb6;
-  color: white;
-  border-radius: 25px;
-  padding: 5px 15px;
-}
 
 /* Swiper Slider Style*/
 
@@ -1226,4 +1274,16 @@ svg {
 
 .row>*{
   padding-left: 0 !important;
+}
+
+
+
+.more-about-jose-silva-btn{
+  width: auto;
+  padding: 15px;
+  height: 50px;
+  border: none;
+  background-color: #801cb6;
+  color: white;
+  border-radius: 25px;
 }

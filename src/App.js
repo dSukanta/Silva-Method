@@ -82,11 +82,13 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import { requestData, requestData2 } from './utils/baseUrl';
 import PublicRoutes from './privateRoutes/PublicRoutes';
+import PrivateRoute from './privateRoutes/PrivateRoute';
+import MyPlan from './pages/ProfilePage/MyPlan';
 
 
 function App() {
 
-  const { setUserData, isUserLoggedIn } = useContext(AuthContext);
+  const { setUserData, userData, isUserLoggedIn } = useContext(AuthContext);
   const getProfile = async () => {
     const res = await requestData2("getStudentProfile", "POST", {});
     if (res && res.error === false) {
@@ -102,128 +104,155 @@ function App() {
   return (
     <>
       <Toaster position="bottom-center" />
-      <BrowserRouter>
-        <ScrollTop />
-        <Routes>
-          {/* Home Route started*/}
-          <Route path="/store/courses" element={<AllCourses />} />
-          <Route path="/" element={<SilvaHome />} />
-          <Route path="/today" element={<SilvaHome2 />} />
+      <ScrollTop />
+      <Routes>
+        {/* Home Route started*/}
+        <Route path="/store/courses" element={<AllCourses />} />
+        <Route path="/" element={<SilvaHome />} />
+        <Route element={<PrivateRoute />}>
+           <Route path="/today" element={<SilvaHome2 />} />
+        </Route>
 
-          <Route path="/home" element={<SilvaHome />} />
-          {/* <Route path="/contactus" element={<ContactUs />} /> */}
-          {/* <Route path="/homeTwo" element={<HomeTwo />} />
+        <Route path="/home" element={<SilvaHome />} />
+        {/* <Route path="/contactus" element={<ContactUs />} /> */}
+        {/* <Route path="/homeTwo" element={<HomeTwo />} />
             <Route path="/homeThree" element={<HomeThree />} /> */}
-          {/* Home Route Ended */}
-          {/*About Route started*/}
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/research" element={<Research />} />
-          {/* About Route Ended */}
-          {/* Seminar Route Started */}
-          <Route path="/courses/basic_lecture_series" element={<BasicLecture />} />
-          <Route path="/courses/seminar" element={<Seminars />} />
-          <Route path="/courses/silva_life_system" element={<LifeSystem />} />
-          <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
-          <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
-          <Route path="/silva_membership" element={<SilvaMemberShip />} />
-          <Route path="/store/profile" element={<Navigate to="/store/profile/avijit123/settings/basic_information" />}>
-          </Route>
+        {/* Home Route Ended */}
+        {/*About Route started*/}
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/research" element={<Research />} />
+        {/* About Route Ended */}
+        {/* Seminar Route Started */}
+        <Route path="/courses/basic_lecture_series" element={<BasicLecture />} />
+        <Route path="/courses/seminar" element={<Seminars />} />
+        <Route path="/courses/silva_life_system" element={<LifeSystem />} />
+        <Route path="/courses/silva_intution_system" element={<IntuitionSystem />} />
+        <Route path="/courses/silva_mastery_system" element={<MasterySystem />} />
+        <Route path="/silva_membership" element={<SilvaMemberShip />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/store/profile" element={<Navigate to={`/store/profile/${userData?.first_name}/settings/basic_information`} />}>
+        </Route>
+        </Route>
+        <Route element={<PrivateRoute />}>
           <Route element={<ProfilePage />}>
             <Route path='/store/profile/:username/courses' element={<MyCoursesPage />} />
           </Route>
-          <Route element={<ProfilePage />}>
-            <Route path='/store/profile/:username/quizzes' element={<MyQuizzesPage />} />
-          </Route>
-          <Route element={<ProfilePage />}>
-            <Route path='/store/profile/:username/orders' element={<MyOrdersPage />} />
-          </Route>
-
-          <Route element={<ProfilePage />}>
-            <Route path='/store/profile/:username/settings/basic_information' element={<MyBasicInfo />} />
-          </Route>
-
-          <Route element={<ProfilePage />}>
-            <Route path='/store/profile/:username/settings/avatar' element={<MyAvatar />} />
-          </Route>
-
-          <Route element={<ProfilePage />}>
-            <Route path='/store/profile/:username/settings/change_password' element={<ChangePassword />} />
-          </Route>
-          {/* Seminar Route Ended */}
-          {/*Events Route Started */}
-          <Route path="/events/live" element={<LiveEvents />} />
-          <Route path="/events/online" element={<OnlineEvents />} />
-          <Route element={<WithHeaderFooter />}>
-            <Route path="/events/livedetails/:id" element={<CourseDetails />} />
-          </Route>
-          {/* Event Route Ended */}
-          {/* Instructor Route started */}
-          <Route path="/instructor" element={<Instructors />} />
-          <Route path="/instructor/find_instructor" element={<FindInstructor />} />
-          <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
-          {/* Instructor Route Ended */}
-          {/* Blogs Route started */}
-          <Route path="/store" element={<StoreProducts />} />
-          <Route path="/store/blogs/" element={<EnglishBlog />} />
-          <Route path="/store/spanish-blogs/" element={<SpanishBlog />} />
-          <Route path="/blogDetails/:id" element={<BlogDetails />} />
-          {/* <Route element={<BottomToTop />} > */}
-          <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
-          {/* <Route path="/store/course/*" element={<NotFound/>} /> */}
-          <Route path='/store/course/:course_id/:chapter_id/:lession_id' element={<SingleLecturePage />} />
-          {/* </Route> */}
-          {/* Blogs Route Ended */}
-          {/*Auth Route started */}
-          <Route element={<PublicRoutes />}>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Route>
-
-          {/*Auth Route Ended */}
-
-          {/* product route started */}
-          <Route path="/store/books" element={<Books />} />
-          <Route path="/store/product/:id" element={<ProductDetails />} />
-          {/* product route ended */}
-
-          <Route path="/paymentSuccess" element={<PaymentSuccess />} />
-          <Route path="/paymentError" element={<PaymentUnSuccess />} />
+        </Route>
 
 
-
-          <Route path="/homeFour" element={<HomeFour />} />
-          <Route path="/homeFive" element={<HomeFive />} />
-          <Route path="/services" element={<ServicesOne />} />
-          <Route path="/servicesTwo" element={<ServicesTwo />} />
-
-          <Route path="/online" element={<ShopDetails />} />
-          <Route path="/shoppingCart" element={<ShoppingCart />} />
-          <Route path="/checkout/:id" element={<CheckoutPage />} />
-          <Route path="/wishList" element={<WishList />} />
+        <Route element={<PrivateRoute />}>
+        <Route element={<ProfilePage />}>
+          <Route path='/store/profile/:username/quizzes' element={<MyQuizzesPage />} />
+        </Route>
+        </Route>
 
 
-          <Route path="/blogLeftSideBar" element={<BlogLeftSideBar />} />
-          <Route path="/blogNoSideBar" element={<BlogNoSideBar />} />
-          <Route path="/blogTwoColumn" element={<BlogTwoColumn />} />
-          <Route path="/blogTwoMasonry" element={<BlogTwoColumnMasonry />} />
-          <Route path="/blogThreeColumn" element={<BlogThreeColumn />} />
-          <Route path="/blogThreeColMasonry" element={<BlogThreeColMasonry />} />
+        <Route element={<PrivateRoute />}>
+        <Route element={<ProfilePage />}>
+          <Route path='/store/profile/:username/orders' element={<MyOrdersPage />} />
+        </Route>
+        </Route>
 
-          <Route path="/blogDetailsLeftSidebar" element={<DetailsLeftSideBar />} />
-          <Route path="/blogDetailsAudio" element={<DetailsAudio />} />
-          <Route path="/blogDetailsVideo" element={<DetailsVideo />} />
-          <Route path="/blogDetailsGallery" element={<DetailsGallery />} />
+        <Route element={<PrivateRoute />}>
+        <Route element={<ProfilePage />}>
+          <Route path='/store/profile/:username/settings/basic_information' element={<MyBasicInfo />} />
+        </Route>
+        </Route>
 
-          <Route path="/appoinment" element={<Appointment />} />
-          <Route path="/portfolioTwoColumn" element={<PortfolioTwoColumn />} />
-          <Route path="/portfolioThreeColumn" element={<PortfolioThreeCol />} />
-          <Route path="/portfolioSlider" element={<PortfolioSlider />} />
+        <Route element={<PrivateRoute />}>
+        <Route element={<ProfilePage />}>
+          <Route path='/store/profile/:username/settings/avatar' element={<MyAvatar />} />
+        </Route>
+        </Route>
 
-          <Route path="/notMatch" element={<NotFound />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+        <Route element={<PrivateRoute />}>
+        <Route element={<ProfilePage />}>
+          <Route path='/store/profile/:username/settings/myplan' element={<MyPlan />} />
+        </Route>
+        </Route>
+
+        <Route element={<PrivateRoute />}>
+        <Route element={<ProfilePage />}>
+          <Route path='/store/profile/:username/settings/change_password' element={<ChangePassword />} />
+        </Route>
+        </Route>
+
+        {/* Seminar Route Ended */}
+        {/*Events Route Started */}
+        <Route path="/events/live" element={<LiveEvents />} />
+        <Route path="/events/online" element={<OnlineEvents />} />
+        <Route element={<WithHeaderFooter />}>
+          <Route path="/events/livedetails/:id" element={<CourseDetails />} />
+        </Route>
+        {/* Event Route Ended */}
+        {/* Instructor Route started */}
+        <Route path="/instructor" element={<Instructors />} />
+        <Route path="/instructor/find_instructor" element={<FindInstructor />} />
+        <Route path="/instructor/become_silva_instructor" element={<BecomeInstructor />} />
+        {/* Instructor Route Ended */}
+        {/* Blogs Route started */}
+        <Route path="/store" element={<StoreProducts />} />
+        <Route path="/store/blogs/" element={<EnglishBlog />} />
+        <Route path="/store/spanish-blogs/" element={<SpanishBlog />} />
+        <Route path="/blogDetails/:id" element={<BlogDetails />} />
+        {/* <Route element={<BottomToTop />} > */}
+        <Route path="/store/course/:id" element={<SilvaManifestationProgram />} />
+        {/* <Route path="/store/course/*" element={<NotFound/>} /> */}
+        {/* <Route element={<PrivateRoute />}> */}
+        <Route path='/store/course/:course_id/:chapter_id/:lession_id' element={<SingleLecturePage />} />
+        {/* </Route> */}
+        {/* </Route> */}
+        {/* Blogs Route Ended */}
+        {/*Auth Route started */}
+        <Route element={<PublicRoutes />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Route>
+
+        {/*Auth Route Ended */}
+
+        {/* product route started */}
+        <Route path="/store/books" element={<Books />} />
+        <Route path="/store/product/:id" element={<ProductDetails />} />
+        {/* product route ended */}
+
+        <Route path="/paymentSuccess" element={<PaymentSuccess />} />
+        <Route path="/paymentError" element={<PaymentUnSuccess />} />
+
+
+
+        <Route path="/homeFour" element={<HomeFour />} />
+        <Route path="/homeFive" element={<HomeFive />} />
+        <Route path="/services" element={<ServicesOne />} />
+        <Route path="/servicesTwo" element={<ServicesTwo />} />
+
+        <Route path="/online" element={<ShopDetails />} />
+        <Route path="/shoppingCart" element={<ShoppingCart />} />
+        <Route path="/checkout/:id" element={<CheckoutPage />} />
+        <Route path="/wishList" element={<WishList />} />
+
+
+        <Route path="/blogLeftSideBar" element={<BlogLeftSideBar />} />
+        <Route path="/blogNoSideBar" element={<BlogNoSideBar />} />
+        <Route path="/blogTwoColumn" element={<BlogTwoColumn />} />
+        <Route path="/blogTwoMasonry" element={<BlogTwoColumnMasonry />} />
+        <Route path="/blogThreeColumn" element={<BlogThreeColumn />} />
+        <Route path="/blogThreeColMasonry" element={<BlogThreeColMasonry />} />
+
+        <Route path="/blogDetailsLeftSidebar" element={<DetailsLeftSideBar />} />
+        <Route path="/blogDetailsAudio" element={<DetailsAudio />} />
+        <Route path="/blogDetailsVideo" element={<DetailsVideo />} />
+        <Route path="/blogDetailsGallery" element={<DetailsGallery />} />
+
+        <Route path="/appoinment" element={<Appointment />} />
+        <Route path="/portfolioTwoColumn" element={<PortfolioTwoColumn />} />
+        <Route path="/portfolioThreeColumn" element={<PortfolioThreeCol />} />
+        <Route path="/portfolioSlider" element={<PortfolioSlider />} />
+
+        <Route path="/notMatch" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }

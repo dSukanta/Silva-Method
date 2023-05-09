@@ -17,14 +17,14 @@ function MeditationSection() {
         speed: 300,
         prevArrow: <GrFormPrevious />,
         nextArrow: <GrFormNext />,
-        slidesToShow: isDesktopOrLaptop?4:isTablet?3:1,
+        slidesToShow: isDesktopOrLaptop?4:isTablet?2:1,
         slidesToScroll: 1,
         centerMode: true,
-        centerPadding: isDesktopOrLaptop ? '0%' : "10%",
+        centerPadding: isDesktopOrLaptop ? '0%' : "15%",
     
     };
     return (
-        <div className='container'>
+        <div className={`${isDesktopOrLaptop?'container':''}`}>
             <div className="row meditateslider">
                 <Slider {...settings}>
                     <div className="col-3">

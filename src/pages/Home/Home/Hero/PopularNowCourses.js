@@ -21,7 +21,7 @@ function PopularNowCourses() {
         slidesToShow: 3,
         slidesToScroll: 1,
         centerMode:true,
-        centerPadding: isDesktopOrLaptop?'0%':"10%",
+        centerPadding: isDesktopOrLaptop?'0%':"15%",
         responsive: [
             {
                 breakpoint: 1024,
@@ -59,7 +59,7 @@ function PopularNowCourses() {
 
     };
     return (
-        <div className='container mb-5'>
+        <div className={`mb-5 ${isDesktopOrLaptop?'container':''}`}>
             <div className="row newslider">
                 <Slider {...settings}>
                     <div className="col-4">

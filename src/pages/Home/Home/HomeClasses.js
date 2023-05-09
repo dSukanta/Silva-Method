@@ -58,9 +58,9 @@ const HomeClasses = () => {
                     Upcoming Live & Online Classes
                   </h2>
                 </div>
-                <div className="section-line pos-rel">
+                {/* <div className="section-line pos-rel">
                   <img src="img/shape/section-title-line.png" alt="" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

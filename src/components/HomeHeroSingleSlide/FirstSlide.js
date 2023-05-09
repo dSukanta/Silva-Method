@@ -8,7 +8,9 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AllContext';
 
 function CourseSlide() {
-    const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
+    const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
+    const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
+    const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
 
     const [courses, setCourses] = useState([]);
 
@@ -43,7 +45,7 @@ function CourseSlide() {
 
 
     const settings = {
-        dots: false,
+        dots: true,
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -52,12 +54,12 @@ function CourseSlide() {
         // autoplaySpeed: 2000,
         cssEase: "linear",
         centerMode: true,
-        centerPadding: isDesktopOrLaptop?'25%':"0%",
+        centerPadding: isDesktopOrLaptop?'15%':"10%",
         prevArrow: <GrFormPrevious />,
         nextArrow: <GrFormNext />,
     };
     return (
-        <div className='row'>
+        <div className='row firstslide mb-5'>
             {/* <div className='prev-slide'>s
         <img src={slide==0? items[items.length-1]:items[slide-1]} height="100%"/>
         
@@ -88,7 +90,7 @@ function CourseSlide() {
                     <Link to={`/store/course/${course.course_id}`}>
                     <div key={course.course_id} className='col-12'>
                         <img src={course.web_image || "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}
-                         style={{ width: isDesktopOrLaptop?"97%":"96.5%",margin:isDesktopOrLaptop?"30px":"0px",borderRadius:"10px", height: isDesktopOrLaptop ? "500px" : isTabletOrMobile?"320px":"200px" }} />
+                         style={{ width: isDesktopOrLaptop?"97%":"96.5%",margin:isDesktopOrLaptop?"30px":"0px",borderRadius:"10px", height: isDesktopOrLaptop ? "500px" : isTablet?"320px":"200px" }} />
                     </div>
                     </Link>)}
                 {/* <div className='col-12'>

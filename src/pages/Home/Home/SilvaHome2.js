@@ -26,10 +26,12 @@ import SilvaMemberShip from '../../silvamembership/SilvaMemberShip';
 import MemberShipPricingPlan from '../../silvamembership/MemberShipPricingPlan';
 import { AuthContext } from '../../../context/AllContext';
 import { requestData2 } from '../../../utils/baseUrl';
+import { Navigate } from 'react-router-dom';
 
 const SilvaHome2 = () => {
     const { userData } = useContext(AuthContext);
-
+     
+ 
     return (
         <>
             <HomeHeader />
@@ -37,8 +39,14 @@ const SilvaHome2 = () => {
             {/* <Homeherodiv/> */}
             {/* <Featured/> */}
             {/* <AboutSilvaMethod/> */}
-            <CourseSlide />
-            <WelcomeToSilvaBanner />
+            {/* <CourseSlide /> */}
+
+            <SilvaCourseCards />
+            {
+                userData && userData.strip_payment_status !== "paid" && (
+                    <WelcomeToSilvaBanner />
+                )
+            }
             {/* <HomeEvents/> */}
             {/* <Testimonials/> */}
             {/* <AboutSilva/> */}
@@ -48,7 +56,6 @@ const SilvaHome2 = () => {
             {/* <HomeCountrySection/> */}
             {/* <AudioBlogs/> */}
             {/* <Newsletter/> */}
-            <SilvaCourseCards />
             <LoggedInHeroSection text={"What's Popular Now"} />
             <PopularNowCourses />
 
@@ -56,6 +63,8 @@ const SilvaHome2 = () => {
             <MeditationSection />
 
             <LiveEventsCard />
+
+
 
             {
               (userData) && ( !userData?.first_name || !userData?.last_name

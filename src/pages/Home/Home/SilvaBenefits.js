@@ -35,7 +35,7 @@ function SilvaBenefits() {
           wellbeing and relationships.
         </p>
        </div>
-       <button className="moreAboutJoseSilvaBtn">Read More About Jose Silva</button>
+       <button className="more-about-jose-silva-btn">Know More About Silva Method</button>
       </div>
     </div>
   );

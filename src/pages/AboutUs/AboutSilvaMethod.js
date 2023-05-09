@@ -55,7 +55,7 @@ const AboutSilvaMethod = () => {
             }}
             
           >
-          <button className="moreAboutJoseSilvaBtn">Read More About Jose Silva</button>
+          <button className="more-about-jose-silva-btn">Read More About Jose Silva</button>
           </Link>
         </div>
       </div>
