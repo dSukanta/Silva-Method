@@ -1205,3 +1205,9 @@ svg {
 .swiper-slide:nth-child(10n) {
   background-color: rgb(54, 94, 77);
 }
+
+/**/
+
+.card{
+  margin-bottom: 25px !important;
+}

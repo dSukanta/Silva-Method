@@ -39,7 +39,7 @@ const SilvaHome = () => {
       <SilvaBenefits/>
       <HomeClasses />
       <Testimonials />
-      <AboutSilva />
+      {/* <AboutSilva /> */}
       <div className={isDesktopOrLaptop?"col-8 m-auto pt-2 pb-5":"col-12 m-auto pt-2 pb-5"}>
         <ProductSlide/>
       </div>

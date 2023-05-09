@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Slider from "react-slick";
 import OverlayCard from "./OverlayCard";
 import ProductOverlayCard from "./ProductOverlayCard";
 import { useMediaQuery } from "react-responsive";
 import {GrFormPrevious,GrFormNext} from "react-icons/gr";
+import SingleHomeProducts from "./SingleHomeProduct";
+import { AuthContext } from "../../../context/AllContext";
 
 function ProductSlide() {
-  const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 1280px)' })
-  const isTablet = useMediaQuery({ minWidth: 481, maxWidth: 768 })
-  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
+  const { isDesktopOrLaptop, isBigScreen, isTabletOrMobile, isPortrait } =useContext(AuthContext);
 
     const [products, setProducts] = useState([]);
 
@@ -46,7 +46,7 @@ function ProductSlide() {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: isMobile? 1: isTablet?2:4,
+        slidesToShow: isDesktopOrLaptop? 4:1,
         slidesToScroll: 1,
         centerMode: false,
         autoplay: true,
@@ -59,9 +59,12 @@ function ProductSlide() {
     <div className="col-lg-12 gap-3">
       <h3 style={{color: "black",padding:'10px 10px 10px 0'}}>Check our Unique Peoducts</h3>
     <Slider {...settings}>
+     
       {products && products.map(product=>
-        <ProductOverlayCard key={product.product_id} data={product && product}/>
+          <SingleHomeProducts key={product.product_id} data={product && product}/>
         )}
+   
+      
     </Slider>
     </div>
   )

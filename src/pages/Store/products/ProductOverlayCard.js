@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function ProductOverlayCard({data}) {
   //console.log(data);
   return (
-    <div className='w-100'>
+    <div style={{width:'90%'}}>
       <div className="blogproduct-column">
         <div className="blogproduct-column">
             <div className= "blogproductcontainer-card" >

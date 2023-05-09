@@ -41,7 +41,7 @@ const HomeClasses = () => {
     <>
       <section className="servcies-area gray-bg pt-20 pb-10 mt-25">
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-start">
             <div className="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
               <div className="section-title text-center pos-rel mb-15">
                 {/* <div className="section-icon">
@@ -64,7 +64,7 @@ const HomeClasses = () => {
               </div>
             </div>
           </div>
-          <div className="row row-cols-2 row-cols-lg-3">
+          <div className="row row-cols-1 justify-content-start row-cols-lg-3">
             {classes &&
               classes.map((classes) => (
                 <SingleClassCards key={classes.course_id} data={classes} />
