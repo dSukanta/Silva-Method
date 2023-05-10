@@ -22,7 +22,7 @@ function OverViewCard({ data }) {
           <div className="d-flex justify-content-center gap-3 align-content-center align-items-center">
             <BsBook size={40} color="white" />
             <h4 className="white-color mt-1">
-              {data && data.chapters.length} Chapters
+              {data && data?.chapters?.length && data?.chapters?.length} Chapters
             </h4>
           </div>
         </div>

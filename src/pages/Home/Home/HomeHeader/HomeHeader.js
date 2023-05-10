@@ -119,14 +119,11 @@ const HomeHeader = () => {
                            <nav id="mobile-menu">
 
                               <ul>
-                                 {
-
-                                    isUserLoggedIn && (
+                                 
                                        <li>
                                           <Link to="/silva_membership">Membership</Link>
                                        </li>
-                                    )
-                                 }
+                                
                                  {/* <li><Link to="/">Home</Link>
                                  </li> */}
                                  {/* <li><Link to="/">Enroll Online Classes</Link></li> */}

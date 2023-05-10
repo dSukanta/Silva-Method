@@ -13,6 +13,7 @@ function MainTabs({data}) {
     const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 480 })
     const [activeTab, setActiveTab] = useState("Overview")
     const tabs = ["Overview", "Chapters","Comments"]
+    //console.log(data);
     return (
         <>
          <div className={`w-100 d-flex justify-content-start tabsmainview ${isDesktopOrLaptop?"gap-5":"gap-3"}`} style={{ marginTop: isDesktopOrLaptop?"40px":"0", borderBottom: "1px solid gray" }}>

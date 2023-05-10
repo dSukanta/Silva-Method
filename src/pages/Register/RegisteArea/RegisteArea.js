@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 // import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
@@ -14,8 +14,9 @@ import OtpModal from '../../../components/OtpModal/OtpModal';
 import SendOTP from '../../Login/LoginArea/SendOTP';
 import VerifyOTP from '../../Login/LoginArea/VerifyOTP';
 
-const RegisteArea = () => {
-   
+const RegisteArea = ({RegPageState}) => {
+   //console.log(RegPageState,"subscribeId");
+
    const [otpsent, setOtpSent] = useState(() => {
       if (localStorage.getItem("otpsent")) {
          return true
@@ -51,6 +52,7 @@ const RegisteArea = () => {
       }
    };
 
+  
 
    const registerFetch = async(firstname,lastname,email,phone,password,confirmpass) => {
       var myHeaders = new Headers();
@@ -82,7 +84,12 @@ const RegisteArea = () => {
 
       if(data.error===false){
          toast.success(data.data)
-         navigate("/login")
+         if(RegPageState){
+            //navigate("/login",{state:{planId:RegPageState}})
+            
+         }else{
+            navigate("/login")
+         }
       }else{
          toast.error(data.messages)
       }

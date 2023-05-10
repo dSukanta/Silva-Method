@@ -25,7 +25,7 @@ function Stories({ data }) {
       <div>
         <div className="row justify-content-between align-items-center mt-4">
           <div className="col-sm-12 col-md-6 col-lg-7">
-            {data && data.length > 0 ? (
+            {data && data.length ? (
               <p className="white-color" style={{ fontSize: "1.1rem" }}>
                 Stories are from people whose lives changed because of this
                 program.{" "}
@@ -81,7 +81,7 @@ function Stories({ data }) {
               currentPage={currentPage}
               itemsPerPage={pagePostsLimit}
               onPageChange={(pageNumber) => setCurrentPage(pageNumber)}
-              totalItems={data.course_comment.length}
+              totalItems={data && data?.course_comment?.length}
               pageNeighbours={2}
             />
           )}

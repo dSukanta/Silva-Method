@@ -20,7 +20,7 @@ function MainHeroSection({ data }) {
   // const firstChapterId= data && data.chapters[0] && data?.chapters[0]?.chapter_id;
   // const firstLessonId= data && data.chapters[0] && data.chapters[0].lession && data.chapters[0].lession[0].lesson_id;
 
-  console.log(data && data?.chapters[0]?.lession[0]?.lesson_id);
+ // console.log(data && data?.chapters[0]?.lession[0]?.lesson_id);
 
   return (
     <div className="row mx-2 mt-5">

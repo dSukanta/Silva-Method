@@ -81,7 +81,7 @@ function SilvaMemberShip() {
             <MemberShipFAQ />
 
             {
-                 userData && userData.strip_payment_status!=="paid" && (
+                ( userData && userData.strip_payment_status!=="paid"|| !userData) && (
                     <MemberShipPricingPlan />
                 )
             }

@@ -100,7 +100,7 @@ function SingleLecturePage() {
     getLessonComments()
   }, [location.pathname])
 
-  console.log(lesson);
+  //console.log(lesson);
 
   const postLessonComment = async (e, data) => {
     e.preventDefault();
@@ -110,6 +110,7 @@ function SingleLecturePage() {
       "name": data.name,
       "email": data.email,
     }
+    //console.log(userData);
     try {
       const res = await requestData("lessonComment", "POST", options)
       //console.log(res);
@@ -132,7 +133,7 @@ function SingleLecturePage() {
 
   const fetchAllCourses = async () => {
     const res = await requestData("courseListWithChild", "POST", { start_index: 0 });
-    console.log(res, "resduta")
+    //console.log(res, "resduta")
     setAllCoursesList(res.data);
   }
 
@@ -141,7 +142,7 @@ function SingleLecturePage() {
     const res = await requestData("courseDetail", "POST", {
       course_id: params.course_id,
     });
-    console.log("ressss", res)
+    //console.log("ressss", res)
     //console.log(res.data[0].chapters)
     setChapters(res.data[0].chapters);
   };
@@ -152,7 +153,7 @@ function SingleLecturePage() {
 
     console.log(allCoursesList);
     console.log(params)
-    console.log(lesson)
+    //console.log(lesson)
     const foundCourse = allCoursesList.find((val, i) => {
       if (val.course_id === params.course_id) {
         return val;
@@ -214,7 +215,7 @@ function SingleLecturePage() {
       })
     }
 
-    console.log(allLessonsInCurrentCourse, "ALLCOURSELIST")
+    //console.log(allLessonsInCurrentCourse, "ALLCOURSELIST")
 
     // all lessons
 
@@ -229,7 +230,7 @@ function SingleLecturePage() {
       }
     })
 
-    console.log(allLessonsInCurrentCourse[nextLesson], "hasNext")
+    //console.log(allLessonsInCurrentCourse[nextLesson], "hasNext")
 
     if (allLessonsInCurrentCourse[nextLesson]) {
       setHasNext(true)
@@ -256,7 +257,7 @@ function SingleLecturePage() {
     } else {
       setLesson(location.state)
     }
-    console.log(location.state, "locationstate")
+   // console.log(location.state, "locationstate")
   }, [])
 
   useEffect(() => {
@@ -297,7 +298,7 @@ function SingleLecturePage() {
     const M = m < 10 ? `0${m}:` : `${m}:`;
     const S = s < 10 ? `0${s}` : `${s}`;
     const dur = H + M + S
-    console.log(dur, "duration")
+    //console.log(dur, "duration")
 
     if (lessonDetails && lessonDetails.lesson_activity_status !== "Completed") {
       const res = await requestData("lessonActivity", "POST", {
@@ -326,7 +327,7 @@ function SingleLecturePage() {
       setLessonDetails(res.data[0])
       setLesson(res.data[0])
     }
-    console.log(res, "lessondetails")
+    //console.log(res, "lessondetails")
   }
 
 

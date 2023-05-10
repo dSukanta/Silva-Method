@@ -10,7 +10,7 @@ function CustomAccordion2({ name, title, text,text2="" }) {
 
     return (
         <Accordion style={{width:"100%"}} onSelect={(val) => {
-            console.log(val)
+            //console.log(val)
             if (val) {
                 setOpened(true)
             } else {

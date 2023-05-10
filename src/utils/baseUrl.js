@@ -13,7 +13,7 @@ export const requestData = async function (path, method = "POST", body) {
     myHeaders.append("Language", "english");
 
     if(token3){
-        console.log(token3)
+        //console.log(token3)
         myHeaders.append("Token",token3)
     }
     const formData = new FormData();
@@ -44,13 +44,14 @@ export const requestData2 = async function (path, method = "POST") {
     myHeaders.append("Device", "Android");
     myHeaders.append("Language", "english");
   
+    //console.log(token3)
 
     if(token3){
         console.log(token3)
         myHeaders.append("Token",token3)
     }
 
-    console.log(myHeaders)
+    //console.log(myHeaders)
     const options = {
         method: method,
         headers: myHeaders,

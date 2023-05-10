@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import StickyNavbar from "./StickyNavbar";
 import MainHeroSection from "./MainHeroSection";
 import MainTabs from "./MainTabs";
@@ -7,8 +7,11 @@ import SocialShareButtons from "./SocialShareButtons";
 import { useParams } from "react-router-dom";
 import { requestData } from "../../utils/baseUrl";
 import toast, { Toaster } from "react-hot-toast";
+import { AuthContext } from "../../context/AllContext";
 
 function SilvaManifestationProgram() {
+  const { userData } = useContext(AuthContext)
+
   window.addEventListener("scroll", function () {
     console.log("scrolling");
   });
@@ -55,22 +58,30 @@ function SilvaManifestationProgram() {
       email: data.email,
       website: data.website ? data.website : "",
     };
-    try {
-      const res = await requestData("CourseComment", "POST", options);
-      //console.log(res);
-      toast.success(
-        "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
-        {
-          position: "top-center",
-        }
-      );
-      getCourses();
-    } catch (error) {
-      //console.log(error);
-      toast.error("Something went wrong ! Please try after some time.", {
+    console.log(userData);
+    if(userData==null || userData.strip_payment_status!=="paid"){
+      toast.error("Sorry! Only Registered Members Can Comment.", {
         position: "top-center",
       });
+    }else{
+      try {
+        const res = await requestData("CourseComment", "POST", options);
+        //console.log(res);
+        toast.success(
+          "Hey there! We have received your comment.Thanks for your valuable comment 🙂",
+          {
+            position: "top-center",
+          }
+        );
+        getCourses();
+      } catch (error) {
+        //console.log(error);
+        toast.error("Something went wrong ! Please try after some time.", {
+          position: "top-center",
+        });
+      }
     }
+    
     //console.log(options)
   };
 
@@ -92,8 +103,8 @@ function SilvaManifestationProgram() {
       <StickyNavbar />
       <div className="container">
         <MainHeroSection data={course.length > 0 && course[0]}/>
-        <MainTabs data={course.length > 0 && course[0]} />
-        <LeaveCommentBox handleSubmit={postCourseComment} />
+        <MainTabs data={course.length > 0 ? course[0]:{}} />
+       { (userData!==null || userData?.strip_payment_status=="paid") && <LeaveCommentBox handleSubmit={postCourseComment} />}
         <SocialShareButtons />
       </div>
     </div>

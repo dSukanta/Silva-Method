@@ -33,6 +33,12 @@ const Sidebar = ({ show, handleClose, listData }) => {
                 <NavLink to="/">Home</NavLink>
               </li>
             </ul>
+            <ul style={{ paddingBottom: "10px" }}>
+              <li>
+                {" "}
+                <NavLink to="/silva_membership">Membership</NavLink>
+              </li>
+            </ul>
             {/* <Collapsible trigger={Home} triggerTagName="div"
                      triggerOpenedClassName="icon_close" triggerClassName="iconAdd" open={false}>
                      <ul className="sidebar_sub_menu text-white mt-3">

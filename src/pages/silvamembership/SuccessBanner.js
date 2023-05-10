@@ -8,7 +8,7 @@ function SuccessBanner() {
 
 
     const handleScroll = ()=>{
-        document.querySelector(".pricingplan").scrollIntoView({
+        document.querySelector(".pricingplan")?.scrollIntoView({
             behavior:"smooth"
         })
     }

@@ -23,7 +23,7 @@ function MemberShipPricingPlan({ white = false }) {
     const navigate = useNavigate();
     const fetchPlans = async () => {
         const res = await requestData("subscriptionPlanList", "POST", {});
-        console.log(res)
+        //console.log(res)
         setPlans(res.data)
     }
 
@@ -43,15 +43,15 @@ function MemberShipPricingPlan({ white = false }) {
                 state: false,
                 id: id
             });
-            console.log(res);
+            //console.log(res);
             if (res && res.error === false) {
                 window.location.assign(res.data)
             }
         } else {
-            toast.error("Please Login to subscribe", {
+            toast.error("Please Register or Login to subscribe", {
                 position: "top-center"
             })
-            navigate("/login")
+            navigate("/register",{state:{PrevLocation:"MembershipPage",id:id}})
         }
     }
 

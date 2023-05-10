@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 function MemberShipFooter() {
     const navigate = useNavigate();
-
+    
 
   return (
      <Navbar fixed='bottom' bg='light' variant='light'>
